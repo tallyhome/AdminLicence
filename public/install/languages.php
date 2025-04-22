@@ -27,7 +27,7 @@ function initLanguage() {
     } elseif (!isset($_SESSION['installer_language'])) {
         // Détecter la langue du navigateur
         $browserLang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? 'fr', 0, 2);
-        $_SESSION['installer_language'] = in_array($browserLang, AVAILABLE_LANGUAGES) ? $browserLang : DEFAULT_LANGUAGE;
+        $_SESSION['installer_language'] = array_key_exists($browserLang, AVAILABLE_LANGUAGES) ? $browserLang : DEFAULT_LANGUAGE;
     }
     
     return $_SESSION['installer_language'];

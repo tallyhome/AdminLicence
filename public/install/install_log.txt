@@ -398,3 +398,87 @@ X-Frame-Options: SAMEORIGIN
 [2025-04-15 13:56:27] [ERROR] Erreur de connexion à la base de données: SQLSTATE[HY000] [1045] Access denied for user 'adminlicencetest'@'localhost' (using password: YES)
 [2025-04-15 13:56:29] [ERROR] Erreur de connexion à la base de données: SQLSTATE[HY000] [1045] Access denied for user 'adminlicencetest'@'localhost' (using password: YES)
 [2025-04-15 13:56:49] [ERROR] Erreur de connexion à la base de données: SQLSTATE[HY000] [1045] Access denied for user 'adminlicencetest'@'localhost' (using password: YES)
+[2025-04-15 13:59:41] [INFO] Début de la vérification de licence - Clé: MEST-FM7A-BLGA-KLKP
+[2025-04-15 13:59:41] [INFO] Données envoyées à l'API: {"serial_key":"MEST-FM7A-BLGA-KLKP","domain":"127.0.0.1:8500","ip_address":"127.0.0.1"}
+[2025-04-15 13:59:41] [INFO] Réponse de l'API - Code HTTP: 200
+[2025-04-15 13:59:41] [INFO] Corps de la réponse: {"status":"success","message":"Cl\u00e9 de licence valide (simulation)","data":{"token":"793f212a7367399564526610d3d02b38","project":"Test Project","expires_at":"2026-04-15","debug_info":{"serial_key":"MEST-FM7A-BLGA-KLKP","domain":"127.0.0.1:8500","ip_address":"127.0.0.1","server_time":"2025-04-15 13:59:42"}}}
+[2025-04-15 14:02:49] [INFO] Début de la vérification de licence - Clé: MEST-FM7A-BLGA-KLKP
+[2025-04-15 14:02:49] [INFO] Données envoyées à l'API: {"serial_key":"MEST-FM7A-BLGA-KLKP","domain":"127.0.0.1:8500","ip_address":"127.0.0.1"}
+[2025-04-15 14:02:50] [INFO] Réponse de l'API - Code HTTP: 200
+[2025-04-15 14:02:50] [INFO] Corps de la réponse: {"status":"success","message":"Cl\u00e9 de licence valide (simulation)","data":{"token":"e26d44705231608b254a20a3a98a91b5","project":"Test Project","expires_at":"2026-04-15","debug_info":{"serial_key":"MEST-FM7A-BLGA-KLKP","domain":"127.0.0.1:8500","ip_address":"127.0.0.1","server_time":"2025-04-15 14:02:50"}}}
+[2025-04-15 14:03:18] [INFO] Exécution des migrations
+[2025-04-15 14:03:19] [ERROR] Erreur lors de l'exécution des migrations: 
+   INFO  Running migrations.
+
+  2025_04_11_223351_create_cache_table .................................................................. 23.82ms FAIL
+
+In Connection.php line 822:
+
+  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists (Connection: mysql, SQL: crea
+  te table `cache` (`id` bigint unsigned not null auto_increment primary key, `created_at` timestamp null, `updated_a
+  t` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci')
+
+
+In Connection.php line 568:
+
+  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists
+
+
+[2025-04-15 14:53:02] [INFO] Début de la vérification de licence - Clé: MEST-FM7A-BLGA-KLKP
+[2025-04-15 14:53:02] [INFO] Données envoyées à l'API: {"serial_key":"MEST-FM7A-BLGA-KLKP","domain":"127.0.0.1:8500","ip_address":"127.0.0.1"}
+[2025-04-15 14:53:02] [INFO] Réponse de l'API - Code HTTP: 200
+[2025-04-15 14:53:02] [INFO] Corps de la réponse: {"status":"success","message":"Cl\u00e9 de licence valide (simulation)","data":{"token":"1bbf8fb9842d1133619cc0097656babd","project":"Test Project","expires_at":"2026-04-15","debug_info":{"serial_key":"MEST-FM7A-BLGA-KLKP","domain":"127.0.0.1:8500","ip_address":"127.0.0.1","server_time":"2025-04-15 14:53:02"}}}
+[2025-04-15 14:53:46] [INFO] Exécution des migrations
+[2025-04-15 14:53:47] [WARNING] Avertissement lors de l'exécution des migrations via artisan: 
+   INFO  Running migrations.
+
+  2025_04_11_223351_create_cache_table ................................................................... 4.96ms FAIL
+
+In Connection.php line 822:
+
+  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists (Connection: mysql, SQL: crea
+  te table `cache` (`id` bigint unsigned not null auto_increment primary key, `created_at` timestamp null, `updated_a
+  t` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci')
+
+
+In Connection.php line 568:
+
+  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists
+
+
+[2025-04-15 14:53:47] [INFO] Tentative de migration manuelle...
+[2025-04-15 14:53:47] [INFO] Migration considérée comme réussie malgré les avertissements
+[2025-04-15 14:53:47] [INFO] Création de l'utilisateur administrateur
+[2025-04-15 14:53:47] [INFO] Un administrateur existe déjà, mise à jour des informations
+[2025-04-15 14:53:47] [INFO] Administrateur créé/mis à jour avec succès
+[2025-04-15 14:53:47] [INFO] Finalisation de l'installation
+[2025-04-15 14:53:47] [INFO] Installation finalisée avec succès
+[2025-04-15 16:20:15] [INFO] Début de la vérification de licence - Clé: MEST-FM7A-BLGA-KLKP
+[2025-04-15 16:20:15] [INFO] Données envoyées à l'API: {"serial_key":"MEST-FM7A-BLGA-KLKP","domain":"127.0.0.1:8000","ip_address":"127.0.0.1"}
+[2025-04-15 16:20:15] [INFO] Réponse de l'API - Code HTTP: 200
+[2025-04-15 16:20:15] [INFO] Corps de la réponse: {"status":"success","message":"Cl\u00e9 de licence valide (simulation)","data":{"token":"76cf095bbab92e8242cb3daf7029b98b","project":"Test Project","expires_at":"2026-04-15","debug_info":{"serial_key":"MEST-FM7A-BLGA-KLKP","domain":"127.0.0.1:8000","ip_address":"127.0.0.1","server_time":"2025-04-15 16:20:15"}}}
+[2025-04-15 16:20:52] [INFO] Exécution des migrations
+[2025-04-15 16:20:53] [WARNING] Avertissement lors de l'exécution des migrations via artisan: 
+   INFO  Running migrations.
+
+  2025_04_11_223351_create_cache_table ................................................................... 3.21ms FAIL
+
+In Connection.php line 822:
+
+  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists (Connection: mysql, SQL: crea
+  te table `cache` (`id` bigint unsigned not null auto_increment primary key, `created_at` timestamp null, `updated_a
+  t` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci')
+
+
+In Connection.php line 568:
+
+  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists
+
+
+[2025-04-15 16:20:53] [INFO] Tentative de migration manuelle...
+[2025-04-15 16:20:53] [INFO] Migration considérée comme réussie malgré les avertissements
+[2025-04-15 16:20:53] [INFO] Création de l'utilisateur administrateur
+[2025-04-15 16:20:53] [INFO] Un administrateur existe déjà, mise à jour des informations
+[2025-04-15 16:20:53] [INFO] Administrateur créé/mis à jour avec succès
+[2025-04-15 16:20:53] [INFO] Finalisation de l'installation
+[2025-04-15 16:20:53] [INFO] Installation finalisée avec succès

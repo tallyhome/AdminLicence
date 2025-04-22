@@ -1,0 +1,271 @@
+<?php
+// Inclure les fichiers nécessaires
+require_once('../includes/functions.php');
+require_once('../includes/translations.php');
+
+// Vérifier si l'utilisateur est déjà à cette étape
+checkStep(5);
+
+// Récupérer la langue
+$lang = getLang();
+$translations = getTranslations($lang);
+
+// Titre de la page
+$pageTitle = $translations['installation_step'] . ' 5: ' . $translations['installation'];
+?>
+
+<!DOCTYPE html>
+<html lang="<?php echo $lang; ?>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $pageTitle; ?></title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <?php include('../includes/header.php'); ?>
+
+    <div class="container">
+        <div class="step-container">
+            <?php include('../includes/steps.php'); ?>
+            
+            <div class="step-content">
+                <h2><?php echo $translations['installation_summary']; ?></h2>
+                
+                <div id="install-result" class="alert d-none mt-3"></div>
+                
+                <!-- Conteneur pour les détails de connexion -->
+                <div id="connection-details" class="d-none mt-3"></div>
+                
+                <div id="log-container" class="mt-4">
+                    <h4><?php echo $translations['installation_logs']; ?></h4>
+                    <div id="installation-logs" class="d-none">
+                        <div id="log-content" class="log-container p-3 mb-3 border rounded bg-light"></div>
+                    </div>
+                </div>
+                
+                <div class="installation-progress">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $translations['installation_progress']; ?></h5>
+                            <div class="progress">
+                                <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="d-flex justify-content-between mt-4">
+                    <a href="?step=4" class="btn btn-secondary"><?php echo $translations['previous']; ?></a>
+                    <button id="start-installation" class="btn btn-primary"><?php echo $translations['start_installation']; ?></button>
+                    <a href="?step=6" id="next-step" class="btn btn-success d-none"><?php echo $translations['finish']; ?></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php include('../includes/footer.php'); ?>
+
+    <script src="../assets/js/script.js"></script>
+    <script>
+    $(document).ready(function() {
+        // Fonction pour ajouter un message au log
+        function addLogMessage(message, type) {
+            var logClass = 'text-info';
+            if (type === 'error') {
+                logClass = 'text-danger';
+            } else if (type === 'success') {
+                logClass = 'text-success';
+            } else if (type === 'warning') {
+                logClass = 'text-warning';
+            }
+            
+            var timestamp = new Date().toLocaleTimeString();
+            var logEntry = $('<div class="log-entry"></div>');
+            logEntry.append($('<span class="log-timestamp text-muted">[' + timestamp + ']</span> '));
+            logEntry.append($('<span class="' + logClass + '"></span>').text(message));
+            
+            $('#log-content').append(logEntry);
+            
+            // Scroll to bottom
+            var logContainer = document.getElementById('log-content');
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+        
+        // Gérer le clic sur le bouton d'installation
+        $('#start-installation').on('click', function() {
+            // Afficher les logs
+            $('#installation-logs').removeClass('d-none');
+            
+            // Reset logs
+            $('#log-content').empty();
+            
+            // Disable button
+            var installingText = "<?php echo addslashes($translations['installing']); ?>";
+            $(this).prop('disabled', true).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> ' + installingText + '...');
+            
+            // Clear previous result
+            $('#install-result').removeClass('alert-success alert-danger').addClass('d-none');
+            
+            // Initial log message
+            addLogMessage("<?php echo addslashes($translations['starting_installation'] ?? 'Starting installation process...'); ?>", 'info');
+            
+            // Start installation avec le script qui utilise directement Artisan pour créer toutes les tables
+            $.ajax({
+                url: 'ajax/install_artisan.php',
+                type: 'POST',
+                dataType: 'json',
+                timeout: 60000, // Augmenter le timeout à 60 secondes
+                success: function(response) {
+                    // Afficher la réponse complète pour le débogage
+                    console.log('Réponse complète:', response);
+                    
+                    // Vérifier si la réponse est valide
+                    if (!response) {
+                        // Afficher un message d'erreur
+                        $('#install-result').removeClass('d-none').addClass('alert-danger')
+                            .html("Erreur: La réponse du serveur est invalide. Vérifiez les logs d'installation.");
+                        
+                        // Réactiver le bouton
+                        $('#start-installation').prop('disabled', false).html('<?php echo addslashes($translations["start_installation"]); ?>');
+                        return;
+                    }
+                    
+                    // Traiter la réponse
+                    if (response.status) {
+                        // Installation réussie
+                        $('#install-result').removeClass('d-none alert-danger').addClass('alert-success')
+                            .html(response.message);
+                        
+                        // Traiter les étapes si elles existent
+                        if (response.steps && Array.isArray(response.steps)) {
+                            // Traiter chaque étape
+                            response.steps.forEach(function(step) {
+                                var stepType = step.status ? 'success' : 'error';
+                                addLogMessage(step.message, stepType);
+                                
+                                // Afficher les détails de l'étape si disponibles
+                                if (step.output && step.output.length > 0) {
+                                    var outputHtml = $('<div class="log-output mt-1 mb-2 pl-3" style="border-left: 2px solid #ccc; font-size: 0.85rem;"></div>');
+                                    step.output.forEach(function(line) {
+                                        if (line) {
+                                            outputHtml.append($('<div></div>').text(line));
+                                        }
+                                    });
+                                    $('#log-content').append(outputHtml);
+                                }
+                            });
+                        }
+                        
+                        // Afficher les détails de connexion
+                        $.ajax({
+                            url: 'ajax/get_admin_details.php',
+                            type: 'GET',
+                            dataType: 'json',
+                            success: function(adminData) {
+                                if (adminData.status) {
+                                    var detailsHtml = '<div class="mt-4 p-3 border rounded bg-light">';
+                                    detailsHtml += '<h4><?php echo addslashes($translations['connection_details'] ?? "Détails de connexion"); ?></h4>';
+                                    detailsHtml += '<div class="row">';
+                                    
+                                    // SuperAdmin
+                                    detailsHtml += '<div class="col-md-4">';
+                                    detailsHtml += '<div class="card mb-3">';
+                                    detailsHtml += '<div class="card-header bg-primary text-white">SuperAdmin</div>';
+                                    detailsHtml += '<div class="card-body">';
+                                    detailsHtml += '<p><strong>Email:</strong> ' + adminData.email + '</p>';
+                                    detailsHtml += '<p><strong>Mot de passe:</strong> ' + adminData.password_hint + '</p>';
+                                    detailsHtml += '<p><a href="' + adminData.admin_url + '/login" target="_blank" class="btn btn-sm btn-primary">Se connecter</a></p>';
+                                    detailsHtml += '</div></div></div>';
+                                    
+                                    // Admin
+                                    detailsHtml += '<div class="col-md-4">';
+                                    detailsHtml += '<div class="card mb-3">';
+                                    detailsHtml += '<div class="card-header bg-info text-white">Admin</div>';
+                                    detailsHtml += '<div class="card-body">';
+                                    detailsHtml += '<p><strong>Email:</strong> ' + adminData.email + '</p>';
+                                    detailsHtml += '<p><strong>Mot de passe:</strong> ' + adminData.password_hint + '</p>';
+                                    detailsHtml += '<p><a href="' + adminData.admin_url + '/login" target="_blank" class="btn btn-sm btn-info">Se connecter</a></p>';
+                                    detailsHtml += '</div></div></div>';
+                                    
+                                    // User
+                                    detailsHtml += '<div class="col-md-4">';
+                                    detailsHtml += '<div class="card mb-3">';
+                                    detailsHtml += '<div class="card-header bg-success text-white">User</div>';
+                                    detailsHtml += '<div class="card-body">';
+                                    detailsHtml += '<p><strong>Email:</strong> ' + adminData.email + '</p>';
+                                    detailsHtml += '<p><strong>Mot de passe:</strong> ' + adminData.password_hint + '</p>';
+                                    detailsHtml += '<p><a href="' + adminData.user_url + '/login" target="_blank" class="btn btn-sm btn-success">Se connecter</a></p>';
+                                    detailsHtml += '</div></div></div>';
+                                    
+                                    detailsHtml += '</div>';
+                                    
+                                    // Bouton pour supprimer le dossier d'installation
+                                    detailsHtml += '<div class="mt-3">';
+                                    detailsHtml += '<button id="remove-install-dir" class="btn btn-danger"><i class="fas fa-trash"></i> <?php echo addslashes($translations["remove_install_dir"] ?? "Supprimer le dossier d\'installation"); ?></button>';
+                                    detailsHtml += '<p class="text-muted mt-2"><small><?php echo addslashes($translations["remove_install_dir_note"] ?? "Pour des raisons de sécurité, il est recommandé de supprimer le dossier d\'installation après avoir terminé."); ?></small></p>';
+                                    detailsHtml += '</div>';
+                                    
+                                    detailsHtml += '</div>';
+                                    
+                                    $('#connection-details').html(detailsHtml).removeClass('d-none');
+                                    
+                                    // Gérer le clic sur le bouton de suppression du dossier d'installation
+                                    $('#remove-install-dir').on('click', function() {
+                                        $(this).prop('disabled', true).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> <?php echo addslashes($translations["removing"] ?? "Suppression en cours..."); ?>');
+                                        
+                                        $.ajax({
+                                            url: 'ajax/remove_install_dir.php',
+                                            type: 'POST',
+                                            dataType: 'json',
+                                            success: function(response) {
+                                                if (response.status) {
+                                                    alert('<?php echo addslashes($translations["install_dir_removed"] ?? "Le dossier d\'installation a été supprimé avec succès."); ?>');
+                                                    window.location.href = adminData.admin_url;
+                                                } else {
+                                                    alert('<?php echo addslashes($translations["install_dir_remove_failed"] ?? "Impossible de supprimer le dossier d\'installation. Veuillez le supprimer manuellement."); ?>');
+                                                    $('#remove-install-dir').prop('disabled', false).html('<i class="fas fa-trash"></i> <?php echo addslashes($translations["remove_install_dir"] ?? "Supprimer le dossier d\'installation"); ?>');
+                                                }
+                                            },
+                                            error: function() {
+                                                alert('<?php echo addslashes($translations["install_dir_remove_failed"] ?? "Impossible de supprimer le dossier d\'installation. Veuillez le supprimer manuellement."); ?>');
+                                                $('#remove-install-dir').prop('disabled', false).html('<i class="fas fa-trash"></i> <?php echo addslashes($translations["remove_install_dir"] ?? "Supprimer le dossier d\'installation"); ?>');
+                                            }
+                                        });
+                                    });
+                                }
+                            }
+                        });
+                        
+                        // Activer le bouton suivant
+                        $('#next-step').removeClass('d-none');
+                    } else {
+                        // Installation échouée
+                        $('#install-result').removeClass('d-none').addClass('alert-danger')
+                            .html(response.message || "Erreur: L'installation a échoué. Vérifiez les logs d'installation.");
+                        
+                        // Journaliser l'erreur
+                        addLogMessage("Erreur: L'installation a échoué.", 'error');
+                        
+                        // Réactiver le bouton
+                        $('#start-installation').prop('disabled', false).html('<?php echo addslashes($translations["start_installation"]); ?>');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // Afficher un message d'erreur
+                    $('#install-result').removeClass('d-none').addClass('alert-danger')
+                        .html("Erreur: " + error);
+                    
+                    // Journaliser l'erreur
+                    addLogMessage("Erreur: " + error, 'error');
+                    
+                    // Réactiver le bouton
+                    $('#start-installation').prop('disabled', false).html('<?php echo addslashes($translations["start_installation"]); ?>');
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>

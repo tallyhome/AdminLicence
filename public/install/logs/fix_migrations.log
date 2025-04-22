@@ -1,0 +1,91 @@
+[2025-04-16 01:53:37] Début de la correction des migrations
+[2025-04-16 01:53:37] Fichiers de migration pour la table cache trouvés : ["R:\\Adev\\200  -  test\\adminlicence_saas\/database\/migrations\\0001_01_01_000001_create_cache_table.php","R:\\Adev\\200  -  test\\adminlicence_saas\/database\/migrations\\2025_04_11_223351_create_cache_table.php"]
+[2025-04-16 01:53:37] Impossible de modifier la migration : 0001_01_01_000001_create_cache_table.php
+[2025-04-16 01:53:37] Impossible de modifier la migration : 2025_04_11_223351_create_cache_table.php
+[2025-04-16 01:53:37] Fichiers de migration pour la table cache_locks trouvés : []
+[2025-04-16 01:53:37] Fichiers de migration pour la table jobs trouvés : ["R:\\Adev\\200  -  test\\adminlicence_saas\/database\/migrations\\0001_01_01_000002_create_jobs_table.php"]
+[2025-04-16 01:53:37] Impossible de modifier la migration : 0001_01_01_000002_create_jobs_table.php
+[2025-04-16 01:53:37] Fichiers de migration pour la table failed_jobs trouvés : []
+[2025-04-16 01:53:37] Fichiers de migration pour la table password_reset_tokens trouvés : []
+[2025-04-16 01:53:37] Fichiers de migration pour la table personal_access_tokens trouvés : ["R:\\Adev\\200  -  test\\adminlicence_saas\/database\/migrations\\2025_04_02_160003_create_personal_access_tokens_table.php"]
+[2025-04-16 01:53:37] Impossible de modifier la migration : 2025_04_02_160003_create_personal_access_tokens_table.php
+[2025-04-16 01:53:37] Fichiers de migration pour la table sessions trouvés : []
+[2025-04-16 01:53:37] Exécution des migrations...
+[2025-04-16 01:53:39] Résultat des migrations : 
+   INFO  Preparing database.  
+
+  Creating migration table .......................................................................................................... 13.52ms DONE
+
+   INFO  Running migrations.  
+
+  0001_01_01_000000_create_users_table .............................................................................................. 45.54ms DONE
+  0001_01_01_000001_create_cache_table .............................................................................................. 15.28ms DONE
+  0001_01_01_000002_create_jobs_table ............................................................................................... 38.87ms DONE
+  2023_04_01_000001_create_projects_table ............................................................................................ 7.70ms DONE
+  2023_04_02_000002_create_serial_keys_table ........................................................................................ 42.04ms DONE
+  2024_01_09_000001_create_tenants_table ............................................................................................ 16.77ms DONE
+  2024_01_10_000001_create_licence_histories_table .................................................................................. 52.56ms DONE
+  2024_01_10_000001_create_plans_table .............................................................................................. 15.27ms DONE
+  2024_01_10_000001_create_roles_and_permissions_tables ............................................................................ 194.48ms DONE
+  2024_01_10_000002_create_api_keys_table ........................................................................................... 43.61ms DONE
+  2024_01_10_000002_create_subscriptions_table ...................................................................................... 84.34ms DONE
+  2024_01_15_000001_create_mail_configs_table ........................................................................................ 7.29ms DONE
+  2024_01_17_000001_create_email_templates_table ..................................................................................... 6.86ms DONE
+  2024_03_20_create_email_variables_table ........................................................................................... 17.20ms DONE
+  2024_03_21_000000_create_admins_table ............................................................................................. 14.87ms DONE
+  2024_03_21_000001_create_serial_key_histories_table ............................................................................... 56.35ms DONE
+  2024_03_22_000001_add_provider_to_mail_configs_table ............................................................................... 6.89ms DONE
+  2024_05_01_000002_create_clients_table ............................................................................................ 42.00ms DONE
+  2024_05_01_000003_create_support_tickets_table .................................................................................... 37.58ms DONE
+  2024_05_01_000004_create_ticket_replies_table ..................................................................................... 33.12ms DONE
+  2024_05_01_000005_create_payment_methods_table .................................................................................... 43.47ms DONE
+  2024_05_01_000006_create_invoices_table .......................................................................................... 110.40ms DONE
+  2024_05_01_000007_create_invoice_items_table ...................................................................................... 58.92ms DONE
+  2024_05_10_000000_add_two_factor_columns_to_admins_table .......................................................................... 15.88ms DONE
+  2024_05_15_000001_create_notifications_table ...................................................................................... 17.50ms DONE
+  2024_05_20_000001_create_admin_role_table ......................................................................................... 48.85ms DONE
+  2025_04_02_160003_create_personal_access_tokens_table ............................................................................. 23.20ms DONE
+  2025_04_03_054922_make_admin_id_nullable_in_serial_key_histories_table ............................................................ 44.65ms DONE
+  2025_04_07_072637_create_admin_password_reset_tokens_table ......................................................................... 6.33ms DONE
+  2025_04_07_094844_add_content_column_to_email_templates ............................................................................ 6.68ms DONE
+  2025_04_07_110500_add_is_system_column_to_email_templates .......................................................................... 5.62ms DONE
+  2025_04_08_000001_add_is_super_admin_to_admins_table ............................................................................... 7.02ms DONE
+  2025_04_11_223351_create_cache_table ............................................................................................... 1.26ms FAIL
+
+In Connection.php line 822:
+                                                                                                                                                   
+  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists (Connection: mysql, SQL: create table `cache` (`id` bigin  
+  t unsigned not null auto_increment primary key, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate  
+   'utf8mb4_unicode_ci')                                                                                                                           
+                                                                                                                                                   
+
+In Connection.php line 568:
+                                                                                         
+  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists  
+                                                                                         
+
+
+[2025-04-16 01:53:39] Exécution des seeders...
+[2025-04-16 01:53:41] Résultat des seeders : 
+   INFO  Seeding database.  
+
+  Database\Seeders\RolesAndPermissionsSeeder ............................................................................................. RUNNING  
+  Database\Seeders\RolesAndPermissionsSeeder ......................................................................................... 169 ms DONE  
+
+  Database\Seeders\UsersSeeder ........................................................................................................... RUNNING  
+  Database\Seeders\UsersSeeder ....................................................................................................... 393 ms DONE  
+
+
+[2025-04-16 01:53:41] Nettoyage du cache...
+[2025-04-16 01:53:41] Résultat du nettoyage : 
+   INFO  Clearing cached bootstrap files.  
+
+  cache ............................................................................................................................. 28.33ms DONE
+  compiled ........................................................................................................................... 3.02ms DONE
+  config ............................................................................................................................. 1.31ms DONE
+  events ............................................................................................................................. 0.91ms DONE
+  routes ............................................................................................................................. 0.67ms DONE
+  views .............................................................................................................................. 9.22ms DONE
+
+
+[2025-04-16 01:53:41] Correction des migrations terminée

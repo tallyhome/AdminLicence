@@ -1,43 +1,33 @@
-# Autoriser l'exécution des scripts PHP
-<FilesMatch "\.php$">
-    Require all granted
-    SetHandler application/x-httpd-php
-</FilesMatch>
+# Protect the installation directory
+# If installation is complete, deny access to all files
 
-# Configuration du répertoire
-Options +FollowSymLinks
-# Changer AllowOverride None à All pour permettre les configurations locales
-AllowOverride All
-Require all granted
-
-# Autoriser l'accès aux fichiers PHP spécifiques
-<Files "install.php">
-    Require all granted
-</Files>
-
-# Activer le module de réécriture mais désactiver la réécriture pour ce dossier
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    # Ne pas rediriger les requêtes vers index.php
-    RewriteRule .* - [L]
+    
+    # Check if installation is complete (installed.lock exists)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{DOCUMENT_ROOT}/install/installed.lock -f
+    RewriteRule ^(.*)$ - [F,L]
+    
+    # Redirect all requests to index.php if not a file or directory
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php [L]
 </IfModule>
 
-# Afficher les erreurs PHP pour le débogage
+# Deny access to sensitive files
+<FilesMatch "^(functions\.php|installed\.lock)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# PHP settings
 <IfModule mod_php7.c>
-    php_flag display_errors On
-    php_flag display_startup_errors On
-    php_value error_reporting E_ALL
+    php_flag display_errors Off
+    php_flag log_errors On
+    php_value error_log /path/to/error.log
 </IfModule>
 
-<IfModule mod_php8.c>
-    php_flag display_errors On
-    php_flag display_startup_errors On
-    php_value error_reporting E_ALL
-</IfModule>
-
-# Augmenter les limites de PHP pour l'installation
-php_value upload_max_filesize 64M
-php_value post_max_size 64M
-php_value max_execution_time 300
-php_value max_input_time 300
-php_value memory_limit 256M
+# Prevent directory listing
+Options -Indexes

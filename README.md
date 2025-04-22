@@ -133,3 +133,4 @@ Pour toute question ou assistance, veuillez :
 ## Licence
 
 Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
+# adminlicence_saas

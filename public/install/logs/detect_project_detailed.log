@@ -1,0 +1,512 @@
+{
+    "time": "2025-04-15 21:24:58",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-15 21:26:22",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": false
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-15 21:35:05",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-15 21:35:34",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": false
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-15 21:42:29",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": false
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-15 21:42:48",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": false
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-15 21:48:18",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-15 21:48:21",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-15 21:51:08",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-15 21:51:12",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-15 21:52:43",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-15 21:53:11",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-15 21:56:55",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-15 21:57:36",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-15 22:00:42",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-15 22:04:53",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-15 22:07:17",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-15 22:10:11",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-15 22:13:39",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-16 01:36:12",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-16 01:39:40",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-16 01:43:53",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-16 01:44:55",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-16 01:51:45",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-16 02:00:59",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-16 02:06:11",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-16 02:14:05",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-16 02:18:46",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-16 02:22:15",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-16 02:26:04",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-16 02:30:31",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-04-16 02:42:43",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence_saas\/vendor",
+            "exists": true
+        }
+    }
+}
+

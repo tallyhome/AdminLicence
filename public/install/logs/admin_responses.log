@@ -1,0 +1,60 @@
+{
+    "time": "2025-04-16 02:45:15",
+    "function": "save_admin_response",
+    "response": {
+        "status": true,
+        "message": "Admin account information saved",
+        "admin_email": "tally@obione.net",
+        "project_url": "http:\/\/127.0.0.1:8000\/",
+        "session_data": {
+            "admin_saved": true,
+            "admin_config": "Set"
+        }
+    }
+}
+
+{
+    "time": "2025-04-16 02:49:39",
+    "function": "save_admin_response",
+    "response": {
+        "status": true,
+        "message": "Admin account information saved",
+        "admin_email": "tally@obione.net",
+        "project_url": "http:\/\/127.0.0.1:8000\/",
+        "session_data": {
+            "admin_saved": true,
+            "admin_config": "Set"
+        }
+    }
+}
+
+{
+    "time": "2025-04-16 02:50:32",
+    "function": "save_admin_response",
+    "response": {
+        "status": true,
+        "message": "Admin account information saved",
+        "admin_email": "tally@obione.net",
+        "project_url": "http:\/\/127.0.0.1:8000\/",
+        "session_data": {
+            "admin_saved": true,
+            "admin_config": "Set"
+        }
+    }
+}
+
+{
+    "time": "2025-04-16 02:52:15",
+    "function": "save_admin_response",
+    "response": {
+        "status": true,
+        "message": "Admin account information saved",
+        "admin_email": "tally@obione.net",
+        "project_url": "http:\/\/127.0.0.1:8000\/",
+        "session_data": {
+            "admin_saved": true,
+            "admin_config": "Set"
+        }
+    }
+}
+

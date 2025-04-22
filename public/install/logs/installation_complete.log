@@ -1,0 +1,266 @@
+{
+    "time": "2025-04-15 22:13:55",
+    "function": "install_start",
+    "data": {
+        "install_step": 5,
+        "project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+        "project_type": "laravel",
+        "has_env": true,
+        "has_vendor": true,
+        "license_key": "TNBH-DRDK-K9JG-H4RR",
+        "license_valid": true,
+        "license_expiry": null,
+        "license_token": "040b58182bb5791c2efc2506a0617c3b",
+        "license_project": "",
+        "db_config": {
+            "host": "localhost",
+            "database": "adminlicencetest",
+            "username": "adminlicencetest",
+            "password": "Fab@250872"
+        },
+        "db_tested": true,
+        "admin_config": {
+            "project_url": "http:\/\/127.0.0.1:8000\/",
+            "email": "tally@obione.net",
+            "password": "123"
+        },
+        "admin_saved": true
+    }
+}
+
+{
+    "time": "2025-04-15 22:13:55",
+    "function": "migrations_start",
+    "data": {
+        "project_root": "R:\\Adev\\200  -  test\\adminlicence_saas"
+    }
+}
+
+{
+    "time": "2025-04-15 22:13:58",
+    "function": "migrations_result",
+    "data": {
+        "success": true,
+        "output": [
+            "STDOUT: \r\n  Dropping all tables .................................................................................. 245.00ms DONE\r\n\r\n   INFO  Preparing database.  \n\r\n  Creating migration table .............................................................................. 14.07ms DONE\r\n\r\n   INFO  Running migrations.  \n\r\n  0001_01_01_000000_create_users_table .................................................................. 77.95ms DONE\r\n  0001_01_01_000001_create_cache_table .................................................................. 14.17ms DONE\r\n  0001_01_01_000002_create_jobs_table ................................................................... 61.15ms DONE\r\n  2023_04_01_000001_create_projects_table ................................................................ 8.08ms DONE\r\n  2023_04_02_000002_create_serial_keys_table ............................................................ 45.31ms DONE\r\n  2024_01_09_000001_create_tenants_table ................................................................ 15.91ms DONE\r\n  2024_01_10_000001_create_licence_histories_table ...................................................... 57.88ms DONE\r\n  2024_01_10_000001_create_plans_table .................................................................. 16.33ms DONE\r\n  2024_01_10_000001_create_roles_and_permissions_tables ................................................ 219.26ms DONE\r\n  2024_01_10_000002_create_api_keys_table .............................................................. 100.06ms DONE\r\n  2024_01_10_000002_create_subscriptions_table ......................................................... 104.23ms DONE\r\n  2024_01_15_000001_create_mail_configs_table ............................................................ 9.73ms DONE\r\n  2024_01_17_000001_create_email_templates_table ......................................................... 9.08ms DONE\r\n  2024_03_20_create_email_variables_table ............................................................... 20.03ms DONE\r\n  2024_03_21_000000_create_admins_table ................................................................. 18.78ms DONE\r\n  2024_03_21_000001_create_serial_key_histories_table ................................................... 89.80ms DONE\r\n  2024_03_22_000001_add_provider_to_mail_configs_table ................................................... 9.99ms DONE\r\n  2024_05_01_000002_create_clients_table ................................................................ 65.60ms DONE\r\n  2024_05_01_000003_create_support_tickets_table ........................................................ 32.74ms DONE\r\n  2024_05_01_000004_create_ticket_replies_table ......................................................... 32.10ms DONE\r\n  2024_05_01_000005_create_payment_methods_table ........................................................ 46.99ms DONE\r\n  2024_05_01_000006_create_invoices_table .............................................................. 102.16ms DONE\r\n  2024_05_01_000007_create_invoice_items_table .......................................................... 32.28ms DONE\r\n  2024_05_10_000000_add_two_factor_columns_to_admins_table .............................................. 15.99ms DONE\r\n  2024_05_15_000001_create_notifications_table .......................................................... 15.86ms DONE\r\n  2024_05_20_000001_create_admin_role_table ............................................................. 54.89ms DONE\r\n  2025_04_02_160003_create_personal_access_tokens_table ................................................. 25.01ms DONE\r\n  2025_04_03_054922_make_admin_id_nullable_in_serial_key_histories_table ................................ 50.87ms DONE\r\n  2025_04_07_072637_create_admin_password_reset_tokens_table ............................................. 7.99ms DONE\r\n  2025_04_07_094844_add_content_column_to_email_templates ................................................ 5.73ms DONE\r\n  2025_04_07_110500_add_is_system_column_to_email_templates .............................................. 9.45ms DONE\r\n  2025_04_08_000001_add_is_super_admin_to_admins_table ................................................... 4.27ms DONE\r\n  2025_04_11_223351_create_cache_table ................................................................... 2.59ms FAIL\r\n\r\nIn Connection.php line 822:\r\n                                                                                                                       \r\n  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists (Connection: mysql, SQL: crea  \r\n  te table `cache` (`id` bigint unsigned not null auto_increment primary key, `created_at` timestamp null, `updated_a  \r\n  t` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci')                                       \r\n                                                                                                                       \r\n\r\nIn Connection.php line 568:\r\n                                                                                         \r\n  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists  \r\n                                                                                         \r\n\r\n",
+            "STDOUT (migrate): \n   INFO  Running migrations.  \n\r\n  2025_04_11_223351_create_cache_table ................................................................... 5.17ms FAIL\r\n\r\nIn Connection.php line 822:\r\n                                                                                                                       \r\n  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists (Connection: mysql, SQL: crea  \r\n  te table `cache` (`id` bigint unsigned not null auto_increment primary key, `created_at` timestamp null, `updated_a  \r\n  t` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci')                                       \r\n                                                                                                                       \r\n\r\nIn Connection.php line 568:\r\n                                                                                         \r\n  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists  \r\n                                                                                         \r\n\r\n",
+            "Users table already exists"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 22:13:58",
+    "function": "seeders_start",
+    "data": {
+        "project_root": "R:\\Adev\\200  -  test\\adminlicence_saas"
+    }
+}
+
+{
+    "time": "2025-04-15 22:14:00",
+    "function": "seeders_result",
+    "data": {
+        "success": true,
+        "output": [
+            "STDOUT: \n   INFO  Seeding database.  \n\r\n  Database\\Seeders\\RolesAndPermissionsSeeder ................................................................. RUNNING  \r\n  Database\\Seeders\\RolesAndPermissionsSeeder ............................................................. 227 ms DONE  \r\n\r\n  Database\\Seeders\\UsersSeeder ............................................................................... RUNNING  \r\n  Database\\Seeders\\UsersSeeder ........................................................................... 442 ms DONE  \r\n\r\n"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 22:14:00",
+    "function": "admin_creation_start",
+    "data": {
+        "email": "tally@obione.net",
+        "project_url": "http:\/\/127.0.0.1:8000\/"
+    }
+}
+
+{
+    "time": "2025-04-15 22:14:01",
+    "function": "admin_creation_result",
+    "data": {
+        "success": true,
+        "output": [
+            "STDOUT: \r\nIn ParseErrorException.php line 44:\r\n                                                                                        \r\n  PHP Parse error: Syntax error, unexpected '@', expecting ',' or ']' or ')' on line 1  \r\n                                                                                        \r\n\r\n",
+            "Admin user created directly via SQL"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 22:14:01",
+    "function": "installation_completed",
+    "data": {
+        "success": true,
+        "steps": [
+            {
+                "step": "migrations",
+                "status": true,
+                "message": "Migrations run successfully",
+                "output": [
+                    "STDOUT: \r\n  Dropping all tables .................................................................................. 245.00ms DONE\r\n\r\n   INFO  Preparing database.  \n\r\n  Creating migration table .............................................................................. 14.07ms DONE\r\n\r\n   INFO  Running migrations.  \n\r\n  0001_01_01_000000_create_users_table .................................................................. 77.95ms DONE\r\n  0001_01_01_000001_create_cache_table .................................................................. 14.17ms DONE\r\n  0001_01_01_000002_create_jobs_table ................................................................... 61.15ms DONE\r\n  2023_04_01_000001_create_projects_table ................................................................ 8.08ms DONE\r\n  2023_04_02_000002_create_serial_keys_table ............................................................ 45.31ms DONE\r\n  2024_01_09_000001_create_tenants_table ................................................................ 15.91ms DONE\r\n  2024_01_10_000001_create_licence_histories_table ...................................................... 57.88ms DONE\r\n  2024_01_10_000001_create_plans_table .................................................................. 16.33ms DONE\r\n  2024_01_10_000001_create_roles_and_permissions_tables ................................................ 219.26ms DONE\r\n  2024_01_10_000002_create_api_keys_table .............................................................. 100.06ms DONE\r\n  2024_01_10_000002_create_subscriptions_table ......................................................... 104.23ms DONE\r\n  2024_01_15_000001_create_mail_configs_table ............................................................ 9.73ms DONE\r\n  2024_01_17_000001_create_email_templates_table ......................................................... 9.08ms DONE\r\n  2024_03_20_create_email_variables_table ............................................................... 20.03ms DONE\r\n  2024_03_21_000000_create_admins_table ................................................................. 18.78ms DONE\r\n  2024_03_21_000001_create_serial_key_histories_table ................................................... 89.80ms DONE\r\n  2024_03_22_000001_add_provider_to_mail_configs_table ................................................... 9.99ms DONE\r\n  2024_05_01_000002_create_clients_table ................................................................ 65.60ms DONE\r\n  2024_05_01_000003_create_support_tickets_table ........................................................ 32.74ms DONE\r\n  2024_05_01_000004_create_ticket_replies_table ......................................................... 32.10ms DONE\r\n  2024_05_01_000005_create_payment_methods_table ........................................................ 46.99ms DONE\r\n  2024_05_01_000006_create_invoices_table .............................................................. 102.16ms DONE\r\n  2024_05_01_000007_create_invoice_items_table .......................................................... 32.28ms DONE\r\n  2024_05_10_000000_add_two_factor_columns_to_admins_table .............................................. 15.99ms DONE\r\n  2024_05_15_000001_create_notifications_table .......................................................... 15.86ms DONE\r\n  2024_05_20_000001_create_admin_role_table ............................................................. 54.89ms DONE\r\n  2025_04_02_160003_create_personal_access_tokens_table ................................................. 25.01ms DONE\r\n  2025_04_03_054922_make_admin_id_nullable_in_serial_key_histories_table ................................ 50.87ms DONE\r\n  2025_04_07_072637_create_admin_password_reset_tokens_table ............................................. 7.99ms DONE\r\n  2025_04_07_094844_add_content_column_to_email_templates ................................................ 5.73ms DONE\r\n  2025_04_07_110500_add_is_system_column_to_email_templates .............................................. 9.45ms DONE\r\n  2025_04_08_000001_add_is_super_admin_to_admins_table ................................................... 4.27ms DONE\r\n  2025_04_11_223351_create_cache_table ................................................................... 2.59ms FAIL\r\n\r\nIn Connection.php line 822:\r\n                                                                                                                       \r\n  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists (Connection: mysql, SQL: crea  \r\n  te table `cache` (`id` bigint unsigned not null auto_increment primary key, `created_at` timestamp null, `updated_a  \r\n  t` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci')                                       \r\n                                                                                                                       \r\n\r\nIn Connection.php line 568:\r\n                                                                                         \r\n  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists  \r\n                                                                                         \r\n\r\n",
+                    "STDOUT (migrate): \n   INFO  Running migrations.  \n\r\n  2025_04_11_223351_create_cache_table ................................................................... 5.17ms FAIL\r\n\r\nIn Connection.php line 822:\r\n                                                                                                                       \r\n  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists (Connection: mysql, SQL: crea  \r\n  te table `cache` (`id` bigint unsigned not null auto_increment primary key, `created_at` timestamp null, `updated_a  \r\n  t` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci')                                       \r\n                                                                                                                       \r\n\r\nIn Connection.php line 568:\r\n                                                                                         \r\n  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists  \r\n                                                                                         \r\n\r\n",
+                    "Users table already exists"
+                ]
+            },
+            {
+                "step": "seeders",
+                "status": true,
+                "message": "Database seeders run successfully",
+                "output": [
+                    "STDOUT: \n   INFO  Seeding database.  \n\r\n  Database\\Seeders\\RolesAndPermissionsSeeder ................................................................. RUNNING  \r\n  Database\\Seeders\\RolesAndPermissionsSeeder ............................................................. 227 ms DONE  \r\n\r\n  Database\\Seeders\\UsersSeeder ............................................................................... RUNNING  \r\n  Database\\Seeders\\UsersSeeder ........................................................................... 442 ms DONE  \r\n\r\n"
+                ]
+            },
+            {
+                "step": "admin_creation",
+                "status": true,
+                "message": "Admin user created successfully",
+                "output": [
+                    "STDOUT: \r\nIn ParseErrorException.php line 44:\r\n                                                                                        \r\n  PHP Parse error: Syntax error, unexpected '@', expecting ',' or ']' or ')' on line 1  \r\n                                                                                        \r\n\r\n",
+                    "Admin user created directly via SQL"
+                ]
+            },
+            {
+                "step": "installation_completed",
+                "status": true,
+                "message": "Installation completed successfully"
+            }
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 22:14:50",
+    "function": "install_start",
+    "data": {
+        "install_step": 5,
+        "project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+        "project_type": "laravel",
+        "has_env": true,
+        "has_vendor": true,
+        "license_key": "TNBH-DRDK-K9JG-H4RR",
+        "license_valid": true,
+        "license_expiry": null,
+        "license_token": "040b58182bb5791c2efc2506a0617c3b",
+        "license_project": "",
+        "db_config": {
+            "host": "localhost",
+            "database": "adminlicencetest",
+            "username": "adminlicencetest",
+            "password": "Fab@250872"
+        },
+        "db_tested": true,
+        "admin_config": {
+            "project_url": "http:\/\/127.0.0.1:8000\/",
+            "email": "tally@obione.net",
+            "password": "123"
+        },
+        "admin_saved": true
+    }
+}
+
+{
+    "time": "2025-04-15 22:14:50",
+    "function": "migrations_start",
+    "data": {
+        "project_root": "R:\\Adev\\200  -  test\\adminlicence_saas"
+    }
+}
+
+{
+    "time": "2025-04-15 22:14:53",
+    "function": "migrations_result",
+    "data": {
+        "success": true,
+        "output": [
+            "STDOUT: \r\n  Dropping all tables .................................................................................. 171.60ms DONE\r\n\r\n   INFO  Preparing database.  \n\r\n  Creating migration table .............................................................................. 10.25ms DONE\r\n\r\n   INFO  Running migrations.  \n\r\n  0001_01_01_000000_create_users_table .................................................................. 44.65ms DONE\r\n  0001_01_01_000001_create_cache_table .................................................................. 13.92ms DONE\r\n  0001_01_01_000002_create_jobs_table ................................................................... 46.52ms DONE\r\n  2023_04_01_000001_create_projects_table ............................................................... 22.26ms DONE\r\n  2023_04_02_000002_create_serial_keys_table ............................................................ 46.81ms DONE\r\n  2024_01_09_000001_create_tenants_table ................................................................ 15.74ms DONE\r\n  2024_01_10_000001_create_licence_histories_table ...................................................... 61.96ms DONE\r\n  2024_01_10_000001_create_plans_table .................................................................. 16.35ms DONE\r\n  2024_01_10_000001_create_roles_and_permissions_tables ................................................ 171.00ms DONE\r\n  2024_01_10_000002_create_api_keys_table ............................................................... 40.88ms DONE\r\n  2024_01_10_000002_create_subscriptions_table .......................................................... 79.14ms DONE\r\n  2024_01_15_000001_create_mail_configs_table ............................................................ 8.28ms DONE\r\n  2024_01_17_000001_create_email_templates_table ......................................................... 5.70ms DONE\r\n  2024_03_20_create_email_variables_table ............................................................... 15.47ms DONE\r\n  2024_03_21_000000_create_admins_table ................................................................. 14.56ms DONE\r\n  2024_03_21_000001_create_serial_key_histories_table ................................................... 56.58ms DONE\r\n  2024_03_22_000001_add_provider_to_mail_configs_table ................................................... 5.20ms DONE\r\n  2024_05_01_000002_create_clients_table ................................................................ 43.58ms DONE\r\n  2024_05_01_000003_create_support_tickets_table ........................................................ 28.53ms DONE\r\n  2024_05_01_000004_create_ticket_replies_table ......................................................... 30.95ms DONE\r\n  2024_05_01_000005_create_payment_methods_table ........................................................ 37.93ms DONE\r\n  2024_05_01_000006_create_invoices_table ............................................................... 91.38ms DONE\r\n  2024_05_01_000007_create_invoice_items_table .......................................................... 31.04ms DONE\r\n  2024_05_10_000000_add_two_factor_columns_to_admins_table .............................................. 14.41ms DONE\r\n  2024_05_15_000001_create_notifications_table .......................................................... 18.75ms DONE\r\n  2024_05_20_000001_create_admin_role_table ............................................................. 51.53ms DONE\r\n  2025_04_02_160003_create_personal_access_tokens_table ................................................. 23.73ms DONE\r\n  2025_04_03_054922_make_admin_id_nullable_in_serial_key_histories_table ................................ 95.72ms DONE\r\n  2025_04_07_072637_create_admin_password_reset_tokens_table ............................................. 6.71ms DONE\r\n  2025_04_07_094844_add_content_column_to_email_templates ................................................ 8.27ms DONE\r\n  2025_04_07_110500_add_is_system_column_to_email_templates .............................................. 5.89ms DONE\r\n  2025_04_08_000001_add_is_super_admin_to_admins_table ................................................... 5.76ms DONE\r\n  2025_04_11_223351_create_cache_table ................................................................... 1.09ms FAIL\r\n\r\nIn Connection.php line 822:\r\n                                                                                                                       \r\n  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists (Connection: mysql, SQL: crea  \r\n  te table `cache` (`id` bigint unsigned not null auto_increment primary key, `created_at` timestamp null, `updated_a  \r\n  t` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci')                                       \r\n                                                                                                                       \r\n\r\nIn Connection.php line 568:\r\n                                                                                         \r\n  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists  \r\n                                                                                         \r\n\r\n",
+            "STDOUT (migrate): \n   INFO  Running migrations.  \n\r\n  2025_04_11_223351_create_cache_table ................................................................... 7.05ms FAIL\r\n\r\nIn Connection.php line 822:\r\n                                                                                                                       \r\n  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists (Connection: mysql, SQL: crea  \r\n  te table `cache` (`id` bigint unsigned not null auto_increment primary key, `created_at` timestamp null, `updated_a  \r\n  t` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci')                                       \r\n                                                                                                                       \r\n\r\nIn Connection.php line 568:\r\n                                                                                         \r\n  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists  \r\n                                                                                         \r\n\r\n",
+            "Created users table directly via SQL"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 22:14:53",
+    "function": "seeders_start",
+    "data": {
+        "project_root": "R:\\Adev\\200  -  test\\adminlicence_saas"
+    }
+}
+
+{
+    "time": "2025-04-15 22:14:55",
+    "function": "seeders_result",
+    "data": {
+        "success": true,
+        "output": [
+            "STDOUT: \n   INFO  Seeding database.  \n\r\n  Database\\Seeders\\RolesAndPermissionsSeeder ................................................................. RUNNING  \r\n  Database\\Seeders\\RolesAndPermissionsSeeder ............................................................. 202 ms DONE  \r\n\r\n  Database\\Seeders\\UsersSeeder ............................................................................... RUNNING  \r\n  Database\\Seeders\\UsersSeeder ........................................................................... 410 ms DONE  \r\n\r\n"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 22:14:55",
+    "function": "admin_creation_start",
+    "data": {
+        "email": "tally@obione.net",
+        "project_url": "http:\/\/127.0.0.1:8000\/"
+    }
+}
+
+{
+    "time": "2025-04-15 22:14:56",
+    "function": "admin_creation_result",
+    "data": {
+        "success": true,
+        "output": [
+            "STDOUT: \r\nIn ParseErrorException.php line 44:\r\n                                                                                        \r\n  PHP Parse error: Syntax error, unexpected '@', expecting ',' or ']' or ')' on line 1  \r\n                                                                                        \r\n\r\n",
+            "Admin user created directly via SQL"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 22:14:56",
+    "function": "installation_completed",
+    "data": {
+        "success": true,
+        "steps": [
+            {
+                "step": "migrations",
+                "status": true,
+                "message": "Migrations run successfully",
+                "output": [
+                    "STDOUT: \r\n  Dropping all tables .................................................................................. 171.60ms DONE\r\n\r\n   INFO  Preparing database.  \n\r\n  Creating migration table .............................................................................. 10.25ms DONE\r\n\r\n   INFO  Running migrations.  \n\r\n  0001_01_01_000000_create_users_table .................................................................. 44.65ms DONE\r\n  0001_01_01_000001_create_cache_table .................................................................. 13.92ms DONE\r\n  0001_01_01_000002_create_jobs_table ................................................................... 46.52ms DONE\r\n  2023_04_01_000001_create_projects_table ............................................................... 22.26ms DONE\r\n  2023_04_02_000002_create_serial_keys_table ............................................................ 46.81ms DONE\r\n  2024_01_09_000001_create_tenants_table ................................................................ 15.74ms DONE\r\n  2024_01_10_000001_create_licence_histories_table ...................................................... 61.96ms DONE\r\n  2024_01_10_000001_create_plans_table .................................................................. 16.35ms DONE\r\n  2024_01_10_000001_create_roles_and_permissions_tables ................................................ 171.00ms DONE\r\n  2024_01_10_000002_create_api_keys_table ............................................................... 40.88ms DONE\r\n  2024_01_10_000002_create_subscriptions_table .......................................................... 79.14ms DONE\r\n  2024_01_15_000001_create_mail_configs_table ............................................................ 8.28ms DONE\r\n  2024_01_17_000001_create_email_templates_table ......................................................... 5.70ms DONE\r\n  2024_03_20_create_email_variables_table ............................................................... 15.47ms DONE\r\n  2024_03_21_000000_create_admins_table ................................................................. 14.56ms DONE\r\n  2024_03_21_000001_create_serial_key_histories_table ................................................... 56.58ms DONE\r\n  2024_03_22_000001_add_provider_to_mail_configs_table ................................................... 5.20ms DONE\r\n  2024_05_01_000002_create_clients_table ................................................................ 43.58ms DONE\r\n  2024_05_01_000003_create_support_tickets_table ........................................................ 28.53ms DONE\r\n  2024_05_01_000004_create_ticket_replies_table ......................................................... 30.95ms DONE\r\n  2024_05_01_000005_create_payment_methods_table ........................................................ 37.93ms DONE\r\n  2024_05_01_000006_create_invoices_table ............................................................... 91.38ms DONE\r\n  2024_05_01_000007_create_invoice_items_table .......................................................... 31.04ms DONE\r\n  2024_05_10_000000_add_two_factor_columns_to_admins_table .............................................. 14.41ms DONE\r\n  2024_05_15_000001_create_notifications_table .......................................................... 18.75ms DONE\r\n  2024_05_20_000001_create_admin_role_table ............................................................. 51.53ms DONE\r\n  2025_04_02_160003_create_personal_access_tokens_table ................................................. 23.73ms DONE\r\n  2025_04_03_054922_make_admin_id_nullable_in_serial_key_histories_table ................................ 95.72ms DONE\r\n  2025_04_07_072637_create_admin_password_reset_tokens_table ............................................. 6.71ms DONE\r\n  2025_04_07_094844_add_content_column_to_email_templates ................................................ 8.27ms DONE\r\n  2025_04_07_110500_add_is_system_column_to_email_templates .............................................. 5.89ms DONE\r\n  2025_04_08_000001_add_is_super_admin_to_admins_table ................................................... 5.76ms DONE\r\n  2025_04_11_223351_create_cache_table ................................................................... 1.09ms FAIL\r\n\r\nIn Connection.php line 822:\r\n                                                                                                                       \r\n  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists (Connection: mysql, SQL: crea  \r\n  te table `cache` (`id` bigint unsigned not null auto_increment primary key, `created_at` timestamp null, `updated_a  \r\n  t` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci')                                       \r\n                                                                                                                       \r\n\r\nIn Connection.php line 568:\r\n                                                                                         \r\n  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists  \r\n                                                                                         \r\n\r\n",
+                    "STDOUT (migrate): \n   INFO  Running migrations.  \n\r\n  2025_04_11_223351_create_cache_table ................................................................... 7.05ms FAIL\r\n\r\nIn Connection.php line 822:\r\n                                                                                                                       \r\n  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists (Connection: mysql, SQL: crea  \r\n  te table `cache` (`id` bigint unsigned not null auto_increment primary key, `created_at` timestamp null, `updated_a  \r\n  t` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci')                                       \r\n                                                                                                                       \r\n\r\nIn Connection.php line 568:\r\n                                                                                         \r\n  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'cache' already exists  \r\n                                                                                         \r\n\r\n",
+                    "Created users table directly via SQL"
+                ]
+            },
+            {
+                "step": "seeders",
+                "status": true,
+                "message": "Database seeders run successfully",
+                "output": [
+                    "STDOUT: \n   INFO  Seeding database.  \n\r\n  Database\\Seeders\\RolesAndPermissionsSeeder ................................................................. RUNNING  \r\n  Database\\Seeders\\RolesAndPermissionsSeeder ............................................................. 202 ms DONE  \r\n\r\n  Database\\Seeders\\UsersSeeder ............................................................................... RUNNING  \r\n  Database\\Seeders\\UsersSeeder ........................................................................... 410 ms DONE  \r\n\r\n"
+                ]
+            },
+            {
+                "step": "admin_creation",
+                "status": true,
+                "message": "Admin user created successfully",
+                "output": [
+                    "STDOUT: \r\nIn ParseErrorException.php line 44:\r\n                                                                                        \r\n  PHP Parse error: Syntax error, unexpected '@', expecting ',' or ']' or ')' on line 1  \r\n                                                                                        \r\n\r\n",
+                    "Admin user created directly via SQL"
+                ]
+            },
+            {
+                "step": "installation_completed",
+                "status": true,
+                "message": "Installation completed successfully"
+            }
+        ]
+    }
+}
+

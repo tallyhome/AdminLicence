@@ -1,0 +1,198 @@
+{
+    "time": "2025-04-15 21:27:22",
+    "function": "test_db",
+    "host": "localhost",
+    "database": "adminlicencetest",
+    "username": "adminlicencetest"
+}
+
+{
+    "time": "2025-04-15 21:35:53",
+    "function": "test_db",
+    "host": "localhost",
+    "database": "adminlicencetest",
+    "username": "adminlicencetest"
+}
+
+{
+    "time": "2025-04-15 21:35:53",
+    "function": "update_env_db_config",
+    "status": "success",
+    "env_path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env"
+}
+
+{
+    "time": "2025-04-15 21:42:59",
+    "function": "test_db",
+    "host": "localhost",
+    "database": "adminlicencetest",
+    "username": "adminlicencetest"
+}
+
+{
+    "time": "2025-04-15 21:42:59",
+    "function": "update_env_db_config",
+    "status": "success",
+    "env_path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env"
+}
+
+{
+    "time": "2025-04-15 21:48:24",
+    "function": "test_db",
+    "host": "localhost",
+    "database": "adminlicencetest",
+    "username": "adminlicencetest"
+}
+
+{
+    "time": "2025-04-15 21:48:24",
+    "function": "update_env_db_config",
+    "status": "success",
+    "env_path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env"
+}
+
+{
+    "time": "2025-04-15 21:51:18",
+    "function": "test_db",
+    "host": "localhost",
+    "database": "adminlicencetest",
+    "username": "adminlicencetest"
+}
+
+ERREUR: SQLSTATE[HY000] [1045] Access denied for user 'adminlicencetest'@'localhost' (using password: YES)
+
+{
+    "time": "2025-04-15 21:51:22",
+    "function": "test_db",
+    "host": "localhost",
+    "database": "adminlicencetest",
+    "username": "adminlicencetest"
+}
+
+{
+    "time": "2025-04-15 21:51:22",
+    "function": "update_env_db_config",
+    "status": "success",
+    "env_path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env"
+}
+
+{
+    "time": "2025-04-15 21:53:29",
+    "function": "test_db",
+    "host": "localhost",
+    "database": "adminlicencetest",
+    "username": "adminlicencetest"
+}
+
+{
+    "time": "2025-04-15 21:53:29",
+    "function": "update_env_db_config",
+    "status": "success",
+    "env_path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env"
+}
+
+{
+    "time": "2025-04-15 22:00:47",
+    "function": "test_db",
+    "host": "localhost",
+    "database": "adminlicencetest",
+    "username": "adminlicencetest"
+}
+
+{
+    "time": "2025-04-15 22:00:47",
+    "function": "update_env_db_config",
+    "status": "success",
+    "env_path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env"
+}
+
+{
+    "time": "2025-04-15 22:07:35",
+    "function": "test_db",
+    "host": "localhost",
+    "database": "adminlicencetest",
+    "username": "adminlicencetest1"
+}
+
+ERREUR: SQLSTATE[HY000] [1045] Access denied for user 'adminlicencetest1'@'localhost' (using password: YES)
+
+{
+    "time": "2025-04-15 22:07:41",
+    "function": "test_db",
+    "host": "localhost",
+    "database": "adminlicencetest1",
+    "username": "adminlicencetest"
+}
+
+ERREUR: SQLSTATE[HY000] [1049] Unknown database 'adminlicencetest1'
+
+{
+    "time": "2025-04-15 22:07:47",
+    "function": "test_db",
+    "host": "localhost",
+    "database": "adminlicencetest",
+    "username": "adminlicencetest"
+}
+
+ERREUR: SQLSTATE[HY000] [1045] Access denied for user 'adminlicencetest'@'localhost' (using password: YES)
+
+{
+    "time": "2025-04-15 22:07:50",
+    "function": "test_db",
+    "host": "localhost",
+    "database": "adminlicencetest",
+    "username": "adminlicencetest"
+}
+
+{
+    "time": "2025-04-15 22:07:50",
+    "function": "update_env_db_config",
+    "status": "success",
+    "env_path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env"
+}
+
+{
+    "time": "2025-04-16 01:36:15",
+    "function": "test_db",
+    "host": "localhost",
+    "database": "adminlicencetest",
+    "username": "adminlicencetest"
+}
+
+{
+    "time": "2025-04-16 01:36:15",
+    "function": "update_env_db_config",
+    "status": "success",
+    "env_path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env"
+}
+
+{
+    "time": "2025-04-16 02:18:50",
+    "function": "test_db",
+    "host": "localhost",
+    "database": "adminlicencetest",
+    "username": "adminlicencetest"
+}
+
+{
+    "time": "2025-04-16 02:18:50",
+    "function": "update_env_db_config",
+    "status": "success",
+    "env_path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env"
+}
+
+{
+    "time": "2025-04-16 02:30:35",
+    "function": "test_db",
+    "host": "localhost",
+    "database": "adminlicencetest",
+    "username": "adminlicencetest"
+}
+
+{
+    "time": "2025-04-16 02:30:35",
+    "function": "update_env_db_config",
+    "status": "success",
+    "env_path": "R:\\Adev\\200  -  test\\adminlicence_saas\/.env"
+}
+

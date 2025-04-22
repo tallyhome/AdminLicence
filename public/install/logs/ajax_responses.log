@@ -1,0 +1,980 @@
+{
+    "time": "2025-04-15 20:54:23",
+    "license_key": "MEST-FM7A-BLGA-KLKP",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "3ce4d323bdda8b459cd07aa462434f35",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 20:54:22",
+            "Cl\u00e9 de licence: MEST-FM7A-BLGA-KLKP",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 226 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"3ce4d323bdda8b459cd07aa462434f35\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 21:00:35",
+    "license_key": "MEST-FM7A-BLGA-KLKP",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "6e1245eb846dd4eec8c124b345c5543d",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 21:00:35",
+            "Cl\u00e9 de licence: MEST-FM7A-BLGA-KLKP",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 160 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"6e1245eb846dd4eec8c124b345c5543d\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 21:02:56",
+    "license_key": "MEST-FM7A-BLGA-KLKP",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "e97d68c5e2f3f164f63d670dd8c8253d",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 21:02:55",
+            "Cl\u00e9 de licence: MEST-FM7A-BLGA-KLKP",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 135 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"e97d68c5e2f3f164f63d670dd8c8253d\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 21:06:37",
+    "license_key": "MEST-FM7A-BLGA-KLKP",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "63e80e697a469846e7234342c56f6cd8",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 21:06:36",
+            "Cl\u00e9 de licence: MEST-FM7A-BLGA-KLKP",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 140 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"63e80e697a469846e7234342c56f6cd8\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 21:10:28",
+    "license_key": "MEST-FM7A-BLGA-KLKP",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "3db209086c4483c9c9c99448d93b0b7a",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 21:10:28",
+            "Cl\u00e9 de licence: MEST-FM7A-BLGA-KLKP",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 153 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"3db209086c4483c9c9c99448d93b0b7a\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 21:11:06",
+    "license_key": "MEST-FM7A-BLGA-KLKP",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "694871af189779d66fcb9f5c61f5466b",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 21:11:06",
+            "Cl\u00e9 de licence: MEST-FM7A-BLGA-KLKP",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 113 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"694871af189779d66fcb9f5c61f5466b\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 21:11:31",
+    "license_key": "MEST-FM7A-BLGA-KLKP",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "c4933fd77db43a80ec79ea3abeb90b05",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 21:11:31",
+            "Cl\u00e9 de licence: MEST-FM7A-BLGA-KLKP",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 169 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"c4933fd77db43a80ec79ea3abeb90b05\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 21:17:17",
+    "license_key": "MEST-FM7A-BLGA-KLKP",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "00b829ac78d281a97664649da953a983",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 21:17:17",
+            "Cl\u00e9 de licence: MEST-FM7A-BLGA-KLKP",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 109 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"00b829ac78d281a97664649da953a983\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 21:24:55",
+    "license_key": "MEST-FM7A-BLGA-KLKP",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "a64dc7a6308fab6176e6df4cac722497",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 21:24:55",
+            "Cl\u00e9 de licence: MEST-FM7A-BLGA-KLKP",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 201 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"a64dc7a6308fab6176e6df4cac722497\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 21:26:21",
+    "license_key": "MEST-FM7A-BLGA-KLKP",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "da9b7100c65fa504e022f9793ee6b214",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 21:26:21",
+            "Cl\u00e9 de licence: MEST-FM7A-BLGA-KLKP",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 171 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"da9b7100c65fa504e022f9793ee6b214\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 21:35:07",
+    "license_key": "MEST-FM7A-BLGA-KLKP",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "e9053c708e955f1cf3d411acc3175e8f",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 21:35:07",
+            "Cl\u00e9 de licence: MEST-FM7A-BLGA-KLKP",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 151 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"e9053c708e955f1cf3d411acc3175e8f\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 21:35:27",
+    "license_key": "MEST-FM7A-BLGA-KLKP",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "7dab5142b4a5464c848b473f8ff40071",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 21:35:27",
+            "Cl\u00e9 de licence: MEST-FM7A-BLGA-KLKP",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 145 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"7dab5142b4a5464c848b473f8ff40071\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 21:42:47",
+    "license_key": "MEST-FM7A-BLGA-KLKP",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "d6872c0536918088f731af6a25be1002",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 21:42:46",
+            "Cl\u00e9 de licence: MEST-FM7A-BLGA-KLKP",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 155 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"d6872c0536918088f731af6a25be1002\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 21:48:20",
+    "license_key": "MEST-FM7A-BLGA-KLKP",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "3c22513c4107db20f8ff64864c941cef",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 21:48:20",
+            "Cl\u00e9 de licence: MEST-FM7A-BLGA-KLKP",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 152 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"3c22513c4107db20f8ff64864c941cef\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 21:51:11",
+    "license_key": "MEST-FM7A-BLGA-KLKP",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "082557df540e39f5c41b0d0255e2671e",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 21:51:11",
+            "Cl\u00e9 de licence: MEST-FM7A-BLGA-KLKP",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 115 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"082557df540e39f5c41b0d0255e2671e\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 21:53:09",
+    "license_key": "TNBH-DRDK-K9JG-H4RR",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "0c476c1f5f5905cb0e3cb2c36a25a72b",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 21:53:09",
+            "Cl\u00e9 de licence: TNBH-DRDK-K9JG-H4RR",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 198 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"0c476c1f5f5905cb0e3cb2c36a25a72b\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 21:57:34",
+    "license_key": "MEST-FM7A-BLGA-KLKP",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "1f9d70e74d2512e32d87f5219dcbf1c2",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 21:57:34",
+            "Cl\u00e9 de licence: MEST-FM7A-BLGA-KLKP",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 183 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"1f9d70e74d2512e32d87f5219dcbf1c2\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 22:00:40",
+    "license_key": "TNBH-DRDK-K9JG-H4RR",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "3de22e3112d966d72d3f139127cbad49",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 22:00:39",
+            "Cl\u00e9 de licence: TNBH-DRDK-K9JG-H4RR",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 125 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"3de22e3112d966d72d3f139127cbad49\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 22:04:51",
+    "license_key": "TNBH-DRDK-K9JG-H4RR",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "5b845344aa0f0a1735b6cc4f4a045d32",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 22:04:51",
+            "Cl\u00e9 de licence: TNBH-DRDK-K9JG-H4RR",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 139 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"5b845344aa0f0a1735b6cc4f4a045d32\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 22:07:14",
+    "license_key": "TNBH-DRDK-K9JG-H4RR",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "2449a11c8906c8e93a50430d8c1b626d",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 22:07:14",
+            "Cl\u00e9 de licence: TNBH-DRDK-K9JG-H4RR",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 141 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"2449a11c8906c8e93a50430d8c1b626d\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 22:10:10",
+    "license_key": "TNBH-DRDK-K9JG-H4RR",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "75b971bacf734f8b328e4931fa5c5154",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 22:10:10",
+            "Cl\u00e9 de licence: TNBH-DRDK-K9JG-H4RR",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 112 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"75b971bacf734f8b328e4931fa5c5154\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-15 22:13:38",
+    "license_key": "TNBH-DRDK-K9JG-H4RR",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "040b58182bb5791c2efc2506a0617c3b",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-15 22:13:38",
+            "Cl\u00e9 de licence: TNBH-DRDK-K9JG-H4RR",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 138 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"040b58182bb5791c2efc2506a0617c3b\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-16 01:36:11",
+    "license_key": "TNBH-DRDK-K9JG-H4RR",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "9061080e655992442e3d9a36e6747520",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-16 01:36:10",
+            "Cl\u00e9 de licence: TNBH-DRDK-K9JG-H4RR",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 177 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"9061080e655992442e3d9a36e6747520\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-16 01:39:39",
+    "license_key": "TNBH-DRDK-K9JG-H4RR",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "8b707c3991cec9d6bdd48b5205b89c35",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-16 01:39:39",
+            "Cl\u00e9 de licence: TNBH-DRDK-K9JG-H4RR",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 149 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"8b707c3991cec9d6bdd48b5205b89c35\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-16 01:43:53",
+    "license_key": "TNBH-DRDK-K9JG-H4RR",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "12c229290cea0243f67ff53da405c30a",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-16 01:43:52",
+            "Cl\u00e9 de licence: TNBH-DRDK-K9JG-H4RR",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 178 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"12c229290cea0243f67ff53da405c30a\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-16 01:44:54",
+    "license_key": "TNBH-DRDK-K9JG-H4RR",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "634dbd480bddec0096b6963ba3cfc684",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-16 01:44:54",
+            "Cl\u00e9 de licence: TNBH-DRDK-K9JG-H4RR",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 158 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"634dbd480bddec0096b6963ba3cfc684\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-16 01:51:44",
+    "license_key": "TNBH-DRDK-K9JG-H4RR",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "234825536df721bd5d7b74c341917faa",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-16 01:51:44",
+            "Cl\u00e9 de licence: TNBH-DRDK-K9JG-H4RR",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 156 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"234825536df721bd5d7b74c341917faa\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-16 02:00:58",
+    "license_key": "TNBH-DRDK-K9JG-H4RR",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "07c1752a43398e5f4801323f2567302e",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-16 02:00:58",
+            "Cl\u00e9 de licence: TNBH-DRDK-K9JG-H4RR",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 145 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"07c1752a43398e5f4801323f2567302e\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-16 02:06:10",
+    "license_key": "TNBH-DRDK-K9JG-H4RR",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "a28a911206d931aeaef0406e0e77d750",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-16 02:06:10",
+            "Cl\u00e9 de licence: TNBH-DRDK-K9JG-H4RR",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 119 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"a28a911206d931aeaef0406e0e77d750\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-16 02:14:04",
+    "license_key": "TNBH-DRDK-K9JG-H4RR",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "41e74d176c1dc84e4c57743f5fc06ee0",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-16 02:14:04",
+            "Cl\u00e9 de licence: TNBH-DRDK-K9JG-H4RR",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 98 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"41e74d176c1dc84e4c57743f5fc06ee0\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-16 02:18:46",
+    "license_key": "TNBH-DRDK-K9JG-H4RR",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "776a3cb9906e549a7bf50852cc38f557",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-16 02:18:45",
+            "Cl\u00e9 de licence: TNBH-DRDK-K9JG-H4RR",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 105 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"776a3cb9906e549a7bf50852cc38f557\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-16 02:22:14",
+    "license_key": "TNBH-DRDK-K9JG-H4RR",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "b02b7806d0bfb818d947461f28921899",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-16 02:22:14",
+            "Cl\u00e9 de licence: TNBH-DRDK-K9JG-H4RR",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 106 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"b02b7806d0bfb818d947461f28921899\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-16 02:26:03",
+    "license_key": "TNBH-DRDK-K9JG-H4RR",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "98ef0cf697987a1079ade374d69d7f03",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-16 02:26:03",
+            "Cl\u00e9 de licence: TNBH-DRDK-K9JG-H4RR",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 104 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"98ef0cf697987a1079ade374d69d7f03\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-16 02:30:30",
+    "license_key": "TNBH-DRDK-K9JG-H4RR",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "141e720357e1bcc8385edb864e66498c",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-16 02:30:30",
+            "Cl\u00e9 de licence: TNBH-DRDK-K9JG-H4RR",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 97 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"141e720357e1bcc8385edb864e66498c\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-04-16 02:42:42",
+    "license_key": "TNBH-DRDK-K9JG-H4RR",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "009716863b51650d07fc5a4765b96178",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-04-16 02:42:41",
+            "Cl\u00e9 de licence: TNBH-DRDK-K9JG-H4RR",
+            "Domaine: 127.0.0.1",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 193 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"009716863b51650d07fc5a4765b96178\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+

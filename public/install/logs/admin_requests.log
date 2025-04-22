@@ -1,0 +1,48 @@
+{
+    "time": "2025-04-16 02:45:15",
+    "function": "save_admin",
+    "method": "POST",
+    "post_data": {
+        "project_url": "http:\/\/127.0.0.1:8000\/",
+        "email": "tally@obione.net",
+        "password": "123",
+        "confirm_password": "123"
+    }
+}
+
+{
+    "time": "2025-04-16 02:49:39",
+    "function": "save_admin",
+    "method": "POST",
+    "post_data": {
+        "project_url": "http:\/\/127.0.0.1:8000\/",
+        "email": "tally@obione.net",
+        "password": "123",
+        "confirm_password": "123"
+    }
+}
+
+{
+    "time": "2025-04-16 02:50:32",
+    "function": "save_admin",
+    "method": "POST",
+    "post_data": {
+        "project_url": "http:\/\/127.0.0.1:8000\/",
+        "email": "tally@obione.net",
+        "password": "123",
+        "confirm_password": "123"
+    }
+}
+
+{
+    "time": "2025-04-16 02:52:15",
+    "function": "save_admin",
+    "method": "POST",
+    "post_data": {
+        "project_url": "http:\/\/127.0.0.1:8000\/",
+        "email": "tally@obione.net",
+        "password": "123",
+        "confirm_password": "123"
+    }
+}
+

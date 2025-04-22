@@ -1,0 +1,82 @@
+{
+    "time": "2025-04-15 22:10:30",
+    "function": "install_start",
+    "data": {
+        "install_step": 5,
+        "project_root": "R:\\Adev\\200  -  test\\adminlicence_saas",
+        "project_type": "laravel",
+        "has_env": true,
+        "has_vendor": true,
+        "license_key": "TNBH-DRDK-K9JG-H4RR",
+        "license_valid": true,
+        "license_expiry": null,
+        "license_token": "75b971bacf734f8b328e4931fa5c5154",
+        "license_project": "",
+        "db_config": {
+            "host": "localhost",
+            "database": "adminlicencetest",
+            "username": "adminlicencetest",
+            "password": "Fab@250872"
+        },
+        "db_tested": true,
+        "admin_config": {
+            "project_url": "http:\/\/127.0.0.1:8000\/",
+            "email": "tally@obione.net",
+            "password": "123"
+        },
+        "admin_saved": true
+    }
+}
+
+{
+    "time": "2025-04-15 22:10:30",
+    "function": "database_connection",
+    "data": {
+        "success": true
+    }
+}
+
+{
+    "time": "2025-04-15 22:10:30",
+    "function": "create_users_table",
+    "data": {
+        "success": true
+    }
+}
+
+{
+    "time": "2025-04-15 22:10:30",
+    "function": "create_admin_user",
+    "data": {
+        "success": true,
+        "email": "tally@obione.net"
+    }
+}
+
+{
+    "time": "2025-04-15 22:10:30",
+    "function": "installation_completed",
+    "data": {
+        "success": true,
+        "steps": [
+            {
+                "step": "admin_creation",
+                "status": true,
+                "message": "Admin user created successfully",
+                "output": []
+            },
+            {
+                "step": "migrations",
+                "status": true,
+                "message": "Database setup completed successfully",
+                "output": []
+            },
+            {
+                "step": "installation_completed",
+                "status": true,
+                "message": "Installation completed successfully"
+            }
+        ]
+    }
+}
+

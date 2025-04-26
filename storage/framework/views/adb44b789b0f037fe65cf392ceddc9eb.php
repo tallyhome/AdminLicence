@@ -124,51 +124,53 @@
         <div class="col-12">
             <div class="card shadow">
                 <div class="card-header py-3 d-flex justify-content-between align-items-center">
-                    <h6 class="m-0 font-weight-bold text-primary"><?php echo e(__('Utilisation des clés par projet')); ?></h6>
+                    <h6 class="m-0 font-weight-bold text-primary"><?php echo e(t('dashboard.keys_usage_by_project')); ?></h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th><?php echo e(__('Projet')); ?></th>
-                                    <th><?php echo e(__('Clés totales')); ?></th>
-                                    <th><?php echo e(__('Clés utilisées')); ?></th>
-                                    <th><?php echo e(__('Clés disponibles')); ?></th>
-                                    <th><?php echo e(__('Statut')); ?></th>
+                                    <th><?php echo e(t('projects.project')); ?></th>
+                                    <th><?php echo e(t('dashboard.total_keys')); ?></th>
+                                    <th><?php echo e(t('dashboard.used_keys')); ?></th>
+                                    <th><?php echo e(t('dashboard.available_keys')); ?></th>
+                                    <th><?php echo e(t('common.status')); ?></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $__currentLoopData = $projectStats; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $project): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
                                     <td><?php echo e($project->name); ?></td>
-                                    <td><?php echo e($project->serialKeys_count); ?></td>
+                                    <td><?php echo e($project->serial_keys_count); ?></td>
                                     <td><?php echo e($project->used_keys_count); ?></td>
                                     <td><?php echo e($project->available_keys_count); ?></td>
                                     <td>
-                                        <?php if($project->serialKeys_count > 0): ?>
+                                        <?php if($project->serial_keys_count > 0): ?>
                                             <div class="progress mb-2" style="height: 20px;">
                                                 <?php
-                                                    $usedPercentage = ($project->used_keys_count / $project->serialKeys_count) * 100;
+                                                    $usedPercentage = ($project->used_keys_count / $project->serial_keys_count) * 100;
                                                     $availablePercentage = 100 - $usedPercentage;
                                                     $progressClass = $project->is_running_low ? 'bg-danger' : 'bg-success';
                                                 ?>
                                                 <div class="progress-bar bg-primary" role="progressbar" style="width: <?php echo e($usedPercentage); ?>%" 
                                                      aria-valuenow="<?php echo e($usedPercentage); ?>" aria-valuemin="0" aria-valuemax="100">
-                                                    <?php echo e(round($usedPercentage)); ?>% utilisées
+                                                    <?php echo e(round($usedPercentage)); ?>% <?php echo e(t('dashboard.used')); ?>
+
                                                 </div>
                                                 <div class="progress-bar <?php echo e($progressClass); ?>" role="progressbar" style="width: <?php echo e($availablePercentage); ?>%" 
                                                      aria-valuenow="<?php echo e($availablePercentage); ?>" aria-valuemin="0" aria-valuemax="100">
-                                                    <?php echo e(round($availablePercentage)); ?>% disponibles
+                                                    <?php echo e(round($availablePercentage)); ?>% <?php echo e(t('dashboard.available')); ?>
+
                                                 </div>
                                             </div>
                                             <?php if($project->is_running_low): ?>
-                                                <span class="badge bg-danger"><?php echo e(__('Stock faible')); ?></span>
+                                                <span class="badge bg-danger"><?php echo e(t('dashboard.low_stock')); ?></span>
                                             <?php else: ?>
-                                                <span class="badge bg-success"><?php echo e(__('Stock suffisant')); ?></span>
+                                                <span class="badge bg-success"><?php echo e(t('dashboard.sufficient_stock')); ?></span>
                                             <?php endif; ?>
                                         <?php else: ?>
-                                            <span class="badge bg-secondary"><?php echo e(__('Aucune clé')); ?></span>
+                                            <span class="badge bg-secondary"><?php echo e(t('dashboard.no_keys')); ?></span>
                                         <?php endif; ?>
                                     </td>
                                 </tr>

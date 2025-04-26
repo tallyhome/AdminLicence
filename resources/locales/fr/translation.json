@@ -22,6 +22,7 @@
         "error": "Erreur",
         "warning": "Avertissement",
         "info": "Information",
+        "total": "Total",
         "next": "Suivant",
         "previous": "Précédent",
         "search": "Rechercher",
@@ -30,7 +31,28 @@
         "view": "Voir",
         "settings": "Paramètres",
         "profile": "Profil",
-        "notifications": "Notifications"
+        "notifications": "Notifications",
+        "login": "Connexion",
+        "submit": "Envoyer",
+        "loading": "Chargement...",
+        "manage": "Gérer",
+        "information": "Information"
+    },
+    "layout": {
+        "support": "Support",
+        "tickets": "Tickets",
+        "super_admin_tickets": "Tickets Super Admin",
+        "documentation": "Documentation",
+        "keys_documentation": "Documentation des clés",
+        "email_providers_documentation": "Documentation des fournisseurs d'email",
+        "saas_documentation": "Documentation SaaS multiutilisateur",
+        "version_info": "Informations de version",
+        "general": "Général",
+        "two_factor_auth": "Authentification à deux facteurs",
+        "version": "Version",
+        "toggle_navigation": "Toggle navigation",
+        "created_by": "Created by",
+        "all_rights_reserved": "All rights reserved"
     },
     "auth": {
         "login": "Connexion",
@@ -45,7 +67,10 @@
         "confirm_password": "Confirmer le mot de passe",
         "current_password": "Mot de passe actuel",
         "new_password": "Nouveau mot de passe",
-        "password_confirmation": "Confirmation du mot de passe"
+        "password_confirmation": "Confirmation du mot de passe",
+        "name": "Name",
+        "already_registered": "Already registered?",
+        "send_password_reset_link": "Send password reset link"
     },
     "dashboard": {
         "title": "Tableau de bord",
@@ -53,26 +78,71 @@
         "total_projects": "Projets totaux",
         "total_keys": "Clés totales",
         "active_keys": "Clés actives",
+        "used_keys": "Clés utilisées",
+        "suspended_keys": "Clés suspendues",
+        "revoked_keys": "Clés révoquées",
+        "keys_usage_by_project": "Utilisation des clés par projet",
+        "available_keys": "Clés disponibles",
+        "keys_usage_last_30_days": "Utilisation des clés (30 derniers jours)",
+        "distribution_by_project": "Répartition par projet",
+        "used": "utilisées",
+        "available": "disponibles",
+        "low_stock": "Stock faible",
+        "sufficient_stock": "Stock suffisant",
+        "no_keys": "Aucune clé",
+        "activations": "Activations",
+        "deactivations": "Désactivations",
         "recent_activity": "Activité récente",
         "statistics": "Statistiques",
         "quick_actions": "Actions rapides",
         "system_status": "État du système",
-        "last_login": "Dernière connexion"
+        "last_login": "Dernière connexion",
+        "recent_keys": "Clés récentes",
+        "projects_count": "Projects"
+    },
+    "pagination": {
+        "per_page": ":number par page",
+        "showing": "Affichage de :first à :last sur :total résultats",
+        "next": "Suivant",
+        "previous": "Précédent",
+        "first": "Premier",
+        "last": "Dernier",
+        "to": "to",
+        "of": "of",
+        "results": "results"
     },
     "projects": {
-        "title": "Projets",
+        "title": "Gestion des Projets",
         "create_project": "Créer un projet",
         "edit_project": "Modifier le projet",
         "project_name": "Nom du projet",
         "project_description": "Description du projet",
         "project_status": "Statut du projet",
+        "project": "Projet",
         "active": "Actif",
         "inactive": "Inactif",
         "no_projects": "Aucun projet trouvé",
         "project_details": "Détails du projet",
         "project_settings": "Paramètres du projet",
         "project_keys": "Clés du projet",
-        "project_activity": "Activité du projet"
+        "project_activity": "Activité du projet",
+        "project_information": "Informations du projet",
+        "no_description": "Aucune description",
+        "website_url": "URL du site",
+        "not_specified": "Non spécifiée",
+        "creation_date": "Date de création",
+        "last_update": "Dernière mise à jour",
+        "delete_project": "Supprimer le projet",
+        "delete_confirmation": "Êtes-vous sûr de vouloir supprimer ce projet ? Cette action est irréversible.",
+        "creation_form": "Formulaire de création",
+        "edit_form": "Formulaire de modification",
+        "save_changes": "Enregistrer les modifications",
+        "name": "Nom",
+        "description": "Description",
+        "created_at": "Créé le",
+        "actions": "Actions",
+        "create_new": "Créer un nouveau projet",
+        "details": "Détails du projet"
     },
     "serial_keys": {
         "title": "Clés de série",
@@ -87,9 +157,18 @@
         "active": "Active",
         "inactive": "Inactive",
         "expired": "Expirée",
+        "suspended": "Suspendue",
+        "revoked": "Révoquée",
         "key_details": "Détails de la clé",
         "key_usage": "Utilisation de la clé",
-        "key_history": "Historique de la clé"
+        "key_history": "Historique de la clé",
+        "hardware_id": "ID Matériel",
+        "created_at": "Créé le",
+        "actions": "Actions",
+        "create_new": "Créer une nouvelle clé",
+        "details": "Détails de la clé",
+        "activate": "Activer",
+        "deactivate": "Désactiver"
     },
     "api": {
         "title": "Documentation API",
@@ -98,11 +177,18 @@
         "method": "Méthode",
         "parameters": "Paramètres",
         "response": "Réponse",
+        "api_keys": "Clés API",
+        "active_keys": "Actives",
+        "revoked_keys": "Révoquées",
+        "create_key": "Créer une clé API",
         "example": "Exemple",
         "authentication": "Authentification",
         "rate_limits": "Limites de taux",
         "error_codes": "Codes d'erreur",
-        "testing": "Test de l'API"
+        "testing": "Test de l'API",
+        "documentation": "Documentation API",
+        "endpoints": "Endpoints",
+        "request": "Requête"
     },
     "email": {
         "title": "Configuration Email",
@@ -118,7 +204,11 @@
         "test_email": "Envoyer un email de test",
         "templates": "Templates",
         "logs": "Journaux",
-        "queue": "File d'attente"
+        "queue": "File d'attente",
+        "greeting": "Hello!",
+        "regards": "Regards",
+        "trouble_clicking": "If you're having trouble clicking the button, copy and paste the URL below into your web browser:",
+        "all_rights_reserved": "All rights reserved."
     },
     "subscription": {
         "plans": "Plans d'abonnement",
@@ -132,7 +222,11 @@
         "billing": "Facturation",
         "usage": "Utilisation",
         "limits": "Limites",
-        "history": "Historique"
+        "history": "Historique",
+        "payment_method": "Payment method",
+        "update_payment_method": "Update payment method",
+        "billing_history": "Billing history",
+        "invoice": "Invoice"
     },
     "language": {
         "select": "Sélectionner la langue",
@@ -149,7 +243,10 @@
         "tr": "Turc",
         "ar": "Arabe",
         "changed_successfully": "La langue a été changée avec succès",
-        "invalid_locale": "La langue sélectionnée n'est pas disponible"
+        "invalid_locale": "La langue sélectionnée n'est pas disponible",
+        "already_active": "Cette langue est déjà active",
+        "change_language": "Changer de langue",
+        "language_changed": "La langue a été changée avec succès"
     },
     "install": {
         "title": "Assistant d'installation",
@@ -193,6 +290,10 @@
         "complete_message": "AdminLicence a été installé avec succès. Vous pouvez maintenant vous connecter à votre compte administrateur.",
         "go_to_login": "Aller à la page de connexion",
         "installation_complete": "Installation terminée avec succès !",
-        "go_to_site": "Aller au site"
+        "go_to_site": "Aller au site",
+        "finish": "Finish",
+        "next_step": "Next step",
+        "previous_step": "Previous step",
+        "install": "Install"
     }
 }

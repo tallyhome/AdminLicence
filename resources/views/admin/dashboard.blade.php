@@ -126,51 +126,51 @@
         <div class="col-12">
             <div class="card shadow">
                 <div class="card-header py-3 d-flex justify-content-between align-items-center">
-                    <h6 class="m-0 font-weight-bold text-primary">{{ __('Utilisation des clés par projet') }}</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">{{ t('dashboard.keys_usage_by_project') }}</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>{{ __('Projet') }}</th>
-                                    <th>{{ __('Clés totales') }}</th>
-                                    <th>{{ __('Clés utilisées') }}</th>
-                                    <th>{{ __('Clés disponibles') }}</th>
-                                    <th>{{ __('Statut') }}</th>
+                                    <th>{{ t('projects.project') }}</th>
+                                    <th>{{ t('dashboard.total_keys') }}</th>
+                                    <th>{{ t('dashboard.used_keys') }}</th>
+                                    <th>{{ t('dashboard.available_keys') }}</th>
+                                    <th>{{ t('common.status') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($projectStats as $project)
                                 <tr>
                                     <td>{{ $project->name }}</td>
-                                    <td>{{ $project->serialKeys_count }}</td>
+                                    <td>{{ $project->serial_keys_count }}</td>
                                     <td>{{ $project->used_keys_count }}</td>
                                     <td>{{ $project->available_keys_count }}</td>
                                     <td>
-                                        @if($project->serialKeys_count > 0)
+                                        @if($project->serial_keys_count > 0)
                                             <div class="progress mb-2" style="height: 20px;">
                                                 @php
-                                                    $usedPercentage = ($project->used_keys_count / $project->serialKeys_count) * 100;
+                                                    $usedPercentage = ($project->used_keys_count / $project->serial_keys_count) * 100;
                                                     $availablePercentage = 100 - $usedPercentage;
                                                     $progressClass = $project->is_running_low ? 'bg-danger' : 'bg-success';
                                                 @endphp
                                                 <div class="progress-bar bg-primary" role="progressbar" style="width: {{ $usedPercentage }}%" 
                                                      aria-valuenow="{{ $usedPercentage }}" aria-valuemin="0" aria-valuemax="100">
-                                                    {{ round($usedPercentage) }}% utilisées
+                                                    {{ round($usedPercentage) }}% {{ t('dashboard.used') }}
                                                 </div>
                                                 <div class="progress-bar {{ $progressClass }}" role="progressbar" style="width: {{ $availablePercentage }}%" 
                                                      aria-valuenow="{{ $availablePercentage }}" aria-valuemin="0" aria-valuemax="100">
-                                                    {{ round($availablePercentage) }}% disponibles
+                                                    {{ round($availablePercentage) }}% {{ t('dashboard.available') }}
                                                 </div>
                                             </div>
                                             @if($project->is_running_low)
-                                                <span class="badge bg-danger">{{ __('Stock faible') }}</span>
+                                                <span class="badge bg-danger">{{ t('dashboard.low_stock') }}</span>
                                             @else
-                                                <span class="badge bg-success">{{ __('Stock suffisant') }}</span>
+                                                <span class="badge bg-success">{{ t('dashboard.sufficient_stock') }}</span>
                                             @endif
                                         @else
-                                            <span class="badge bg-secondary">{{ __('Aucune clé') }}</span>
+                                            <span class="badge bg-secondary">{{ t('dashboard.no_keys') }}</span>
                                         @endif
                                     </td>
                                 </tr>

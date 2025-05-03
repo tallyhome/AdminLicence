@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\VersionController;
 use App\Http\Controllers\Admin\ApiDocumentationController;
 use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\ClientExampleController;
+use App\Http\Controllers\Admin\TranslationController;
 use App\Http\Controllers\Admin\EmailVariableController;
 use Illuminate\Support\Facades\Route;
 
@@ -183,6 +184,23 @@ Route::middleware('auth:admin')->group(function () {
 
     // Route pour le changement de langue
     Route::post('set-language', [LanguageController::class, 'setLanguage'])->name('admin.set.language');
+
+    // Routes pour la gestion des traductions
+    Route::prefix('settings/translations')->name('admin.settings.translations.')->group(function () {
+        Route::get('/', [TranslationController::class, 'index'])->name('index');
+        Route::get('/create', [TranslationController::class, 'create'])->name('create');
+        Route::post('/', [TranslationController::class, 'store'])->name('store');
+        Route::put('/', [TranslationController::class, 'update'])->name('update');
+        Route::delete('/', [TranslationController::class, 'destroy'])->name('destroy');
+    });
+    
+    // Routes pour les traductions
+    Route::prefix('translations')->name('admin.translations.')->group(function () {
+        Route::get('/', [TranslationController::class, 'index'])->name('index');
+        Route::post('/', [TranslationController::class, 'store'])->name('store');
+        Route::put('/', [TranslationController::class, 'update'])->name('update');
+        Route::delete('/', [TranslationController::class, 'destroy'])->name('destroy');
+    });
 
     // Routes pour les paramètres généraux
     Route::get('settings', [SettingsController::class, 'index'])->name('admin.settings.index');

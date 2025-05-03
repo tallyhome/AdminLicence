@@ -3,6 +3,7 @@
         "dashboard": "ダッシュボード",
         "projects": "プロジェクト",
         "serial_keys": "シリアルキー",
+        "api_keys": "APIキー",
         "api_documentation": "APIドキュメント",
         "email": "メール",
         "logout": "ログアウト",

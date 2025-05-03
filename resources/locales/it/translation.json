@@ -3,6 +3,7 @@
         "dashboard": "Dashboard",
         "projects": "Progetti",
         "serial_keys": "Chiavi seriali",
+        "api_keys": "Chiavi API",
         "api_documentation": "Documentazione API",
         "email": "Email",
         "logout": "Disconnetti",

@@ -3,6 +3,7 @@
         "dashboard": "仪表盘",
         "projects": "项目",
         "serial_keys": "序列密钥",
+        "api_keys": "API密钥",
         "api_documentation": "API文档",
         "email": "电子邮件",
         "logout": "退出登录",

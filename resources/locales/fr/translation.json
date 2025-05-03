@@ -1,8 +1,10 @@
 {
     "common": {
+        "add": "Ajouter",
         "dashboard": "Tableau de bord",
         "projects": "Projets",
         "serial_keys": "Clés de série",
+        "api_keys": "Clés API",
         "api_documentation": "Documentation API",
         "email": "Email",
         "logout": "Déconnexion",
@@ -37,6 +39,23 @@
         "loading": "Chargement...",
         "manage": "Gérer",
         "information": "Information"
+    },
+    "translations": {
+        "title": "Gestion des traductions",
+        "add_translation": "Ajouter une traduction",
+        "available_translations": "Traductions disponibles",
+        "file": "Fichier",
+        "key": "Clé",
+        "translation": "Traduction",
+        "file_placeholder": "Nom du fichier (ex: common, validation)",
+        "key_placeholder": "Identifiant unique",
+        "value_placeholder": "Texte traduit",
+        "delete_confirm": "Êtes-vous sûr de vouloir supprimer cette traduction ?",
+        "file_required": "Veuillez saisir un nom de fichier",
+        "key_required": "Veuillez saisir une clé",
+        "value_required": "Veuillez saisir une traduction",
+        "language": "Langue",
+        "select_language": "Sélectionner une langue"
     },
     "layout": {
         "support": "Support",
@@ -98,6 +117,10 @@
         "system_status": "État du système",
         "last_login": "Dernière connexion",
         "recent_keys": "Clés récentes",
+        "usage": "Utilisation",
+        "charts": "Graphiques",
+        "usage_chart": "Graphique d'utilisation",
+        "project_distribution_chart": "Graphique de répartition par projet",
         "projects_count": "Projects"
     },
     "pagination": {

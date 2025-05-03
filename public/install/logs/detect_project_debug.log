@@ -1516,3 +1516,81 @@
     }
 }
 
+{
+    "time": "2025-04-28 20:48:13",
+    "function": "detect_project_request",
+    "method": "GET",
+    "query": {
+        "ajax": "1"
+    },
+    "server": {
+        "DOCUMENT_ROOT": "R:\\Adev\\200  -  test\\adminlicence\\public",
+        "REMOTE_ADDR": "127.0.0.1",
+        "REMOTE_PORT": "61029",
+        "SERVER_SOFTWARE": "PHP 8.2.12 Development Server",
+        "SERVER_PROTOCOL": "HTTP\/1.1",
+        "SERVER_NAME": "127.0.0.1",
+        "SERVER_PORT": "8000",
+        "REQUEST_URI": "\/install\/ajax\/detect_project.php?ajax=1",
+        "REQUEST_METHOD": "GET",
+        "SCRIPT_NAME": "\/install\/ajax\/detect_project.php",
+        "SCRIPT_FILENAME": "R:\\Adev\\200  -  test\\adminlicence\\public\\install\\ajax\\detect_project.php",
+        "PHP_SELF": "\/install\/ajax\/detect_project.php",
+        "QUERY_STRING": "ajax=1",
+        "HTTP_HOST": "127.0.0.1:8000",
+        "HTTP_USER_AGENT": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+        "HTTP_ACCEPT": "application\/json, text\/javascript, *\/*; q=0.01",
+        "HTTP_ACCEPT_LANGUAGE": "fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3",
+        "HTTP_ACCEPT_ENCODING": "gzip, deflate, br, zstd",
+        "HTTP_X_REQUESTED_WITH": "XMLHttpRequest",
+        "HTTP_DNT": "1",
+        "HTTP_CONNECTION": "keep-alive",
+        "HTTP_REFERER": "http:\/\/127.0.0.1:8000\/install\/index.php?step=2",
+        "HTTP_COOKIE": "locale=pt; io=2G6p8qMg8xwIN3JpAAAD; TawkConnectionTime=0; PHPSESSID=hcsc3m94mlr88j37gd0i4rd5nd",
+        "HTTP_SEC_FETCH_DEST": "empty",
+        "HTTP_SEC_FETCH_MODE": "cors",
+        "HTTP_SEC_FETCH_SITE": "same-origin",
+        "REQUEST_TIME_FLOAT": 1745866093.723028,
+        "REQUEST_TIME": 1745866093
+    }
+}
+
+{
+    "time": "2025-05-02 17:36:03",
+    "function": "detect_project_request",
+    "method": "GET",
+    "query": {
+        "ajax": "1"
+    },
+    "server": {
+        "DOCUMENT_ROOT": "R:\\Adev\\200  -  test\\adminlicence\\public",
+        "REMOTE_ADDR": "127.0.0.1",
+        "REMOTE_PORT": "56915",
+        "SERVER_SOFTWARE": "PHP 8.2.12 Development Server",
+        "SERVER_PROTOCOL": "HTTP\/1.1",
+        "SERVER_NAME": "127.0.0.1",
+        "SERVER_PORT": "8000",
+        "REQUEST_URI": "\/install\/ajax\/detect_project.php?ajax=1",
+        "REQUEST_METHOD": "GET",
+        "SCRIPT_NAME": "\/install\/ajax\/detect_project.php",
+        "SCRIPT_FILENAME": "R:\\Adev\\200  -  test\\adminlicence\\public\\install\\ajax\\detect_project.php",
+        "PHP_SELF": "\/install\/ajax\/detect_project.php",
+        "QUERY_STRING": "ajax=1",
+        "HTTP_HOST": "127.0.0.1:8000",
+        "HTTP_USER_AGENT": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+        "HTTP_ACCEPT": "application\/json, text\/javascript, *\/*; q=0.01",
+        "HTTP_ACCEPT_LANGUAGE": "fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3",
+        "HTTP_ACCEPT_ENCODING": "gzip, deflate, br, zstd",
+        "HTTP_X_REQUESTED_WITH": "XMLHttpRequest",
+        "HTTP_DNT": "1",
+        "HTTP_CONNECTION": "keep-alive",
+        "HTTP_REFERER": "http:\/\/127.0.0.1:8000\/install\/index.php?step=2",
+        "HTTP_COOKIE": "locale=pt; io=2G6p8qMg8xwIN3JpAAAD; TawkConnectionTime=0; PHPSESSID=hcsc3m94mlr88j37gd0i4rd5nd; XSRF-TOKEN=eyJpdiI6Inh1bzU0eEZCZ2RTMDVmVDZSRjZ6THc9PSIsInZhbHVlIjoiN1V6Q3ZLM1VHaVMwV29IWGVQOE9FTDhsSHN3ejZpOHlEdStoZnp0U0g5ay9QZkhkWjZmckhkU2hINVNRU1c1M0NPZGN5M1c0QTlYMVNQeFRmRWlJL05uMUVVYWM4VSs0Uk1lWlhaT2VwSnJwN3VYZ3JvMUppWWFaR1VqWUl6czAiLCJtYWMiOiI0ZDAxYmVhMmUyMjQ4MTg1YTIyMWEzMzdkODRlNmI3ZmI3YzdhMjM1ZWJhMjc1Yzk4NzAwY2M2MmZiYzI0NDZlIiwidGFnIjoiIn0%3D; adminlicence_session=eyJpdiI6IlZ0SkRvZzY1anlMT1JjSGpiVCswK1E9PSIsInZhbHVlIjoiUlJJeDRLeXljdktIM0xUSlk0akFMOGlscnRaVXFJajE2OU5DUWlrY2h4K3hFSVMxaSt3aXNvcGdML2w4ODA3cjNDYzE0UmhGa0YzS25XVFYzQ0o2UkZOeUZxdSsvczdySUVMWHRpMzcvVm4zT1pKa1B6WnlEa0hlUnJ6K1plSHQiLCJtYWMiOiJkYmVjMGZhN2RmYmExMjZkODBiODVjNzRmNTE4Njg4ZDQ0ODMxYjI0YzBiYzUwZGIwYzJkMDE5MmIxYTVmZTYzIiwidGFnIjoiIn0%3D",
+        "HTTP_SEC_FETCH_DEST": "empty",
+        "HTTP_SEC_FETCH_MODE": "cors",
+        "HTTP_SEC_FETCH_SITE": "same-origin",
+        "REQUEST_TIME_FLOAT": 1746200163.69468,
+        "REQUEST_TIME": 1746200163
+    }
+}
+

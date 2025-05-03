@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', __('Tableau de bord'))
+@section('title', t('dashboard.title'))
 
 @section('styles')
 <style>
@@ -23,7 +23,7 @@
 @section('content')
 <div class="container-fluid">
 
-    <!-- Cartes de statistiques -->
+    <!-- {{ t('dashboard.statistics') }} -->
     <div class="row">
         <div class="col-xl col-lg-4 col-md-6 mb-4">
             <a href="{{ route('admin.serial-keys.index') }}" class="text-decoration-none card-link">
@@ -32,7 +32,7 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    {{ __('Clés totales') }}</div>
+                                    {{ t('dashboard.total_keys') }}</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $stats['total_keys'] }}</div>
                             </div>
                             <div class="col-auto">
@@ -51,7 +51,7 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    {{ __('Clés actives') }}</div>
+                                    {{ t('dashboard.active_keys') }}</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $stats['active_keys'] }}</div>
                             </div>
                             <div class="col-auto">
@@ -70,7 +70,7 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                    {{ __('Clés utilisées') }}</div>
+                                    {{ t('dashboard.used_keys') }}</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $stats['used_keys'] }}</div>
                             </div>
                             <div class="col-auto">
@@ -89,7 +89,7 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                    {{ __('Clés suspendues') }}</div>
+                                    {{ t('dashboard.suspended_keys') }}</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $stats['suspended_keys'] }}</div>
                             </div>
                             <div class="col-auto">
@@ -108,7 +108,7 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                    {{ __('Clés révoquées') }}</div>
+                                    {{ t('dashboard.revoked_keys') }}</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $stats['revoked_keys'] }}</div>
                             </div>
                             <div class="col-auto">
@@ -121,7 +121,7 @@
         </div>
     </div>
 
-    <!-- Statistiques des clés par projet -->
+    <!-- {{ t('dashboard.keys_usage_by_project') }} -->
     <div class="row mb-4">
         <div class="col-12">
             <div class="card shadow">
@@ -183,12 +183,12 @@
         </div>
     </div>
 
-    <!-- Graphiques -->
+    <!-- {{ t('dashboard.charts') }} -->
     <div class="row">
         <div class="col-xl-8 col-lg-7">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">{{ __('Utilisation des clés (30 derniers jours)') }}</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">{{ t('dashboard.keys_usage_last_30_days') }}</h6>
                 </div>
                 <div class="card-body">
                     <div class="chart-area">
@@ -201,7 +201,7 @@
         <div class="col-xl-4 col-lg-5">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">{{ __('Répartition par projet') }}</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">{{ t('dashboard.distribution_by_project') }}</h6>
                 </div>
                 <div class="card-body">
                     <div class="chart-pie pt-4">
@@ -212,18 +212,18 @@
         </div>
     </div>
 
-    <!-- Tableau des clés récentes -->
+    <!-- {{ t('dashboard.recent_keys') }} -->
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex justify-content-between align-items-center">
-            <h6 class="m-0 font-weight-bold text-primary">{{ __('Clés récentes') }}</h6>
+            <h6 class="m-0 font-weight-bold text-primary">{{ t('dashboard.recent_keys') }}</h6>
             <div>
                 <select class="form-select" id="perPageSelect" onchange="window.location.href='{{ route('admin.dashboard') }}?per_page=' + this.value">
-                    <option value="10" {{ $validPerPage == 10 ? 'selected' : '' }}>10 par page</option>
-                    <option value="25" {{ $validPerPage == 25 ? 'selected' : '' }}>25 par page</option>
-                    <option value="50" {{ $validPerPage == 50 ? 'selected' : '' }}>50 par page</option>
-                    <option value="100" {{ $validPerPage == 100 ? 'selected' : '' }}>100 par page</option>
-                    <option value="500" {{ $validPerPage == 500 ? 'selected' : '' }}>500 par page</option>
-                    <option value="1000" {{ $validPerPage == 1000 ? 'selected' : '' }}>1000 par page</option>
+                    <option value="10" {{ $validPerPage == 10 ? 'selected' : '' }}>{{ t('pagination.per_page', ['number' => 10]) }}</option>
+                    <option value="25" {{ $validPerPage == 25 ? 'selected' : '' }}>{{ t('pagination.per_page', ['number' => 25]) }}</option>
+                    <option value="50" {{ $validPerPage == 50 ? 'selected' : '' }}>{{ t('pagination.per_page', ['number' => 50]) }}</option>
+                    <option value="100" {{ $validPerPage == 100 ? 'selected' : '' }}>{{ t('pagination.per_page', ['number' => 100]) }}</option>
+                    <option value="500" {{ $validPerPage == 500 ? 'selected' : '' }}>{{ t('pagination.per_page', ['number' => 500]) }}</option>
+                    <option value="1000" {{ $validPerPage == 1000 ? 'selected' : '' }}>{{ t('pagination.per_page', ['number' => 1000]) }}</option>
                 </select>
             </div>
         </div>
@@ -232,11 +232,11 @@
                 <table class="table table-bordered" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>{{ __('Clé') }}</th>
-                            <th>{{ __('Projet') }}</th>
-                            <th>{{ __('Statut') }}</th>
-                            <th>{{ __('Date de création') }}</th>
-                            <th>{{ __('Actions') }}</th>
+                            <th>{{ t('common.serial_keys') }}</th>
+                            <th>{{ t('common.projects') }}</th>
+                            <th>{{ t('common.status') }}</th>
+                            <th>{{ t('common.date') }}</th>
+                            <th>{{ t('common.actions') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -246,7 +246,7 @@
                             <td>{{ $key->project->name }}</td>
                             <td>
                                 <span class="badge badge-{{ $key->status == 'active' ? 'success' : ($key->status == 'suspended' ? 'warning' : 'danger') }}">
-                                    {{ __(ucfirst($key->status)) }}
+                                    {{ t('common.' . $key->status) }}
                                 </span>
                             </td>
                             <td>{{ $key->created_at->format('d/m/Y H:i') }}</td>
@@ -269,14 +269,14 @@
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    // Graphique d'utilisation
+    // {{ t('dashboard.usage_chart') }}
     const usageCtx = document.getElementById('usageChart').getContext('2d');
     new Chart(usageCtx, {
         type: 'line',
         data: {
             labels: {!! json_encode($usageStats->pluck('date')) !!},
             datasets: [{
-                label: '{{ __("Utilisation") }}',
+                label: '{{ t("dashboard.usage") }}',
                 data: {!! json_encode($usageStats->pluck('count')) !!},
                 borderColor: 'rgb(75, 192, 192)',
                 tension: 0.1
@@ -292,7 +292,7 @@
         }
     });
 
-    // Graphique de répartition par projet
+    // {{ t('dashboard.project_distribution_chart') }}
     const projectCtx = document.getElementById('projectChart').getContext('2d');
     new Chart(projectCtx, {
         type: 'pie',

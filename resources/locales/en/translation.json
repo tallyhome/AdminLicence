@@ -3,6 +3,7 @@
     "dashboard": "Dashboard",
     "projects": "Projects",
     "serial_keys": "Serial Keys",
+    "api_keys": "API Keys",
     "api_documentation": "API Documentation",
     "email": "Email",
     "logout": "Logout",
@@ -98,6 +99,10 @@
     "system_status": "System Status",
     "last_login": "Last Login",
     "recent_keys": "Recent Keys",
+    "usage": "Usage",
+    "charts": "Charts",
+    "usage_chart": "Usage Chart",
+    "project_distribution_chart": "Project Distribution Chart",
     "projects_count": "Projects"
   },
   "pagination": {

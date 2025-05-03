@@ -155,37 +155,43 @@
             <ul class="nav flex-column">
                 <li class="nav-item">
                     <a class="nav-link <?php echo e(request()->routeIs('admin.dashboard') ? 'active' : ''); ?>" href="<?php echo e(route('admin.dashboard')); ?>">
-                        <i class="fas fa-tachometer-alt me-2"></i> Tableau de bord
+                        <i class="fas fa-tachometer-alt me-2"></i> <?php echo e(t('common.dashboard')); ?>
+
                     </a>
                 </li>
 
                 <!-- Gestion des licences -->
                 <li class="nav-item">
                     <a class="nav-link <?php echo e(request()->routeIs('admin.projects.*') ? 'active' : ''); ?>" href="<?php echo e(route('admin.projects.index')); ?>">
-                        <i class="fas fa-project-diagram me-2"></i> Projets
+                        <i class="fas fa-project-diagram me-2"></i> <?php echo e(t('common.projects')); ?>
+
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php echo e(request()->routeIs('admin.serial-keys.*') ? 'active' : ''); ?>" href="<?php echo e(route('admin.serial-keys.index')); ?>">
-                        <i class="fas fa-key me-2"></i> Clés de licence
+                        <i class="fas fa-key me-2"></i> <?php echo e(t('common.serial_keys')); ?>
+
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php echo e(request()->routeIs('admin.api-keys.*') ? 'active' : ''); ?>" href="<?php echo e(route('admin.api-keys.index')); ?>">
-                        <i class="fas fa-code me-2"></i> Clés API
+                        <i class="fas fa-code me-2"></i> <?php echo e(t('common.api_keys')); ?>
+
                     </a>
                 </li>
 
                 <!-- Gestion des emails -->
                 <li class="nav-item">
                     <a href="#" class="nav-link" data-bs-toggle="collapse" data-bs-target="#emailSubmenu">
-                        <i class="fas fa-envelope me-2"></i>Email
+                        <i class="fas fa-envelope me-2"></i><?php echo e(t('common.email')); ?>
+
                     </a>
                     <div class="collapse" id="emailSubmenu">
                         <ul class="nav flex-column ms-3">
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo e(route('admin.mail.settings')); ?>">
-                                    <i class="fas fa-cog me-2"></i>Paramètres
+                                    <i class="fas fa-cog me-2"></i><?php echo e(__('common.settings')); ?>
+
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -220,7 +226,8 @@
                 <!-- Support -->
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#supportSubmenu" role="button">
-                        <i class="fas fa-headset me-2"></i> Support
+                        <i class="fas fa-headset me-2"></i> <?php echo e(t('layout.support')); ?>
+
                     </a>
                     <div class="collapse <?php echo e(request()->routeIs('admin.tickets.*') || request()->routeIs('admin.super.tickets.*') ? 'show' : ''); ?>" id="supportSubmenu">
                         <ul class="nav flex-column ms-3">
@@ -243,7 +250,8 @@
                 <!-- Documentation -->
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#documentationSubmenu" role="button">
-                        <i class="fas fa-book me-2"></i> Documentation
+                        <i class="fas fa-book me-2"></i> <?php echo e(t('layout.documentation')); ?>
+
                     </a>
                     <div class="collapse <?php echo e(request()->routeIs('admin.api.documentation') || request()->routeIs('admin.licence.documentation') ? 'show' : ''); ?>" id="documentationSubmenu">
                         <ul class="nav flex-column ms-3">
@@ -272,14 +280,16 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php echo e(request()->routeIs('admin.version') ? 'active' : ''); ?>" href="<?php echo e(route('admin.version')); ?>">
-                        <i class="fas fa-code-branch me-2"></i> Informations de version
+                        <i class="fas fa-code-branch me-2"></i> <?php echo e(t('layout.version_info')); ?>
+
                     </a>
                 </li>
 
                 <!-- Paramètres -->
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#settingsSubmenu" role="button">
-                        <i class="fas fa-cog me-2"></i> Paramètres
+                        <i class="fas fa-cog me-2"></i> <?php echo e(t('common.settings')); ?>
+
                     </a>
                     <div class="collapse <?php echo e(request()->routeIs('admin.settings.*') ? 'show' : ''); ?>" id="settingsSubmenu">
                         <ul class="nav flex-column ms-3">
@@ -291,6 +301,11 @@
                             <li class="nav-item">
                                 <a class="nav-link <?php echo e(request()->routeIs('admin.settings.two-factor') ? 'active' : ''); ?>" href="<?php echo e(route('admin.settings.two-factor')); ?>">
                                     <i class="fas fa-shield-alt me-2"></i> 2FA
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link <?php echo e(request()->routeIs('admin.settings.translations.*') ? 'active' : ''); ?>" href="<?php echo e(route('admin.settings.translations.index')); ?>">
+                                    <i class="fas fa-language me-2"></i> Langues
                                 </a>
                             </li>
                         </ul>

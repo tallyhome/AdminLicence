@@ -3,6 +3,7 @@
         "dashboard": "Kontrol Paneli",
         "projects": "Projeler",
         "serial_keys": "Seri Anahtarları",
+        "api_keys": "API Anahtarları",
         "api_documentation": "API Belgeleri",
         "email": "E-posta",
         "logout": "Çıkış Yap",
@@ -37,6 +38,22 @@
         "loading": "Loading...",
         "manage": "Manage",
         "information": "Information"
+    },
+    "layout": {
+        "support": "Destek",
+        "tickets": "Biletler",
+        "super_admin_tickets": "Süper Yönetici Biletleri",
+        "documentation": "Dokümantasyon",
+        "keys_documentation": "Anahtar Dokümantasyonu",
+        "email_providers_documentation": "E-posta Sağlayıcıları Dokümantasyonu",
+        "saas_documentation": "Çok Kullanıcılı SaaS Dokümantasyonu",
+        "version_info": "Sürüm Bilgisi",
+        "general": "Genel",
+        "two_factor_auth": "İki Faktörlü Kimlik Doğrulama",
+        "version": "Sürüm",
+        "toggle_navigation": "Navigasyonu Değiştir",
+        "created_by": "Oluşturan",
+        "all_rights_reserved": "Tüm hakları saklıdır"
     },
     "auth": {
         "login": "Giriş",

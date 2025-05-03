@@ -3,6 +3,7 @@
         "dashboard": "Painel de Controle",
         "projects": "Projetos",
         "serial_keys": "Chaves de Série",
+        "api_keys": "Chaves da API",
         "api_documentation": "Documentação da API",
         "email": "E-mail",
         "logout": "Sair",
@@ -37,6 +38,22 @@
         "loading": "Loading...",
         "manage": "Manage",
         "information": "Information"
+    },
+    "layout": {
+        "support": "Suporte",
+        "tickets": "Tickets",
+        "super_admin_tickets": "Tickets de Super Admin",
+        "documentation": "Documentação",
+        "keys_documentation": "Documentação de Chaves",
+        "email_providers_documentation": "Documentação de Provedores de Email",
+        "saas_documentation": "Documentação SaaS Multiusuário",
+        "version_info": "Informações de Versão",
+        "general": "Geral",
+        "two_factor_auth": "Autenticação de Dois Fatores",
+        "version": "Versão",
+        "toggle_navigation": "Alternar navegação",
+        "created_by": "Criado por",
+        "all_rights_reserved": "Todos os direitos reservados"
     },
     "auth": {
         "login": "Entrar",

@@ -3,6 +3,7 @@
         "dashboard": "لوحة التحكم",
         "projects": "المشاريع",
         "serial_keys": "مفاتيح التسلسل",
+        "api_keys": "مفاتيح واجهة برمجة التطبيقات",
         "api_documentation": "توثيق واجهة برمجة التطبيقات",
         "email": "البريد الإلكتروني",
         "logout": "تسجيل الخروج",
@@ -37,6 +38,22 @@
         "loading": "Loading...",
         "manage": "Manage",
         "information": "Information"
+    },
+    "layout": {
+        "support": "الدعم",
+        "tickets": "التذاكر",
+        "super_admin_tickets": "تذاكر المشرف الأعلى",
+        "documentation": "التوثيق",
+        "keys_documentation": "توثيق المفاتيح",
+        "email_providers_documentation": "توثيق مزودي البريد الإلكتروني",
+        "saas_documentation": "توثيق SaaS متعدد المستخدمين",
+        "version_info": "معلومات الإصدار",
+        "general": "عام",
+        "two_factor_auth": "المصادقة الثنائية",
+        "version": "الإصدار",
+        "toggle_navigation": "تبديل التنقل",
+        "created_by": "تم الإنشاء بواسطة",
+        "all_rights_reserved": "جميع الحقوق محفوظة"
     },
     "auth": {
         "login": "تسجيل الدخول",

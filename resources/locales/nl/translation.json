@@ -3,6 +3,7 @@
         "dashboard": "Dashboard",
         "projects": "Projecten",
         "serial_keys": "Serienummers",
+        "api_keys": "API-sleutels",
         "api_documentation": "API-documentatie",
         "email": "E-mail",
         "logout": "Uitloggen",
@@ -37,6 +38,22 @@
         "loading": "Loading...",
         "manage": "Manage",
         "information": "Information"
+    },
+    "layout": {
+        "support": "Ondersteuning",
+        "tickets": "Tickets",
+        "super_admin_tickets": "Super Admin Tickets",
+        "documentation": "Documentatie",
+        "keys_documentation": "Sleutels Documentatie",
+        "email_providers_documentation": "E-mail Providers Documentatie",
+        "saas_documentation": "SaaS Multigebruiker Documentatie",
+        "version_info": "Versie Informatie",
+        "general": "Algemeen",
+        "two_factor_auth": "Twee-factor Authenticatie",
+        "version": "Versie",
+        "toggle_navigation": "Navigatie omschakelen",
+        "created_by": "Gemaakt door",
+        "all_rights_reserved": "Alle rechten voorbehouden"
     },
     "auth": {
         "login": "Inloggen",

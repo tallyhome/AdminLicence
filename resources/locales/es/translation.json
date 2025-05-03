@@ -1,10 +1,11 @@
 {
     "common": {
-        "dashboard": "Panel de control",
+        "dashboard": "Tablero",
         "projects": "Proyectos",
-        "serial_keys": "Claves de serie",
+        "serial_keys": "Claves de Serie",
+        "api_keys": "Claves API",
         "api_documentation": "Documentación API",
-        "email": "Correo electrónico",
+        "email": "Correo",
         "logout": "Cerrar sesión",
         "version": "Versión",
         "save": "Guardar",
@@ -32,27 +33,27 @@
         "settings": "Configuración",
         "profile": "Perfil",
         "notifications": "Notificaciones",
-        "login": "Login",
-        "submit": "Submit",
-        "loading": "Loading...",
-        "manage": "Manage",
-        "information": "Information"
+        "login": "Iniciar sesión",
+        "submit": "Enviar",
+        "loading": "Cargando...",
+        "manage": "Gestionar",
+        "information": "Información"
     },
     "layout": {
         "support": "Soporte",
         "tickets": "Tickets",
         "super_admin_tickets": "Tickets de Super Admin",
         "documentation": "Documentación",
-        "keys_documentation": "Documentación de Claves de Licencia",
-        "email_providers_documentation": "Documentación de Proveedores de Email",
-        "saas_documentation": "Documentación de SaaS Multi-Tenant",
+        "keys_documentation": "Documentación de Claves",
+        "email_providers_documentation": "Documentación de Proveedores de Correo",
+        "saas_documentation": "Documentación SaaS Multiusuario",
         "version_info": "Información de Versión",
         "general": "General",
         "two_factor_auth": "Autenticación de Dos Factores",
         "version": "Versión",
-        "toggle_navigation": "Toggle navigation",
-        "created_by": "Created by",
-        "all_rights_reserved": "All rights reserved"
+        "toggle_navigation": "Alternar navegación",
+        "created_by": "Creado por",
+        "all_rights_reserved": "Todos los derechos reservados"
     },
     "auth": {
         "login": "Iniciar sesión",

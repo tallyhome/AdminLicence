@@ -3,6 +3,7 @@
         "dashboard": "Панель управления",
         "projects": "Проекты",
         "serial_keys": "Серийные ключи",
+        "api_keys": "API ключи",
         "api_documentation": "Документация API",
         "email": "Электронная почта",
         "logout": "Выйти",
@@ -37,6 +38,22 @@
         "loading": "Loading...",
         "manage": "Manage",
         "information": "Information"
+    },
+    "layout": {
+        "support": "Поддержка",
+        "tickets": "Тикеты",
+        "super_admin_tickets": "Тикеты Супер Администратора",
+        "documentation": "Документация",
+        "keys_documentation": "Документация по ключам",
+        "email_providers_documentation": "Документация по провайдерам электронной почты",
+        "saas_documentation": "Документация по многопользовательскому SaaS",
+        "version_info": "Информация о версии",
+        "general": "Общие",
+        "two_factor_auth": "Двухфакторная аутентификация",
+        "version": "Версия",
+        "toggle_navigation": "Переключить навигацию",
+        "created_by": "Создано",
+        "all_rights_reserved": "Все права защищены"
     },
     "auth": {
         "login": "Вход",

@@ -32,7 +32,7 @@
             <div class="d-flex align-items-center">
                 <select id="languageSelect" class="form-select form-select-sm me-2" style="width: 120px;">
                     @foreach($languages as $lang)
-                        <option value="{{ $lang }}">{{ strtoupper($lang) }}</option>
+                        <option value="{{ $lang }}" {{ $lang == request()->query('lang', $languages[0]) ? 'selected' : '' }}>{{ strtoupper($lang) }}</option>
                     @endforeach
                 </select>
                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#newTranslationModal">
@@ -209,7 +209,8 @@
 
         // Gestionnaire d'événements pour le changement de langue
         languageSelect.addEventListener('change', function() {
-            filterTranslations(this.value);
+            // Rediriger vers la même page avec le paramètre de langue mis à jour
+            window.location.href = `${window.location.pathname}?lang=${this.value}`;
         });
 
         // Gestionnaire pour sauvegarder les traductions

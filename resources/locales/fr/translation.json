@@ -42,8 +42,10 @@
     },
     "translations": {
         "title": "Gestion des traductions",
+        "manage_translations": "Gérer les traductions",
         "add_translation": "Ajouter une traduction",
         "available_translations": "Traductions disponibles",
+        "available_languages": "Langues disponibles",
         "file": "Fichier",
         "key": "Clé",
         "translation": "Traduction",

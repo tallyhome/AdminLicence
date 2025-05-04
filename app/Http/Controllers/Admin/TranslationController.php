@@ -17,24 +17,52 @@ class TranslationController extends Controller
         $this->translationService = $translationService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $languages = $this->translationService->getAvailableLocales();
-        $translations = [];
+        $selectedLang = $request->query('lang', $languages[0]);
+        $page = $request->query('page', 1);
+        $perPage = 500; // Augmentation pour afficher plus de traductions
         
-        foreach ($languages as $lang) {
-            $jsonPath = resource_path("locales/{$lang}/translation.json");
-            if (File::exists($jsonPath)) {
-                $content = File::get($jsonPath);
-                $data = json_decode($content, true);
-                if ($data) {
-                    $flattenedData = $this->flattenArray($data);
-                    $translations[$lang] = ['translation' => $flattenedData];
+        $translations = [];
+        $jsonPath = resource_path("locales/{$selectedLang}/translation.json");
+        
+        if (File::exists($jsonPath)) {
+            $content = File::get($jsonPath);
+            $data = json_decode($content, true);
+            if ($data) {
+                // S'assurer que toutes les sections sont présentes
+                $requiredSections = [
+                    'common', 'layout', 'auth', 'dashboard', 'pagination', 
+                    'projects', 'serial_keys', 'api', 'email', 'subscription', 
+                    'language', 'install', 'translations', 'validation'
+                ];
+                
+                foreach ($requiredSections as $section) {
+                    if (!isset($data[$section])) {
+                        $data[$section] = [];
+                    }
                 }
+                
+                $flattenedData = $this->flattenArray($data);
+                $translations = collect($flattenedData)
+                    ->map(function ($value, $key) use ($selectedLang) {
+                        return [
+                            'key' => $key,
+                            'value' => $value,
+                            'lang' => $selectedLang
+                        ];
+                    })
+                    ->values();
             }
         }
         
-        return view('admin.translations.index', compact('languages', 'translations'));
+        return view('admin.translations.index', [
+            'languages' => $languages,
+            'translations' => $translations,
+            'currentPage' => 1,
+            'perPage' => count($translations)
+        ]);
     }
 
     protected function flattenArray(array $array, $prefix = ''): array

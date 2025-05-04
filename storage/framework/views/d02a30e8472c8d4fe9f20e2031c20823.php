@@ -1,5 +1,24 @@
 
 
+<?php $__env->startPush('styles'); ?>
+<style>
+    h1 {
+        margin-block: 0.67em;
+        font-size: 2em;
+    }
+    .accordion-button:not(.collapsed) {
+        background-color: #f8f9fa;
+    }
+    .accordion-button:focus {
+        box-shadow: none;
+        border-color: rgba(0,0,0,.125);
+    }
+    .translation-row:hover {
+        background-color: rgba(0,0,0,.02);
+    }
+</style>
+<?php $__env->stopPush(); ?>
+
 <?php $__env->startSection('content'); ?>
 <div class="container-fluid px-4">
     <h1 class="mt-4"><?php echo e(t('translations.manage_translations')); ?></h1>
@@ -24,60 +43,91 @@
             </div>
         </div>
         <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered table-hover table-striped">
-                    <thead class="table-light">
-                        <tr>
-                            <th style="width: 35%"><?php echo e(t('translations.key')); ?></th>
-                            <th><?php echo e(t('translations.translation')); ?></th>
-                            <th style="width: 100px"><?php echo e(t('translations.actions')); ?></th>
-                        </tr>
-                    </thead>
-                    <tbody id="translationsTableBody">
-                        <?php $__currentLoopData = $translations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lang => $files): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php $__currentLoopData = $files; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $filename => $trans): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <?php $__currentLoopData = $trans; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <tr data-lang="<?php echo e($lang); ?>" class="translation-row">
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <i class="fas fa-key text-muted me-2"></i>
-                                                <div>
-                                                    <code class="bg-light px-2 py-1 rounded"><?php echo e($key); ?></code>
-                                                    <small class="text-muted d-block mt-1">
-                                                        <?php echo e(implode(' > ', explode('.', $key))); ?>
+            <div class="accordion" id="translationsAccordion">
+                <?php
+                    $groupedTranslations = $translations->groupBy(function($item) {
+                        $parts = explode('.', $item['key']);
+                        return $parts[0];
+                    });
+                ?>
 
-                                                    </small>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="input-group">
-                                                <span class="input-group-text bg-light">
-                                                    <i class="fas fa-language"></i>
-                                                </span>
-                                                <input type="text" 
-                                                       class="form-control translation-input"
-                                                       data-lang="<?php echo e($lang); ?>"
-                                                       data-file="translation"
-                                                       data-key="<?php echo e($key); ?>"
-                                                       value="<?php echo e($value); ?>"
-                                                       placeholder="<?php echo e(t('translations.enter_translation')); ?>">
-                                                <button class="btn btn-outline-primary save-translation" type="button" title="<?php echo e(t('common.save')); ?>">
-                                                    <i class="fas fa-save"></i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                        <td class="text-center">
-                                            <button class="btn btn-outline-danger btn-sm delete-translation" title="<?php echo e(t('common.delete')); ?>">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                <?php $__currentLoopData = $groupedTranslations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $section => $sectionTranslations): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading<?php echo e($section); ?>">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                    data-bs-target="#collapse<?php echo e($section); ?>" aria-expanded="false" 
+                                    aria-controls="collapse<?php echo e($section); ?>">
+                                <i class="fas fa-folder me-2"></i>
+                                <?php echo e(ucfirst($section)); ?>
+
+                                <span class="badge bg-primary ms-2"><?php echo e(count($sectionTranslations)); ?></span>
+                            </button>
+                        </h2>
+                        <div id="collapse<?php echo e($section); ?>" class="accordion-collapse collapse" 
+                             aria-labelledby="heading<?php echo e($section); ?>" data-bs-parent="#translationsAccordion">
+                            <div class="accordion-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th style="width: 35%"><?php echo e(t('translations.key')); ?></th>
+                                                <th><?php echo e(t('translations.translation')); ?></th>
+                                                <th style="width: 100px"><?php echo e(t('translations.actions')); ?></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $__currentLoopData = $sectionTranslations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $translation): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <tr class="translation-row">
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="fas fa-key text-muted me-2"></i>
+                                                            <div>
+                                                                <code class="bg-light px-2 py-1 rounded"><?php echo e($translation['key']); ?></code>
+                                                                <small class="text-muted d-block mt-1">
+                                                                    <?php echo e(implode(' > ', explode('.', $translation['key']))); ?>
+
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+
+                                <td>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light">
+                                            <i class="fas fa-language"></i>
+                                        </span>
+                                        <input type="text" 
+                                               class="form-control translation-input"
+                                               data-lang="<?php echo e($translation['lang']); ?>"
+                                               data-file="translation"
+                                               data-key="<?php echo e($translation['key']); ?>"
+                                               value="<?php echo e($translation['value']); ?>"
+                                               placeholder="<?php echo e(t('translations.enter_translation')); ?>">
+                                        <button class="btn btn-outline-primary save-translation" type="button" title="<?php echo e(t('common.save')); ?>">
+                                            <i class="fas fa-save"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <button class="btn btn-outline-danger btn-sm delete-translation" title="<?php echo e(t('common.delete')); ?>">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>
                 </table>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <div class="text-muted">
+                    <?php echo e(t('common.showing')); ?> <?php echo e(count($sectionTranslations)); ?> <?php echo e(t('common.of')); ?> <?php echo e(count($sectionTranslations)); ?> <?php echo e(t('translations.entries')); ?>
+
+                </div>
+            </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
     </div>
@@ -122,17 +172,40 @@
 <?php $__env->startPush('scripts'); ?>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Gestionnaire pour le sélecteur de langue
         const languageSelect = document.getElementById('languageSelect');
-        const translationRows = document.querySelectorAll('.translation-row');
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        let loadedSections = new Set();
 
-        function filterTranslations(selectedLang) {
-            translationRows.forEach(row => {
-                if (row.dataset.lang === selectedLang) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
+        // Fonction pour charger les traductions d'une section
+        function loadSectionTranslations(section) {
+            if (loadedSections.has(section)) return;
+            
+            const rows = document.querySelectorAll(`#collapse${section} .translation-row`);
+            rows.forEach(row => {
+                const input = row.querySelector('.translation-input');
+                if (input) {
+                    input.addEventListener('change', function() {
+                        row.classList.add('needs-save');
+                    });
                 }
+            });
+            
+            loadedSections.add(section);
+        }
+
+        // Gestionnaire pour l'accordéon
+        document.querySelectorAll('.accordion-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const sectionId = this.getAttribute('aria-controls').replace('collapse', '');
+                loadSectionTranslations(sectionId);
+            });
+        });
+
+        // Gestionnaire pour le sélecteur de langue
+        function filterTranslations(selectedLang) {
+            document.querySelectorAll('.translation-row').forEach(row => {
+                const input = row.querySelector(`[data-lang="${selectedLang}"]`);
+                row.style.display = input ? '' : 'none';
             });
         }
 

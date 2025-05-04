@@ -1,5 +1,24 @@
 @extends('admin.layouts.app')
 
+@push('styles')
+<style>
+    h1 {
+        margin-block: 0.67em;
+        font-size: 2em;
+    }
+    .accordion-button:not(.collapsed) {
+        background-color: #f8f9fa;
+    }
+    .accordion-button:focus {
+        box-shadow: none;
+        border-color: rgba(0,0,0,.125);
+    }
+    .translation-row:hover {
+        background-color: rgba(0,0,0,.02);
+    }
+</style>
+@endpush
+
 @section('content')
 <div class="container-fluid px-4">
     <h1 class="mt-4">{{ t('translations.manage_translations') }}</h1>
@@ -24,33 +43,25 @@
         <div class="card-body">
             <div class="accordion" id="translationsAccordion">
                 @php
-                    $sections = [];
-                    foreach($translations as $lang => $files) {
-                        foreach($files as $filename => $trans) {
-                            foreach($trans as $key => $value) {
-                                $section = explode('.', $key)[0];
-                                if (!isset($sections[$section])) {
-                                    $sections[$section] = [];
-                                }
-                                $sections[$section][] = [
-                                    'key' => $key,
-                                    'value' => $value,
-                                    'lang' => $lang
-                                ];
-                            }
-                        }
-                    }
-                    ksort($sections);
+                    $groupedTranslations = $translations->groupBy(function($item) {
+                        $parts = explode('.', $item['key']);
+                        return $parts[0];
+                    });
                 @endphp
 
-                @foreach($sections as $section => $items)
+                @foreach($groupedTranslations as $section => $sectionTranslations)
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="heading{{ $section }}">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $section }}">
-                                <i class="fas fa-folder me-2"></i> {{ ucfirst($section) }} ({{ count($items) }})
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                    data-bs-target="#collapse{{ $section }}" aria-expanded="false" 
+                                    aria-controls="collapse{{ $section }}">
+                                <i class="fas fa-folder me-2"></i>
+                                {{ ucfirst($section) }}
+                                <span class="badge bg-primary ms-2">{{ count($sectionTranslations) }}</span>
                             </button>
                         </h2>
-                        <div id="collapse{{ $section }}" class="accordion-collapse collapse" data-bs-parent="#translationsAccordion">
+                        <div id="collapse{{ $section }}" class="accordion-collapse collapse" 
+                             aria-labelledby="heading{{ $section }}" data-bs-parent="#translationsAccordion">
                             <div class="accordion-body p-0">
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-hover table-striped mb-0">
@@ -62,46 +73,52 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($items as $item)
-                                                <tr data-lang="{{ $item['lang'] }}" class="translation-row">
+                                            @foreach($sectionTranslations as $translation)
+                                                <tr class="translation-row">
                                                     <td>
                                                         <div class="d-flex align-items-center">
                                                             <i class="fas fa-key text-muted me-2"></i>
                                                             <div>
-                                                                <code class="bg-light px-2 py-1 rounded">{{ $item['key'] }}</code>
+                                                                <code class="bg-light px-2 py-1 rounded">{{ $translation['key'] }}</code>
                                                                 <small class="text-muted d-block mt-1">
-                                                                    {{ implode(' > ', explode('.', $item['key'])) }}
+                                                                    {{ implode(' > ', explode('.', $translation['key'])) }}
                                                                 </small>
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td>
-                                                        <div class="input-group">
-                                                            <span class="input-group-text bg-light">
-                                                                <i class="fas fa-language"></i>
-                                                            </span>
-                                                            <input type="text" 
-                                                                   class="form-control translation-input"
-                                                                   data-lang="{{ $item['lang'] }}"
-                                                                   data-file="translation"
-                                                                   data-key="{{ $item['key'] }}"
-                                                                   value="{{ $item['value'] }}"
-                                                                   placeholder="{{ t('translations.enter_translation') }}">
-                                                            <button class="btn btn-outline-primary save-translation" type="button" title="{{ t('common.save') }}">
-                                                                <i class="fas fa-save"></i>
-                                                            </button>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <button class="btn btn-outline-danger btn-sm delete-translation" title="{{ t('common.delete') }}">
-                                                            <i class="fas fa-trash"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
+
+                                <td>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light">
+                                            <i class="fas fa-language"></i>
+                                        </span>
+                                        <input type="text" 
+                                               class="form-control translation-input"
+                                               data-lang="{{ $translation['lang'] }}"
+                                               data-file="translation"
+                                               data-key="{{ $translation['key'] }}"
+                                               value="{{ $translation['value'] }}"
+                                               placeholder="{{ t('translations.enter_translation') }}">
+                                        <button class="btn btn-outline-primary save-translation" type="button" title="{{ t('common.save') }}">
+                                            <i class="fas fa-save"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <button class="btn btn-outline-danger btn-sm delete-translation" title="{{ t('common.delete') }}">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <div class="text-muted">
+                    {{ t('common.showing') }} {{ count($sectionTranslations) }} {{ t('common.of') }} {{ count($sectionTranslations) }} {{ t('translations.entries') }}
+                </div>
+            </div>
                             </div>
                         </div>
                     </div>
@@ -150,17 +167,40 @@
 @push('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Gestionnaire pour le sélecteur de langue
         const languageSelect = document.getElementById('languageSelect');
-        const translationRows = document.querySelectorAll('.translation-row');
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        let loadedSections = new Set();
 
-        function filterTranslations(selectedLang) {
-            translationRows.forEach(row => {
-                if (row.dataset.lang === selectedLang) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
+        // Fonction pour charger les traductions d'une section
+        function loadSectionTranslations(section) {
+            if (loadedSections.has(section)) return;
+            
+            const rows = document.querySelectorAll(`#collapse${section} .translation-row`);
+            rows.forEach(row => {
+                const input = row.querySelector('.translation-input');
+                if (input) {
+                    input.addEventListener('change', function() {
+                        row.classList.add('needs-save');
+                    });
                 }
+            });
+            
+            loadedSections.add(section);
+        }
+
+        // Gestionnaire pour l'accordéon
+        document.querySelectorAll('.accordion-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const sectionId = this.getAttribute('aria-controls').replace('collapse', '');
+                loadSectionTranslations(sectionId);
+            });
+        });
+
+        // Gestionnaire pour le sélecteur de langue
+        function filterTranslations(selectedLang) {
+            document.querySelectorAll('.translation-row').forEach(row => {
+                const input = row.querySelector(`[data-lang="${selectedLang}"]`);
+                row.style.display = input ? '' : 'none';
             });
         }
 

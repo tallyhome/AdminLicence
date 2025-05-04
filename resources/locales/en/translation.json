@@ -39,6 +39,27 @@
     "manage": "Manage",
     "information": "Information"
   },
+  "translations": {
+    "title": "Translation Management",
+    "manage_translations": "Manage Translations",
+    "add_translation": "Add Translation",
+    "add_new_translation": "Add New Translation",
+    "add_new": "Add New",
+    "available_translations": "Available Translations",
+    "available_languages": "Available Languages",
+    "file": "File",
+    "key": "Key",
+    "translation": "Translation",
+    "file_placeholder": "File name (e.g. common, validation)",
+    "key_placeholder": "Unique identifier",
+    "value_placeholder": "Translated text",
+    "delete_confirm": "Are you sure you want to delete this translation?",
+    "file_required": "Please enter a file name",
+    "key_required": "Please enter a key",
+    "value_required": "Please enter a translation",
+    "language": "Language",
+    "select_language": "Select a language"
+  },
   "layout": {
     "support": "Support",
     "tickets": "Tickets",

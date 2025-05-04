@@ -1,4 +1,25 @@
 {
+    "translations": {
+        "title": "翻译管理",
+        "manage_translations": "管理翻译",
+        "add_translation": "添加翻译",
+        "add_new_translation": "添加新翻译",
+        "add_new": "添加新的",
+        "available_translations": "可用翻译",
+        "available_languages": "可用语言",
+        "file": "文件",
+        "key": "键",
+        "translation": "翻译",
+        "file_placeholder": "文件名（例如：common, validation）",
+        "key_placeholder": "唯一标识符",
+        "value_placeholder": "翻译文本",
+        "delete_confirm": "您确定要删除此翻译吗？",
+        "file_required": "请输入文件名",
+        "key_required": "请输入键",
+        "value_required": "请输入翻译",
+        "language": "语言",
+        "select_language": "选择语言"
+    },
     "common": {
         "dashboard": "仪表盘",
         "projects": "项目",

@@ -44,6 +44,8 @@
         "title": "Gestion des traductions",
         "manage_translations": "Gérer les traductions",
         "add_translation": "Ajouter une traduction",
+        "add_new_translation": "Ajouter une nouvelle traduction",
+        "add_new": "Ajouter nouveau",
         "available_translations": "Traductions disponibles",
         "available_languages": "Langues disponibles",
         "file": "Fichier",

@@ -1,4 +1,25 @@
 {
+    "translations": {
+        "title": "翻訳管理",
+        "manage_translations": "翻訳を管理",
+        "add_translation": "翻訳を追加",
+        "add_new_translation": "新しい翻訳を追加",
+        "add_new": "新規追加",
+        "available_translations": "利用可能な翻訳",
+        "available_languages": "利用可能な言語",
+        "file": "ファイル",
+        "key": "キー",
+        "translation": "翻訳",
+        "file_placeholder": "ファイル名（例：common, validation）",
+        "key_placeholder": "一意の識別子",
+        "value_placeholder": "翻訳されたテキスト",
+        "delete_confirm": "この翻訳を削除してもよろしいですか？",
+        "file_required": "ファイル名を入力してください",
+        "key_required": "キーを入力してください",
+        "value_required": "翻訳を入力してください",
+        "language": "言語",
+        "select_language": "言語を選択"
+    },
     "common": {
         "dashboard": "ダッシュボード",
         "projects": "プロジェクト",

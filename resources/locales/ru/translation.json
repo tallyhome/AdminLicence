@@ -39,6 +39,27 @@
         "manage": "Manage",
         "information": "Information"
     },
+    "translations": {
+        "title": "Управление переводами",
+        "manage_translations": "Управление переводами",
+        "add_translation": "Добавить перевод",
+        "add_new_translation": "Добавить новый перевод",
+        "add_new": "Добавить новый",
+        "available_translations": "Доступные переводы",
+        "available_languages": "Доступные языки",
+        "file": "Файл",
+        "key": "Ключ",
+        "translation": "Перевод",
+        "file_placeholder": "Имя файла (например: common, validation)",
+        "key_placeholder": "Уникальный идентификатор",
+        "value_placeholder": "Переведенный текст",
+        "delete_confirm": "Вы уверены, что хотите удалить этот перевод?",
+        "file_required": "Пожалуйста, введите имя файла",
+        "key_required": "Пожалуйста, введите ключ",
+        "value_required": "Пожалуйста, введите перевод",
+        "language": "Язык",
+        "select_language": "Выберите язык"
+    },
     "layout": {
         "support": "Поддержка",
         "tickets": "Тикеты",
@@ -281,22 +302,7 @@
         "previous_step": "Previous step",
         "install": "Install"
     },
-    "layout": {
-        "support": "Support",
-        "tickets": "Tickets",
-        "super_admin_tickets": "Super Admin Tickets",
-        "documentation": "Documentation",
-        "keys_documentation": "Keys Documentation",
-        "email_providers_documentation": "Email Providers Documentation",
-        "saas_documentation": "SaaS Multiuser Documentation",
-        "version_info": "Version Information",
-        "general": "General",
-        "two_factor_auth": "Two-Factor Authentication",
-        "version": "Version",
-        "toggle_navigation": "Toggle navigation",
-        "created_by": "Created by",
-        "all_rights_reserved": "All rights reserved"
-    },
+
     "pagination": {
         "per_page": ":number per page",
         "showing": "Showing :first to :last of :total results",

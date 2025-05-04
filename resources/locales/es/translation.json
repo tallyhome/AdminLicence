@@ -39,6 +39,27 @@
         "manage": "Gestionar",
         "information": "Información"
     },
+    "translations": {
+        "title": "Gestión de Traducciones",
+        "manage_translations": "Gestionar Traducciones",
+        "add_translation": "Añadir Traducción",
+        "add_new_translation": "Añadir Nueva Traducción",
+        "add_new": "Añadir Nuevo",
+        "available_translations": "Traducciones Disponibles",
+        "available_languages": "Idiomas Disponibles",
+        "file": "Archivo",
+        "key": "Clave",
+        "translation": "Traducción",
+        "file_placeholder": "Nombre del archivo (ej: common, validation)",
+        "key_placeholder": "Identificador único",
+        "value_placeholder": "Texto traducido",
+        "delete_confirm": "¿Está seguro de que desea eliminar esta traducción?",
+        "file_required": "Por favor ingrese un nombre de archivo",
+        "key_required": "Por favor ingrese una clave",
+        "value_required": "Por favor ingrese una traducción",
+        "language": "Idioma",
+        "select_language": "Seleccionar un idioma"
+    },
     "layout": {
         "support": "Soporte",
         "tickets": "Tickets",

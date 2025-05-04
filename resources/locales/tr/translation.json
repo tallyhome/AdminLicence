@@ -1,4 +1,25 @@
 {
+    "translations": {
+        "title": "Çeviri Yönetimi",
+        "manage_translations": "Çevirileri Yönet",
+        "add_translation": "Çeviri Ekle",
+        "add_new_translation": "Yeni Çeviri Ekle",
+        "add_new": "Yeni Ekle",
+        "available_translations": "Mevcut Çeviriler",
+        "available_languages": "Mevcut Diller",
+        "file": "Dosya",
+        "key": "Anahtar",
+        "translation": "Çeviri",
+        "file_placeholder": "Dosya adı (örneğin: common, validation)",
+        "key_placeholder": "Benzersiz tanımlayıcı",
+        "value_placeholder": "Çevrilmiş metin",
+        "delete_confirm": "Bu çeviriyi silmek istediğinizden emin misiniz?",
+        "file_required": "Lütfen bir dosya adı girin",
+        "key_required": "Lütfen bir anahtar girin",
+        "value_required": "Lütfen bir çeviri girin",
+        "language": "Dil",
+        "select_language": "Dil Seçin"
+    },
     "common": {
         "dashboard": "Kontrol Paneli",
         "projects": "Projeler",

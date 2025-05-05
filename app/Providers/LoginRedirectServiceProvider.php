@@ -21,13 +21,16 @@ class LoginRedirectServiceProvider extends ServiceProvider
             return new class($routes, $app->make('request')) extends UrlGenerator {
                 public function route($name, $parameters = [], $absolute = true)
                 {
-                    // Si la route est 'login', utiliser 'admin.login' à la place
+                    // Rediriger les routes spécifiques vers leurs équivalents admin
                     if ($name === 'login') {
-                        $adminLoginRoute = $this->routes->getByName('admin.login');
-                        if ($adminLoginRoute) {
-                            return parent::toRoute($adminLoginRoute, $parameters, $absolute);
-                        }
                         return '/admin/login';
+                    }
+                    
+                    // Rediriger vers le tableau de bord admin si la route n'existe pas
+                    try {
+                        return parent::route($name, $parameters, $absolute);
+                    } catch (\Exception $e) {
+                        return route('admin.dashboard');
                     }
                     
                     return parent::route($name, $parameters, $absolute);

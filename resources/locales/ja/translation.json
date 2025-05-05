@@ -229,13 +229,6 @@
         "language_changed": "Language has been changed successfully"
     },
     "layout": {
-        "support": "Support",
-        "tickets": "Tickets",
-        "super_admin_tickets": "Super Admin Tickets",
-        "documentation": "Documentation",
-        "keys_documentation": "Keys Documentation",
-        "email_providers_documentation": "Email Providers Documentation",
-        "saas_documentation": "SaaS Multiuser Documentation",
         "version_info": "Version Information",
         "general": "General",
         "two_factor_auth": "Two-Factor Authentication",

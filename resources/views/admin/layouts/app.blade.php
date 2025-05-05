@@ -185,7 +185,7 @@
                         <ul class="nav flex-column ms-3">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.mail.settings') }}">
-                                    <i class="fas fa-cog me-2"></i>{{ __('common.settings') }}
+                                    <i class="fas fa-cog me-2"></i>{{ t('common.settings') }}
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -213,29 +213,6 @@
                                     <i class="fas fa-file-alt me-2"></i>Templates
                                 </a>
                             </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <!-- Support -->
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="collapse" href="#supportSubmenu" role="button">
-                        <i class="fas fa-headset me-2"></i> {{ t('layout.support') }}
-                    </a>
-                    <div class="collapse {{ request()->routeIs('admin.tickets.*') || request()->routeIs('admin.super.tickets.*') ? 'show' : '' }}" id="supportSubmenu">
-                        <ul class="nav flex-column ms-3">
-                            <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('admin.tickets.*') && !request()->routeIs('admin.super.tickets.*') ? 'active' : '' }}" href="{{ route('admin.tickets.index') }}">
-                                    <i class="fas fa-ticket-alt me-2"></i> Tickets
-                                </a>
-                            </li>
-                            @if(auth()->guard('admin')->user()->is_super_admin)
-                            <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('admin.super.tickets.*') ? 'active' : '' }}" href="{{ route('admin.super.tickets.index') }}">
-                                    <i class="fas fa-user-shield me-2"></i> Super Admin Tickets
-                                </a>
-                            </li>
-                            @endif
                         </ul>
                     </div>
                 </li>

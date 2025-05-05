@@ -221,23 +221,8 @@ Route::middleware('auth:admin')->group(function () {
     // Route supprimée pour éviter les conflits de redirection
     
     // Routes pour les tickets de support (admin standard)
-    Route::prefix('tickets')->group(function () {
-        Route::get('/', [\App\Http\Controllers\Admin\SupportTicketController::class, 'index'])->name('admin.tickets.index');
-        Route::get('/{ticket}', [\App\Http\Controllers\Admin\SupportTicketController::class, 'show'])->name('admin.tickets.show');
-        Route::patch('/{ticket}/status', [\App\Http\Controllers\Admin\SupportTicketController::class, 'updateStatus'])->name('admin.tickets.update-status');
-        Route::post('/{ticket}/reply', [\App\Http\Controllers\Admin\SupportTicketController::class, 'reply'])->name('admin.tickets.reply');
-        Route::post('/{ticket}/forward-to-super-admin', [\App\Http\Controllers\Admin\SupportTicketController::class, 'forwardToSuperAdmin'])->name('admin.tickets.forward-to-super-admin');
-    });
-    
-    // Routes pour les tickets de support (super admin)
-    Route::prefix('super/tickets')->middleware('auth.super_admin')->group(function () {
-        Route::get('/', [\App\Http\Controllers\Admin\SuperAdminTicketController::class, 'index'])->name('admin.super.tickets.index');
-        Route::get('/{ticket}', [\App\Http\Controllers\Admin\SuperAdminTicketController::class, 'show'])->name('admin.super.tickets.show');
-        Route::patch('/{ticket}/status', [\App\Http\Controllers\Admin\SuperAdminTicketController::class, 'updateStatus'])->name('admin.super.tickets.update-status');
-        Route::post('/{ticket}/reply', [\App\Http\Controllers\Admin\SuperAdminTicketController::class, 'reply'])->name('admin.super.tickets.reply');
-        Route::post('/{ticket}/return-to-admin', [\App\Http\Controllers\Admin\SuperAdminTicketController::class, 'returnToAdmin'])->name('admin.super.tickets.return-to-admin');
-        Route::post('/{ticket}/assign-to-admin', [\App\Http\Controllers\Admin\SuperAdminTicketController::class, 'assignToAdmin'])->name('admin.super.tickets.assign-to-admin');
-    });
+    // Routes supprimées
+    // Routes super admin supprimées
     
     // Routes pour les notifications
     Route::prefix('notifications')->group(function () {

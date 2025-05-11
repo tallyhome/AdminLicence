@@ -540,5 +540,104 @@
             },
             "auth_code": "認証コード"
         }
+    },
+    "api_documentation": {
+        "title": "API ドキュメント",
+        "description": "このドキュメントは、ライセンス検証APIをアプリケーションに統合するのに役立ちます。",
+        "table_of_contents": "目次",
+        "introduction": "はじめに",
+        "authentication": "認証",
+        "available_endpoints": "利用可能なエンドポイント",
+        "integration_approaches": "統合アプローチ",
+        "integration_examples": "統合例",
+        "best_practices": "ベストプラクティス",
+        "endpoints": {
+            "title": "利用可能なエンドポイント",
+            "validate_license": {
+                "title": "ライセンスの検証",
+                "description": "このエンドポイントを使用して、ライセンスキーの有効性を確認します。",
+                "url": "エンドポイントURL",
+                "method": "メソッド",
+                "parameters": "パラメータ",
+                "response": "レスポンス"
+            }
+        },
+        "integration_approaches": {
+            "title": "統合アプローチ",
+            "description": "APIを統合するための複数のアプローチを提供しています。",
+            "php_standard": {
+                "title": "PHP標準",
+                "description": "標準的なPHPアプリケーション向けの統合方法",
+                "advantages": [
+                    "シンプルで軽量",
+                    "最小限の依存関係",
+                    "高速な実装",
+                    "標準的なPHP機能のみを使用"
+                ],
+                "use_case": "小規模から中規模のPHPアプリケーションに最適です。"
+            },
+            "laravel": {
+                "title": "Laravel",
+                "description": "Laravelフレームワーク向けの統合方法",
+                "advantages": [
+                    "Laravelの機能を活用",
+                    "サービスプロバイダの統合",
+                    "ミドルウェアのサポート",
+                    "キャッシュの統合"
+                ],
+                "use_case": "Laravelベースのアプリケーションに最適です。"
+            },
+            "javascript": {
+                "title": "JavaScript",
+                "description": "フロントエンドアプリケーション向けの統合方法",
+                "advantages": [
+                    "クライアントサイドの検証",
+                    "非同期リクエスト",
+                    "PromiseベースのAPI",
+                    "エラーハンドリング"
+                ],
+                "use_case": "シングルページアプリケーション（SPA）やフロントエンドアプリケーションに最適です。"
+            },
+            "flutter": {
+                "title": "Flutter",
+                "description": "Flutterアプリケーション向けの統合方法",
+                "advantages": [
+                    "クロスプラットフォーム対応",
+                    "ネイティブパフォーマンス",
+                    "オフラインサポート",
+                    "状態管理の統合"
+                ],
+                "use_case": "モバイルアプリケーションに最適です。"
+            }
+        },
+        "examples": {
+            "title": "統合例",
+            "php_standard": {
+                "title": "PHP標準の例",
+                "description": "標準的なPHPアプリケーションでのAPIの使用方法を示す例"
+            },
+            "laravel": {
+                "title": "Laravelの例",
+                "description": "LaravelフレームワークでのAPIの使用方法を示す例"
+            },
+            "flutter": {
+                "title": "Flutterの例",
+                "description": "FlutterアプリケーションでのAPIの使用方法を示す例"
+            }
+        },
+        "best_practices": {
+            "title": "ベストプラクティス",
+            "items": [
+                "APIキーを安全に保管し、公開しないでください",
+                "リクエストをキャッシュして、APIの使用量を最適化してください",
+                "エラーハンドリングを適切に実装してください",
+                "定期的にライセンスの状態を確認してください",
+                "ユーザーに適切なフィードバックを提供してください"
+            ]
+        },
+        "support": {
+            "title": "サポート",
+            "description": "APIの統合中に問題が発生した場合や質問がある場合は、技術サポートチームにお問い合わせください。"
+        }
     }
 }

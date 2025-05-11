@@ -585,5 +585,98 @@
             },
             "auth_code": "Código de autenticación"
         }
+    },
+    "api_documentation": {
+        "title": "Documentación API",
+        "description": "Esta documentación te ayudará a integrar la API de validación de licencias en tus aplicaciones.",
+        "table_of_contents": "Tabla de Contenidos",
+        "introduction": "Introducción",
+        "authentication": "Autenticación",
+        "available_endpoints": "Endpoints Disponibles",
+        "integration_approaches": "Enfoques de Integración",
+        "integration_examples": "Ejemplos de Integración",
+        "best_practices": "Mejores Prácticas",
+        "introduction_text": "La API de AdminLicence te permite validar las licencias de tus usuarios directamente desde tus aplicaciones. Proporciona endpoints seguros para verificar claves de serie y obtener códigos dinámicos para mejorar la seguridad.",
+        "introduction_security": "Todas las solicitudes deben realizarse a través de HTTPS para garantizar la seguridad de los datos transmitidos.",
+        "authentication_text": "Para usar la API, debes tener una clave API válida. Puedes crear y gestionar tus claves API en la sección Claves API de la interfaz de administración.",
+        "authentication_header": "Para los endpoints que requieren autenticación, debes incluir tu clave API en el encabezado de la solicitud:",
+        "endpoint_check_serial": "Verificación de Clave de Serie",
+        "endpoint_secure_code": "Obtención de Código Dinámico Seguro",
+        "endpoint_url": "URL",
+        "endpoint_method": "Método",
+        "endpoint_auth": "Autenticación",
+        "endpoint_params": "Parámetros",
+        "endpoint_response": "Respuesta",
+        "endpoint_required": "requerido",
+        "endpoint_optional": "opcional",
+        "endpoint_success": "En caso de éxito:",
+        "endpoint_error": "En caso de error:",
+        "integration_text": "Hay varios enfoques disponibles para integrar nuestro sistema de licencias en tus aplicaciones. Elige el que mejor se adapte a tu entorno de desarrollo.",
+        "approach": "Enfoque",
+        "advantages": "Ventajas",
+        "recommended_use": "Casos de Uso Recomendados",
+        "php_standard": "PHP Estándar",
+        "php_advantages": [
+            "Compatible con todos los proyectos PHP",
+            "No requiere dependencias externas",
+            "Fácil de adaptar a cualquier arquitectura"
+        ],
+        "php_use_case": "Aplicaciones PHP sin framework específico, integraciones en CMS, proyectos legacy",
+        "serial_key_description": "La clave de serie a verificar",
+        "domain_description": "El dominio donde se utiliza la licencia",
+        "ip_description": "La dirección IP desde la que se realiza la solicitud",
+        "jwt_description": "obtenido durante la verificación de la clave",
+        "token_description": "El token JWT obtenido durante la verificación de la clave",
+        "laravel": "Laravel",
+        "javascript": "JavaScript",
+        "flutter": "Flutter/Dart",
+        "laravel_advantages": [
+            "Integración nativa con el framework Laravel",
+            "Uso de las características de seguridad de Laravel",
+            "Soporte para middlewares y eventos"
+        ],
+        "laravel_use_case": "Aplicaciones Laravel, proyectos que utilizan el ecosistema Laravel",
+        "javascript_advantages": [
+            "Compatible con todos los navegadores modernos",
+            "Fácil de integrar en aplicaciones frontend",
+            "Soporte para promesas y async/await"
+        ],
+        "javascript_use_case": "Aplicaciones web frontend, aplicaciones Node.js",
+        "flutter_advantages": [
+            "Soporte multiplataforma (iOS, Android, Web)",
+            "Rendimiento nativo",
+            "Fácil integración con widgets Flutter"
+        ],
+        "flutter_use_case": "Aplicaciones móviles Flutter, aplicaciones multiplataforma",
+        "examples": {
+            "title": "Ejemplos de Integración",
+            "php_standard": {
+                "title": "Enfoque 1: PHP Estándar (Compatible con todos los proyectos)",
+                "description": "Este enfoque utiliza funciones PHP nativas y es compatible con cualquier proyecto PHP, independientemente del framework utilizado."
+            },
+            "laravel": {
+                "title": "Enfoque 2: Laravel (Integración simplificada)",
+                "description": "Este enfoque utiliza el cliente HTTP de Laravel para una integración más simple y elegante en proyectos Laravel."
+            },
+            "flutter": {
+                "title": "Flutter/Dart (Aplicaciones móviles)",
+                "description": "Este enfoque permite integrar el sistema de licencias en aplicaciones móviles desarrolladas con Flutter."
+            }
+        },
+        "best_practices": {
+            "title": "Mejores Prácticas",
+            "items": [
+                "Almacena los tokens JWT de forma segura",
+                "Implementa un mecanismo de actualización de tokens",
+                "Usa HTTPS para todas las comunicaciones con la API",
+                "Configura un sistema de manejo de errores para procesar las respuestas de error de la API",
+                "Limita el acceso a tu clave API y nunca la expongas en el lado del cliente",
+                "Implementa un mecanismo de caché para limitar las llamadas a la API"
+            ]
+        },
+        "support": {
+            "title": "Soporte",
+            "description": "Si encuentras algún problema al integrar la API o tienes preguntas, no dudes en contactar a nuestro equipo de soporte técnico."
+        }
     }
 }

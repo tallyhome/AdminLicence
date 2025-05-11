@@ -568,5 +568,98 @@
             },
             "auth_code": "认证码"
         }
+    },
+    "api_documentation": {
+        "title": "API 文档",
+        "description": "本文档将帮助您将许可证验证 API 集成到您的应用程序中。",
+        "table_of_contents": "目录",
+        "introduction": "介绍",
+        "authentication": "认证",
+        "available_endpoints": "可用端点",
+        "integration_approaches": "集成方法",
+        "integration_examples": "集成示例",
+        "best_practices": "最佳实践",
+        "introduction_text": "AdminLicence API 允许您直接从应用程序中验证用户的许可证。它提供安全的端点来验证序列密钥并获取动态代码以提高安全性。",
+        "introduction_security": "所有请求必须通过 HTTPS 进行，以确保传输数据的安全性。",
+        "authentication_text": "要使用 API，您需要拥有有效的 API 密钥。您可以在管理界面的 API 密钥部分创建和管理您的 API 密钥。",
+        "authentication_header": "对于需要认证的端点，您必须在请求头中包含您的 API 密钥：",
+        "endpoint_check_serial": "验证序列密钥",
+        "endpoint_secure_code": "获取安全动态代码",
+        "endpoint_url": "URL",
+        "endpoint_method": "方法",
+        "endpoint_auth": "认证",
+        "endpoint_params": "参数",
+        "endpoint_response": "响应",
+        "endpoint_required": "必需",
+        "endpoint_optional": "可选",
+        "endpoint_success": "成功时：",
+        "endpoint_error": "错误时：",
+        "integration_text": "有多种方法可以将我们的许可证系统集成到您的应用程序中。选择最适合您的开发环境的方法。",
+        "approach": "方法",
+        "advantages": "优势",
+        "recommended_use": "推荐使用场景",
+        "php_standard": "PHP 标准",
+        "php_advantages": [
+            "与所有 PHP 项目兼容",
+            "不需要外部依赖",
+            "易于适应任何架构"
+        ],
+        "php_use_case": "不使用特定框架的 PHP 应用程序、CMS 集成、遗留项目",
+        "serial_key_description": "要验证的序列密钥",
+        "domain_description": "使用许可证的域名",
+        "ip_description": "发出请求的 IP 地址",
+        "jwt_description": "在密钥验证期间获取",
+        "token_description": "在密钥验证期间获取的 JWT 令牌",
+        "laravel": "Laravel",
+        "javascript": "JavaScript",
+        "flutter": "Flutter/Dart",
+        "laravel_advantages": [
+            "与 Laravel 框架原生集成",
+            "利用 Laravel 安全功能",
+            "支持中间件和事件"
+        ],
+        "laravel_use_case": "Laravel 应用程序、使用 Laravel 生态系统的项目",
+        "javascript_advantages": [
+            "与所有现代浏览器兼容",
+            "易于集成到前端应用程序",
+            "支持 Promise 和 async/await"
+        ],
+        "javascript_use_case": "前端 Web 应用程序、Node.js 应用程序",
+        "flutter_advantages": [
+            "跨平台支持（iOS、Android、Web）",
+            "原生性能",
+            "易于与 Flutter 组件集成"
+        ],
+        "flutter_use_case": "Flutter 移动应用程序、跨平台应用程序",
+        "examples": {
+            "title": "集成示例",
+            "php_standard": {
+                "title": "方法 1：PHP 标准（与所有项目兼容）",
+                "description": "此方法使用 PHP 原生函数，与任何 PHP 项目兼容，无论使用什么框架。"
+            },
+            "laravel": {
+                "title": "方法 2：Laravel（简化集成）",
+                "description": "此方法使用 Laravel HTTP 客户端，在 Laravel 项目中实现更简单和优雅的集成。"
+            },
+            "flutter": {
+                "title": "Flutter/Dart（移动应用程序）",
+                "description": "此方法允许将许可证系统集成到使用 Flutter 开发的移动应用程序中。"
+            }
+        },
+        "best_practices": {
+            "title": "最佳实践",
+            "items": [
+                "安全存储 JWT 令牌",
+                "实现令牌刷新机制",
+                "所有 API 通信使用 HTTPS",
+                "设置错误处理系统以处理 API 错误响应",
+                "限制对 API 密钥的访问，切勿在客户端暴露",
+                "实现缓存机制以限制 API 调用"
+            ]
+        },
+        "support": {
+            "title": "支持",
+            "description": "如果您在集成 API 时遇到问题或有任何疑问，请随时联系我们的技术支持团队。"
+        }
     }
 }

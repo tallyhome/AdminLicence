@@ -561,5 +561,98 @@
             },
             "auth_code": "رمز المصادقة"
         }
+    },
+    "api_documentation": {
+        "title": "توثيق API",
+        "description": "سيساعدك هذا التوثيق على دمج API التحقق من الترخيص في تطبيقاتك.",
+        "table_of_contents": "جدول المحتويات",
+        "introduction": "مقدمة",
+        "authentication": "المصادقة",
+        "available_endpoints": "نقاط النهاية المتاحة",
+        "integration_approaches": "مناهج التكامل",
+        "integration_examples": "أمثلة التكامل",
+        "best_practices": "أفضل الممارسات",
+        "introduction_text": "يتيح لك AdminLicence API التحقق من تراخيص المستخدمين مباشرة من تطبيقاتك. يوفر نقاط نهاية آمنة للتحقق من المفاتيح التسلسلية والحصول على رموز ديناميكية لتعزيز الأمان.",
+        "introduction_security": "يجب إجراء جميع الطلبات عبر HTTPS لضمان أمان البيانات المنقولة.",
+        "authentication_text": "لاستخدام API، تحتاج إلى مفتاح API صالح. يمكنك إنشاء وإدارة مفاتيح API الخاصة بك في قسم مفاتيح API في واجهة الإدارة.",
+        "authentication_header": "للنقاط النهائية التي تتطلب المصادقة، يجب تضمين مفتاح API الخاص بك في رأس الطلب:",
+        "endpoint_check_serial": "التحقق من المفتاح التسلسلي",
+        "endpoint_secure_code": "الحصول على رمز ديناميكي آمن",
+        "endpoint_url": "URL",
+        "endpoint_method": "الطريقة",
+        "endpoint_auth": "المصادقة",
+        "endpoint_params": "المعاملات",
+        "endpoint_response": "الاستجابة",
+        "endpoint_required": "مطلوب",
+        "endpoint_optional": "اختياري",
+        "endpoint_success": "عند النجاح:",
+        "endpoint_error": "عند الخطأ:",
+        "integration_text": "هناك عدة مناهج لدمج نظام الترخيص الخاص بنا في تطبيقاتك. اختر المنهج الأنسب لبيئة التطوير الخاصة بك.",
+        "approach": "المنهج",
+        "advantages": "المميزات",
+        "recommended_use": "حالات الاستخدام الموصى بها",
+        "php_standard": "PHP القياسي",
+        "php_advantages": [
+            "متوافق مع جميع مشاريع PHP",
+            "لا يتطلب تبعيات خارجية",
+            "سهل التكيف مع أي بنية"
+        ],
+        "php_use_case": "تطبيقات PHP بدون إطار عمل محدد، تكامل CMS، المشاريع القديمة",
+        "serial_key_description": "المفتاح التسلسلي للتحقق",
+        "domain_description": "النطاق الذي يتم استخدام الترخيص عليه",
+        "ip_description": "عنوان IP الذي يتم إرسال الطلب منه",
+        "jwt_description": "يتم الحصول عليه أثناء التحقق من المفتاح",
+        "token_description": "رمز JWT الذي تم الحصول عليه أثناء التحقق من المفتاح",
+        "laravel": "Laravel",
+        "javascript": "JavaScript",
+        "flutter": "Flutter/Dart",
+        "laravel_advantages": [
+            "تكامل أصلي مع إطار عمل Laravel",
+            "الاستفادة من ميزات أمان Laravel",
+            "دعم الوسيط والأحداث"
+        ],
+        "laravel_use_case": "تطبيقات Laravel، المشاريع التي تستخدم نظام Laravel",
+        "javascript_advantages": [
+            "متوافق مع جميع المتصفحات الحديثة",
+            "تكامل سهل مع تطبيقات الواجهة الأمامية",
+            "دعم Promise و async/await"
+        ],
+        "javascript_use_case": "تطبيقات الويب الأمامية، تطبيقات Node.js",
+        "flutter_advantages": [
+            "دعم متعدد المنصات (iOS، Android، Web)",
+            "أداء أصلي",
+            "تكامل سهل مع عناصر واجهة Flutter"
+        ],
+        "flutter_use_case": "تطبيقات Flutter المتنقلة، تطبيقات متعددة المنصات",
+        "examples": {
+            "title": "أمثلة التكامل",
+            "php_standard": {
+                "title": "المنهج 1: PHP القياسي (متوافق مع جميع المشاريع)",
+                "description": "يستخدم هذا المنهج وظائف PHP الأصلية وهو متوافق مع أي مشروع PHP، بغض النظر عن إطار العمل المستخدم."
+            },
+            "laravel": {
+                "title": "المنهج 2: Laravel (تكامل مبسط)",
+                "description": "يستخدم هذا المنهج عميل HTTP الخاص بـ Laravel لتحقيق تكامل أبسط وأنيق في مشاريع Laravel."
+            },
+            "flutter": {
+                "title": "Flutter/Dart (تطبيقات الموبايل)",
+                "description": "يتيح هذا المنهج دمج نظام الترخيص في تطبيقات الموبايل المطورة باستخدام Flutter."
+            }
+        },
+        "best_practices": {
+            "title": "أفضل الممارسات",
+            "items": [
+                "تخزين رموز JWT بشكل آمن",
+                "تنفيذ آلية تجديد الرموز",
+                "استخدام HTTPS لجميع اتصالات API",
+                "إعداد نظام معالجة الأخطاء للتعامل مع استجابات أخطاء API",
+                "تقييد الوصول إلى مفتاح API الخاص بك وعدم كشفه في جانب العميل",
+                "تنفيذ آلية التخزين المؤقت للحد من استدعاءات API"
+            ]
+        },
+        "support": {
+            "title": "الدعم",
+            "description": "إذا واجهت مشاكل في تكامل API أو لديك أي أسئلة، فلا تتردد في الاتصال بفريق الدعم الفني لدينا."
+        }
     }
 }

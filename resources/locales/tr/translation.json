@@ -561,5 +561,98 @@
             },
             "auth_code": "Kimlik doğrulama kodu"
         }
+    },
+    "api_documentation": {
+        "title": "API Dokümantasyonu",
+        "description": "Bu dokümantasyon, lisans doğrulama API'sini uygulamalarınıza entegre etmenize yardımcı olacaktır.",
+        "table_of_contents": "İçindekiler",
+        "introduction": "Giriş",
+        "authentication": "Kimlik Doğrulama",
+        "available_endpoints": "Kullanılabilir Uç Noktalar",
+        "integration_approaches": "Entegrasyon Yaklaşımları",
+        "integration_examples": "Entegrasyon Örnekleri",
+        "best_practices": "En İyi Uygulamalar",
+        "introduction_text": "AdminLicence API, kullanıcılarınızın lisanslarını doğrudan uygulamalarınızdan doğrulamanıza olanak tanır. Seri anahtarları doğrulamak ve güvenliği artırmak için dinamik kodlar almak üzere güvenli uç noktalar sağlar.",
+        "introduction_security": "Tüm istekler, iletilen verilerin güvenliğini sağlamak için HTTPS üzerinden yapılmalıdır.",
+        "authentication_text": "API'yi kullanmak için geçerli bir API anahtarına sahip olmanız gerekir. API anahtarlarınızı yönetici arayüzündeki API Anahtarları bölümünden oluşturabilir ve yönetebilirsiniz.",
+        "authentication_header": "Kimlik doğrulaması gerektiren uç noktalar için, API anahtarınızı istek başlığına dahil etmelisiniz:",
+        "endpoint_check_serial": "Seri Anahtarı Doğrulama",
+        "endpoint_secure_code": "Güvenli Dinamik Kod Alma",
+        "endpoint_url": "URL",
+        "endpoint_method": "Metod",
+        "endpoint_auth": "Kimlik Doğrulama",
+        "endpoint_params": "Parametreler",
+        "endpoint_response": "Yanıt",
+        "endpoint_required": "gerekli",
+        "endpoint_optional": "isteğe bağlı",
+        "endpoint_success": "Başarılı olduğunda:",
+        "endpoint_error": "Hata durumunda:",
+        "integration_text": "Lisans sistemimizi uygulamalarınıza entegre etmek için birkaç yaklaşım mevcuttur. Geliştirme ortamınıza en uygun olanı seçin.",
+        "approach": "Yaklaşım",
+        "advantages": "Avantajlar",
+        "recommended_use": "Önerilen Kullanım Alanları",
+        "php_standard": "PHP Standart",
+        "php_advantages": [
+            "Tüm PHP projeleriyle uyumlu",
+            "Harici bağımlılık gerektirmez",
+            "Herhangi bir mimariye kolayca uyarlanabilir"
+        ],
+        "php_use_case": "Belirli bir framework kullanmayan PHP uygulamaları, CMS entegrasyonları, eski projeler",
+        "serial_key_description": "Doğrulanacak seri anahtar",
+        "domain_description": "Lisansın kullanıldığı domain",
+        "ip_description": "İsteğin yapıldığı IP adresi",
+        "jwt_description": "anahtar doğrulaması sırasında alınır",
+        "token_description": "Anahtar doğrulaması sırasında alınan JWT token",
+        "laravel": "Laravel",
+        "javascript": "JavaScript",
+        "flutter": "Flutter/Dart",
+        "laravel_advantages": [
+            "Laravel framework ile yerel entegrasyon",
+            "Laravel güvenlik özelliklerinin kullanımı",
+            "Middleware ve olay desteği"
+        ],
+        "laravel_use_case": "Laravel uygulamaları, Laravel ekosistemini kullanan projeler",
+        "javascript_advantages": [
+            "Tüm modern tarayıcılarla uyumlu",
+            "Frontend uygulamalarına kolay entegrasyon",
+            "Promise ve async/await desteği"
+        ],
+        "javascript_use_case": "Frontend web uygulamaları, Node.js uygulamaları",
+        "flutter_advantages": [
+            "Çapraz platform desteği (iOS, Android, Web)",
+            "Yerel performans",
+            "Flutter widget'ları ile kolay entegrasyon"
+        ],
+        "flutter_use_case": "Flutter mobil uygulamaları, çapraz platform uygulamaları",
+        "examples": {
+            "title": "Entegrasyon Örnekleri",
+            "php_standard": {
+                "title": "Yaklaşım 1: PHP Standart (Tüm projelerle uyumlu)",
+                "description": "Bu yaklaşım, PHP'nin yerel işlevlerini kullanır ve kullanılan framework'ten bağımsız olarak herhangi bir PHP projesiyle uyumludur."
+            },
+            "laravel": {
+                "title": "Yaklaşım 2: Laravel (Basitleştirilmiş entegrasyon)",
+                "description": "Bu yaklaşım, Laravel projelerinde daha basit ve zarif bir entegrasyon için Laravel HTTP istemcisini kullanır."
+            },
+            "flutter": {
+                "title": "Flutter/Dart (Mobil uygulamalar)",
+                "description": "Bu yaklaşım, Flutter ile geliştirilen mobil uygulamalara lisans sistemini entegre etmenizi sağlar."
+            }
+        },
+        "best_practices": {
+            "title": "En İyi Uygulamalar",
+            "items": [
+                "JWT token'larını güvenli bir şekilde saklayın",
+                "Token yenileme mekanizması uygulayın",
+                "API ile tüm iletişimlerde HTTPS kullanın",
+                "API hata yanıtlarını işlemek için hata yönetim sistemi kurun",
+                "API anahtarınıza erişimi sınırlayın ve asla istemci tarafında açığa çıkarmayın",
+                "API çağrılarını sınırlamak için önbellek mekanizması uygulayın"
+            ]
+        },
+        "support": {
+            "title": "Destek",
+            "description": "API entegrasyonunda sorun yaşıyorsanız veya sorularınız varsa, teknik destek ekibimizle iletişime geçmekten çekinmeyin."
+        }
     }
 }

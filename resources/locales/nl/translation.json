@@ -557,5 +557,98 @@
             },
             "auth_code": "Authenticatiecode"
         }
+    },
+    "api_documentation": {
+        "title": "API Documentatie",
+        "description": "Deze documentatie helpt u bij het integreren van de licentievalidatie-API in uw applicaties.",
+        "table_of_contents": "Inhoudsopgave",
+        "introduction": "Inleiding",
+        "authentication": "Authenticatie",
+        "available_endpoints": "Beschikbare Endpoints",
+        "integration_approaches": "Integratiebenaderingen",
+        "integration_examples": "Integratievoorbeelden",
+        "best_practices": "Beste Praktijken",
+        "introduction_text": "De AdminLicence API stelt u in staat om de licenties van uw gebruikers direct vanuit uw applicaties te valideren. Het biedt beveiligde endpoints voor het verifiëren van serienummers en het verkrijgen van dynamische codes om de beveiliging te verbeteren.",
+        "introduction_security": "Alle verzoeken moeten via HTTPS worden gedaan om de beveiliging van verzonden gegevens te garanderen.",
+        "authentication_text": "Om de API te gebruiken, moet u een geldige API-sleutel hebben. U kunt uw API-sleutels aanmaken en beheren in de API-sleutels sectie van de beheerinterface.",
+        "authentication_header": "Voor endpoints die authenticatie vereisen, moet u uw API-sleutel in de verzoekheader opnemen:",
+        "endpoint_check_serial": "Serienummer Verificatie",
+        "endpoint_secure_code": "Beveiligde Dynamische Code Ophalen",
+        "endpoint_url": "URL",
+        "endpoint_method": "Methode",
+        "endpoint_auth": "Authenticatie",
+        "endpoint_params": "Parameters",
+        "endpoint_response": "Antwoord",
+        "endpoint_required": "verplicht",
+        "endpoint_optional": "optioneel",
+        "endpoint_success": "Bij succes:",
+        "endpoint_error": "Bij fout:",
+        "integration_text": "Er zijn verschillende benaderingen beschikbaar om ons licentiesysteem in uw applicaties te integreren. Kies degene die het beste past bij uw ontwikkelomgeving.",
+        "approach": "Benadering",
+        "advantages": "Voordelen",
+        "recommended_use": "Aanbevolen Gebruikssituaties",
+        "php_standard": "PHP Standaard",
+        "php_advantages": [
+            "Compatibel met alle PHP-projecten",
+            "Geen externe afhankelijkheden vereist",
+            "Eenvoudig aan te passen aan elke architectuur"
+        ],
+        "php_use_case": "PHP-applicaties zonder specifiek framework, CMS-integraties, legacy-projecten",
+        "serial_key_description": "Het te verifiëren serienummer",
+        "domain_description": "Het domein waarop de licentie wordt gebruikt",
+        "ip_description": "Het IP-adres vanwaar het verzoek wordt gedaan",
+        "jwt_description": "verkregen tijdens sleutelverificatie",
+        "token_description": "Het JWT-token verkregen tijdens sleutelverificatie",
+        "laravel": "Laravel",
+        "javascript": "JavaScript",
+        "flutter": "Flutter/Dart",
+        "laravel_advantages": [
+            "Native integratie met het Laravel-framework",
+            "Gebruik van Laravel-beveiligingsfuncties",
+            "Ondersteuning voor middlewares en events"
+        ],
+        "laravel_use_case": "Laravel-applicaties, projecten die het Laravel-ecosysteem gebruiken",
+        "javascript_advantages": [
+            "Compatibel met alle moderne browsers",
+            "Eenvoudig te integreren in frontend-applicaties",
+            "Ondersteuning voor promises en async/await"
+        ],
+        "javascript_use_case": "Frontend webapplicaties, Node.js-applicaties",
+        "flutter_advantages": [
+            "Cross-platform ondersteuning (iOS, Android, Web)",
+            "Native prestaties",
+            "Eenvoudige integratie met Flutter-widgets"
+        ],
+        "flutter_use_case": "Flutter mobiele applicaties, cross-platform applicaties",
+        "examples": {
+            "title": "Integratievoorbeelden",
+            "php_standard": {
+                "title": "Benadering 1: PHP Standaard (Compatibel met alle projecten)",
+                "description": "Deze benadering gebruikt native PHP-functies en is compatibel met elk PHP-project, ongeacht het gebruikte framework."
+            },
+            "laravel": {
+                "title": "Benadering 2: Laravel (Vereenvoudigde integratie)",
+                "description": "Deze benadering gebruikt de Laravel HTTP-client voor een eenvoudigere en elegantere integratie in Laravel-projecten."
+            },
+            "flutter": {
+                "title": "Flutter/Dart (Mobiele applicaties)",
+                "description": "Deze benadering maakt het mogelijk om het licentiesysteem te integreren in mobiele applicaties ontwikkeld met Flutter."
+            }
+        },
+        "best_practices": {
+            "title": "Beste Praktijken",
+            "items": [
+                "Sla JWT-tokens veilig op",
+                "Implementeer een token-vernieuwingsmechanisme",
+                "Gebruik HTTPS voor alle API-communicatie",
+                "Stel een foutafhandelingssysteem in voor het verwerken van API-foutreacties",
+                "Beperk de toegang tot uw API-sleutel en exposeer deze nooit aan de clientzijde",
+                "Implementeer een caching-mechanisme om API-aanroepen te beperken"
+            ]
+        },
+        "support": {
+            "title": "Ondersteuning",
+            "description": "Als u problemen ondervindt bij het integreren van de API of vragen heeft, aarzel dan niet om contact op te nemen met ons technisch ondersteuningsteam."
+        }
     }
 }

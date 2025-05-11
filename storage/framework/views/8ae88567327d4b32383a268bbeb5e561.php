@@ -1,11 +1,11 @@
-<?php $__env->startSection('title', 'Documentation API'); ?>
+<?php $__env->startSection('title', t('api_documentation.title')); ?>
 
 <?php $__env->startSection('content'); ?>
 <div class="container-fluid">
     <div class="row mb-4">
         <div class="col-12">
-            <h1>Documentation API</h1>
-            <p class="lead">Cette documentation vous aidera à intégrer l'API de validation des licences dans vos applications.</p>
+            <h1><?php echo e(t('api_documentation.title')); ?></h1>
+            <p class="lead"><?php echo e(t('api_documentation.description')); ?></p>
         </div>
     </div>
     
@@ -13,28 +13,83 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Table des matières</h5>
+                    <h5 class="mb-0"><?php echo e(t('api_documentation.table_of_contents')); ?></h5>
                 </div>
                 <div class="card-body">
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#introduction">Introduction</a></li>
-                        <li class="mb-2"><a href="#authentification">Authentification</a></li>
-                        <li class="mb-2"><a href="#endpoints">Endpoints disponibles</a>
+                        <li class="mb-2"><a href="#introduction"><?php echo e(t('api_documentation.introduction')); ?></a></li>
+                        <li class="mb-2"><a href="#authentification"><?php echo e(t('api_documentation.authentication')); ?></a></li>
+                        <li class="mb-2"><a href="#endpoints"><?php echo e(t('api_documentation.available_endpoints')); ?></a>
                             <ul>
-                                <li><a href="#endpoint-check-serial">Vérification d'une clé de série</a></li>
-                                <li><a href="#endpoint-secure-code">Récupération du code dynamique sécurisé</a></li>
+                                <li><a href="#endpoint-check-serial"><?php echo e(t('api_documentation.endpoint_check_serial')); ?></a></li>
+                                <li><a href="#endpoint-secure-code"><?php echo e(t('api_documentation.endpoint_secure_code')); ?></a></li>
                             </ul>
                         </li>
-                        <li class="mb-2"><a href="#approches">Approches d'intégration</a></li>
-                        <li class="mb-2"><a href="#exemples">Exemples d'intégration</a>
+                        <li class="mb-2"><a href="#approches"><?php echo e(t('api_documentation.integration_approaches')); ?></a></li>
+                        <li class="mb-2"><a href="#exemples"><?php echo e(t('api_documentation.integration_examples')); ?></a>
                             <ul>
-                                <li><a href="#exemple-php">PHP Standard</a></li>
+                                <li><a href="#exemple-php"><?php echo e(t('api_documentation.php_standard')); ?></a></li>
                                 <li><a href="#exemple-laravel">Laravel</a></li>
                                 <li><a href="#exemple-javascript">JavaScript</a></li>
                                 <li><a href="#exemple-flutter">Flutter/Dart</a></li>
                             </ul>
                         </li>
-                        <li class="mb-2"><a href="#bonnes-pratiques">Bonnes pratiques</a></li>
+                        <li class="mb-2"><a href="#bonnes-pratiques">
+                            <?php
+                                // Récupérer la langue active
+                                $translationService = app(\App\Services\TranslationService::class);
+                                $locale = $translationService->getLocale();
+                                
+                                // Récupérer les traductions pour la langue active
+                                $translations = $translationService->getTranslations($locale);
+                                
+                                // Déboguer les informations de langue et de traduction
+                                $debug = false; // Mettre à true pour déboguer
+                                if ($debug) {
+                                    echo "Langue active: " . $locale . "<br>";
+                                    if (isset($translations['api_documentation']['best_practices'])) {
+                                        echo "Traduction trouvée: " . $translations['api_documentation']['best_practices'] . "<br>";
+                                    } else {
+                                        echo "Traduction non trouvée<br>";
+                                    }
+                                }
+                                
+                                // Afficher la traduction selon la langue
+                                $bestPracticesText = 'Bonnes pratiques'; // Valeur par défaut en français
+                                
+                                // Vérifier si best_practices.title existe et l'utiliser
+                                if (isset($translations['api_documentation']['best_practices']['title'])) {
+                                    $bestPracticesText = $translations['api_documentation']['best_practices']['title'];
+                                } else {
+                                    // Fallback aux traductions codées en dur selon la langue
+                                    if ($locale === 'en') {
+                                        $bestPracticesText = 'Best Practices';
+                                    } elseif ($locale === 'de') {
+                                        $bestPracticesText = 'Best Practices';
+                                    } elseif ($locale === 'es') {
+                                        $bestPracticesText = 'Buenas prácticas';
+                                    } elseif ($locale === 'it') {
+                                        $bestPracticesText = 'Migliori pratiche';
+                                    } elseif ($locale === 'pt') {
+                                        $bestPracticesText = 'Boas práticas';
+                                    } elseif ($locale === 'nl') {
+                                        $bestPracticesText = 'Best practices';
+                                    } elseif ($locale === 'ru') {
+                                        $bestPracticesText = 'Лучшие практики';
+                                    } elseif ($locale === 'zh') {
+                                        $bestPracticesText = '最佳实践';
+                                    } elseif ($locale === 'ja') {
+                                        $bestPracticesText = 'ベストプラクティス';
+                                    } elseif ($locale === 'tr') {
+                                        $bestPracticesText = 'En iyi uygulamalar';
+                                    } elseif ($locale === 'ar') {
+                                        $bestPracticesText = 'أفضل الممارسات';
+                                    }
+                                }
+                                
+                                echo $bestPracticesText;
+                            ?>
+                        </a></li>
                     </ul>
                 </div>
             </div>
@@ -45,109 +100,89 @@
         <div class="col-12">
             <div class="card mb-4" id="introduction">
                 <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Introduction</h5>
+                    <h5 class="mb-0"><?php echo e(t('api_documentation.introduction')); ?></h5>
                 </div>
                 <div class="card-body">
-                    <p>L'API AdminLicence vous permet de valider les licences de vos utilisateurs directement depuis vos applications. Elle offre des endpoints sécurisés pour vérifier la validité des clés de série et obtenir des codes dynamiques pour renforcer la sécurité.</p>
-                    <p>Toutes les requêtes doivent être effectuées via HTTPS pour garantir la sécurité des données transmises.</p>
+                    <p><?php echo e(t('api_documentation.introduction_text')); ?></p>
+                    <p><?php echo e(t('api_documentation.introduction_security')); ?></p>
                 </div>
             </div>
 
             <div class="card mb-4" id="authentification">
                 <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Authentification</h5>
+                    <h5 class="mb-0"><?php echo e(t('api_documentation.authentication')); ?></h5>
                 </div>
                 <div class="card-body">
-                    <p>Pour utiliser l'API, vous devez disposer d'une clé API valide. Vous pouvez créer et gérer vos clés API dans la section <a href="<?php echo e(route('admin.api-keys.index')); ?>">Clés API</a> de l'interface d'administration.</p>
-                    <p>Pour les endpoints qui nécessitent une authentification, vous devez inclure votre clé API dans l'en-tête de la requête :</p>
+                    <p><?php echo e(t('api_documentation.authentication_text')); ?></p>
+                    <p><?php echo e(t('api_documentation.authentication_header')); ?></p>
                     <pre><code>Authorization: Bearer VOTRE_CLE_API</code></pre>
                 </div>
             </div>
 
             <div class="card mb-4" id="endpoints">
                 <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Endpoints disponibles</h5>
+                    <h5 class="mb-0"><?php echo e(t('api_documentation.available_endpoints')); ?></h5>
                 </div>
                 <div class="card-body">
-                    <h6 class="mt-3" id="endpoint-check-serial">1. Vérification d'une clé de série</h6>
+                    <h6 class="mt-3" id="endpoint-check-serial">1. <?php echo e(t('api_documentation.endpoint_check_serial')); ?></h6>
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <th style="width: 150px">URL</th>
+                                    <th style="width: 150px"><?php echo e(t('api_documentation.endpoint_url')); ?></th>
                                     <td><code>/api/v1/check-serial</code></td>
                                 </tr>
                                 <tr>
-                                    <th>Méthode</th>
+                                    <th><?php echo e(t('api_documentation.endpoint_method')); ?></th>
                                     <td><code>POST</code></td>
                                 </tr>
                                 <tr>
-                                    <th>Authentification</th>
-                                    <td>Non requise</td>
+                                    <th><?php echo e(t('api_documentation.endpoint_auth')); ?></th>
+                                    <td><?php echo e(t('api_documentation.endpoint_optional')); ?></td>
                                 </tr>
                                 <tr>
-                                    <th>Paramètres</th>
+                                    <th><?php echo e(t('api_documentation.endpoint_params')); ?></th>
                                     <td>
                                         <ul class="mb-0">
-                                            <li><code>serial_key</code> (obligatoire) : La clé de série à vérifier</li>
-                                            <li><code>domain</code> (optionnel) : Le domaine sur lequel la licence est utilisée</li>
-                                            <li><code>ip_address</code> (optionnel) : L'adresse IP depuis laquelle la requête est effectuée</li>
+                                            <li><code>serial_key</code> (<?php echo e(t('api_documentation.endpoint_required')); ?>) : <?php echo e(t('api_documentation.serial_key_description')); ?></li>
+                                            <li><code>domain</code> (<?php echo e(t('api_documentation.endpoint_optional')); ?>) : <?php echo e(t('api_documentation.domain_description')); ?></li>
+                                            <li><code>ip_address</code> (<?php echo e(t('api_documentation.endpoint_optional')); ?>) : <?php echo e(t('api_documentation.ip_description')); ?></li>
                                         </ul>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Réponse</th>
-                                    <td>
-                                        <p>En cas de succès :</p>
-                                        <pre><code>{
-    "status": "success",
-    "message": "Clé de série valide",
-    "data": {
-        "token": "jwt_token_pour_authentification",
-        "project": "nom_du_projet",
-        "expires_at": "2024-12-31T23:59:59.000000Z"
-    }
-}</code></pre>
-                                        <p>En cas d'erreur :</p>
-                                        <pre><code>{
-    "status": "error",
-    "message": "Message d'erreur spécifique"
-}</code></pre>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
 
-                    <h6 class="mt-4" id="endpoint-secure-code">2. Récupération du code dynamique sécurisé</h6>
+                    <h6 class="mt-4" id="endpoint-secure-code">2. <?php echo e(t('api_documentation.endpoint_secure_code')); ?></h6>
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <th style="width: 150px">URL</th>
+                                    <th style="width: 150px"><?php echo e(t('api_documentation.endpoint_url')); ?></th>
                                     <td><code>/api/v1/get-secure-code</code></td>
                                 </tr>
                                 <tr>
-                                    <th>Méthode</th>
+                                    <th><?php echo e(t('api_documentation.endpoint_method')); ?></th>
                                     <td><code>GET</code></td>
                                 </tr>
                                 <tr>
-                                    <th>Authentification</th>
-                                    <td>JWT (obtenu lors de la vérification de la clé)</td>
+                                    <th><?php echo e(t('api_documentation.endpoint_auth')); ?></th>
+                                    <td>JWT (<?php echo e(t('api_documentation.jwt_description')); ?>)</td>
                                 </tr>
                                 <tr>
-                                    <th>Paramètres</th>
+                                    <th><?php echo e(t('api_documentation.endpoint_params')); ?></th>
                                     <td>
                                         <ul class="mb-0">
-                                            <li><code>token</code> (obligatoire) : Le token JWT obtenu lors de la vérification de la clé</li>
-                                            <li><code>serial_key</code> (obligatoire) : La clé de série associée</li>
+                                            <li><code>token</code> (<?php echo e(t('api_documentation.endpoint_required')); ?>) : <?php echo e(t('api_documentation.token_description')); ?></li>
+                                            <li><code>serial_key</code> (<?php echo e(t('api_documentation.endpoint_required')); ?>) : <?php echo e(t('api_documentation.serial_key_description')); ?></li>
                                         </ul>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Réponse</th>
+                                    <th><?php echo e(t('api_documentation.endpoint_response')); ?></th>
                                     <td>
-                                        <p>En cas de succès :</p>
+                                        <p><?php echo e(t('api_documentation.endpoint_success')); ?></p>
                                         <pre><code>{
     "status": "success",
     "data": {
@@ -155,7 +190,7 @@
         "valid_until": "2023-01-01T12:00:00.000000Z"
     }
 }</code></pre>
-                                        <p>En cas d'erreur :</p>
+                                        <p><?php echo e(t('api_documentation.endpoint_error')); ?></p>
                                         <pre><code>{
     "status": "error",
     "message": "Message d'erreur spécifique"
@@ -170,53 +205,84 @@
 
             <div class="card mb-4" id="approches">
                 <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Approches d'intégration</h5>
+                    <h5 class="mb-0"><?php echo e(t('api_documentation.integration_approaches')); ?></h5>
                 </div>
                 <div class="card-body">
-                    <p>Plusieurs approches sont disponibles pour intégrer notre système de licence dans vos applications. Choisissez celle qui correspond le mieux à votre environnement de développement.</p>
+                    <p><?php echo e(t('api_documentation.integration_text')); ?></p>
                     
                     <div class="table-responsive mb-4">
                         <table class="table table-bordered">
                             <thead class="table-light">
                                 <tr>
-                                    <th>Approche</th>
-                                    <th>Avantages</th>
-                                    <th>Cas d'utilisation recommandés</th>
+                                    <th><?php echo e(t('api_documentation.approach')); ?></th>
+                                    <th><?php echo e(t('api_documentation.advantages')); ?></th>
+                                    <th><?php echo e(t('api_documentation.recommended_use')); ?></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><strong>PHP Standard</strong></td>
+                                    <td><strong><?php echo e(t('api_documentation.php_standard')); ?></strong></td>
                                     <td>
                                         <ul class="mb-0">
-                                            <li>Compatible avec tous les projets PHP</li>
-                                            <li>Aucune dépendance externe requise</li>
-                                            <li>Facile à adapter à n'importe quelle architecture</li>
+                                            <?php
+                                                $advantages = t('api_documentation.php_advantages');
+                                                if (is_array($advantages)) {
+                                                    foreach($advantages as $advantage) {
+                                                        echo '<li>' . $advantage . '</li>';
+                                                    }
+                                                }
+                                            ?>
                                         </ul>
                                     </td>
-                                    <td>Applications PHP sans framework spécifique, intégrations dans des CMS, projets legacy</td>
+                                    <td><?php echo e(t('api_documentation.php_use_case')); ?></td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Laravel</strong></td>
+                                    <td><strong><?php echo e(t('api_documentation.laravel')); ?></strong></td>
                                     <td>
                                         <ul class="mb-0">
-                                            <li>Syntaxe plus élégante et concise</li>
-                                            <li>Gestion automatique des erreurs HTTP</li>
-                                            <li>Intégration facile avec le système de cache et de session</li>
+                                            <?php
+                                                $advantages = t('api_documentation.laravel_advantages');
+                                                if (is_array($advantages)) {
+                                                    foreach($advantages as $advantage) {
+                                                        echo '<li>' . $advantage . '</li>';
+                                                    }
+                                                }
+                                            ?>
                                         </ul>
                                     </td>
-                                    <td>Applications Laravel, API RESTful modernes, projets utilisant l'écosystème Laravel</td>
+                                    <td><?php echo e(t('api_documentation.laravel_use_case')); ?></td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Flutter/Dart</strong></td>
+                                    <td><strong><?php echo e(t('api_documentation.javascript')); ?></strong></td>
                                     <td>
                                         <ul class="mb-0">
-                                            <li>Support pour les applications mobiles</li>
-                                            <li>Gestion asynchrone native</li>
-                                            <li>Typage fort pour plus de sécurité</li>
+                                            <?php
+                                                $advantages = t('api_documentation.javascript_advantages');
+                                                if (is_array($advantages)) {
+                                                    foreach($advantages as $advantage) {
+                                                        echo '<li>' . $advantage . '</li>';
+                                                    }
+                                                }
+                                            ?>
                                         </ul>
                                     </td>
-                                    <td>Applications mobiles iOS/Android, applications de bureau multi-plateformes</td>
+                                    <td><?php echo e(t('api_documentation.javascript_use_case')); ?></td>
+                                </tr>
+                                <tr>
+                                    <td><strong><?php echo e(t('api_documentation.flutter')); ?></strong></td>
+                                    <td>
+                                        <ul class="mb-0">
+                                            <?php
+                                                $advantages = t('api_documentation.flutter_advantages');
+                                                if (is_array($advantages)) {
+                                                    foreach($advantages as $advantage) {
+                                                        echo '<li>' . $advantage . '</li>';
+                                                    }
+                                                }
+                                            ?>
+                                        </ul>
+                                    </td>
+                                    <td><?php echo e(t('api_documentation.flutter_use_case')); ?></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -226,11 +292,11 @@
 
             <div class="card mb-4" id="exemples">
                 <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Exemples d'intégration</h5>
+                    <h5 class="mb-0"><?php echo e(t('api_documentation.examples.title')); ?></h5>
                 </div>
                 <div class="card-body">
-                    <h6 id="exemple-php">Approche 1: PHP Standard (Compatible avec tous les projets)</h6>
-                    <p class="text-muted mb-2">Cette approche utilise les fonctions PHP natives et est compatible avec n'importe quel projet PHP, indépendamment du framework utilisé.</p>
+                    <h6 id="exemple-php"><?php echo e(t('api_documentation.examples.php_standard.title')); ?></h6>
+                    <p class="text-muted mb-2"><?php echo e(t('api_documentation.examples.php_standard.description')); ?></p>
                     <pre><code>/**
  * Exemple d'intégration du système de licence avec PHP standard
  */
@@ -341,8 +407,8 @@ if ($validator->verifyLicence('monsite.com')) {
     }
 }</code></pre>
 
-                    <h6 class="mt-4" id="exemple-laravel">Approche 2: Laravel (Intégration simplifiée)</h6>
-                    <p class="text-muted mb-2">Cette approche utilise le client HTTP de Laravel pour une intégration plus simple et élégante dans les projets Laravel.</p>
+                    <h6 class="mt-4" id="exemple-laravel"><?php echo e(t('api_documentation.examples.laravel.title')); ?></h6>
+                    <p class="text-muted mb-2"><?php echo e(t('api_documentation.examples.laravel.description')); ?></p>
                     <pre><code>use Illuminate\Support\Facades\Http;
 
 // Vérification de la clé de série
@@ -409,8 +475,8 @@ async function validateLicence(serialKey, domain) {
     }
 }</code></pre>
 
-                    <h6 class="mt-4" id="exemple-flutter">Flutter/Dart (Applications mobiles)</h6>
-                    <p class="text-muted mb-2">Cette approche permet d'intégrer le système de licence dans des applications mobiles développées avec Flutter.</p>
+                    <h6 class="mt-4" id="exemple-flutter"><?php echo e(t('api_documentation.examples.flutter.title')); ?></h6>
+                    <p class="text-muted mb-2"><?php echo e(t('api_documentation.examples.flutter.description')); ?></p>
                     <pre><code>import 'dart:convert';
 import 'package:http/http.dart' as http;
 
@@ -537,7 +603,7 @@ void main() async {
 
             <div class="card mb-4" id="bonnes-pratiques">
                 <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Bonnes pratiques</h5>
+                    <h5 class="mb-0"><?php echo e(t('api_documentation.best_practices')); ?></h5>
                 </div>
                 <div class="card-body">
                     <ul>
@@ -553,10 +619,10 @@ void main() async {
 
             <div class="card">
                 <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Support</h5>
+                    <h5 class="mb-0"><?php echo e(t('api_documentation.support.title')); ?></h5>
                 </div>
                 <div class="card-body">
-                    <p>Si vous rencontrez des problèmes lors de l'intégration de l'API ou si vous avez des questions, n'hésitez pas à contacter notre équipe de support technique.</p>
+                    <p><?php echo e(t('api_documentation.support.description')); ?></p>
                 </div>
             </div>
         </div>

@@ -571,5 +571,98 @@
             },
             "auth_code": "Authentication code"
         }
+    },
+    "api_documentation": {
+        "title": "API Documentation",
+        "description": "This documentation will help you integrate the license validation API into your applications.",
+        "table_of_contents": "Table of Contents",
+        "introduction": "Introduction",
+        "authentication": "Authentication",
+        "available_endpoints": "Available Endpoints",
+        "integration_approaches": "Integration Approaches",
+        "integration_examples": "Integration Examples",
+        "best_practices": "Best Practices",
+        "introduction_text": "The AdminLicence API allows you to validate your users' licenses directly from your applications. It provides secure endpoints to verify serial keys and obtain dynamic codes to enhance security.",
+        "introduction_security": "All requests must be made via HTTPS to ensure the security of transmitted data.",
+        "authentication_text": "To use the API, you must have a valid API key. You can create and manage your API keys in the API Keys section of the admin interface.",
+        "authentication_header": "For endpoints that require authentication, you must include your API key in the request header:",
+        "endpoint_check_serial": "Serial Key Verification",
+        "endpoint_secure_code": "Secure Dynamic Code Retrieval",
+        "endpoint_url": "URL",
+        "endpoint_method": "Method",
+        "endpoint_auth": "Authentication",
+        "endpoint_params": "Parameters",
+        "endpoint_response": "Response",
+        "endpoint_required": "required",
+        "endpoint_optional": "optional",
+        "endpoint_success": "On success:",
+        "endpoint_error": "On error:",
+        "integration_text": "Several approaches are available to integrate our license system into your applications. Choose the one that best fits your development environment.",
+        "approach": "Approach",
+        "advantages": "Advantages",
+        "recommended_use": "Recommended Use Cases",
+        "php_standard": "PHP Standard",
+        "php_advantages": [
+            "Compatible with all PHP projects",
+            "No external dependencies required",
+            "Easy to adapt to any architecture"
+        ],
+        "php_use_case": "PHP applications without specific framework, CMS integrations, legacy projects",
+        "serial_key_description": "The serial key to verify",
+        "domain_description": "The domain where the license is used",
+        "ip_description": "The IP address from which the request is made",
+        "jwt_description": "obtained during key verification",
+        "token_description": "The JWT token obtained during key verification",
+        "laravel": "Laravel",
+        "javascript": "JavaScript",
+        "flutter": "Flutter/Dart",
+        "laravel_advantages": [
+            "Native integration with Laravel framework",
+            "Use of Laravel security features",
+            "Support for middlewares and events"
+        ],
+        "laravel_use_case": "Laravel applications, projects using the Laravel ecosystem",
+        "javascript_advantages": [
+            "Compatible with all modern browsers",
+            "Easy to integrate into frontend applications",
+            "Support for promises and async/await"
+        ],
+        "javascript_use_case": "Frontend web applications, Node.js applications",
+        "flutter_advantages": [
+            "Cross-platform support (iOS, Android, Web)",
+            "Native performance",
+            "Easy integration with Flutter widgets"
+        ],
+        "flutter_use_case": "Flutter mobile applications, cross-platform applications",
+        "examples": {
+            "title": "Integration Examples",
+            "php_standard": {
+                "title": "Approach 1: PHP Standard (Compatible with all projects)",
+                "description": "This approach uses native PHP functions and is compatible with any PHP project, regardless of the framework used."
+            },
+            "laravel": {
+                "title": "Approach 2: Laravel (Simplified integration)",
+                "description": "This approach uses Laravel's HTTP client for simpler and more elegant integration in Laravel projects."
+            },
+            "flutter": {
+                "title": "Flutter/Dart (Mobile applications)",
+                "description": "This approach allows integrating the license system into mobile applications developed with Flutter."
+            }
+        },
+        "best_practices": {
+            "title": "Best Practices",
+            "items": [
+                "Store JWT tokens securely",
+                "Implement a token refresh mechanism",
+                "Use HTTPS for all API communications",
+                "Set up an error handling system to handle API error responses",
+                "Limit access to your API key and never expose it client-side",
+                "Implement a caching mechanism to limit API calls"
+            ]
+        },
+        "support": {
+            "title": "Support",
+            "description": "If you encounter any issues while integrating the API or have questions, please don't hesitate to contact our technical support team."
+        }
     }
 }

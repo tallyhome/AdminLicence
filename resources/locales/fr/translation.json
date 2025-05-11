@@ -302,24 +302,53 @@
         "request": "Requête"
     },
     "email": {
-        "title": "Configuration Email",
-        "settings": "Paramètres",
+        "title": "Configuration des emails",
+        "settings": "Paramètres SMTP",
         "driver": "Driver",
-        "host": "Hôte",
+        "host": "Serveur SMTP",
         "port": "Port",
+        "encryption": "Chiffrement",
         "username": "Nom d'utilisateur",
         "password": "Mot de passe",
-        "encryption": "Chiffrement",
         "from_address": "Adresse d'expédition",
         "from_name": "Nom d'expédition",
         "test_email": "Envoyer un email de test",
         "templates": "Templates",
         "logs": "Journaux",
         "queue": "File d'attente",
-        "greeting": "Hello!",
-        "regards": "Regards",
-        "trouble_clicking": "If you're having trouble clicking the button, copy and paste the URL below into your web browser:",
-        "all_rights_reserved": "All rights reserved."
+        "greeting": "Bonjour !",
+        "regards": "Cordialement",
+        "trouble_clicking": "Si vous avez des difficultés à cliquer sur le bouton, copiez et collez l'URL ci-dessous dans votre navigateur web :",
+        "all_rights_reserved": "Tous droits réservés.",
+        "providers": {
+            "phpmail": {
+                "title": "Configuration PHPMail",
+                "settings": "Paramètres d'envoi",
+                "description": "Gestion SMTP avancée pour l'envoi d'emails avec support des templates personnalisés et suivi des envois",
+                "test_configuration": "Tester la configuration",
+                "save_configuration": "Enregistrer la configuration",
+                "statistics": "Statistiques",
+                "emails_sent_today": "Emails envoyés aujourd'hui",
+                "emails_sent_month": "Emails envoyés ce mois",
+                "logs": "Journaux",
+                "no_logs_available": "Aucun journal disponible",
+                "clear_logs": "Vider les journaux"
+            },
+            "mailgun": {
+                "title": "Configuration Mailgun",
+                "settings": "Paramètres Mailgun",
+                "description": "Service d'envoi d'emails transactionnels via l'API Mailgun",
+                "domain": "Domaine Mailgun",
+                "api_key": "Clé API Mailgun"
+            },
+            "mailchimp": {
+                "title": "Configuration Mailchimp",
+                "settings": "Paramètres Mailchimp",
+                "description": "Gestion des campagnes d'emailing, listes de diffusion et templates avec intégration Mailchimp",
+                "api_key": "Clé API Mailchimp",
+                "list_id": "ID de la liste"
+            }
+        }
     },
     "subscription": {
         "plans": "Plans d'abonnement",

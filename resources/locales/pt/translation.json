@@ -279,21 +279,53 @@
         "request": "Request"
     },
     "email": {
-        "title": "Configuração de E-mail",
-        "settings": "Configurações",
+        "title": "Configuração de email",
+        "settings": "Configurações SMTP",
         "driver": "Driver",
-        "host": "Host",
+        "host": "Servidor SMTP",
         "port": "Porta",
+        "encryption": "Criptografia",
         "username": "Nome de usuário",
         "password": "Senha",
-        "encryption": "Criptografia",
-        "from_address": "Endereço de origem",
-        "from_name": "Nome de origem",
-        "test_email": "Enviar e-mail de teste",
-        "greeting": "Hello!",
-        "regards": "Regards",
-        "trouble_clicking": "If you're having trouble clicking the button, copy and paste the URL below into your web browser:",
-        "all_rights_reserved": "All rights reserved."
+        "from_address": "Endereço de envio",
+        "from_name": "Nome de envio",
+        "test_email": "Enviar email de teste",
+        "templates": "Modelos",
+        "logs": "Logs",
+        "queue": "Fila",
+        "greeting": "Olá!",
+        "regards": "Atenciosamente",
+        "trouble_clicking": "Se estiver tendo problemas para clicar no botão, copie e cole a URL abaixo em seu navegador:",
+        "all_rights_reserved": "Todos os direitos reservados.",
+        "providers": {
+            "phpmail": {
+                "title": "Configuração PHPMail",
+                "settings": "Configurações de envio",
+                "description": "Gerenciamento SMTP avançado para envio de e-mails com modelos personalizados e rastreamento de envio",
+                "test_configuration": "Testar configuração",
+                "save_configuration": "Salvar configuração",
+                "statistics": "Estatísticas",
+                "emails_sent_today": "E-mails enviados hoje",
+                "emails_sent_month": "E-mails enviados este mês",
+                "logs": "Logs",
+                "no_logs_available": "Nenhum log disponível",
+                "clear_logs": "Limpar logs"
+            },
+            "mailgun": {
+                "title": "Configuração Mailgun",
+                "settings": "Configurações Mailgun",
+                "description": "Serviço de email transacional via API Mailgun",
+                "domain": "Domínio Mailgun",
+                "api_key": "Chave API Mailgun"
+            },
+            "mailchimp": {
+                "title": "Configuração Mailchimp",
+                "settings": "Configurações Mailchimp",
+                "description": "Gerenciamento de campanhas de email, listas de distribuição e modelos com integração Mailchimp",
+                "api_key": "Chave API Mailchimp",
+                "list_id": "ID da lista"
+            }
+        }
     },
     "subscription": {
         "plans": "Planos de Assinatura",

@@ -278,21 +278,53 @@
         "request": "Request"
     },
     "email": {
-        "title": "إعدادات البريد الإلكتروني",
-        "settings": "الإعدادات",
-        "driver": "السائق",
-        "host": "المضيف",
+        "title": "تكوين البريد الإلكتروني",
+        "settings": "إعدادات SMTP",
+        "driver": "برنامج التشغيل",
+        "host": "خادم SMTP",
         "port": "المنفذ",
+        "encryption": "التشفير",
         "username": "اسم المستخدم",
         "password": "كلمة المرور",
-        "encryption": "التشفير",
         "from_address": "عنوان المرسل",
         "from_name": "اسم المرسل",
         "test_email": "إرسال بريد إلكتروني تجريبي",
-        "greeting": "Hello!",
-        "regards": "Regards",
-        "trouble_clicking": "If you're having trouble clicking the button, copy and paste the URL below into your web browser:",
-        "all_rights_reserved": "All rights reserved."
+        "templates": "القوالب",
+        "logs": "السجلات",
+        "queue": "قائمة الانتظار",
+        "greeting": "مرحباً!",
+        "regards": "مع تحياتي",
+        "trouble_clicking": "إذا كنت تواجه مشكلة في النقر على الزر، انسخ والصق الرابط أدناه في متصفح الويب الخاص بك:",
+        "all_rights_reserved": "جميع الحقوق محفوظة.",
+        "providers": {
+            "phpmail": {
+                "title": "تكوين PHPMail",
+                "settings": "إعدادات الإرسال",
+                "description": "إدارة SMTP متقدمة لإرسال البريد الإلكتروني مع قوالب مخصصة وتتبع الإرسال",
+                "test_configuration": "اختبار التكوين",
+                "save_configuration": "حفظ التكوين",
+                "statistics": "الإحصائيات",
+                "emails_sent_today": "رسائل البريد الإلكتروني المرسلة اليوم",
+                "emails_sent_month": "رسائل البريد الإلكتروني المرسلة هذا الشهر",
+                "logs": "السجلات",
+                "no_logs_available": "لا توجد سجلات متاحة",
+                "clear_logs": "مسح السجلات"
+            },
+            "mailgun": {
+                "title": "تكوين Mailgun",
+                "settings": "إعدادات Mailgun",
+                "description": "خدمة البريد الإلكتروني المعاملات عبر واجهة برمجة تطبيقات Mailgun",
+                "domain": "نطاق Mailgun",
+                "api_key": "مفتاح API Mailgun"
+            },
+            "mailchimp": {
+                "title": "تكوين Mailchimp",
+                "settings": "إعدادات Mailchimp",
+                "description": "إدارة حملات البريد الإلكتروني وقوائم البريد والقوالب مع تكامل Mailchimp",
+                "api_key": "مفتاح API Mailchimp",
+                "list_id": "معرف القائمة"
+            }
+        }
     },
     "subscription": {
         "plans": "خطط الاشتراك",

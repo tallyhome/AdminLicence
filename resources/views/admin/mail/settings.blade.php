@@ -1,19 +1,19 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Configuration des emails')
+@section('title', t('email.title'))
 
 @section('content')
 <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1>Configuration des emails</h1>
+        <h1>{{ t('email.title') }}</h1>
         <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary">
-            <i class="fas fa-arrow-left"></i> Retour
+            <i class="fas fa-arrow-left"></i> {{ t('common.back') }}
         </a>
     </div>
 
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Paramètres SMTP</h3>
+            <h3 class="card-title">{{ t('email.settings') }}</h3>
         </div>
         <div class="card-body">
             <form action="{{ route('admin.mail.settings.store') }}" method="POST">
@@ -23,7 +23,7 @@
                     <div class="col-md-6">
                         <!-- Driver -->
                         <div class="mb-3">
-                            <label for="mail_driver" class="form-label">Driver</label>
+                            <label for="mail_driver" class="form-label">{{ t('email.driver') }}</label>
                             <select id="mail_driver" name="mail_driver" class="form-select @error('mail_driver') is-invalid @enderror" required>
                                 <option value="smtp" {{ old('mail_driver', $settings['mail_driver']) === 'smtp' ? 'selected' : '' }}>SMTP</option>
                                 <option value="mailgun" {{ old('mail_driver', $settings['mail_driver']) === 'mailgun' ? 'selected' : '' }}>Mailgun</option>
@@ -37,7 +37,7 @@
 
                         <!-- Host -->
                         <div class="mb-3">
-                            <label for="mail_host" class="form-label">Serveur SMTP</label>
+                            <label for="mail_host" class="form-label">{{ t('email.host') }}</label>
                             <input type="text" id="mail_host" name="mail_host" class="form-control @error('mail_host') is-invalid @enderror" 
                                    value="{{ old('mail_host', $settings['mail_host']) }}" required>
                             @error('mail_host')
@@ -47,7 +47,7 @@
 
                         <!-- Port -->
                         <div class="mb-3">
-                            <label for="mail_port" class="form-label">Port</label>
+                            <label for="mail_port" class="form-label">{{ t('email.port') }}</label>
                             <input type="number" id="mail_port" name="mail_port" class="form-control @error('mail_port') is-invalid @enderror" 
                                    value="{{ old('mail_port', $settings['mail_port']) }}" required>
                             @error('mail_port')
@@ -57,7 +57,7 @@
 
                         <!-- Encryption -->
                         <div class="mb-3">
-                            <label for="mail_encryption" class="form-label">Chiffrement</label>
+                            <label for="mail_encryption" class="form-label">{{ t('email.encryption') }}</label>
                             <select id="mail_encryption" name="mail_encryption" class="form-select @error('mail_encryption') is-invalid @enderror" required>
                                 <option value="tls" {{ old('mail_encryption', $settings['mail_encryption']) === 'tls' ? 'selected' : '' }}>TLS</option>
                                 <option value="ssl" {{ old('mail_encryption', $settings['mail_encryption']) === 'ssl' ? 'selected' : '' }}>SSL</option>
@@ -71,7 +71,7 @@
                     <div class="col-md-6">
                         <!-- Username -->
                         <div class="mb-3">
-                            <label for="mail_username" class="form-label">Nom d'utilisateur</label>
+                            <label for="mail_username" class="form-label">{{ t('email.username') }}</label>
                             <input type="text" id="mail_username" name="mail_username" class="form-control @error('mail_username') is-invalid @enderror" 
                                    value="{{ old('mail_username', $settings['mail_username']) }}" required>
                             @error('mail_username')
@@ -81,7 +81,7 @@
 
                         <!-- Password -->
                         <div class="mb-3">
-                            <label for="mail_password" class="form-label">Mot de passe</label>
+                            <label for="mail_password" class="form-label">{{ t('email.password') }}</label>
                             <input type="password" id="mail_password" name="mail_password" class="form-control @error('mail_password') is-invalid @enderror" 
                                    value="{{ old('mail_password', $settings['mail_password']) }}" required>
                             @error('mail_password')
@@ -91,7 +91,7 @@
 
                         <!-- From Address -->
                         <div class="mb-3">
-                            <label for="mail_from_address" class="form-label">Adresse d'expédition</label>
+                            <label for="mail_from_address" class="form-label">{{ t('email.from_address') }}</label>
                             <input type="email" id="mail_from_address" name="mail_from_address" class="form-control @error('mail_from_address') is-invalid @enderror" 
                                    value="{{ old('mail_from_address', $settings['mail_from_address']) }}" required>
                             @error('mail_from_address')
@@ -101,7 +101,7 @@
 
                         <!-- From Name -->
                         <div class="mb-3">
-                            <label for="mail_from_name" class="form-label">Nom d'expédition</label>
+                            <label for="mail_from_name" class="form-label">{{ t('email.from_name') }}</label>
                             <input type="text" id="mail_from_name" name="mail_from_name" class="form-control @error('mail_from_name') is-invalid @enderror" 
                                    value="{{ old('mail_from_name', $settings['mail_from_name']) }}" required>
                             @error('mail_from_name')
@@ -113,7 +113,7 @@
 
                 <div class="text-end">
                     <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-save"></i> Enregistrer les paramètres
+                        <i class="fas fa-save"></i> {{ t('common.save') }}
                     </button>
                 </div>
             </form>

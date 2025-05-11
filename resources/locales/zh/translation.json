@@ -275,24 +275,53 @@
         "request": "Request"
     },
     "email": {
-        "title": "电子邮件配置",
-        "settings": "设置",
-        "driver": "驱动",
-        "host": "主机",
+        "title": "邮件配置",
+        "settings": "SMTP设置",
+        "driver": "驱动程序",
+        "host": "SMTP服务器",
         "port": "端口",
+        "encryption": "加密",
         "username": "用户名",
         "password": "密码",
-        "encryption": "加密",
         "from_address": "发件人地址",
         "from_name": "发件人名称",
         "test_email": "发送测试邮件",
         "templates": "模板",
         "logs": "日志",
         "queue": "队列",
-        "greeting": "Hello!",
-        "regards": "Regards",
-        "trouble_clicking": "If you're having trouble clicking the button, copy and paste the URL below into your web browser:",
-        "all_rights_reserved": "All rights reserved."
+        "greeting": "你好！",
+        "regards": "此致",
+        "trouble_clicking": "如果您在点击按钮时遇到问题，请将以下URL复制并粘贴到您的网页浏览器中：",
+        "all_rights_reserved": "保留所有权利。",
+        "providers": {
+            "phpmail": {
+                "title": "PHPMail配置",
+                "settings": "发送设置",
+                "description": "具有自定义模板和发送跟踪的高级SMTP管理",
+                "test_configuration": "测试配置",
+                "save_configuration": "保存配置",
+                "statistics": "统计",
+                "emails_sent_today": "今日发送的邮件",
+                "emails_sent_month": "本月发送的邮件",
+                "logs": "日志",
+                "no_logs_available": "没有可用的日志",
+                "clear_logs": "清除日志"
+            },
+            "mailgun": {
+                "title": "Mailgun配置",
+                "settings": "Mailgun设置",
+                "description": "通过Mailgun API的邮件服务",
+                "domain": "Mailgun域名",
+                "api_key": "Mailgun API密钥"
+            },
+            "mailchimp": {
+                "title": "Mailchimp配置",
+                "settings": "Mailchimp设置",
+                "description": "具有Mailchimp集成的邮件活动管理、邮件列表和模板",
+                "api_key": "Mailchimp API密钥",
+                "list_id": "列表ID"
+            }
+        }
     },
     "subscription": {
         "plans": "订阅计划",

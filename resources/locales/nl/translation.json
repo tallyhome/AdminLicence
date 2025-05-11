@@ -258,20 +258,52 @@
     },
     "email": {
         "title": "E-mailconfiguratie",
-        "settings": "Instellingen",
+        "settings": "SMTP-instellingen",
         "driver": "Driver",
-        "host": "Host",
+        "host": "SMTP-server",
         "port": "Poort",
+        "encryption": "Versleuteling",
         "username": "Gebruikersnaam",
         "password": "Wachtwoord",
-        "encryption": "Versleuteling",
         "from_address": "Afzenderadres",
         "from_name": "Afzendernaam",
-        "test_email": "Testmail versturen",
-        "greeting": "Hello!",
-        "regards": "Regards",
-        "trouble_clicking": "If you're having trouble clicking the button, copy and paste the URL below into your web browser:",
-        "all_rights_reserved": "All rights reserved."
+        "test_email": "Test e-mail versturen",
+        "templates": "Sjablonen",
+        "logs": "Logboeken",
+        "queue": "Wachtrij",
+        "greeting": "Hallo!",
+        "regards": "Met vriendelijke groet",
+        "trouble_clicking": "Als u problemen heeft met het klikken op de knop, kopieer en plak de URL hieronder in uw webbrowser:",
+        "all_rights_reserved": "Alle rechten voorbehouden.",
+        "providers": {
+            "phpmail": {
+                "title": "PHPMail Configuratie",
+                "settings": "Verzendinstellingen",
+                "description": "Geavanceerd SMTP-beheer voor e-mailverzending met aangepaste sjablonen en verzendingsopvolging",
+                "test_configuration": "Test configuratie",
+                "save_configuration": "Configuratie opslaan",
+                "statistics": "Statistieken",
+                "emails_sent_today": "Vandaag verzonden e-mails",
+                "emails_sent_month": "Deze maand verzonden e-mails",
+                "logs": "Logboeken",
+                "no_logs_available": "Geen logboeken beschikbaar",
+                "clear_logs": "Logboeken wissen"
+            },
+            "mailgun": {
+                "title": "Mailgun-configuratie",
+                "settings": "Mailgun-instellingen",
+                "description": "Transactionele e-mailservice via Mailgun API",
+                "domain": "Mailgun-domein",
+                "api_key": "Mailgun API-sleutel"
+            },
+            "mailchimp": {
+                "title": "Mailchimp-configuratie",
+                "settings": "Mailchimp-instellingen",
+                "description": "E-mailcampagnebeheer, mailinglijsten en sjablonen met Mailchimp-integratie",
+                "api_key": "Mailchimp API-sleutel",
+                "list_id": "Lijst-ID"
+            }
+        }
     },
     "subscription": {
         "plans": "Abonnementsplannen",

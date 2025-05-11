@@ -295,23 +295,52 @@
     },
     "email": {
         "title": "E-Mail-Konfiguration",
-        "settings": "Einstellungen",
+        "settings": "SMTP-Einstellungen",
         "driver": "Treiber",
-        "host": "Host",
+        "host": "SMTP-Server",
         "port": "Port",
+        "encryption": "Verschlüsselung",
         "username": "Benutzername",
         "password": "Passwort",
-        "encryption": "Verschlüsselung",
         "from_address": "Absenderadresse",
         "from_name": "Absendername",
         "test_email": "Test-E-Mail senden",
         "templates": "Vorlagen",
         "logs": "Protokolle",
         "queue": "Warteschlange",
-        "greeting": "Hello!",
-        "regards": "Regards",
-        "trouble_clicking": "If you're having trouble clicking the button, copy and paste the URL below into your web browser:",
-        "all_rights_reserved": "All rights reserved."
+        "greeting": "Hallo!",
+        "regards": "Mit freundlichen Grüßen",
+        "trouble_clicking": "Wenn Sie Probleme beim Klicken auf die Schaltfläche haben, kopieren Sie die URL unten und fügen Sie sie in Ihren Webbrowser ein:",
+        "all_rights_reserved": "Alle Rechte vorbehalten.",
+        "providers": {
+            "phpmail": {
+                "title": "PHPMail Konfiguration",
+                "settings": "Versandeinstellungen",
+                "description": "Erweiterte SMTP-Verwaltung für E-Mail-Versand mit benutzerdefinierten Vorlagen und Sendungsverfolgung",
+                "test_configuration": "Konfiguration testen",
+                "save_configuration": "Konfiguration speichern",
+                "statistics": "Statistiken",
+                "emails_sent_today": "Heute gesendete E-Mails",
+                "emails_sent_month": "Dieses Monat gesendete E-Mails",
+                "logs": "Protokolle",
+                "no_logs_available": "Keine Protokolle verfügbar",
+                "clear_logs": "Protokolle löschen"
+            },
+            "mailgun": {
+                "title": "Mailgun-Konfiguration",
+                "settings": "Mailgun-Einstellungen",
+                "description": "Transaktionaler E-Mail-Service über Mailgun API",
+                "domain": "Mailgun-Domain",
+                "api_key": "Mailgun API-Schlüssel"
+            },
+            "mailchimp": {
+                "title": "Mailchimp-Konfiguration",
+                "settings": "Mailchimp-Einstellungen",
+                "description": "E-Mail-Kampagnenverwaltung, Verteilerlisten und Vorlagen mit Mailchimp-Integration",
+                "api_key": "Mailchimp API-Schlüssel",
+                "list_id": "Listen-ID"
+            }
+        }
     },
     "subscription": {
         "plans": "Abonnementpläne",

@@ -309,23 +309,52 @@
     },
     "email": {
         "title": "Configuración de correo electrónico",
-        "settings": "Configuración",
-        "driver": "Driver",
-        "host": "Host",
+        "settings": "Configuración SMTP",
+        "driver": "Controlador",
+        "host": "Servidor SMTP",
         "port": "Puerto",
+        "encryption": "Cifrado",
         "username": "Nombre de usuario",
         "password": "Contraseña",
-        "encryption": "Cifrado",
-        "from_address": "Dirección de origen",
-        "from_name": "Nombre de origen",
+        "from_address": "Dirección de envío",
+        "from_name": "Nombre de envío",
         "test_email": "Enviar correo de prueba",
         "templates": "Plantillas",
         "logs": "Registros",
         "queue": "Cola",
-        "greeting": "Hello!",
-        "regards": "Regards",
-        "trouble_clicking": "If you're having trouble clicking the button, copy and paste the URL below into your web browser:",
-        "all_rights_reserved": "All rights reserved."
+        "greeting": "¡Hola!",
+        "regards": "Saludos",
+        "trouble_clicking": "Si tiene problemas para hacer clic en el botón, copie y pegue la URL a continuación en su navegador web:",
+        "all_rights_reserved": "Todos los derechos reservados.",
+        "providers": {
+            "phpmail": {
+                "title": "Configuración PHPMail",
+                "settings": "Configuración de envío",
+                "description": "Gestión SMTP avanzada para el envío de correos con plantillas personalizadas y seguimiento de envíos",
+                "test_configuration": "Probar configuración",
+                "save_configuration": "Guardar configuración",
+                "statistics": "Estadísticas",
+                "emails_sent_today": "Correos enviados hoy",
+                "emails_sent_month": "Correos enviados este mes",
+                "logs": "Registros",
+                "no_logs_available": "No hay registros disponibles",
+                "clear_logs": "Borrar registros"
+            },
+            "mailgun": {
+                "title": "Configuración Mailgun",
+                "settings": "Configuración Mailgun",
+                "description": "Servicio de correo transaccional a través de la API Mailgun",
+                "domain": "Dominio Mailgun",
+                "api_key": "Clave API Mailgun"
+            },
+            "mailchimp": {
+                "title": "Configuración Mailchimp",
+                "settings": "Configuración Mailchimp",
+                "description": "Gestión de campañas de correo, listas de distribución y plantillas con integración Mailchimp",
+                "api_key": "Clave API Mailchimp",
+                "list_id": "ID de lista"
+            }
+        }
     },
     "subscription": {
         "plans": "Planes de suscripción",

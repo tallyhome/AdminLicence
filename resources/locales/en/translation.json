@@ -301,20 +301,52 @@
     },
     "email": {
         "title": "Email Configuration",
-        "settings": "Settings",
+        "settings": "SMTP Settings",
         "driver": "Driver",
-        "host": "Host",
+        "host": "SMTP Server",
         "port": "Port",
+        "encryption": "Encryption",
         "username": "Username",
         "password": "Password",
-        "encryption": "Encryption",
         "from_address": "From Address",
         "from_name": "From Name",
         "test_email": "Send Test Email",
+        "templates": "Templates",
+        "logs": "Logs",
+        "queue": "Queue",
         "greeting": "Hello!",
         "regards": "Regards",
         "trouble_clicking": "If you're having trouble clicking the button, copy and paste the URL below into your web browser:",
-        "all_rights_reserved": "All rights reserved."
+        "all_rights_reserved": "All rights reserved.",
+        "providers": {
+            "phpmail": {
+                "title": "PHPMail Configuration",
+                "settings": "Sending Settings",
+                "description": "Advanced SMTP management for email sending with custom templates and sending tracking",
+                "test_configuration": "Test Configuration",
+                "save_configuration": "Save Configuration",
+                "statistics": "Statistics",
+                "emails_sent_today": "Emails sent today",
+                "emails_sent_month": "Emails sent this month",
+                "logs": "Logs",
+                "no_logs_available": "No logs available",
+                "clear_logs": "Clear logs"
+            },
+            "mailgun": {
+                "title": "Mailgun Configuration",
+                "settings": "Mailgun Settings",
+                "description": "Transactional email service via Mailgun API",
+                "domain": "Mailgun Domain",
+                "api_key": "Mailgun API Key"
+            },
+            "mailchimp": {
+                "title": "Mailchimp Configuration",
+                "settings": "Mailchimp Settings",
+                "description": "Email campaign management, mailing lists and templates with Mailchimp integration",
+                "api_key": "Mailchimp API Key",
+                "list_id": "List ID"
+            }
+        }
     },
     "subscription": {
         "plans": "Subscription Plans",

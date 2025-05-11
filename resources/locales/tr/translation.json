@@ -283,23 +283,52 @@
     },
     "email": {
         "title": "E-posta Yapılandırması",
-        "settings": "Ayarlar",
+        "settings": "SMTP Ayarları",
         "driver": "Sürücü",
-        "host": "Sunucu",
+        "host": "SMTP Sunucusu",
         "port": "Port",
-        "username": "Kullanıcı Adı",
-        "password": "Şifre",
         "encryption": "Şifreleme",
-        "from_address": "Gönderen Adresi",
-        "from_name": "Gönderen Adı",
-        "test_email": "Test E-postası Gönder",
+        "username": "Kullanıcı adı",
+        "password": "Şifre",
+        "from_address": "Gönderen adresi",
+        "from_name": "Gönderen adı",
+        "test_email": "Test e-postası gönder",
         "templates": "Şablonlar",
         "logs": "Günlükler",
         "queue": "Kuyruk",
-        "greeting": "Hello!",
-        "regards": "Regards",
-        "trouble_clicking": "If you're having trouble clicking the button, copy and paste the URL below into your web browser:",
-        "all_rights_reserved": "All rights reserved."
+        "greeting": "Merhaba!",
+        "regards": "Saygılarımla",
+        "trouble_clicking": "Düğmeye tıklamakta sorun yaşıyorsanız, aşağıdaki URL'yi kopyalayıp web tarayıcınıza yapıştırın:",
+        "all_rights_reserved": "Tüm hakları saklıdır.",
+        "providers": {
+            "phpmail": {
+                "title": "PHPMail Yapılandırması",
+                "settings": "Gönderim Ayarları",
+                "description": "Özel şablonlar ve gönderim takibi ile gelişmiş SMTP yönetimi",
+                "test_configuration": "Yapılandırmayı Test Et",
+                "save_configuration": "Yapılandırmayı Kaydet",
+                "statistics": "İstatistikler",
+                "emails_sent_today": "Bugün gönderilen e-postalar",
+                "emails_sent_month": "Bu ay gönderilen e-postalar",
+                "logs": "Günlükler",
+                "no_logs_available": "Kullanılabilir günlük yok",
+                "clear_logs": "Günlükleri Temizle"
+            },
+            "mailgun": {
+                "title": "Mailgun Yapılandırması",
+                "settings": "Mailgun Ayarları",
+                "description": "Mailgun API üzerinden işlem e-postası hizmeti",
+                "domain": "Mailgun Alan Adı",
+                "api_key": "Mailgun API Anahtarı"
+            },
+            "mailchimp": {
+                "title": "Mailchimp Yapılandırması",
+                "settings": "Mailchimp Ayarları",
+                "description": "Mailchimp entegrasyonu ile e-posta kampanyası yönetimi, posta listeleri ve şablonlar",
+                "api_key": "Mailchimp API Anahtarı",
+                "list_id": "Liste ID"
+            }
+        }
     },
     "subscription": {
         "plans": "Abonelik Planları",

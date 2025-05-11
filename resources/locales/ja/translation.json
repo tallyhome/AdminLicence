@@ -251,20 +251,52 @@
     },
     "email": {
         "title": "メール設定",
-        "settings": "設定",
+        "settings": "SMTP設定",
         "driver": "ドライバー",
-        "host": "ホスト",
+        "host": "SMTPサーバー",
         "port": "ポート",
+        "encryption": "暗号化",
         "username": "ユーザー名",
         "password": "パスワード",
-        "encryption": "暗号化",
         "from_address": "送信元アドレス",
         "from_name": "送信者名",
-        "test_email": "テストメール送信",
-        "greeting": "Hello!",
-        "regards": "Regards",
-        "trouble_clicking": "If you're having trouble clicking the button, copy and paste the URL below into your web browser:",
-        "all_rights_reserved": "All rights reserved."
+        "test_email": "テストメールを送信",
+        "templates": "テンプレート",
+        "logs": "ログ",
+        "queue": "キュー",
+        "greeting": "こんにちは！",
+        "regards": "敬具",
+        "trouble_clicking": "ボタンをクリックするのに問題がある場合は、以下のURLをコピーしてウェブブラウザに貼り付けてください：",
+        "all_rights_reserved": "All rights reserved.",
+        "providers": {
+            "phpmail": {
+                "title": "PHPMail設定",
+                "settings": "送信設定",
+                "description": "カスタムテンプレートと送信追跡機能を備えた高度なSMTP管理",
+                "test_configuration": "設定をテスト",
+                "save_configuration": "設定を保存",
+                "statistics": "統計",
+                "emails_sent_today": "本日送信されたメール",
+                "emails_sent_month": "今月送信されたメール",
+                "logs": "ログ",
+                "no_logs_available": "利用可能なログがありません",
+                "clear_logs": "ログをクリア"
+            },
+            "mailgun": {
+                "title": "Mailgun設定",
+                "settings": "Mailgun設定",
+                "description": "Mailgun APIを使用したトランザクションメールサービス",
+                "domain": "Mailgunドメイン",
+                "api_key": "Mailgun APIキー"
+            },
+            "mailchimp": {
+                "title": "Mailchimp設定",
+                "settings": "Mailchimp設定",
+                "description": "Mailchimp統合によるメールキャンペーン管理、メーリングリスト、テンプレート",
+                "api_key": "Mailchimp APIキー",
+                "list_id": "リストID"
+            }
+        }
     },
     "subscription": {
         "plans": "サブスクリプションプラン",

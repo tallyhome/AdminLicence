@@ -294,24 +294,53 @@
         "request": "Request"
     },
     "email": {
-        "title": "Configurazione Email",
-        "settings": "Impostazioni",
+        "title": "Configurazione email",
+        "settings": "Impostazioni SMTP",
         "driver": "Driver",
-        "host": "Host",
+        "host": "Server SMTP",
         "port": "Porta",
+        "encryption": "Crittografia",
         "username": "Nome utente",
         "password": "Password",
-        "encryption": "Crittografia",
         "from_address": "Indirizzo mittente",
         "from_name": "Nome mittente",
         "test_email": "Invia email di test",
-        "templates": "Template",
+        "templates": "Modelli",
         "logs": "Log",
         "queue": "Coda",
-        "greeting": "Hello!",
-        "regards": "Regards",
-        "trouble_clicking": "If you're having trouble clicking the button, copy and paste the URL below into your web browser:",
-        "all_rights_reserved": "All rights reserved."
+        "greeting": "Ciao!",
+        "regards": "Cordiali saluti",
+        "trouble_clicking": "Se hai problemi a cliccare sul pulsante, copia e incolla l'URL qui sotto nel tuo browser web:",
+        "all_rights_reserved": "Tutti i diritti riservati.",
+        "providers": {
+            "phpmail": {
+                "title": "Configurazione PHPMail",
+                "settings": "Impostazioni di invio",
+                "description": "Gestione SMTP avanzata per l'invio di email con modelli personalizzati e monitoraggio degli invii",
+                "test_configuration": "Testa configurazione",
+                "save_configuration": "Salva configurazione",
+                "statistics": "Statistiche",
+                "emails_sent_today": "Email inviate oggi",
+                "emails_sent_month": "Email inviate questo mese",
+                "logs": "Log",
+                "no_logs_available": "Nessun log disponibile",
+                "clear_logs": "Cancella log"
+            },
+            "mailgun": {
+                "title": "Configurazione Mailgun",
+                "settings": "Impostazioni Mailgun",
+                "description": "Servizio email transazionale tramite API Mailgun",
+                "domain": "Dominio Mailgun",
+                "api_key": "Chiave API Mailgun"
+            },
+            "mailchimp": {
+                "title": "Configurazione Mailchimp",
+                "settings": "Impostazioni Mailchimp",
+                "description": "Gestione campagne email, liste di distribuzione e modelli con integrazione Mailchimp",
+                "api_key": "Chiave API Mailchimp",
+                "list_id": "ID lista"
+            }
+        }
     },
     "subscription": {
         "plans": "Piani di abbonamento",

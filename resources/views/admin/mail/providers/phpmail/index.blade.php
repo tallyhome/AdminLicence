@@ -1,12 +1,12 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Configuration PHPMail')
+@section('title', t('email.providers.phpmail.title'))
 
 @section('content')
 <div class="container-fluid">
     <div class="row mb-4">
         <div class="col">
-            <h1 class="h3">Configuration PHPMail</h1>
+            <h1 class="h3">{{ t('email.providers.phpmail.title') }}</h1>
         </div>
     </div>
 
@@ -14,13 +14,13 @@
         <div class="col-md-8 mb-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Paramètres d'envoi</h5>
+                    <h5 class="card-title">{{ t('email.providers.phpmail.settings') }}</h5>
                     <form action="{{ route('admin.mail.providers.phpmail.update') }}" method="POST">
                         @csrf
                         @method('PUT')
                         
                         <div class="mb-3">
-                            <label for="from_address" class="form-label">Adresse d'expédition</label>
+                            <label for="from_address" class="form-label">{{ t('email.from_address') }}</label>
                             <input type="email" name="from_address" id="from_address" class="form-control @error('from_address') is-invalid @enderror" value="{{ old('from_address', $config->from_address ?? '') }}" required>
                             @error('from_address')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -28,19 +28,16 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="from_name" class="form-label">Nom d'expédition</label>
+                            <label for="from_name" class="form-label">{{ t('email.from_name') }}</label>
                             <input type="text" name="from_name" id="from_name" class="form-control @error('from_name') is-invalid @enderror" value="{{ old('from_name', $config->from_name ?? '') }}" required>
                             @error('from_name')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
-                        <div class="d-flex gap-2">
+                        <div class="text-end">
                             <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save me-2"></i> Enregistrer
-                            </button>
-                            <button type="button" class="btn btn-secondary" onclick="testConnection()">
-                                <i class="fas fa-paper-plane me-2"></i> Tester la configuration
+                                <i class="fas fa-save"></i> {{ t('common.save') }}
                             </button>
                         </div>
                     </form>
@@ -51,11 +48,11 @@
         <div class="col-md-4">
             <div class="card mb-4">
                 <div class="card-body">
-                    <h5 class="card-title">Statistiques</h5>
+                    <h5 class="card-title">{{ t('email.providers.phpmail.statistics') }}</h5>
                     
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <div>
-                            <h6 class="mb-0">Emails envoyés aujourd'hui</h6>
+                            <h6 class="mb-0">{{ t('email.providers.phpmail.emails_sent_today') }}</h6>
                             <small class="text-muted">{{ $stats->daily_count ?? 0 }}</small>
                         </div>
                         <span class="badge bg-primary rounded-pill">{{ $stats->daily_count ?? 0 }}</span>
@@ -63,7 +60,7 @@
 
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <h6 class="mb-0">Emails envoyés ce mois</h6>
+                            <h6 class="mb-0">{{ t('email.providers.phpmail.emails_sent_month') }}</h6>
                             <small class="text-muted">{{ $stats->monthly_count ?? 0 }}</small>
                         </div>
                         <span class="badge bg-primary rounded-pill">{{ $stats->monthly_count ?? 0 }}</span>
@@ -73,12 +70,12 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Journaux</h5>
+                    <h5 class="card-title">{{ t('email.providers.phpmail.logs') }}</h5>
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <form action="{{ route('admin.mail.providers.phpmail.logs.clear') }}" method="POST" class="d-inline">
                             @csrf
                             <button type="submit" class="btn btn-danger btn-sm">
-                                <i class="fas fa-trash me-2"></i> Vider les journaux
+                                <i class="fas fa-trash me-2"></i> {{ t('email.providers.phpmail.clear_logs') }}
                             </button>
                         </form>
                     </div>
@@ -89,7 +86,7 @@
                                 <div>{{ $log->message }}</div>
                             </div>
                         @empty
-                            <p class="text-muted mb-0">Aucun journal disponible</p>
+                            <p class="text-muted mb-0">{{ t('email.providers.phpmail.no_logs_available') }}</p>
                         @endforelse
                     </div>
                 </div>

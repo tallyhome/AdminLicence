@@ -283,23 +283,52 @@
     },
     "email": {
         "title": "Настройка электронной почты",
-        "settings": "Настройки",
+        "settings": "Настройки SMTP",
         "driver": "Драйвер",
-        "host": "Хост",
+        "host": "SMTP-сервер",
         "port": "Порт",
+        "encryption": "Шифрование",
         "username": "Имя пользователя",
         "password": "Пароль",
-        "encryption": "Шифрование",
         "from_address": "Адрес отправителя",
         "from_name": "Имя отправителя",
         "test_email": "Отправить тестовое письмо",
         "templates": "Шаблоны",
         "logs": "Журналы",
         "queue": "Очередь",
-        "greeting": "Hello!",
-        "regards": "Regards",
-        "trouble_clicking": "If you're having trouble clicking the button, copy and paste the URL below into your web browser:",
-        "all_rights_reserved": "All rights reserved."
+        "greeting": "Здравствуйте!",
+        "regards": "С уважением",
+        "trouble_clicking": "Если у вас возникли проблемы с нажатием на кнопку, скопируйте и вставьте URL ниже в ваш веб-браузер:",
+        "all_rights_reserved": "Все права защищены.",
+        "providers": {
+            "phpmail": {
+                "title": "Конфигурация PHPMail",
+                "settings": "Настройки отправки",
+                "description": "Расширенное управление SMTP для отправки электронной почты с пользовательскими шаблонами и отслеживанием отправки",
+                "test_configuration": "Проверить конфигурацию",
+                "save_configuration": "Сохранить конфигурацию",
+                "statistics": "Статистика",
+                "emails_sent_today": "Письма отправленные сегодня",
+                "emails_sent_month": "Письма отправленные в этом месяце",
+                "logs": "Журналы",
+                "no_logs_available": "Нет доступных журналов",
+                "clear_logs": "Очистить журналы"
+            },
+            "mailgun": {
+                "title": "Конфигурация Mailgun",
+                "settings": "Настройки Mailgun",
+                "description": "Сервис транзакционной электронной почты через API Mailgun",
+                "domain": "Домен Mailgun",
+                "api_key": "Ключ API Mailgun"
+            },
+            "mailchimp": {
+                "title": "Конфигурация Mailchimp",
+                "settings": "Настройки Mailchimp",
+                "description": "Управление email-кампаниями, списками рассылки и шаблонами с интеграцией Mailchimp",
+                "api_key": "Ключ API Mailchimp",
+                "list_id": "ID списка"
+            }
+        }
     },
     "subscription": {
         "plans": "Планы подписки",

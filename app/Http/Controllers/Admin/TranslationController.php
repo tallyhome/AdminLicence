@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Lang;
 use App\Services\TranslationService;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\App;
 
 class TranslationController extends Controller
 {
@@ -101,6 +103,13 @@ class TranslationController extends Controller
             $content = "<?php\n\nreturn " . var_export($translations, true) . ";\n";
             File::put($langPath, $content);
 
+            // Vider le cache des traductions
+            Cache::forget("translations.{$lang}");
+            Cache::forget("translations.{$lang}.{$file}");
+            
+            // Recharger les traductions
+            $this->translationService->getTranslations($lang);
+
             return response()->json(['message' => t('messages.translation_updated')]);
         }
 
@@ -131,5 +140,46 @@ class TranslationController extends Controller
         }
 
         return response()->json(['error' => t('messages.translation_file_exists')], 400);
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'lang' => 'required|string',
+            'file' => 'required|string',
+            'key' => 'required|string',
+            'value' => 'required|string',
+        ]);
+
+        $lang = $request->input('lang');
+        $file = $request->input('file');
+        $key = $request->input('key');
+        $value = $request->input('value');
+
+        $path = resource_path("locales/{$lang}/{$file}.json");
+        if (!file_exists($path)) {
+            return response()->json(['error' => "Fichier de traduction introuvable."], 404);
+        }
+
+        $translations = json_decode(file_get_contents($path), true);
+        // Supporte les clés imbriquées (ex: projects.create.title)
+        $keys = explode('.', $key);
+        $ref = &$translations;
+        foreach ($keys as $k) {
+            if (!isset($ref[$k])) $ref[$k] = [];
+            $ref = &$ref[$k];
+        }
+        $ref = $value;
+
+        file_put_contents($path, json_encode($translations, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+
+        // Vider le cache des traductions
+        Cache::forget("translations.{$lang}");
+        Cache::forget("translations.{$lang}.{$file}");
+        
+        // Recharger les traductions
+        $this->translationService->getTranslations($lang);
+
+        return response()->json(['message' => 'Traduction mise à jour avec succès.']);
     }
 }

@@ -1,104 +1,97 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Gestion des clés de licence')
+@section('title', t('serial_keys.title'))
 
 @section('content')
 <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1>Gestion des clés de licence</h1>
+        <h1>{{ t('serial_keys.title') }}</h1>
         <a href="{{ route('admin.serial-keys.create') }}" class="btn btn-primary">
-            <i class="fas fa-plus"></i> Créer une clé
+            <i class="fas fa-plus"></i> {{ t('serial_keys.create_key') }}
         </a>
     </div>
 
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Liste des clés de licence</h3>
+            <h3 class="card-title">{{ t('serial_keys.list') }}</h3>
         </div>
         <div class="card-body border-bottom pb-3">
             <form action="{{ route('admin.serial-keys.index') }}" method="GET" id="searchForm">
                 <input type="hidden" name="per_page" value="{{ request()->input('per_page', 10) }}">
                 
-                <div class="row g-3 align-items-center">
-                    <!-- Recherche générale et sélecteur de pagination -->
-                    <div class="col-md-4">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Rechercher une clé, domaine, IP..." name="search" value="{{ request()->input('search') }}">
-                            <button class="btn btn-outline-secondary" type="submit">
-                                <i class="fas fa-search"></i>
-                            </button>
-                            <select class="form-select" style="width: auto; max-width: 140px;" name="per_page" onchange="document.getElementById('searchForm').submit()">
-                                <option value="10" {{ request()->input('per_page', 10) == 10 ? 'selected' : '' }}>10 par page</option>
-                                <option value="25" {{ request()->input('per_page') == 25 ? 'selected' : '' }}>25 par page</option>
-                                <option value="50" {{ request()->input('per_page') == 50 ? 'selected' : '' }}>50 par page</option>
-                                <option value="100" {{ request()->input('per_page') == 100 ? 'selected' : '' }}>100 par page</option>
-                                <option value="500" {{ request()->input('per_page') == 500 ? 'selected' : '' }}>500 par page</option>
-                                <option value="1000" {{ request()->input('per_page') == 1000 ? 'selected' : '' }}>1000 par page</option>
+                <div class="row align-items-end">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="status">{{ t('serial_keys.status') }}</label>
+                            <select name="status" id="status" class="form-control">
+                                <option value="">{{ t('common.all') }}</option>
+                                <option value="active" {{ request('status') === 'active' ? 'selected' : '' }}>{{ t('serial_keys.status_active') }}</option>
+                                <option value="suspended" {{ request('status') === 'suspended' ? 'selected' : '' }}>{{ t('serial_keys.status_suspended') }}</option>
+                                <option value="revoked" {{ request('status') === 'revoked' ? 'selected' : '' }}>{{ t('serial_keys.status_revoked') }}</option>
+                                <option value="expired" {{ request('status') === 'expired' ? 'selected' : '' }}>{{ t('serial_keys.status_expired') }}</option>
                             </select>
                         </div>
                     </div>
-                    
-                    <!-- Filtre par projet -->
-                    <div class="col-md-2">
-                        <select class="form-select" name="project_id" onchange="document.getElementById('searchForm').submit()">
-                            <option value="">Tous les projets</option>
-                            @foreach($projects as $project)
-                                <option value="{{ $project->id }}" {{ request()->input('project_id') == $project->id ? 'selected' : '' }}>
-                                    {{ $project->name }}
-                                </option>
-                            @endforeach
-                        </select>
+                    <div class="col-md-3">
+                        <div class="form-group" style="width: 100%; min-width: 120px;">
+                            <label for="project">{{ t('serial_keys.project') }}</label>
+                            <select name="project_id" id="project" class="form-control">
+                                <option value="">{{ t('common.all') }}</option>
+                                @foreach($projects as $project)
+                                    <option value="{{ $project->id }}" {{ request('project_id') == $project->id ? 'selected' : '' }}>
+                                        {{ $project->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
-                    
-                    <!-- Filtre par statut -->
                     <div class="col-md-2">
-                        <select class="form-select" name="status" onchange="document.getElementById('searchForm').submit()">
-                            <option value="">Tous les statuts</option>
-                            @foreach($statuses as $value => $label)
-                                <option value="{{ $value }}" {{ request()->input('status') == $value ? 'selected' : '' }}>
-                                    {{ $label }}
-                                </option>
-                            @endforeach
-                        </select>
+                        <div class="form-group" style="width: 100%; min-width: 100px;">
+                            <label for="used">{{ t('serial_keys.key_usage') }}</label>
+                            <select name="used" id="used" class="form-control">
+                                <option value="">{{ t('common.all') }}</option>
+                                <option value="true" {{ request('used') === 'true' ? 'selected' : '' }}>{{ t('common.used') }}</option>
+                                <option value="false" {{ request('used') === 'false' ? 'selected' : '' }}>{{ t('common.unused') }}</option>
+                            </select>
+                        </div>
                     </div>
-                    
-                    <!-- Filtre par domaine -->
-                    <div class="col-md-2">
-                        <input type="text" class="form-control" placeholder="Domaine" name="domain" value="{{ request()->input('domain') }}">
+                    <div class="col-md-1">
+                        <div class="form-group" style="width: 100%; min-width: 60px;">
+                            <label for="per_page">{{ t('pagination.per_page', ['number' => '']) }}</label>
+                            <select name="per_page" id="per_page" class="form-control" onchange="document.getElementById('searchForm').submit();">
+                                <option value="10" {{ request('per_page', 10) == 10 ? 'selected' : '' }}>10</option>
+                                <option value="25" {{ request('per_page') == 25 ? 'selected' : '' }}>25</option>
+                                <option value="50" {{ request('per_page') == 50 ? 'selected' : '' }}>50</option>
+                                <option value="100" {{ request('per_page') == 100 ? 'selected' : '' }}>100</option>
+                                <option value="250" {{ request('per_page') == 250 ? 'selected' : '' }}>250</option>
+                                <option value="500" {{ request('per_page') == 500 ? 'selected' : '' }}>500</option>
+                                <option value="1000" {{ request('per_page') == 1000 ? 'selected' : '' }}>1000</option>
+                            </select>
+                        </div>
                     </div>
-                    
-                    <!-- Filtre par IP -->
-                    <div class="col-md-2">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Adresse IP" name="ip_address" value="{{ request()->input('ip_address') }}">
-                            <button class="btn btn-primary" type="submit">Filtrer</button>
+                    <div class="col-md-4 d-flex justify-content-end">
+                        <div class="form-group" style="width: 60%; min-width: 120px;">
+                            <label>&nbsp;</label>
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="fas fa-search"></i> {{ t('common.search') }}
+                            </button>
                         </div>
                     </div>
                 </div>
-                
-                @if(request()->anyFilled(['search', 'project_id', 'domain', 'ip_address', 'status']))
-                    <div class="mt-2">
-                        <a href="{{ route('admin.serial-keys.index') }}" class="btn btn-sm btn-outline-secondary">
-                            <i class="fas fa-times"></i> Réinitialiser les filtres
-                        </a>
-                    </div>
-                @endif
             </form>
-        </div>
-        <div class="card-body pt-0">
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Clé</th>
-                            <th>Projet</th>
-                            <th>Statut</th>
-                            <th>Domaine</th>
-                            <th>IP</th>
-                            <th>Expiration</th>
-                            <th>Actions</th>
+                            <th>{{ t('serial_keys.key') }}</th>
+                            <th>{{ t('serial_keys.project') }}</th>
+                            <th>{{ t('serial_keys.status') }}</th>
+                            <th>{{ t('serial_keys.domain') }}</th>
+                            <th>{{ t('serial_keys.ip_address') }}</th>
+                            <th>{{ t('serial_keys.expiration') }}</th>
+                            <th>{{ t('serial_keys.actions') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -110,47 +103,39 @@
                                 <td>{{ $key->project->name }}</td>
                                 <td>
                                     @if($key->status === 'active')
-                                        <span class="badge bg-success">Active</span>
+                                        <span class="badge bg-success">{{ t('serial_keys.status_active') }}</span>
                                     @elseif($key->status === 'suspended')
-                                        <span class="badge bg-warning">Suspendue</span>
+                                        <span class="badge bg-warning">{{ t('serial_keys.status_suspended') }}</span>
                                     @elseif($key->status === 'revoked')
-                                        <span class="badge bg-danger">Révoquée</span>
+                                        <span class="badge bg-danger">{{ t('serial_keys.status_revoked') }}</span>
                                     @else
-                                        <span class="badge bg-secondary">Expirée</span>
+                                        <span class="badge bg-secondary">{{ t('serial_keys.status_expired') }}</span>
                                     @endif
                                 </td>
-                                <td>{{ $key->domain ?? 'Non spécifié' }}</td>
-                                <td>{{ $key->ip_address ?? 'Non spécifiée' }}</td>
-                                <td>{{ $key->expires_at ? $key->expires_at->format('d/m/Y') : 'Sans expiration' }}</td>
+                                <td>{{ $key->domain ?? t('serial_keys.not_specified') }}</td>
+                                <td>{{ $key->ip_address ?? t('serial_keys.not_specified') }}</td>
+                                <td>{{ $key->expires_at ? $key->expires_at->format('d/m/Y') : t('serial_keys.no_expiration') }}</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="{{ route('admin.serial-keys.show', $key) }}" class="btn btn-sm btn-info">
+                                        <a href="{{ route('admin.serial-keys.show', $key) }}" class="btn btn-sm btn-info" title="{{ t('serial_keys.view') }}">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <a href="{{ route('admin.serial-keys.edit', $key) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('admin.serial-keys.edit', $key) }}" class="btn btn-sm btn-primary" title="{{ t('serial_keys.edit') }}">
                                             <i class="fas fa-edit"></i>
                                         </a>
                                         @if($key->status === 'active')
                                             <form action="{{ route('admin.serial-keys.suspend', $key) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 @method('PATCH')
-                                                <button type="submit" class="btn btn-sm btn-warning" onclick="return confirm('Êtes-vous sûr de vouloir suspendre cette clé ?')">
+                                                <button type="submit" class="btn btn-sm btn-warning" onclick="return confirm('{{ t('serial_keys.confirm_suspend') }}')" title="{{ t('serial_keys.suspend') }}">
                                                     <i class="fas fa-pause"></i>
                                                 </button>
                                             </form>
                                             <form action="{{ route('admin.serial-keys.revoke', $key) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 @method('PATCH')
-                                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir révoquer cette clé ?')">
+                                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('{{ t('serial_keys.confirm_revoke') }}')" title="{{ t('serial_keys.revoke') }}">
                                                     <i class="fas fa-ban"></i>
-                                                </button>
-                                            </form>
-                                        @elseif($key->status === 'suspended')
-                                            <form action="{{ route('admin.serial-keys.reactivate', $key) }}" method="POST" class="d-inline">
-                                                @csrf
-                                                @method('PATCH')
-                                                <button type="submit" class="btn btn-sm btn-success" onclick="return confirm('Êtes-vous sûr de vouloir réactiver cette clé ?')">
-                                                    <i class="fas fa-play"></i>
                                                 </button>
                                             </form>
                                         @endif
@@ -159,35 +144,16 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7" class="text-center">Aucune clé de licence trouvée.</td>
+                                <td colspan="7" class="text-center">{{ t('serial_keys.no_keys') }}</td>
                             </tr>
                         @endforelse
                     </tbody>
                 </table>
             </div>
-
-            <!-- Pagination supprimée pour éviter les icônes qui s'affichent en grand -->
-            <div class="mt-4">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>Affichage de {{ $serialKeys->firstItem() ?? 0 }} à {{ $serialKeys->lastItem() ?? 0 }} sur {{ $serialKeys->total() }} clés</div>
-                    <div>
-                        @if ($serialKeys->previousPageUrl())
-                            <a href="{{ $serialKeys->previousPageUrl() }}" class="btn btn-sm btn-outline-secondary">Précédent</a>
-                        @endif
-                        
-                        @if ($serialKeys->nextPageUrl())
-                            <a href="{{ $serialKeys->nextPageUrl() }}" class="btn btn-sm btn-outline-primary">Suivant</a>
-                        @endif
-                    </div>
-                </div>
+            <div class="d-flex justify-content-center mt-4">
+                {{ $serialKeys->links('pagination::bootstrap-4') }}
             </div>
         </div>
     </div>
 </div>
-
-@push('scripts')
-<script>
-    // Script supprimé car nous utilisons maintenant le formulaire pour gérer la pagination
-</script>
-@endpush
 @endsection

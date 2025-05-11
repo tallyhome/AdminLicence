@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\MailController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\Mail\Providers\PHPMailController;
 use App\Http\Controllers\Admin\Mail\Providers\MailchimpController;
-use App\Http\Controllers\Admin\Mail\Providers\RapidmailController;
+use App\Http\Controllers\Admin\Mail\Providers\MailgunController;
 use App\Http\Controllers\Admin\SerialKeyController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\TwoFactorAuthController;
@@ -57,8 +57,6 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/licence-documentation', [ApiDocumentationController::class, 'licenceDocumentation'])->name('admin.licence.documentation');
     
     Route::get('/email-documentation', [ApiDocumentationController::class, 'emailDocumentation'])->name('admin.email.documentation');
-    
-    Route::get('/saas-documentation', [ApiDocumentationController::class, 'saasDocumentation'])->name('admin.saas.documentation');
 
     // Exemples d'intégration client
     Route::get('/client-example', [ClientExampleController::class, 'index'])->name('admin.client-example');
@@ -129,36 +127,23 @@ Route::middleware('auth:admin')->group(function () {
 
             // Mailgun
             Route::prefix('mailgun')->name('mailgun.')->group(function () {
-                Route::get('/', [App\Http\Controllers\Admin\Mail\Providers\MailgunController::class, 'index'])->name('index');
-                Route::put('/', [App\Http\Controllers\Admin\Mail\Providers\MailgunController::class, 'update'])->name('update');
-                Route::post('/test', [App\Http\Controllers\Admin\Mail\Providers\MailgunController::class, 'test'])->name('test');
-                Route::get('/logs', [App\Http\Controllers\Admin\Mail\Providers\MailgunController::class, 'logs'])->name('logs');
-                Route::post('/logs/clear', [App\Http\Controllers\Admin\Mail\Providers\MailgunController::class, 'clearLogs'])->name('logs.clear');
+                Route::get('/', [MailgunController::class, 'index'])->name('index');
+                Route::put('/', [MailgunController::class, 'update'])->name('update');
+                Route::post('/test', [MailgunController::class, 'test'])->name('test');
+                Route::get('/logs', [MailgunController::class, 'logs'])->name('logs');
+                Route::post('/logs/clear', [MailgunController::class, 'clearLogs'])->name('logs.clear');
             });
 
             // Mailchimp
             Route::prefix('mailchimp')->name('mailchimp.')->group(function () {
-                Route::get('/', [App\Http\Controllers\Admin\Mail\Providers\MailchimpController::class, 'index'])->name('index');
-                Route::put('/', [App\Http\Controllers\Admin\Mail\Providers\MailchimpController::class, 'update'])->name('update');
-                Route::post('/test', [App\Http\Controllers\Admin\Mail\Providers\MailchimpController::class, 'test'])->name('test');
-                Route::post('/sync-lists', [App\Http\Controllers\Admin\Mail\Providers\MailchimpController::class, 'syncLists'])->name('sync-lists');
-                Route::post('/sync-templates', [App\Http\Controllers\Admin\Mail\Providers\MailchimpController::class, 'syncTemplates'])->name('sync-templates');
-                Route::get('/campaigns', [App\Http\Controllers\Admin\Mail\Providers\MailchimpController::class, 'campaigns'])->name('campaigns');
-                Route::post('/campaigns', [App\Http\Controllers\Admin\Mail\Providers\MailchimpController::class, 'createCampaign'])->name('campaigns.create');
-                Route::post('/campaigns/{campaign}/send', [App\Http\Controllers\Admin\Mail\Providers\MailchimpController::class, 'sendCampaign'])->name('campaigns.send');
-            });
-
-            // Rapidmail
-            Route::prefix('rapidmail')->name('rapidmail.')->group(function () {
-                Route::get('/', [App\Http\Controllers\Admin\Mail\Providers\RapidmailController::class, 'index'])->name('index');
-                Route::put('/', [App\Http\Controllers\Admin\Mail\Providers\RapidmailController::class, 'update'])->name('update');
-                Route::post('/test', [App\Http\Controllers\Admin\Mail\Providers\RapidmailController::class, 'test'])->name('test');
-                Route::get('/lists', [App\Http\Controllers\Admin\Mail\Providers\RapidmailController::class, 'recipientLists'])->name('lists');
-                Route::post('/lists', [App\Http\Controllers\Admin\Mail\Providers\RapidmailController::class, 'createRecipientList'])->name('lists.create');
-                Route::get('/mailings', [App\Http\Controllers\Admin\Mail\Providers\RapidmailController::class, 'mailings'])->name('mailings');
-                Route::post('/mailings', [App\Http\Controllers\Admin\Mail\Providers\RapidmailController::class, 'createMailing'])->name('mailings.create');
-                Route::post('/mailings/{mailing}/send', [App\Http\Controllers\Admin\Mail\Providers\RapidmailController::class, 'sendMailing'])->name('mailings.send');
-                Route::get('/mailings/{mailing}/stats', [App\Http\Controllers\Admin\Mail\Providers\RapidmailController::class, 'statistics'])->name('mailings.stats');
+                Route::get('/', [MailchimpController::class, 'index'])->name('index');
+                Route::put('/', [MailchimpController::class, 'update'])->name('update');
+                Route::post('/test', [MailchimpController::class, 'test'])->name('test');
+                Route::post('/sync-lists', [MailchimpController::class, 'syncLists'])->name('sync-lists');
+                Route::post('/sync-templates', [MailchimpController::class, 'syncTemplates'])->name('sync-templates');
+                Route::get('/campaigns', [MailchimpController::class, 'campaigns'])->name('campaigns');
+                Route::post('/campaigns', [MailchimpController::class, 'createCampaign'])->name('campaigns.create');
+                Route::post('/campaigns/{campaign}/send', [MailchimpController::class, 'sendCampaign'])->name('campaigns.send');
             });
         });
     });
@@ -216,9 +201,6 @@ Route::middleware('auth:admin')->group(function () {
     Route::post('settings/two-factor/regenerate-recovery-codes', [TwoFactorAuthController::class, 'regenerateRecoveryCodes'])->name('admin.settings.two-factor.regenerate-recovery-codes');
     Route::post('settings/verify-code', [TwoFactorAuthController::class, 'verifyCode'])->name('admin.settings.verify-code');
     Route::get('settings/test-google2fa', [TwoFactorController::class, 'testGoogle2FA'])->name('admin.settings.test-google2fa');
-    
-    // Documentation API - Route déjà définie à la ligne 54
-    // Route supprimée pour éviter les conflits de redirection
     
     // Routes pour les tickets de support (admin standard)
     // Routes supprimées

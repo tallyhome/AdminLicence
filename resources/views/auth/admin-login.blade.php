@@ -1,66 +1,99 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'AdminLicence') }} - Connexion</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-    <!-- Scripts -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdminLicence - Connexion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    @vite(['resources/css/app.css', 'resources/css/login.css'])
 </head>
-<body class="font-sans antialiased">
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-            <div class="mb-6 text-center">
-                <h1 class="text-2xl font-bold text-gray-900">AdminLicence</h1>
-                <p class="text-gray-700">Système de gestion de licences</p>
+<body>
+    <div class="login-page">
+        <!-- Partie gauche -->
+        <div class="login-left">
+            <div class="login-header">
+                <h1>Bienvenue sur<br>AdminLicence</h1>
+                <p><br>gérer vos licences efficacement</p>
             </div>
 
-            @if ($errors->any())
-                <div class="mb-4">
-                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-                        @foreach ($errors->all() as $error)
-                            <span class="block sm:inline">{{ $error }}</span>
+            <div class="features-list">
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Gestion sécurisée de vos licences</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Suivi et analyse de l'utilisation</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>et plus encore</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Partie droite -->
+        <div class="login-right">
+            <div class="login-form">
+                <h2>Connexion</h2>
+
+                @if(session('error'))
+                    <div class="alert">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
+                @if($errors->any())
+                    <div class="alert">
+                        @foreach($errors->all() as $error)
+                            <p>{{ $error }}</p>
                         @endforeach
                     </div>
-                </div>
-            @endif
+                @endif
 
-            <form method="POST" action="{{ route('admin.login') }}">
-                @csrf
+                <form method="POST" action="{{ route('admin.login') }}">
+                    @csrf
+                    <div class="form-group">
+                        <label class="form-label" for="email">Adresse e-mail</label>
+                        <input type="email" 
+                               id="email" 
+                               name="email" 
+                               class="form-input" 
+                               value="{{ old('email') }}" 
+                               required>
+                    </div>
 
-                <div class="mb-4">
-                    <label for="email" class="block text-sm font-medium text-gray-700">Adresse email</label>
-                    <input type="email" name="email" id="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required autofocus>
-                </div>
+                    <div class="form-group">
+                        <label class="form-label" for="password">Mot de passe</label>
+                        <input type="password" 
+                               id="password" 
+                               name="password" 
+                               class="form-input" 
+                               required>
+                    </div>
 
-                <div class="mb-4">
-                    <label for="password" class="block text-sm font-medium text-gray-700">Mot de passe</label>
-                    <input type="password" name="password" id="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required>
-                </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" 
+                               id="remember" 
+                               name="remember">
+                        <label for="remember">Se souvenir de moi</label>
+                    </div>
 
-                <div class="flex items-center justify-between mb-4">
-                    <label class="inline-flex items-center">
-                        <input type="checkbox" name="remember" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                        <span class="ml-2 text-sm text-gray-700">Se souvenir de moi</span>
-                    </label>
-                    <a href="{{ route('admin.password.request') }}" class="text-sm text-indigo-600 hover:text-indigo-500">
-                        Mot de passe oublié ?
-                    </a>
-                </div>
+                    <button type="submit" class="btn-primary">Se connecter</button>
 
-                <div>
-                    <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        Se connecter
-                    </button>
-                </div>
-            </form>
+                    @php
+                        use Illuminate\Support\Facades\Route;
+                    @endphp
+                    
+                    @if(Route::has('admin.password.request'))
+                        <div class="form-footer">
+                            <a href="{{ route('admin.password.request') }}">
+                                Mot de passe oublié ?
+                            </a>
+                        </div>
+                    @endif
+                </form>
+            </div>
         </div>
     </div>
 </body>

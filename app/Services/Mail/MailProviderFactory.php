@@ -17,7 +17,6 @@ class MailProviderFactory
         'mailgun' => MailgunProvider::class,
         'phpmail' => PhpMailProvider::class,
         'mailchimp' => MailchimpProvider::class,
-        'rapidmail' => RapidmailProvider::class,
     ];
 
     /**

@@ -56,23 +56,4 @@ class ApiDocumentationController extends Controller
             'content' => $content
         ]);
     }
-    
-    public function saasDocumentation()
-    {
-        $availableLanguages = $this->translationService->getAvailableLocales();
-        $currentLanguage = $this->translationService->getLocale();
-        
-        $markdownPath = base_path('docs/SAAS_MULTIUTILISATEUR.md');
-        $content = '';
-        
-        if (File::exists($markdownPath)) {
-            $content = File::get($markdownPath);
-        }
-        
-        return view('admin.saas-documentation', [
-            'availableLanguages' => $availableLanguages,
-            'currentLanguage' => $currentLanguage,
-            'content' => $content
-        ]);
-    }
 }

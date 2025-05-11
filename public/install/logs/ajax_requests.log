@@ -1484,3 +1484,45 @@
     }
 }
 
+{
+    "time": "2025-05-06 21:20:27",
+    "request": {
+        "license_key": "TNBH-DRDK-K9JG-H419"
+    },
+    "server": {
+        "DOCUMENT_ROOT": "R:\\Adev\\200  -  test\\AdminLicence-3.2.7\\AdminLicence-3.2.7\\public",
+        "REMOTE_ADDR": "127.0.0.1",
+        "REMOTE_PORT": "63665",
+        "SERVER_SOFTWARE": "PHP 8.2.12 Development Server",
+        "SERVER_PROTOCOL": "HTTP\/1.1",
+        "SERVER_NAME": "127.0.0.1",
+        "SERVER_PORT": "8000",
+        "REQUEST_URI": "\/install\/ajax\/verify_license.php",
+        "REQUEST_METHOD": "POST",
+        "SCRIPT_NAME": "\/install\/ajax\/verify_license.php",
+        "SCRIPT_FILENAME": "R:\\Adev\\200  -  test\\AdminLicence-3.2.7\\AdminLicence-3.2.7\\public\\install\\ajax\\verify_license.php",
+        "PHP_SELF": "\/install\/ajax\/verify_license.php",
+        "HTTP_HOST": "127.0.0.1:8000",
+        "HTTP_USER_AGENT": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko\/20100101 Firefox\/138.0",
+        "HTTP_ACCEPT": "application\/json, text\/javascript, *\/*; q=0.01",
+        "HTTP_ACCEPT_LANGUAGE": "fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3",
+        "HTTP_ACCEPT_ENCODING": "gzip, deflate, br, zstd",
+        "CONTENT_TYPE": "application\/x-www-form-urlencoded; charset=UTF-8",
+        "HTTP_CONTENT_TYPE": "application\/x-www-form-urlencoded; charset=UTF-8",
+        "HTTP_X_REQUESTED_WITH": "XMLHttpRequest",
+        "CONTENT_LENGTH": "31",
+        "HTTP_CONTENT_LENGTH": "31",
+        "HTTP_ORIGIN": "http:\/\/127.0.0.1:8000",
+        "HTTP_DNT": "1",
+        "HTTP_CONNECTION": "keep-alive",
+        "HTTP_REFERER": "http:\/\/127.0.0.1:8000\/install",
+        "HTTP_COOKIE": "locale=pt; io=2G6p8qMg8xwIN3JpAAAD; TawkConnectionTime=0; PHPSESSID=hcsc3m94mlr88j37gd0i4rd5nd",
+        "HTTP_SEC_FETCH_DEST": "empty",
+        "HTTP_SEC_FETCH_MODE": "cors",
+        "HTTP_SEC_FETCH_SITE": "same-origin",
+        "HTTP_PRIORITY": "u=0",
+        "REQUEST_TIME_FLOAT": 1746559227.490327,
+        "REQUEST_TIME": 1746559227
+    }
+}
+

@@ -29,7 +29,8 @@
                 <i class="fas fa-language me-1"></i>
                 {{ t('translations.available_languages') }}
             </div>
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center gap-2">
+                <input type="text" id="searchTranslation" class="form-control form-control-sm me-2" style="width: 250px;" placeholder="🔍 {{ t('translations.key') }} / {{ t('translations.translation') }}">
                 <select id="languageSelect" class="form-select form-select-sm me-2" style="width: 120px;">
                     @foreach($languages as $lang)
                         <option value="{{ $lang }}" {{ $lang == request()->query('lang', $languages[0]) ? 'selected' : '' }}>{{ strtoupper($lang) }}</option>
@@ -168,6 +169,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const languageSelect = document.getElementById('languageSelect');
+        const searchInput = document.getElementById('searchTranslation');
         const accordionItems = document.querySelectorAll('.accordion-item');
         let loadedSections = new Set();
 
@@ -226,12 +228,20 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
+                        'Accept': 'application/json',
                         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
                     },
                     body: JSON.stringify({ lang, file, key, value })
                 })
-                .then(response => response.json())
-                .then(data => {
+                .then(async response => {
+                    let data;
+                    try {
+                        data = await response.json();
+                    } catch (e) {
+                        const text = await response.text();
+                        showNotification('error', 'Erreur HTTP ' + response.status + ': ' + text);
+                        return;
+                    }
                     if (data.message) {
                         showNotification('success', data.message);
                     } else if (data.error) {
@@ -276,6 +286,28 @@
             })
             .catch(error => showNotification('error', error.message));
         });
+
+        // Barre de recherche : filtrage dynamique
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                const search = this.value.toLowerCase();
+                document.querySelectorAll('.accordion-item').forEach(item => {
+                    let found = false;
+                    item.querySelectorAll('tbody tr').forEach(row => {
+                        const key = row.querySelector('code')?.textContent?.toLowerCase() || '';
+                        const value = row.querySelector('input.translation-input')?.value?.toLowerCase() || '';
+                        if (key.includes(search) || value.includes(search)) {
+                            row.style.display = '';
+                            found = true;
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                    // Affiche ou masque la section selon le résultat
+                    item.style.display = found ? '' : 'none';
+                });
+            });
+        }
 
         // Fonction utilitaire pour afficher les notifications
         function showNotification(type, message) {

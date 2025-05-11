@@ -1,13 +1,13 @@
 @extends('admin.layouts.app')
 
-@section('title', __('Créer une clé API'))
+@section('title', t('api_keys.create'))
 
 @section('content')
 <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="h3 mb-0 text-gray-800">{{ __('Créer une clé API') }}</h1>
+        <h1 class="h3 mb-0 text-gray-800">{{ t('api_keys.create') }}</h1>
         <a href="{{ route('admin.api-keys.index') }}" class="btn btn-secondary">
-            <i class="fas fa-arrow-left"></i> {{ __('Retour') }}
+            <i class="fas fa-arrow-left"></i> {{ t('common.back') }}
         </a>
     </div>
 
@@ -19,9 +19,9 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="project_id">{{ __('Projet') }}</label>
+                            <label for="project_id">{{ t('api_keys.project') }}</label>
                             <select name="project_id" id="project_id" class="form-control @error('project_id') is-invalid @enderror" required>
-                                <option value="">{{ __('Sélectionnez un projet') }}</option>
+                                <option value="">{{ t('api_keys.select_project') }}</option>
                                 @foreach($projects as $project)
                                 <option value="{{ $project->id }}" {{ old('project_id') == $project->id ? 'selected' : '' }}>
                                     {{ $project->name }}
@@ -36,7 +36,7 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="name">{{ __('Nom de la clé') }}</label>
+                            <label for="name">{{ t('api_keys.key_name') }}</label>
                             <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror"
                                 value="{{ old('name') }}" required>
                             @error('name')
@@ -49,10 +49,10 @@
                 <div class="row mt-4">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="expires_at">{{ __('Date d\'expiration') }}</label>
+                            <label for="expires_at">{{ t('api_keys.expiration_date') }}</label>
                             <input type="datetime-local" name="expires_at" id="expires_at"
                                 class="form-control @error('expires_at') is-invalid @enderror" value="{{ old('expires_at') }}">
-                            <small class="form-text text-muted">{{ __('Laisser vide pour aucune expiration') }}</small>
+                            <small class="form-text text-muted">{{ t('api_keys.no_expiration_hint') }}</small>
                             @error('expires_at')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -62,7 +62,7 @@
 
                 <div class="row mt-4">
                     <div class="col-12">
-                        <h5>{{ __('Permissions') }}</h5>
+                        <h5>{{ t('api_keys.permissions') }}</h5>
                         <div class="row">
                             @foreach(config('api.permissions') as $permission => $description)
                             <div class="col-md-4 mb-3">
@@ -71,7 +71,7 @@
                                         id="permission_{{ $permission }}" class="form-check-input"
                                         {{ in_array($permission, old('permissions', [])) ? 'checked' : '' }}>
                                     <label class="form-check-label" for="permission_{{ $permission }}">
-                                        {{ __($description) }}
+                                        {{ t($description) }}
                                     </label>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@
                 <div class="row mt-4">
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-save"></i> {{ __('Créer la clé API') }}
+                            <i class="fas fa-save"></i> {{ t('api_keys.create') }}
                         </button>
                     </div>
                 </div>

@@ -10,6 +10,12 @@ use Illuminate\Http\Request;
 class EmailProviderController extends Controller
 {
     protected $mailService;
+    protected $providers = [
+        'smtp' => 'SMTP',
+        'mailgun' => 'Mailgun',
+        'phpmail' => 'PHPMail',
+        'mailchimp' => 'Mailchimp',
+    ];
 
     public function __construct(MailService $mailService)
     {
@@ -19,13 +25,7 @@ class EmailProviderController extends Controller
     public function index()
     {
         $settings = $this->mailService->getSettings();
-        $providers = [
-            'smtp' => 'SMTP',
-            'phpmail' => 'PHPMail',
-            'mailchimp' => 'Mailchimp',
-            'rapidmail' => 'Rapidmail',
-            'mailgun' => 'Mailgun'
-        ];
+        $providers = $this->providers;
 
         return view('admin.email.providers', compact('settings', 'providers'));
     }

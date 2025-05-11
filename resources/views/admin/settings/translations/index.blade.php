@@ -35,8 +35,9 @@
                         <i class="fas fa-language me-1"></i>
                         {{ trans('translations.available_translations') }}
                     </div>
-                    <div class="w-25">
-                        <select id="languageSelect" class="form-select form-select-sm">
+                    <div class="d-flex w-50 gap-2">
+                        <input type="text" id="searchTranslation" class="form-control form-control-sm" placeholder="🔍 {{ trans('translations.key') }} / {{ trans('translations.translation') }}">
+                        <select id="languageSelect" class="form-select form-select-sm w-auto">
                             @foreach($languages as $lang)
                                 <option value="{{ $lang }}">{{ strtoupper($lang) }}</option>
                             @endforeach
@@ -119,7 +120,7 @@
 @push('scripts')
 <script>
     $(document).ready(function() {
-        function loadTranslations(language) {
+        function loadTranslations(language, search = '') {
             const translations = @json($translations);
             const tbody = $('#translationsTable tbody');
             tbody.empty();
@@ -127,31 +128,38 @@
             if (translations[language]) {
                 Object.entries(translations[language]).forEach(([file, keys]) => {
                     Object.entries(keys).forEach(([key, value]) => {
-                        const tr = $('<tr>');
-                        tr.append($('<td>').text(file));
-                        tr.append($('<td>').text(key));
-                        tr.append($('<td>').append(
-                            $('<input>')
-                                .addClass('form-control translation-value')
-                                .val(value)
-                                .data('file', file)
-                                .data('key', key)
-                        ));
-                        tr.append($('<td>').append(
-                            $('<button>')
-                                .addClass('btn btn-danger btn-sm delete-translation')
-                                .html('<i class="fas fa-trash"></i>')
-                                .data('file', file)
-                                .data('key', key)
-                        ));
-                        tbody.append(tr);
+                        const searchText = (file + ' ' + key + ' ' + value).toLowerCase();
+                        if (!search || searchText.includes(search.toLowerCase())) {
+                            const tr = $('<tr>');
+                            tr.append($('<td>').text(file));
+                            tr.append($('<td>').text(key));
+                            tr.append($('<td>').append(
+                                $('<input>')
+                                    .addClass('form-control translation-value')
+                                    .val(value)
+                                    .data('file', file)
+                                    .data('key', key)
+                            ));
+                            tr.append($('<td>').append(
+                                $('<button>')
+                                    .addClass('btn btn-danger btn-sm delete-translation')
+                                    .html('<i class="fas fa-trash"></i>')
+                                    .data('file', file)
+                                    .data('key', key)
+                            ));
+                            tbody.append(tr);
+                        }
                     });
                 });
             }
         }
 
         $('#languageSelect').change(function() {
-            loadTranslations($(this).val());
+            loadTranslations($(this).val(), $('#searchTranslation').val());
+        });
+
+        $('#searchTranslation').on('input', function() {
+            loadTranslations($('#languageSelect').val(), $(this).val());
         });
 
         // Charger les traductions initiales

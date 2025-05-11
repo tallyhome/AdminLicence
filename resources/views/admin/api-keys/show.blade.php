@@ -1,34 +1,34 @@
 @extends('admin.layouts.app')
 
-@section('title', __('Détails de la clé API'))
+@section('title', t('api_keys.details'))
 
 @section('content')
 <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="h3 mb-0 text-gray-800">{{ __('Détails de la clé API') }}</h1>
+        <h1 class="h3 mb-0 text-gray-800">{{ t('api_keys.details') }}</h1>
         <div>
             @if($apiKey->is_active)
             <form action="{{ route('admin.api-keys.revoke', $apiKey) }}" method="POST" class="d-inline">
                 @csrf
                 @method('PATCH')
-                <button type="submit" class="btn btn-warning" onclick="return confirm('{{ __("Êtes-vous sûr de vouloir révoquer cette clé API ?") }}')">
-                    <i class="fas fa-ban"></i> {{ __('Révoquer') }}
+                <button type="submit" class="btn btn-warning" onclick="return confirm('{{ t('api_keys.confirm_revoke') }}')">
+                    <i class="fas fa-ban"></i> {{ t('api_keys.revoke') }}
                 </button>
             </form>
             @elseif($apiKey->is_revoked)
             <form action="{{ route('admin.api-keys.reactivate', $apiKey) }}" method="POST" class="d-inline">
                 @csrf
                 @method('PATCH')
-                <button type="submit" class="btn btn-success" onclick="return confirm('{{ __("Êtes-vous sûr de vouloir réactiver cette clé API ?") }}')">
-                    <i class="fas fa-check"></i> {{ __('Réactiver') }}
+                <button type="submit" class="btn btn-success" onclick="return confirm('{{ t('api_keys.confirm_reactivate') }}')">
+                    <i class="fas fa-check"></i> {{ t('api_keys.reactivate') }}
                 </button>
             </form>
             @endif
             <form action="{{ route('admin.api-keys.destroy', $apiKey) }}" method="POST" class="d-inline">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger" onclick="return confirm('{{ __("Êtes-vous sûr de vouloir supprimer cette clé API ?") }}')">
-                    <i class="fas fa-trash"></i> {{ __('Supprimer') }}
+                <button type="submit" class="btn btn-danger" onclick="return confirm('{{ t('api_keys.confirm_delete') }}')">
+                    <i class="fas fa-trash"></i> {{ t('common.delete') }}
                 </button>
             </form>
         </div>
@@ -39,21 +39,21 @@
         <div class="col-xl-6 col-lg-6">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">{{ __('Informations de base') }}</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">{{ t('api_keys.basic_info') }}</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" width="100%" cellspacing="0">
                             <tr>
-                                <th width="30%">{{ __('Nom') }}</th>
+                                <th width="30%">{{ t('api_keys.name') }}</th>
                                 <td>{{ $apiKey->name }}</td>
                             </tr>
                             <tr>
-                                <th>{{ __('Projet') }}</th>
+                                <th>{{ t('api_keys.project') }}</th>
                                 <td>{{ $apiKey->project->name }}</td>
                             </tr>
                             <tr>
-                                <th>{{ __('Clé') }}</th>
+                                <th>{{ t('api_keys.key') }}</th>
                                 <td>
                                     <code>{{ $apiKey->key }}</code>
                                     <button class="btn btn-sm btn-outline-secondary copy-key" data-clipboard-text="{{ $apiKey->key }}">
@@ -62,7 +62,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>{{ __('Secret') }}</th>
+                                <th>{{ t('api_keys.secret') }}</th>
                                 <td>
                                     <code>{{ $apiKey->secret }}</code>
                                     <button class="btn btn-sm btn-outline-secondary copy-secret" data-clipboard-text="{{ $apiKey->secret }}">
@@ -71,20 +71,20 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>{{ __('Statut') }}</th>
+                                <th>{{ t('api_keys.status') }}</th>
                                 <td>
                                     @if($apiKey->is_active)
-                                    <span class="badge badge-success">{{ __('Active') }}</span>
+                                    <span class="badge badge-success">{{ t('api_keys.active') }}</span>
                                     @elseif($apiKey->is_revoked)
-                                    <span class="badge badge-danger">{{ __('Révoquée') }}</span>
+                                    <span class="badge badge-danger">{{ t('api_keys.revoked') }}</span>
                                     @elseif($apiKey->is_expired)
-                                    <span class="badge badge-warning">{{ __('Expirée') }}</span>
+                                    <span class="badge badge-warning">{{ t('api_keys.expired') }}</span>
                                     @endif
                                 </td>
                             </tr>
                             <tr>
-                                <th>{{ __('Date d\'expiration') }}</th>
-                                <td>{{ $apiKey->expires_at ? $apiKey->expires_at->format('d/m/Y H:i') : __('Aucune') }}</td>
+                                <th>{{ t('api_keys.expiration_date') }}</th>
+                                <td>{{ $apiKey->expires_at ? $apiKey->expires_at->format('d/m/Y H:i') : t('api_keys.none') }}</td>
                             </tr>
                         </table>
                     </div>
@@ -96,21 +96,21 @@
         <div class="col-xl-6 col-lg-6">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">{{ __('Statistiques d\'utilisation') }}</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">{{ t('api_keys.usage_stats') }}</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" width="100%" cellspacing="0">
                             <tr>
-                                <th width="30%">{{ __('Total des utilisations') }}</th>
+                                <th width="30%">{{ t('api_keys.total_usage') }}</th>
                                 <td>{{ $stats['total_usage'] }}</td>
                             </tr>
                             <tr>
-                                <th>{{ __('Dernière utilisation') }}</th>
-                                <td>{{ $stats['last_used'] ? $stats['last_used']->diffForHumans() : __('Jamais') }}</td>
+                                <th>{{ t('api_keys.last_used') }}</th>
+                                <td>{{ $stats['last_used'] ? $stats['last_used']->diffForHumans() : t('api_keys.never') }}</td>
                             </tr>
                             <tr>
-                                <th>{{ __('Date de création') }}</th>
+                                <th>{{ t('api_keys.created_at') }}</th>
                                 <td>{{ $stats['created_at']->format('d/m/Y H:i') }}</td>
                             </tr>
                         </table>
@@ -123,7 +123,7 @@
     <!-- Permissions -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">{{ __('Permissions') }}</h6>
+            <h6 class="m-0 font-weight-bold text-primary">{{ t('api_keys.permissions') }}</h6>
         </div>
         <div class="card-body">
             <form action="{{ route('admin.api-keys.update-permissions', $apiKey) }}" method="POST">
@@ -136,14 +136,14 @@
                             <input type="checkbox" name="permissions[]" value="{{ $permission }}" id="permission_{{ $permission }}"
                                 class="form-check-input" {{ in_array($permission, $apiKey->permissions ?? []) ? 'checked' : '' }}>
                             <label class="form-check-label" for="permission_{{ $permission }}">
-                                {{ __($description) }}
+                                {{ t($description) }}
                             </label>
                         </div>
                     </div>
                     @endforeach
                 </div>
                 <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-save"></i> {{ __('Enregistrer les permissions') }}
+                    <i class="fas fa-save"></i> {{ t('api_keys.save_permissions') }}
                 </button>
             </form>
         </div>

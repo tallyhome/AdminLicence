@@ -1678,3 +1678,51 @@
     "error": ""
 }
 
+{
+    "time": "2025-05-06 21:20:28",
+    "url": "https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+    "http_code": 200,
+    "curl_info": {
+        "url": "https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+        "content_type": "application\/json",
+        "http_code": 200,
+        "header_size": 355,
+        "request_size": 274,
+        "filetime": -1,
+        "ssl_verify_result": 20,
+        "redirect_count": 0,
+        "total_time": 0.593615,
+        "namelookup_time": 0.100533,
+        "connect_time": 0.11747,
+        "pretransfer_time": 0.406246,
+        "size_upload": 130,
+        "size_download": 62,
+        "speed_download": 104,
+        "speed_upload": 218,
+        "download_content_length": -1,
+        "upload_content_length": 130,
+        "starttransfer_time": 0.593554,
+        "redirect_time": 0,
+        "redirect_url": "",
+        "primary_ip": "54.36.78.32",
+        "certinfo": [],
+        "primary_port": 443,
+        "local_ip": "192.168.0.140",
+        "local_port": 63668,
+        "http_version": 2,
+        "protocol": 2,
+        "ssl_verifyresult": 0,
+        "scheme": "HTTPS",
+        "appconnect_time_us": 406184,
+        "connect_time_us": 117470,
+        "namelookup_time_us": 100533,
+        "pretransfer_time_us": 406246,
+        "redirect_time_us": 0,
+        "starttransfer_time_us": 593554,
+        "total_time_us": 593615,
+        "effective_method": "POST"
+    },
+    "response": "{\"status\":\"error\",\"message\":\"Cl\\u00e9 de s\\u00e9rie invalide\"}",
+    "error": ""
+}
+

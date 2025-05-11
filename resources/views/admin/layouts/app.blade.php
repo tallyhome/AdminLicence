@@ -204,11 +204,6 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.mail.providers.rapidmail.index') }}">
-                                    <i class="fas fa-mail-bulk me-2"></i>Rapidmail
-                                </a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.email.templates.index') }}">
                                     <i class="fas fa-file-alt me-2"></i>Templates
                                 </a>
@@ -237,11 +232,6 @@
                             <li class="nav-item">
                                 <a class="nav-link {{ request()->routeIs('admin.email.documentation') ? 'active' : '' }}" href="{{ route('admin.email.documentation') }}">
                                     <i class="fas fa-envelope me-2"></i> Documentation des fournisseurs d'email
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('admin.saas.documentation') ? 'active' : '' }}" href="{{ route('admin.saas.documentation') }}">
-                                    <i class="fas fa-users me-2"></i> Documentation SaaS multiutilisateur
                                 </a>
                             </li>
                         </ul>

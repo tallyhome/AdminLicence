@@ -11,16 +11,16 @@ return [
     */
 
     'permissions' => [
-        'licences:read' => 'Lecture des licences',
-        'licences:write' => 'Écriture des licences',
-        'licences:delete' => 'Suppression des licences',
-        'projects:read' => 'Lecture des projets',
-        'projects:write' => 'Écriture des projets',
-        'projects:delete' => 'Suppression des projets',
-        'users:read' => 'Lecture des utilisateurs',
-        'users:write' => 'Écriture des utilisateurs',
-        'users:delete' => 'Suppression des utilisateurs',
-        'statistics:read' => 'Lecture des statistiques',
+        'licences:read' => 'permissions.license_read',
+        'licences:write' => 'permissions.license_write',
+        'licences:delete' => 'permissions.license_delete',
+        'projects:read' => 'permissions.project_read',
+        'projects:write' => 'permissions.project_write',
+        'projects:delete' => 'permissions.project_delete',
+        'users:read' => 'permissions.user_read',
+        'users:write' => 'permissions.user_write',
+        'users:delete' => 'permissions.user_delete',
+        'statistics:read' => 'permissions.stats_read',
     ],
 
     /*

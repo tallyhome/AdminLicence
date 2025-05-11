@@ -4,70 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion - Administration des Licences</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    @vite(['resources/css/login.css'])
 </head>
-<body class="bg-gray-100">
-    <div class="min-h-screen flex items-center justify-center">
-        <div class="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
-            <div>
-                <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-                    Administration des Licences
-                </h2>
-                <p class="mt-2 text-center text-sm text-gray-600">
-                    Connectez-vous pour accéder au tableau de bord
-                </p>
+<body>
+    <div class="login-container">
+        <div class="login-page">
+            <div class="login-left">
+                <div class="login-header">
+                    <h1>Bienvenue sur<br>AdminLicence</h1>
+                    <p>Créez votre compte et commencez à<br>gérer vos licences efficacement</p>
+                </div>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Gestion sécurisée de vos licences</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Suivi et analyse de l'utilisation</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-headset"></i>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="login-footer">
+                    <p>Déjà inscrit ?</p>
+                    <a href="{{ route('admin.login') }}" class="btn-secondary">Connexion</a>
+                </div>
             </div>
+            
+            <div class="login-right">
+                <div class="login-form">
+                    <h2>Créer un compte</h2>
 
-            @if ($errors->any())
-                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-                    <ul class="list-disc list-inside">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+                    @if ($errors->any())
+                        <div class="alert">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
-            <form class="mt-8 space-y-6" action="{{ route('admin.login') }}" method="POST">
-                @csrf
-                <div class="rounded-md shadow-sm -space-y-px">
-                    <div>
-                        <label for="email" class="sr-only">Adresse e-mail</label>
-                        <input id="email" name="email" type="email" required 
-                               class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" 
-                               placeholder="Adresse e-mail"
-                               value="{{ old('email') }}">
-                    </div>
-                    <div>
-                        <label for="password" class="sr-only">Mot de passe</label>
-                        <input id="password" name="password" type="password" required 
-                               class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" 
-                               placeholder="Mot de passe">
-                    </div>
-                </div>
+                    <form action="{{ route('admin.register') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label for="name" class="form-label">
+                                <i class="far fa-user"></i>
+                                Nom complet
+                            </label>
+                            <input id="name" 
+                                   name="name" 
+                                   type="text" 
+                                   class="form-input" 
+                                   value="{{ old('name') }}" 
+                                   required>
+                        </div>
 
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center">
-                        <input id="remember" name="remember" type="checkbox" 
-                               class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                        <label for="remember" class="ml-2 block text-sm text-gray-900">
-                            Se souvenir de moi
-                        </label>
-                    </div>
-                </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">
+                                <i class="far fa-envelope"></i>
+                                Adresse e-mail
+                            </label>
+                            <input id="email" 
+                                   name="email" 
+                                   type="email" 
+                                   class="form-input" 
+                                   value="{{ old('email') }}" 
+                                   required>
+                        </div>
 
-                <div>
-                    <button type="submit" 
-                            class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                            <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
-                            </svg>
-                        </span>
-                        Se connecter
-                    </button>
+                        <div class="form-group">
+                            <label for="password" class="form-label">
+                                <i class="fas fa-lock"></i>
+                                Mot de passe
+                            </label>
+                            <input id="password" 
+                                   name="password" 
+                                   type="password" 
+                                   class="form-input" 
+                                   required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password_confirmation" class="form-label">
+                                <i class="fas fa-check-circle"></i>
+                                Confirmation
+                            </label>
+                            <input id="password_confirmation" 
+                                   name="password_confirmation" 
+                                   type="password" 
+                                   class="form-input" 
+                                   required>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input id="terms" 
+                                   name="terms" 
+                                   type="checkbox" 
+                                   required>
+                            <label for="terms">
+                                J'accepte les <a href="#">conditions d'utilisation</a> et la <a href="#">politique de confidentialité</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-user-plus"></i>
+                            Créer mon compte
+                        </button>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </body>

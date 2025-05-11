@@ -1,4 +1,4 @@
-<footer class="bg-light py-3 mt-auto">
+<footer class="footer">
     <div class="container-fluid">
         <div class="d-flex justify-content-between align-items-center">
             <div>

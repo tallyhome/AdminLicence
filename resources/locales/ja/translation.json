@@ -447,5 +447,98 @@
         "user_write": "ユーザーの編集",
         "user_delete": "ユーザーの削除",
         "stats_read": "統計の閲覧"
+    },
+    "settings": {
+        "title": "一般設定",
+        "general": {
+            "title": "一般情報",
+            "site_name": "サイト名",
+            "site_description": "サイトの説明"
+        },
+        "password": {
+            "title": "パスワードの変更",
+            "current_password": "現在のパスワード",
+            "new_password": "新しいパスワード",
+            "confirm_password": "パスワードの確認",
+            "update_button": "パスワードを更新"
+        },
+        "favicon": {
+            "title": "ファビコン",
+            "current": "現在のファビコン",
+            "new": "新しいファビコン",
+            "accepted_formats": "対応フォーマット：ICO、PNG、JPG、JPEG、SVG。最大サイズ：2 MB。",
+            "update_button": "ファビコンを更新"
+        },
+        "theme": {
+            "title": "テーマ",
+            "dark_mode": "ダークモードを有効化",
+            "apply_button": "適用"
+        },
+        "two_factor": {
+            "title": "二要素認証",
+            "description": "二要素認証は、アカウントにセキュリティの層を追加します。",
+            "enabled": "二要素認証が有効になっています",
+            "disabled": "二要素認証が無効になっています",
+            "enable": "二要素認証を有効にする",
+            "disable": "二要素認証を無効にする",
+            "setup": "二要素認証を設定する",
+            "scan_qr": "認証アプリでQRコードをスキャンしてください",
+            "enter_code": "認証コードを入力してください",
+            "verification_code": "認証コード",
+            "recovery_codes": "リカバリーコード",
+            "recovery_codes_description": "これらのリカバリーコードを安全な場所に保管してください。認証デバイスを紛失した場合に、アカウントへのアクセスを回復するのに役立ちます。",
+            "regenerate_codes": "リカバリーコードを再生成",
+            "show_codes": "リカバリーコードを表示",
+            "confirm_disable": "二要素認証を無効にしてもよろしいですか？",
+            "confirm_enable": "二要素認証を有効にしてもよろしいですか？",
+            "success_enabled": "二要素認証が正常に有効化されました。",
+            "success_disabled": "二要素認証が正常に無効化されました。",
+            "error_enable": "二要素認証の有効化中にエラーが発生しました。",
+            "error_disable": "二要素認証の無効化中にエラーが発生しました。",
+            "invalid_code": "認証コードが無効です。",
+            "backup_codes": "バックアップコード",
+            "backup_codes_description": "これらのバックアップコードを使用して、認証デバイスを紛失した場合にログインできます。",
+            "download_codes": "バックアップコードをダウンロード",
+            "print_codes": "バックアップコードを印刷",
+            "regenerate_backup_codes": "バックアップコードを再生成",
+            "regenerate_backup_codes_description": "バックアップコードを再生成すると、以前のすべてのコードが無効になります。",
+            "confirm_regenerate": "バックアップコードを再生成してもよろしいですか？",
+            "status": {
+                "enabled": "有効",
+                "disabled": "無効"
+            },
+            "configure": "設定",
+            "test": "テスト",
+            "verify": "確認",
+            "verification": "認証",
+            "verification_success": "認証成功",
+            "verification_failed": "認証失敗",
+            "setup_complete": "設定完了",
+            "setup_failed": "設定失敗",
+            "qr_code": "QRコード",
+            "manual_code": "手動コード",
+            "manual_code_description": "QRコードをスキャンできない場合は、このコードを認証アプリに手動で入力してください。",
+            "app_recommendations": "推奨アプリ",
+            "app_recommendations_description": "二要素認証には以下のアプリのいずれかを使用することをお勧めします：",
+            "google_authenticator": "Google認証システム",
+            "microsoft_authenticator": "Microsoft認証システム",
+            "authy": "Authy",
+            "last_used": "最終使用",
+            "never_used": "未使用",
+            "regenerate_warning": "警告：バックアップコードを再生成すると、以前のすべてのコードが無効になります。安全な場所に保管してください。",
+            "configuration": {
+                "title": "二要素認証の設定",
+                "description": "アカウントのセキュリティを強化するために二要素認証を設定してください"
+            },
+            "status": {
+                "disabled_message": "二要素認証は現在無効になっています"
+            },
+            "setup": {
+                "step1": "ステップ1：QRコードをスキャン",
+                "step2": "ステップ2：認証コードを入力",
+                "step3": "ステップ3：有効化を確認"
+            },
+            "auth_code": "認証コード"
+        }
     }
 }

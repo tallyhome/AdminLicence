@@ -48,10 +48,23 @@
         }
         .content {
             padding: 20px;
+            padding-bottom: 80px; /* Espace pour le footer */
         }
         .main-content-wrapper {
             margin-left: 250px;
             width: calc(100% - 250px);
+            min-height: 100vh;
+            position: relative;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 250px; /* Largeur du menu de gauche */
+            right: 0;
+            background-color: #fff;
+            border-top: 1px solid #dee2e6;
+            padding: 1rem 0;
+            z-index: 1000;
         }
         /* Styles pour le sélecteur de langue */
         .navbar .nav-item.dropdown .nav-link {

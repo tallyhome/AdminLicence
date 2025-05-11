@@ -466,5 +466,100 @@
         "user_write": "كتابة المستخدمين",
         "user_delete": "حذف المستخدمين",
         "stats_read": "قراءة الإحصائيات"
+    },
+    "settings": {
+        "title": "الإعدادات العامة",
+        "general": {
+            "title": "المعلومات العامة",
+            "site_name": "اسم الموقع",
+            "site_description": "وصف الموقع"
+        },
+        "password": {
+            "title": "تغيير كلمة المرور",
+            "current_password": "كلمة المرور الحالية",
+            "new_password": "كلمة المرور الجديدة",
+            "confirm_password": "تأكيد كلمة المرور",
+            "update_button": "تحديث كلمة المرور"
+        },
+        "favicon": {
+            "title": "أيقونة الموقع",
+            "current": "الأيقونة الحالية",
+            "new": "أيقونة جديدة",
+            "accepted_formats": "الصيغ المقبولة: ICO، PNG، JPG، JPEG، SVG. الحجم الأقصى: 2 ميجابايت.",
+            "update_button": "تحديث الأيقونة"
+        },
+        "theme": {
+            "title": "المظهر",
+            "dark_mode": "تفعيل الوضع الداكن",
+            "apply_button": "تطبيق"
+        },
+        "two_factor": {
+            "title": "المصادقة الثنائية",
+            "description": "تضيف المصادقة الثنائية طبقة إضافية من الأمان إلى حسابك.",
+            "enabled": "المصادقة الثنائية مفعلة",
+            "disabled": "المصادقة الثنائية معطلة",
+            "enable": "تفعيل المصادقة الثنائية",
+            "disable": "تعطيل المصادقة الثنائية",
+            "setup": "إعداد المصادقة الثنائية",
+            "scan_qr": "امسح رمز QR باستخدام تطبيق المصادقة الخاص بك",
+            "enter_code": "أدخل رمز التحقق",
+            "verification_code": "رمز التحقق",
+            "recovery_codes": "رموز الاسترداد",
+            "recovery_codes_description": "احفظ رموز الاسترداد هذه في مكان آمن. ستسمح لك باستعادة الوصول إلى حسابك إذا فقدت جهاز المصادقة الخاص بك.",
+            "regenerate_codes": "إعادة إنشاء رموز الاسترداد",
+            "show_codes": "عرض رموز الاسترداد",
+            "confirm_disable": "هل أنت متأكد أنك تريد تعطيل المصادقة الثنائية؟",
+            "confirm_enable": "هل أنت متأكد أنك تريد تفعيل المصادقة الثنائية؟",
+            "success_enabled": "تم تفعيل المصادقة الثنائية بنجاح.",
+            "success_disabled": "تم تعطيل المصادقة الثنائية بنجاح.",
+            "error_enable": "حدث خطأ أثناء تفعيل المصادقة الثنائية.",
+            "error_disable": "حدث خطأ أثناء تعطيل المصادقة الثنائية.",
+            "invalid_code": "رمز التحقق غير صالح.",
+            "backup_codes": "رموز النسخ الاحتياطي",
+            "backup_codes_description": "ستسمح لك رموز النسخ الاحتياطي هذه بتسجيل الدخول إذا فقدت جهاز المصادقة الخاص بك.",
+            "download_codes": "تنزيل رموز النسخ الاحتياطي",
+            "print_codes": "طباعة رموز النسخ الاحتياطي",
+            "regenerate_backup_codes": "إعادة إنشاء رموز النسخ الاحتياطي",
+            "regenerate_backup_codes_description": "ستؤدي إعادة إنشاء رموز النسخ الاحتياطي إلى إبطال جميع الرموز السابقة.",
+            "confirm_regenerate": "هل أنت متأكد أنك تريد إعادة إنشاء رموز النسخ الاحتياطي؟",
+            "status": {
+                "enabled": "مفعل",
+                "disabled": "معطل"
+            },
+            "configure": "تكوين",
+            "test": "اختبار",
+            "verify": "تحقق",
+            "verification": "التحقق",
+            "verification_success": "تم التحقق بنجاح",
+            "verification_failed": "فشل التحقق",
+            "setup_complete": "اكتمل الإعداد",
+            "setup_failed": "فشل الإعداد",
+            "qr_code": "رمز QR",
+            "manual_code": "الرمز اليدوي",
+            "manual_code_description": "إذا لم تتمكن من مسح رمز QR، فأدخل هذا الرمز يدويًا في تطبيق المصادقة الخاص بك.",
+            "app_recommendations": "التطبيقات الموصى بها",
+            "app_recommendations_description": "نوصي باستخدام أحد التطبيقات التالية للمصادقة الثنائية:",
+            "google_authenticator": "Google Authenticator",
+            "microsoft_authenticator": "Microsoft Authenticator",
+            "authy": "Authy",
+            "last_used": "آخر استخدام",
+            "never_used": "لم يتم استخدامه أبدًا",
+            "regenerate_warning": "تحذير: ستؤدي إعادة إنشاء رموز النسخ الاحتياطي إلى إبطال جميع الرموز السابقة. تأكد من حفظها في مكان آمن."
+        },
+        "two_factor": {
+            "configuration": {
+                "title": "تكوين المصادقة الثنائية",
+                "description": "قم بتكوين المصادقة الثنائية لتعزيز أمان حسابك"
+            },
+            "status": {
+                "disabled_message": "المصادقة الثنائية معطلة حالياً"
+            },
+            "setup": {
+                "step1": "الخطوة 1: امسح رمز QR",
+                "step2": "الخطوة 2: أدخل رمز التحقق",
+                "step3": "الخطوة 3: تأكيد التفعيل"
+            },
+            "auth_code": "رمز المصادقة"
+        }
     }
 }

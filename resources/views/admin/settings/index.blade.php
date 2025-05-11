@@ -1,13 +1,13 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Paramètres généraux')
+@section('title', t('settings.title'))
 
 @section('content')
 <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1>Paramètres généraux</h1>
+        <h1>{{ t('settings.title') }}</h1>
         <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary">
-            <i class="fas fa-arrow-left"></i> Retour
+            <i class="fas fa-arrow-left"></i> {{ t('common.back') }}
         </a>
     </div>
 
@@ -23,34 +23,34 @@
         <div class="col-md-6 mb-4">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Informations du profil</h3>
+                    <h3 class="card-title">{{ t('settings.general.title') }}</h3>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('admin.settings.update-profile') }}" method="POST">
+                    <form action="{{ route('admin.settings.update') }}" method="POST">
                         @csrf
                         @method('PUT')
                         
                         <div class="mb-3">
-                            <label for="name" class="form-label">Nom</label>
-                            <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" 
-                                   value="{{ old('name', $admin->name) }}" required>
-                            @error('name')
+                            <label for="site_name" class="form-label">{{ t('settings.general.site_name') }}</label>
+                            <input type="text" class="form-control @error('site_name') is-invalid @enderror" 
+                                   id="site_name" name="site_name" value="{{ old('site_name', $settings->site_name ?? '') }}">
+                            @error('site_name')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror" 
-                                   value="{{ old('email', $admin->email) }}" required>
-                            @error('email')
+                            <label for="site_description" class="form-label">{{ t('settings.general.site_description') }}</label>
+                            <textarea class="form-control @error('site_description') is-invalid @enderror" 
+                                      id="site_description" name="site_description" rows="3">{{ old('site_description', $settings->site_description ?? '') }}</textarea>
+                            @error('site_description')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
 
                         <div class="text-end">
                             <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save"></i> Enregistrer
+                                <i class="fas fa-save"></i> {{ t('common.save') }}
                             </button>
                         </div>
                     </form>
@@ -62,7 +62,7 @@
         <div class="col-md-6 mb-4">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Changer le mot de passe</h3>
+                    <h3 class="card-title">{{ t('settings.password.title') }}</h3>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('admin.settings.update-password') }}" method="POST">
@@ -70,7 +70,7 @@
                         @method('PUT')
                         
                         <div class="mb-3">
-                            <label for="current_password" class="form-label">Mot de passe actuel</label>
+                            <label for="current_password" class="form-label">{{ t('settings.password.current_password') }}</label>
                             <input type="password" id="current_password" name="current_password" class="form-control @error('current_password') is-invalid @enderror" required>
                             @error('current_password')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -78,7 +78,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="password" class="form-label">Nouveau mot de passe</label>
+                            <label for="password" class="form-label">{{ t('settings.password.new_password') }}</label>
                             <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror" required>
                             @error('password')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -86,13 +86,13 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="password_confirmation" class="form-label">Confirmer le mot de passe</label>
+                            <label for="password_confirmation" class="form-label">{{ t('settings.password.confirm_password') }}</label>
                             <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required>
                         </div>
 
                         <div class="text-end">
                             <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-key"></i> Mettre à jour le mot de passe
+                                <i class="fas fa-key"></i> {{ t('settings.password.update_button') }}
                             </button>
                         </div>
                     </form>
@@ -104,11 +104,11 @@
         <div class="col-md-6 mb-4">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Favicon</h3>
+                    <h3 class="card-title">{{ t('settings.favicon.title') }}</h3>
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
-                        <p>Favicon actuel :</p>
+                        <p>{{ t('settings.favicon.current') }} :</p>
                         <img src="{{ asset('favicon.ico') }}" alt="Favicon" class="img-thumbnail" style="max-width: 64px;">
                     </div>
 
@@ -117,9 +117,9 @@
                         @method('PUT')
                         
                         <div class="mb-3">
-                            <label for="favicon" class="form-label">Nouveau favicon</label>
+                            <label for="favicon" class="form-label">{{ t('settings.favicon.new') }}</label>
                             <input type="file" id="favicon" name="favicon" class="form-control @error('favicon') is-invalid @enderror" required>
-                            <div class="form-text">Formats acceptés : ICO, PNG, JPG, JPEG, SVG. Taille maximale : 2 Mo.</div>
+                            <div class="form-text">{{ t('settings.favicon.accepted_formats') }}</div>
                             @error('favicon')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -127,7 +127,7 @@
 
                         <div class="text-end">
                             <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-upload"></i> Mettre à jour le favicon
+                                <i class="fas fa-upload"></i> {{ t('settings.favicon.update_button') }}
                             </button>
                         </div>
                     </form>
@@ -139,7 +139,7 @@
         <div class="col-md-6 mb-4">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Thème</h3>
+                    <h3 class="card-title">{{ t('settings.theme.title') }}</h3>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('admin.settings.toggle-dark-mode') }}" method="POST">
@@ -148,12 +148,12 @@
                         
                         <div class="form-check form-switch mb-3">
                             <input class="form-check-input" type="checkbox" id="dark_mode" name="dark_mode" {{ $darkModeEnabled ? 'checked' : '' }}>
-                            <label class="form-check-label" for="dark_mode">Activer le thème sombre</label>
+                            <label class="form-check-label" for="dark_mode">{{ t('settings.theme.dark_mode') }}</label>
                         </div>
 
                         <div class="text-end">
                             <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-palette"></i> Appliquer
+                                <i class="fas fa-palette"></i> {{ t('settings.theme.apply_button') }}
                             </button>
                         </div>
                     </form>
@@ -165,27 +165,26 @@
         <div class="col-md-6 mb-4">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Authentification à deux facteurs</h3>
+                    <h3 class="card-title">{{ t('settings.two_factor.title') }}</h3>
                 </div>
                 <div class="card-body">
                     <p class="mb-3">
-                        L'authentification à deux facteurs ajoute une couche de sécurité supplémentaire à votre compte.
-                        Une fois activée, vous devrez fournir un code d'authentification en plus de votre mot de passe pour vous connecter.
+                        {{ t('settings.two_factor.description') }}
                     </p>
                     
                     <div class="d-flex align-items-center mb-3">
                         <div class="me-3">
                             @if(auth()->guard('admin')->user()->two_factor_enabled)
-                                <span class="badge bg-success">Activée</span>
+                                <span class="badge bg-success">{{ t('settings.two_factor.status.enabled') }}</span>
                             @else
-                                <span class="badge bg-warning">Désactivée</span>
+                                <span class="badge bg-warning">{{ t('settings.two_factor.status.disabled') }}</span>
                             @endif
                         </div>
                         <a href="{{ route('admin.settings.two-factor') }}" class="btn btn-primary me-2">
-                            <i class="fas fa-shield-alt"></i> Configurer
+                            <i class="fas fa-shield-alt"></i> {{ t('settings.two_factor.configure') }}
                         </a>
                         <a href="{{ route('admin.settings.test-google2fa') }}" class="btn btn-outline-secondary">
-                            <i class="fas fa-vial"></i> Tester Google2FA
+                            <i class="fas fa-vial"></i> {{ t('settings.two_factor.test') }}
                         </a>
                     </div>
                 </div>

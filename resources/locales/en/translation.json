@@ -13,7 +13,7 @@
         "delete": "Delete",
         "edit": "Edit",
         "create": "Create",
-        "back": "Back",
+        "back": "Back to Settings",
         "actions": "Actions",
         "status": "Status",
         "name": "Name",
@@ -478,5 +478,98 @@
         "user_write": "User write",
         "user_delete": "User delete",
         "stats_read": "Statistics read"
+    },
+    "settings": {
+        "title": "General Settings",
+        "general": {
+            "title": "General Information",
+            "site_name": "Site Name",
+            "site_description": "Site Description"
+        },
+        "password": {
+            "title": "Change Password",
+            "current_password": "Current Password",
+            "new_password": "New Password",
+            "confirm_password": "Confirm Password",
+            "update_button": "Update Password"
+        },
+        "favicon": {
+            "title": "Favicon",
+            "current": "Current Favicon",
+            "new": "New Favicon",
+            "accepted_formats": "Accepted formats: ICO, PNG, JPG, JPEG, SVG. Maximum size: 2 MB.",
+            "update_button": "Update Favicon"
+        },
+        "theme": {
+            "title": "Theme",
+            "dark_mode": "Enable Dark Mode",
+            "apply_button": "Apply"
+        },
+        "two_factor": {
+            "title": "Two-Factor Authentication",
+            "description": "Two-factor authentication adds an additional layer of security to your account.",
+            "enabled": "Two-factor authentication is enabled",
+            "disabled": "Two-factor authentication is disabled",
+            "enable": "Enable two-factor authentication",
+            "disable": "Disable two-factor authentication",
+            "setup": "Set up two-factor authentication",
+            "scan_qr": "Scan the QR code with your authentication app",
+            "enter_code": "Enter verification code",
+            "verification_code": "Verification code",
+            "recovery_codes": "Recovery codes",
+            "recovery_codes_description": "Keep these recovery codes in a safe place. They will allow you to recover access to your account if you lose your authentication device.",
+            "regenerate_codes": "Regenerate recovery codes",
+            "show_codes": "Show recovery codes",
+            "confirm_disable": "Are you sure you want to disable two-factor authentication?",
+            "confirm_enable": "Are you sure you want to enable two-factor authentication?",
+            "success_enabled": "Two-factor authentication has been successfully enabled.",
+            "success_disabled": "Two-factor authentication has been successfully disabled.",
+            "error_enable": "An error occurred while enabling two-factor authentication.",
+            "error_disable": "An error occurred while disabling two-factor authentication.",
+            "invalid_code": "The verification code is invalid.",
+            "backup_codes": "Backup codes",
+            "backup_codes_description": "These backup codes will allow you to log in if you lose your authentication device.",
+            "download_codes": "Download backup codes",
+            "print_codes": "Print backup codes",
+            "regenerate_backup_codes": "Regenerate backup codes",
+            "regenerate_backup_codes_description": "Regenerating backup codes will invalidate all previous codes.",
+            "confirm_regenerate": "Are you sure you want to regenerate backup codes?",
+            "status": {
+                "enabled": "Enabled",
+                "disabled": "Disabled"
+            },
+            "configure": "Configure",
+            "test": "Test",
+            "verify": "Verify",
+            "verification": "Verification",
+            "verification_success": "Verification successful",
+            "verification_failed": "Verification failed",
+            "setup_complete": "Setup complete",
+            "setup_failed": "Setup failed",
+            "qr_code": "QR Code",
+            "manual_code": "Manual code",
+            "manual_code_description": "If you cannot scan the QR code, enter this code manually in your authentication app.",
+            "app_recommendations": "Recommended apps",
+            "app_recommendations_description": "We recommend using one of the following apps for two-factor authentication:",
+            "google_authenticator": "Google Authenticator",
+            "microsoft_authenticator": "Microsoft Authenticator",
+            "authy": "Authy",
+            "last_used": "Last used",
+            "never_used": "Never used",
+            "regenerate_warning": "Warning: Regenerating backup codes will invalidate all previous codes. Make sure to keep them in a safe place.",
+            "configuration": {
+                "title": "Two-Factor Authentication Configuration",
+                "description": "Configure your two-factor authentication to enhance your account security"
+            },
+            "status": {
+                "disabled_message": "Two-factor authentication is currently disabled"
+            },
+            "setup": {
+                "step1": "Step 1: Scan the QR code",
+                "step2": "Step 2: Enter the verification code",
+                "step3": "Step 3: Confirm activation"
+            },
+            "auth_code": "Authentication code"
+        }
     }
 }

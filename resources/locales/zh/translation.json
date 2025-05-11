@@ -475,5 +475,98 @@
         "user_write": "写入用户",
         "user_delete": "删除用户",
         "stats_read": "读取统计"
+    },
+    "settings": {
+        "title": "常规设置",
+        "general": {
+            "title": "一般信息",
+            "site_name": "网站名称",
+            "site_description": "网站描述"
+        },
+        "password": {
+            "title": "修改密码",
+            "current_password": "当前密码",
+            "new_password": "新密码",
+            "confirm_password": "确认密码",
+            "update_button": "更新密码"
+        },
+        "favicon": {
+            "title": "网站图标",
+            "current": "当前图标",
+            "new": "新图标",
+            "accepted_formats": "接受的格式：ICO、PNG、JPG、JPEG、SVG。最大大小：2 MB。",
+            "update_button": "更新图标"
+        },
+        "theme": {
+            "title": "主题",
+            "dark_mode": "启用深色模式",
+            "apply_button": "应用"
+        },
+        "two_factor": {
+            "title": "双重认证",
+            "description": "双重认证为您的账户添加了额外的安全层。",
+            "enabled": "双重认证已启用",
+            "disabled": "双重认证已禁用",
+            "enable": "启用双重认证",
+            "disable": "禁用双重认证",
+            "setup": "设置双重认证",
+            "scan_qr": "使用您的认证应用扫描二维码",
+            "enter_code": "输入验证码",
+            "verification_code": "验证码",
+            "recovery_codes": "恢复码",
+            "recovery_codes_description": "请将这些恢复码保存在安全的地方。如果您丢失了认证设备，它们将允许您恢复对账户的访问。",
+            "regenerate_codes": "重新生成恢复码",
+            "show_codes": "显示恢复码",
+            "confirm_disable": "您确定要禁用双重认证吗？",
+            "confirm_enable": "您确定要启用双重认证吗？",
+            "success_enabled": "双重认证已成功启用。",
+            "success_disabled": "双重认证已成功禁用。",
+            "error_enable": "启用双重认证时发生错误。",
+            "error_disable": "禁用双重认证时发生错误。",
+            "invalid_code": "验证码无效。",
+            "backup_codes": "备用码",
+            "backup_codes_description": "如果您丢失了认证设备，这些备用码将允许您登录。",
+            "download_codes": "下载备用码",
+            "print_codes": "打印备用码",
+            "regenerate_backup_codes": "重新生成备用码",
+            "regenerate_backup_codes_description": "重新生成备用码将使所有之前的代码失效。",
+            "confirm_regenerate": "您确定要重新生成备用码吗？",
+            "status": {
+                "enabled": "已启用",
+                "disabled": "已禁用"
+            },
+            "configure": "配置",
+            "test": "测试",
+            "verify": "验证",
+            "verification": "验证",
+            "verification_success": "验证成功",
+            "verification_failed": "验证失败",
+            "setup_complete": "设置完成",
+            "setup_failed": "设置失败",
+            "qr_code": "二维码",
+            "manual_code": "手动代码",
+            "manual_code_description": "如果您无法扫描二维码，请在认证应用中手动输入此代码。",
+            "app_recommendations": "推荐应用",
+            "app_recommendations_description": "我们建议使用以下应用之一进行双重认证：",
+            "google_authenticator": "Google 认证器",
+            "microsoft_authenticator": "Microsoft 认证器",
+            "authy": "Authy",
+            "last_used": "最后使用",
+            "never_used": "从未使用",
+            "regenerate_warning": "警告：重新生成备用码将使所有之前的代码失效。请确保将它们保存在安全的地方。",
+            "configuration": {
+                "title": "双重认证配置",
+                "description": "配置双重认证以提高您的账户安全性"
+            },
+            "status": {
+                "disabled_message": "双重认证当前已禁用"
+            },
+            "setup": {
+                "step1": "步骤1：扫描二维码",
+                "step2": "步骤2：输入验证码",
+                "step3": "步骤3：确认激活"
+            },
+            "auth_code": "认证码"
+        }
     }
 }

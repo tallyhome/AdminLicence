@@ -493,5 +493,73 @@
         "user_write": "Kullanıcıları Düzenle",
         "user_delete": "Kullanıcıları Sil",
         "stats_read": "İstatistikleri Görüntüle"
+    },
+    "settings": {
+        "two_factor": {
+            "title": "İki faktörlü kimlik doğrulama",
+            "description": "İki faktörlü kimlik doğrulama, hesabınıza ek bir güvenlik katmanı ekler.",
+            "enabled": "İki faktörlü kimlik doğrulama etkin",
+            "disabled": "İki faktörlü kimlik doğrulama devre dışı",
+            "enable": "İki faktörlü kimlik doğrulamayı etkinleştir",
+            "disable": "İki faktörlü kimlik doğrulamayı devre dışı bırak",
+            "setup": "İki faktörlü kimlik doğrulamayı ayarla",
+            "scan_qr": "Kimlik doğrulama uygulamanızla QR kodunu tarayın",
+            "enter_code": "Doğrulama kodunu girin",
+            "verification_code": "Doğrulama kodu",
+            "recovery_codes": "Kurtarma kodları",
+            "recovery_codes_description": "Bu kurtarma kodlarını güvenli bir yerde saklayın. Kimlik doğrulama cihazınızı kaybederseniz, hesabınıza erişimi geri yüklemenize olanak tanırlar.",
+            "regenerate_codes": "Kurtarma kodlarını yeniden oluştur",
+            "show_codes": "Kurtarma kodlarını göster",
+            "confirm_disable": "İki faktörlü kimlik doğrulamayı devre dışı bırakmak istediğinizden emin misiniz?",
+            "confirm_enable": "İki faktörlü kimlik doğrulamayı etkinleştirmek istediğinizden emin misiniz?",
+            "success_enabled": "İki faktörlü kimlik doğrulama başarıyla etkinleştirildi.",
+            "success_disabled": "İki faktörlü kimlik doğrulama başarıyla devre dışı bırakıldı.",
+            "error_enable": "İki faktörlü kimlik doğrulama etkinleştirilirken bir hata oluştu.",
+            "error_disable": "İki faktörlü kimlik doğrulama devre dışı bırakılırken bir hata oluştu.",
+            "invalid_code": "Geçersiz doğrulama kodu.",
+            "backup_codes": "Yedek kodlar",
+            "backup_codes_description": "Bu yedek kodlar, kimlik doğrulama cihazınızı kaybederseniz giriş yapmanıza olanak tanır.",
+            "download_codes": "Yedek kodları indir",
+            "print_codes": "Yedek kodları yazdır",
+            "regenerate_backup_codes": "Yedek kodları yeniden oluştur",
+            "regenerate_backup_codes_description": "Yedek kodların yeniden oluşturulması, tüm önceki kodları geçersiz kılar.",
+            "confirm_regenerate": "Yedek kodları yeniden oluşturmak istediğinizden emin misiniz?",
+            "status": {
+                "enabled": "Etkin",
+                "disabled": "Devre dışı"
+            },
+            "configure": "Yapılandır",
+            "test": "Test et",
+            "verify": "Doğrula",
+            "verification": "Doğrulama",
+            "verification_success": "Doğrulama başarılı",
+            "verification_failed": "Doğrulama başarısız",
+            "setup_complete": "Kurulum tamamlandı",
+            "setup_failed": "Kurulum başarısız",
+            "qr_code": "QR kod",
+            "manual_code": "Manuel kod",
+            "manual_code_description": "QR kodunu tarayamıyorsanız, bu kodu kimlik doğrulama uygulamanıza manuel olarak girin.",
+            "app_recommendations": "Önerilen uygulamalar",
+            "app_recommendations_description": "İki faktörlü kimlik doğrulama için aşağıdaki uygulamalardan birini kullanmanızı öneririz:",
+            "google_authenticator": "Google Authenticator",
+            "microsoft_authenticator": "Microsoft Authenticator",
+            "authy": "Authy",
+            "last_used": "Son kullanım",
+            "never_used": "Hiç kullanılmadı",
+            "regenerate_warning": "Uyarı: Yedek kodların yeniden oluşturulması, tüm önceki kodları geçersiz kılar. Bunları güvenli bir yerde sakladığınızdan emin olun.",
+            "configuration": {
+                "title": "İki faktörlü kimlik doğrulama yapılandırması",
+                "description": "Hesabınızın güvenliğini artırmak için iki faktörlü kimlik doğrulamayı yapılandırın"
+            },
+            "status": {
+                "disabled_message": "İki faktörlü kimlik doğrulama şu anda devre dışı"
+            },
+            "setup": {
+                "step1": "Adım 1: QR kodunu tarayın",
+                "step2": "Adım 2: Doğrulama kodunu girin",
+                "step3": "Adım 3: Aktivasyonu onaylayın"
+            },
+            "auth_code": "Kimlik doğrulama kodu"
+        }
     }
 }

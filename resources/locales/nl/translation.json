@@ -464,5 +464,98 @@
         "user_write": "Gebruikers schrijven",
         "user_delete": "Gebruikers verwijderen",
         "stats_read": "Statistieken lezen"
+    },
+    "settings": {
+        "title": "Algemene Instellingen",
+        "general": {
+            "title": "Algemene Informatie",
+            "site_name": "Sitenaam",
+            "site_description": "Sitebeschrijving"
+        },
+        "password": {
+            "title": "Wachtwoord Wijzigen",
+            "current_password": "Huidig Wachtwoord",
+            "new_password": "Nieuw Wachtwoord",
+            "confirm_password": "Bevestig Wachtwoord",
+            "update_button": "Wachtwoord Bijwerken"
+        },
+        "favicon": {
+            "title": "Favicon",
+            "current": "Huidige Favicon",
+            "new": "Nieuwe Favicon",
+            "accepted_formats": "Geaccepteerde formaten: ICO, PNG, JPG, JPEG, SVG. Maximale grootte: 2 MB.",
+            "update_button": "Favicon Bijwerken"
+        },
+        "theme": {
+            "title": "Thema",
+            "dark_mode": "Donker Thema Inschakelen",
+            "apply_button": "Toepassen"
+        },
+        "two_factor": {
+            "title": "Twee-factor authenticatie",
+            "description": "Twee-factor authenticatie voegt een extra beveiligingslaag toe aan je account.",
+            "enabled": "Twee-factor authenticatie is ingeschakeld",
+            "disabled": "Twee-factor authenticatie is uitgeschakeld",
+            "enable": "Twee-factor authenticatie inschakelen",
+            "disable": "Twee-factor authenticatie uitschakelen",
+            "setup": "Twee-factor authenticatie instellen",
+            "scan_qr": "Scan de QR-code met je authenticatie-app",
+            "enter_code": "Voer de verificatiecode in",
+            "verification_code": "Verificatiecode",
+            "recovery_codes": "Herstelcodes",
+            "recovery_codes_description": "Bewaar deze herstelcodes op een veilige plek. Ze stellen je in staat om toegang tot je account te herstellen als je je authenticatie-apparaat verliest.",
+            "regenerate_codes": "Herstelcodes opnieuw genereren",
+            "show_codes": "Herstelcodes weergeven",
+            "confirm_disable": "Weet je zeker dat je twee-factor authenticatie wilt uitschakelen?",
+            "confirm_enable": "Weet je zeker dat je twee-factor authenticatie wilt inschakelen?",
+            "success_enabled": "Twee-factor authenticatie is succesvol ingeschakeld.",
+            "success_disabled": "Twee-factor authenticatie is succesvol uitgeschakeld.",
+            "error_enable": "Er is een fout opgetreden bij het inschakelen van twee-factor authenticatie.",
+            "error_disable": "Er is een fout opgetreden bij het uitschakelen van twee-factor authenticatie.",
+            "invalid_code": "De verificatiecode is ongeldig.",
+            "backup_codes": "Back-upcodes",
+            "backup_codes_description": "Deze back-upcodes stellen je in staat om in te loggen als je je authenticatie-apparaat verliest.",
+            "download_codes": "Back-upcodes downloaden",
+            "print_codes": "Back-upcodes afdrukken",
+            "regenerate_backup_codes": "Back-upcodes opnieuw genereren",
+            "regenerate_backup_codes_description": "Het opnieuw genereren van back-upcodes maakt alle eerdere codes ongeldig.",
+            "confirm_regenerate": "Weet je zeker dat je de back-upcodes opnieuw wilt genereren?",
+            "status": {
+                "enabled": "Ingeschakeld",
+                "disabled": "Uitgeschakeld"
+            },
+            "configure": "Configureren",
+            "test": "Testen",
+            "verify": "Verifiëren",
+            "verification": "Verificatie",
+            "verification_success": "Verificatie succesvol",
+            "verification_failed": "Verificatie mislukt",
+            "setup_complete": "Installatie voltooid",
+            "setup_failed": "Installatie mislukt",
+            "qr_code": "QR-code",
+            "manual_code": "Handmatige code",
+            "manual_code_description": "Als je de QR-code niet kunt scannen, voer deze code dan handmatig in je authenticatie-app in.",
+            "app_recommendations": "Aanbevolen apps",
+            "app_recommendations_description": "We raden aan om een van de volgende apps te gebruiken voor twee-factor authenticatie:",
+            "google_authenticator": "Google Authenticator",
+            "microsoft_authenticator": "Microsoft Authenticator",
+            "authy": "Authy",
+            "last_used": "Laatst gebruikt",
+            "never_used": "Nooit gebruikt",
+            "regenerate_warning": "Waarschuwing: Het opnieuw genereren van back-upcodes maakt alle eerdere codes ongeldig. Zorg ervoor dat je ze op een veilige plek bewaart.",
+            "configuration": {
+                "title": "Twee-factor authenticatie configuratie",
+                "description": "Configureer uw twee-factor authenticatie om de beveiliging van uw account te verbeteren"
+            },
+            "status": {
+                "disabled_message": "Twee-factor authenticatie is momenteel uitgeschakeld"
+            },
+            "setup": {
+                "step1": "Stap 1: Scan de QR-code",
+                "step2": "Stap 2: Voer de verificatiecode in",
+                "step3": "Stap 3: Bevestig de activering"
+            },
+            "auth_code": "Authenticatiecode"
+        }
     }
 }

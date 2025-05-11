@@ -1,13 +1,13 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Authentification à deux facteurs')
+@section('title', t('settings.two_factor.title'))
 
 @section('content')
 <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1>Authentification à deux facteurs</h1>
+        <h1>{{ t('settings.two_factor.title') }}</h1>
         <a href="{{ route('admin.settings.index') }}" class="btn btn-secondary">
-            <i class="fas fa-arrow-left"></i> Retour aux paramètres
+            <i class="fas fa-arrow-left"></i> {{ t('common.back') }}
         </a>
     </div>
 
@@ -22,24 +22,22 @@
         <div class="col-md-6">
             <div class="card mb-4">
                 <div class="card-header">
-                    <h3 class="card-title">Configuration de l'authentification à deux facteurs</h3>
+                    <h3 class="card-title">{{ t('settings.two_factor.configuration.title') }}</h3>
                 </div>
                 <div class="card-body">
                     <p class="mb-3">
-                        L'authentification à deux facteurs ajoute une couche de sécurité supplémentaire à votre compte. 
-                        Une fois configurée, vous devrez fournir un code d'authentification généré par votre application 
-                        en plus de votre mot de passe pour vous connecter.
+                        {{ t('settings.two_factor.configuration.description') }}
                     </p>
 
                     @if ($admin->two_factor_enabled)
                         <div class="alert alert-info">
-                            <i class="fas fa-shield-alt"></i> L'authentification à deux facteurs est <strong>activée</strong>.
+                            <i class="fas fa-shield-alt"></i> {{ t('settings.two_factor.status.enabled_message') }}
                         </div>
 
                         <form action="{{ route('admin.settings.two-factor.disable') }}" method="POST" class="mt-3">
                             @csrf
                             <div class="mb-3">
-                                <label for="code" class="form-label">Code d'authentification</label>
+                                <label for="code" class="form-label">{{ t('settings.two_factor.auth_code') }}</label>
                                 <input type="text" id="code" name="code" class="form-control @error('code') is-invalid @enderror" 
                                        required maxlength="6" placeholder="123456">
                                 @error('code')
@@ -47,22 +45,22 @@
                                 @enderror
                             </div>
                             <button type="submit" class="btn btn-danger">
-                                <i class="fas fa-times-circle"></i> Désactiver l'authentification à deux facteurs
+                                <i class="fas fa-times-circle"></i> {{ t('settings.two_factor.disable') }}
                             </button>
                         </form>
                     @else
                         <div class="alert alert-warning">
-                            <i class="fas fa-exclamation-triangle"></i> L'authentification à deux facteurs est <strong>désactivée</strong>.
+                            <i class="fas fa-exclamation-triangle"></i> {{ t('settings.two_factor.status.disabled_message') }}
                         </div>
 
                         <div class="mt-3">
-                            <p class="mb-2">1. Scannez le code QR avec votre application d'authentification :</p>
+                            <p class="mb-2">{{ t('settings.two_factor.setup.step1') }}</p>
                             <div class="text-center p-3 bg-light rounded mb-3">
                                 <img src="{{ $qrCodeUrl }}" 
                                      alt="QR Code" class="img-fluid">
                             </div>
                             
-                            <p class="mb-2">2. Ou entrez manuellement cette clé secrète dans votre application :</p>
+                            <p class="mb-2">{{ t('settings.two_factor.setup.step2') }}</p>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" value="{{ $secret }}" readonly>
                                 <button class="btn btn-outline-secondary" type="button" onclick="copySecret()">
@@ -70,11 +68,11 @@
                                 </button>
                             </div>
                             
-                            <p class="mb-2">3. Entrez le code généré par votre application pour vérifier :</p>
+                            <p class="mb-2">{{ t('settings.two_factor.setup.step3') }}</p>
                             <form action="{{ route('admin.settings.two-factor.enable') }}" method="POST">
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="code" class="form-label">Code d'authentification</label>
+                                    <label for="code" class="form-label">{{ t('settings.two_factor.auth_code') }}</label>
                                     <input type="text" id="code" name="code" class="form-control @error('code') is-invalid @enderror" 
                                            required maxlength="6" placeholder="123456">
                                     @error('code')
@@ -82,7 +80,7 @@
                                     @enderror
                                 </div>
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fas fa-shield-alt"></i> Activer l'authentification à deux facteurs
+                                    <i class="fas fa-shield-alt"></i> {{ t('settings.two_factor.enable') }}
                                 </button>
                             </form>
                         </div>
@@ -135,7 +133,7 @@ function copySecret() {
     const secretInput = document.querySelector('input[value="{{ $secret }}"]');
     secretInput.select();
     document.execCommand('copy');
-    alert('Clé secrète copiée dans le presse-papiers');
+    alert('{{ t("settings.two_factor.secret_copied") }}');
 }
 </script>
 @endif

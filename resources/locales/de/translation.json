@@ -478,5 +478,98 @@
         "user_write": "Benutzer schreiben",
         "user_delete": "Benutzer löschen",
         "stats_read": "Statistiken lesen"
+    },
+    "settings": {
+        "title": "Allgemeine Einstellungen",
+        "general": {
+            "title": "Allgemeine Informationen",
+            "site_name": "Seitenname",
+            "site_description": "Seitenbeschreibung"
+        },
+        "password": {
+            "title": "Passwort ändern",
+            "current_password": "Aktuelles Passwort",
+            "new_password": "Neues Passwort",
+            "confirm_password": "Passwort bestätigen",
+            "update_button": "Passwort aktualisieren"
+        },
+        "favicon": {
+            "title": "Favicon",
+            "current": "Aktuelles Favicon",
+            "new": "Neues Favicon",
+            "accepted_formats": "Akzeptierte Formate: ICO, PNG, JPG, JPEG, SVG. Maximale Größe: 2 MB.",
+            "update_button": "Favicon aktualisieren"
+        },
+        "theme": {
+            "title": "Design",
+            "dark_mode": "Dunkles Design aktivieren",
+            "apply_button": "Anwenden"
+        },
+        "two_factor": {
+            "title": "Zwei-Faktor-Authentifizierung",
+            "description": "Die Zwei-Faktor-Authentifizierung fügt Ihrem Konto eine zusätzliche Sicherheitsebene hinzu.",
+            "enabled": "Zwei-Faktor-Authentifizierung ist aktiviert",
+            "disabled": "Zwei-Faktor-Authentifizierung ist deaktiviert",
+            "enable": "Zwei-Faktor-Authentifizierung aktivieren",
+            "disable": "Zwei-Faktor-Authentifizierung deaktivieren",
+            "setup": "Zwei-Faktor-Authentifizierung einrichten",
+            "scan_qr": "Scannen Sie den QR-Code mit Ihrer Authentifizierungs-App",
+            "enter_code": "Geben Sie den Bestätigungscode ein",
+            "verification_code": "Bestätigungscode",
+            "recovery_codes": "Wiederherstellungscodes",
+            "recovery_codes_description": "Speichern Sie diese Wiederherstellungscodes an einem sicheren Ort. Sie ermöglichen Ihnen den Zugriff auf Ihr Konto wiederherzustellen, wenn Sie Ihr Authentifizierungsgerät verlieren.",
+            "regenerate_codes": "Wiederherstellungscodes neu generieren",
+            "show_codes": "Wiederherstellungscodes anzeigen",
+            "confirm_disable": "Sind Sie sicher, dass Sie die Zwei-Faktor-Authentifizierung deaktivieren möchten?",
+            "confirm_enable": "Sind Sie sicher, dass Sie die Zwei-Faktor-Authentifizierung aktivieren möchten?",
+            "success_enabled": "Zwei-Faktor-Authentifizierung wurde erfolgreich aktiviert.",
+            "success_disabled": "Zwei-Faktor-Authentifizierung wurde erfolgreich deaktiviert.",
+            "error_enable": "Bei der Aktivierung der Zwei-Faktor-Authentifizierung ist ein Fehler aufgetreten.",
+            "error_disable": "Bei der Deaktivierung der Zwei-Faktor-Authentifizierung ist ein Fehler aufgetreten.",
+            "invalid_code": "Der Bestätigungscode ist ungültig.",
+            "backup_codes": "Backup-Codes",
+            "backup_codes_description": "Diese Backup-Codes ermöglichen Ihnen die Anmeldung, wenn Sie Ihr Authentifizierungsgerät verlieren.",
+            "download_codes": "Backup-Codes herunterladen",
+            "print_codes": "Backup-Codes drucken",
+            "regenerate_backup_codes": "Backup-Codes neu generieren",
+            "regenerate_backup_codes_description": "Die Neu generierung der Backup-Codes macht alle vorherigen Codes ungültig.",
+            "confirm_regenerate": "Sind Sie sicher, dass Sie die Backup-Codes neu generieren möchten?",
+            "status": {
+                "enabled": "Aktiviert",
+                "disabled": "Deaktiviert"
+            },
+            "configure": "Konfigurieren",
+            "test": "Testen",
+            "verify": "Überprüfen",
+            "verification": "Überprüfung",
+            "verification_success": "Überprüfung erfolgreich",
+            "verification_failed": "Überprüfung fehlgeschlagen",
+            "setup_complete": "Einrichtung abgeschlossen",
+            "setup_failed": "Einrichtung fehlgeschlagen",
+            "qr_code": "QR-Code",
+            "manual_code": "Manueller Code",
+            "manual_code_description": "Wenn Sie den QR-Code nicht scannen können, geben Sie diesen Code manuell in Ihre Authentifizierungs-App ein.",
+            "app_recommendations": "Empfohlene Apps",
+            "app_recommendations_description": "Wir empfehlen die Verwendung einer der folgenden Apps für die Zwei-Faktor-Authentifizierung:",
+            "google_authenticator": "Google Authenticator",
+            "microsoft_authenticator": "Microsoft Authenticator",
+            "authy": "Authy",
+            "last_used": "Zuletzt verwendet",
+            "never_used": "Nie verwendet",
+            "regenerate_warning": "Warnung: Die Neu generierung der Backup-Codes macht alle vorherigen Codes ungültig. Stellen Sie sicher, dass Sie sie an einem sicheren Ort aufbewahren.",
+            "configuration": {
+                "title": "Zwei-Faktor-Authentifizierung Konfiguration",
+                "description": "Konfigurieren Sie Ihre Zwei-Faktor-Authentifizierung, um die Sicherheit Ihres Kontos zu erhöhen"
+            },
+            "status": {
+                "disabled_message": "Die Zwei-Faktor-Authentifizierung ist derzeit deaktiviert"
+            },
+            "setup": {
+                "step1": "Schritt 1: QR-Code scannen",
+                "step2": "Schritt 2: Bestätigungscode eingeben",
+                "step3": "Schritt 3: Aktivierung bestätigen"
+            },
+            "auth_code": "Authentifizierungscode"
+        }
     }
 }

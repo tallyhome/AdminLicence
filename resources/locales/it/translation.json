@@ -478,5 +478,98 @@
         "user_write": "Scrittura degli utenti",
         "user_delete": "Eliminazione degli utenti",
         "stats_read": "Lettura delle statistiche"
+    },
+    "settings": {
+        "title": "Impostazioni Generali",
+        "general": {
+            "title": "Informazioni Generali",
+            "site_name": "Nome del Sito",
+            "site_description": "Descrizione del Sito"
+        },
+        "password": {
+            "title": "Cambia Password",
+            "current_password": "Password Attuale",
+            "new_password": "Nuova Password",
+            "confirm_password": "Conferma Password",
+            "update_button": "Aggiorna Password"
+        },
+        "favicon": {
+            "title": "Favicon",
+            "current": "Favicon Attuale",
+            "new": "Nuovo Favicon",
+            "accepted_formats": "Formati accettati: ICO, PNG, JPG, JPEG, SVG. Dimensione massima: 2 MB.",
+            "update_button": "Aggiorna Favicon"
+        },
+        "theme": {
+            "title": "Tema",
+            "dark_mode": "Attiva Modalità Scura",
+            "apply_button": "Applica"
+        },
+        "two_factor": {
+            "title": "Autenticazione a due fattori",
+            "description": "L'autenticazione a due fattori aggiunge un ulteriore livello di sicurezza al tuo account.",
+            "enabled": "L'autenticazione a due fattori è attiva",
+            "disabled": "L'autenticazione a due fattori è disattivata",
+            "enable": "Attiva l'autenticazione a due fattori",
+            "disable": "Disattiva l'autenticazione a due fattori",
+            "setup": "Configura l'autenticazione a due fattori",
+            "scan_qr": "Scansiona il codice QR con la tua app di autenticazione",
+            "enter_code": "Inserisci il codice di verifica",
+            "verification_code": "Codice di verifica",
+            "recovery_codes": "Codici di recupero",
+            "recovery_codes_description": "Salva questi codici di recupero in un posto sicuro. Ti permetteranno di ripristinare l'accesso al tuo account se perdi il tuo dispositivo di autenticazione.",
+            "regenerate_codes": "Rigenera i codici di recupero",
+            "show_codes": "Mostra i codici di recupero",
+            "confirm_disable": "Sei sicuro di voler disattivare l'autenticazione a due fattori?",
+            "confirm_enable": "Sei sicuro di voler attivare l'autenticazione a due fattori?",
+            "success_enabled": "L'autenticazione a due fattori è stata attivata con successo.",
+            "success_disabled": "L'autenticazione a due fattori è stata disattivata con successo.",
+            "error_enable": "Si è verificato un errore durante l'attivazione dell'autenticazione a due fattori.",
+            "error_disable": "Si è verificato un errore durante la disattivazione dell'autenticazione a due fattori.",
+            "invalid_code": "Il codice di verifica non è valido.",
+            "backup_codes": "Codici di backup",
+            "backup_codes_description": "Questi codici di backup ti permetteranno di accedere se perdi il tuo dispositivo di autenticazione.",
+            "download_codes": "Scarica i codici di backup",
+            "print_codes": "Stampa i codici di backup",
+            "regenerate_backup_codes": "Rigenera i codici di backup",
+            "regenerate_backup_codes_description": "La rigenerazione dei codici di backup invaliderà tutti i codici precedenti.",
+            "confirm_regenerate": "Sei sicuro di voler rigenerare i codici di backup?",
+            "status": {
+                "enabled": "Attiva",
+                "disabled": "Disattivata"
+            },
+            "configure": "Configura",
+            "test": "Testa",
+            "verify": "Verifica",
+            "verification": "Verifica",
+            "verification_success": "Verifica completata con successo",
+            "verification_failed": "Verifica fallita",
+            "setup_complete": "Configurazione completata",
+            "setup_failed": "Configurazione fallita",
+            "qr_code": "Codice QR",
+            "manual_code": "Codice manuale",
+            "manual_code_description": "Se non riesci a scansionare il codice QR, inserisci manualmente questo codice nella tua app di autenticazione.",
+            "app_recommendations": "App consigliate",
+            "app_recommendations_description": "Ti consigliamo di utilizzare una delle seguenti app per l'autenticazione a due fattori:",
+            "google_authenticator": "Google Authenticator",
+            "microsoft_authenticator": "Microsoft Authenticator",
+            "authy": "Authy",
+            "last_used": "Ultimo utilizzo",
+            "never_used": "Mai utilizzato",
+            "regenerate_warning": "Attenzione: La rigenerazione dei codici di backup invaliderà tutti i codici precedenti. Assicurati di salvarli in un posto sicuro.",
+            "configuration": {
+                "title": "Configurazione dell'autenticazione a due fattori",
+                "description": "Configura l'autenticazione a due fattori per migliorare la sicurezza del tuo account"
+            },
+            "status": {
+                "disabled_message": "L'autenticazione a due fattori è attualmente disattivata"
+            },
+            "setup": {
+                "step1": "Passo 1: Scansiona il codice QR",
+                "step2": "Passo 2: Inserisci il codice di verifica",
+                "step3": "Passo 3: Conferma l'attivazione"
+            },
+            "auth_code": "Codice di autenticazione"
+        }
     }
 }

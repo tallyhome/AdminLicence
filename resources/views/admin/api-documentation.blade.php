@@ -6,7 +6,21 @@
 <div class="container-fluid">
     <div class="row mb-4">
         <div class="col-12">
-            <h1>{{ t('api_documentation.title') }}</h1>
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>{{ t('api_documentation.title') }}</h1>
+                <div class="language-selector">
+                    <form id="language-form" action="{{ route('admin.set.language') }}" method="POST" class="d-inline">
+                        @csrf
+                        <select class="form-select" name="locale" onchange="document.getElementById('language-form').submit()">
+                            @foreach($availableLanguages as $code => $name)
+                                <option value="{{ $code }}" {{ $currentLanguage === $code ? 'selected' : '' }}>
+                                    {{ $name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </form>
+                </div>
+            </div>
             <p class="lead">{{ t('api_documentation.description') }}</p>
         </div>
     </div>

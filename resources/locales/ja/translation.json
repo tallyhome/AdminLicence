@@ -541,6 +541,11 @@
             "auth_code": "認証コード"
         }
     },
+    "email_providers": {
+        "page_title": "メールプロバイダーのドキュメント",
+        "title": "メールプロバイダーのドキュメント",
+        "not_available": "現在、ドキュメントは利用できません。"
+    },
     "api_documentation": {
         "title": "API ドキュメント",
         "description": "このドキュメントは、ライセンス検証APIをアプリケーションに統合するのに役立ちます。",

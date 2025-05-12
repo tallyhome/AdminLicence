@@ -673,5 +673,64 @@
             "title": "Support",
             "description": "Si vous rencontrez des problèmes lors de l'intégration de l'API ou si vous avez des questions, n'hésitez pas à contacter notre équipe de support technique."
         }
+    },
+    "email_providers": {
+        "page_title": "Documentation des fournisseurs d'email",
+        "title": "Documentation des fournisseurs d'email",
+        "not_available": "La documentation n'est pas disponible pour le moment."
+    },
+    "licence_documentation": {
+        "title": "Documentation des licences",
+        "integration_guide": {
+            "title": "Guide d'intégration des licences",
+            "description": "Cette documentation vous guidera à travers le processus d'intégration du système de licence dans votre application."
+        },
+        "installation": {
+            "title": "Installation",
+            "description": "Instructions détaillées pour l'installation et la configuration initiale.",
+            "tabs": {
+                "php": "PHP Simple",
+                "laravel": "Laravel",
+                "flutter": "Flutter"
+            },
+            "php": {
+                "title": "Installation pour PHP",
+                "description": "Pour intégrer le système de licence dans une application PHP standard :"
+            },
+            "laravel": {
+                "title": "Installation pour Laravel",
+                "description": "Pour intégrer le système de licence dans une application Laravel :",
+                "step1": "1. Créez un Service Provider",
+                "step2": "2. Créez un Service de Licence",
+                "step3": "3. Créez un fichier de configuration",
+                "step4": "4. Ajoutez le Service Provider dans config/app.php"
+            },
+            "flutter": {
+                "title": "Installation pour Flutter",
+                "description": "Pour intégrer le système de licence dans une application Flutter :",
+                "step1": "1. Ajoutez les dépendances dans pubspec.yaml",
+                "step2": "2. Créez un service de licence",
+                "step3": "3. Exemple d'utilisation dans votre application"
+            }
+        },
+        "verification": {
+            "title": "Vérification des licences",
+            "description": "Comment implémenter la vérification des licences dans votre application.",
+            "security_tip": "Pour une sécurité optimale, nous recommandons de vérifier la licence à chaque démarrage de l'application et périodiquement pendant son utilisation.",
+            "best_practices": {
+                "title": "Bonnes pratiques",
+                "item1": "Stockez la clé de licence de manière sécurisée (fichier de configuration chiffré, base de données)",
+                "item2": "Mettez en cache le résultat de la vérification pour éviter trop de requêtes",
+                "item3": "Prévoyez un comportement dégradé en cas d'échec de connexion au serveur de licences",
+                "item4": "Implémentez une vérification périodique pour les applications à longue durée d'exécution",
+                "item5": "Utilisez HTTPS pour toutes les communications avec le serveur de licences"
+            }
+        },
+        "api": {
+            "title": "API de gestion des licences",
+            "description": "Documentation complète de l'API de gestion des licences.",
+            "link_text": "Pour une documentation détaillée de l'API, veuillez consulter la",
+            "link_title": "Documentation API"
+        }
     }
 }

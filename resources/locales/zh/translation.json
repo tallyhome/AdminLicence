@@ -365,7 +365,12 @@
         "tickets": "工单",
         "super_admin_tickets": "超级管理员工单",
         "documentation": "文档",
-        "keys_documentation": "密钥文档",
+        "email_providers": {
+            "page_title": "电子邮件提供商文档",
+            "title": "电子邮件提供商文档",
+            "not_available": "文档目前不可用。"
+        },
+        "licence_documentation": "密钥文档",
         "email_providers_documentation": "邮件提供商文档",
         "saas_documentation": "多租户SaaS文档",
         "version_info": "版本信息",

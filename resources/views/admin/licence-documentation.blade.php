@@ -1,21 +1,24 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Documentation des licences')
+@section('title', t('licence_documentation.title'))
 
 @section('content')
 <div class="container-fluid">
     <div class="row mb-4">
         <div class="col-12">
             <div class="d-flex justify-content-between align-items-center">
-                <h1>{{ __('Documentation des licences') }}</h1>
+                <h1>{{ t('licence_documentation.title') }}</h1>
                 <div class="language-selector">
-                    <select class="form-select" onchange="window.location.href = '{{ route('admin.set.language') }}?lang=' + this.value">
-                        @foreach($availableLanguages as $code => $name)
-                            <option value="{{ $code }}" {{ $currentLanguage === $code ? 'selected' : '' }}>
-                                {{ $name }}
-                            </option>
-                        @endforeach
-                    </select>
+                    <form id="language-form" action="{{ route('admin.set.language') }}" method="POST" class="d-inline">
+                        @csrf
+                        <select class="form-select" name="locale" onchange="document.getElementById('language-form').submit()">
+                            @foreach($availableLanguages as $code => $name)
+                                <option value="{{ $code }}" {{ $currentLanguage === $code ? 'selected' : '' }}>
+                                    {{ $name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </form>
                 </div>
             </div>
         </div>
@@ -25,32 +28,32 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h2>{{ __('Guide d\'intégration des licences') }}</h2>
-                    <p>{{ __('Cette documentation vous guidera à travers le processus d\'intégration du système de licence dans votre application.') }}</p>
+                    <h2>{{ t('licence_documentation.integration_guide.title') }}</h2>
+                    <p>{{ t('licence_documentation.integration_guide.description') }}</p>
                     
                     <!-- Section Installation -->
                     <section class="mb-4">
-                        <h3>{{ __('Installation') }}</h3>
-                        <p>{{ __('Instructions détaillées pour l\'installation et la configuration initiale.') }}</p>
+                        <h3>{{ t('licence_documentation.installation.title') }}</h3>
+                        <p>{{ t('licence_documentation.installation.description') }}</p>
                         
                         <div class="mt-3">
                             <ul class="nav nav-tabs" id="installationTabs" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="php-tab" data-bs-toggle="tab" data-bs-target="#php" type="button" role="tab">PHP Simple</button>
+                                    <button class="nav-link active" id="php-tab" data-bs-toggle="tab" data-bs-target="#php" type="button" role="tab">{{ t('licence_documentation.installation.tabs.php') }}</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="laravel-tab" data-bs-toggle="tab" data-bs-target="#laravel" type="button" role="tab">Laravel</button>
+                                    <button class="nav-link" id="laravel-tab" data-bs-toggle="tab" data-bs-target="#laravel" type="button" role="tab">{{ t('licence_documentation.installation.tabs.laravel') }}</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="flutter-tab" data-bs-toggle="tab" data-bs-target="#flutter" type="button" role="tab">Flutter</button>
+                                    <button class="nav-link" id="flutter-tab" data-bs-toggle="tab" data-bs-target="#flutter" type="button" role="tab">{{ t('licence_documentation.installation.tabs.flutter') }}</button>
                                 </li>
                             </ul>
                             
                             <div class="tab-content p-3 border border-top-0 rounded-bottom" id="installationTabsContent">
                                 <!-- PHP Simple -->
                                 <div class="tab-pane fade show active" id="php" role="tabpanel">
-                                    <h5>Installation pour PHP</h5>
-                                    <p>Pour intégrer le système de licence dans une application PHP standard :</p>
+                                    <h5>{{ t('licence_documentation.installation.php.title') }}</h5>
+                                    <p>{{ t('licence_documentation.installation.php.description') }}</p>
                                     <pre><code class="language-php">&lt;?php
 // Créez un fichier licence.php dans votre projet
 
@@ -123,10 +126,10 @@ function verifierAcces() {
                                 
                                 <!-- Laravel -->
                                 <div class="tab-pane fade" id="laravel" role="tabpanel">
-                                    <h5>Installation pour Laravel</h5>
-                                    <p>Pour intégrer le système de licence dans une application Laravel :</p>
+                                    <h5>{{ t('licence_documentation.installation.laravel.title') }}</h5>
+                                    <p>{{ t('licence_documentation.installation.laravel.description') }}</p>
                                     
-                                    <h6>1. Créez un Service Provider</h6>
+                                    <h6>{{ t('licence_documentation.installation.laravel.step1') }}</h6>
                                     <pre><code class="language-php">&lt;?php
 
 namespace App\Providers;
@@ -208,7 +211,7 @@ class LicenceServiceProvider extends ServiceProvider
 }
 </code></pre>
 
-                                    <h6>2. Créez un Service de Licence</h6>
+                                    <h6>{{ t('licence_documentation.installation.laravel.step2') }}</h6>
                                     <pre><code class="language-php">&lt;?php
 
 namespace App\Services;
@@ -292,7 +295,7 @@ class LicenceService
 }
 </code></pre>
 
-                                    <h6>3. Créez un fichier de configuration</h6>
+                                    <h6>{{ t('licence_documentation.installation.laravel.step3') }}</h6>
                                     <pre><code class="language-php">&lt;?php
 // config/licence.php
 
@@ -302,7 +305,7 @@ return [
 ];
 </code></pre>
 
-                                    <h6>4. Ajoutez le Service Provider dans config/app.php</h6>
+                                    <h6>{{ t('licence_documentation.installation.laravel.step4') }}</h6>
                                     <pre><code class="language-php">'providers' => [
     // Autres providers...
     App\Providers\LicenceServiceProvider::class,
@@ -312,10 +315,10 @@ return [
                                 
                                 <!-- Flutter -->
                                 <div class="tab-pane fade" id="flutter" role="tabpanel">
-                                    <h5>Installation pour Flutter</h5>
-                                    <p>Pour intégrer le système de licence dans une application Flutter :</p>
+                                    <h5>{{ t('licence_documentation.installation.flutter.title') }}</h5>
+                                    <p>{{ t('licence_documentation.installation.flutter.description') }}</p>
                                     
-                                    <h6>1. Ajoutez les dépendances dans pubspec.yaml</h6>
+                                    <h6>{{ t('licence_documentation.installation.flutter.step1') }}</h6>
                                     <pre><code class="language-yaml">dependencies:
   flutter:
     sdk: flutter
@@ -323,7 +326,7 @@ return [
   shared_preferences: ^2.0.15
 </code></pre>
 
-                                    <h6>2. Créez un service de licence</h6>
+                                    <h6>{{ t('licence_documentation.installation.flutter.step2') }}</h6>
                                     <pre><code class="language-dart">import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -461,7 +464,7 @@ class LicenceService {
 }
 </code></pre>
 
-                                    <h6>3. Exemple d'utilisation dans votre application</h6>
+                                    <h6>{{ t('licence_documentation.installation.flutter.step3') }}</h6>
                                     <pre><code class="language-dart">import 'package:flutter/material.dart';
 import 'licence_service.dart';
 
@@ -559,30 +562,30 @@ class _LicenceActivationScreenState extends State<LicenceActivationScreen> {
 
                     <!-- Section Vérification -->
                     <section class="mb-4">
-                        <h3>{{ __('Vérification des licences') }}</h3>
-                        <p>{{ __('Comment implémenter la vérification des licences dans votre application.') }}</p>
+                        <h3>{{ t('licence_documentation.verification.title') }}</h3>
+                        <p>{{ t('licence_documentation.verification.description') }}</p>
                         
                         <div class="alert alert-info">
                             <i class="fas fa-info-circle me-2"></i>
-                            Pour une sécurité optimale, nous recommandons de vérifier la licence à chaque démarrage de l'application et périodiquement pendant son utilisation.
+                            {{ t('licence_documentation.verification.security_tip') }}
                         </div>
                         
-                        <h5>Bonnes pratiques</h5>
+                        <h5>{{ t('licence_documentation.verification.best_practices.title') }}</h5>
                         <ul>
-                            <li>Stockez la clé de licence de manière sécurisée (fichier de configuration chiffré, base de données)</li>
-                            <li>Mettez en cache le résultat de la vérification pour éviter trop de requêtes</li>
-                            <li>Prévoyez un comportement dégradé en cas d'échec de connexion au serveur de licences</li>
-                            <li>Implémentez une vérification périodique pour les applications à longue durée d'exécution</li>
-                            <li>Utilisez HTTPS pour toutes les communications avec le serveur de licences</li>
+                            <li>{{ t('licence_documentation.verification.best_practices.item1') }}</li>
+                            <li>{{ t('licence_documentation.verification.best_practices.item2') }}</li>
+                            <li>{{ t('licence_documentation.verification.best_practices.item3') }}</li>
+                            <li>{{ t('licence_documentation.verification.best_practices.item4') }}</li>
+                            <li>{{ t('licence_documentation.verification.best_practices.item5') }}</li>
                         </ul>
                     </section>
 
                     <!-- Section API -->
                     <section class="mb-4">
-                        <h3>{{ __('API de gestion des licences') }}</h3>
-                        <p>{{ __('Documentation complète de l\'API de gestion des licences.') }}</p>
+                        <h3>{{ t('licence_documentation.api.title') }}</h3>
+                        <p>{{ t('licence_documentation.api.description') }}</p>
                         
-                        <p>Pour une documentation détaillée de l'API, veuillez consulter la <a href="{{ route('admin.api.documentation') }}">Documentation API</a>.</p>
+                        <p>{{ t('licence_documentation.api.link_text') }} <a href="{{ route('admin.api.documentation') }}">{{ t('licence_documentation.api.link_title') }}</a>.</p>
                     </section>
                 </div>
             </div>

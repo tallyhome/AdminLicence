@@ -676,7 +676,66 @@
         },
         "support": {
             "title": "Soporte",
-            "description": "Si encuentras algún problema al integrar la API o tienes preguntas, no dudes en contactar a nuestro equipo de soporte técnico."
+            "description": "Si encuentra algún problema al integrar la API o tiene preguntas, no dude en contactar a nuestro equipo de soporte técnico."
+        }
+    },
+    "email_providers": {
+        "page_title": "Documentación de Proveedores de Email",
+        "title": "Documentación de Proveedores de Email",
+        "not_available": "La documentación no está disponible en este momento."
+    },
+    "licence_documentation": {
+        "title": "Documentación de Licencias",
+        "integration_guide": {
+            "title": "Guía de Integración de Licencias",
+            "description": "Esta documentación le guiará a través del proceso de integración del sistema de licencias en su aplicación."
+        },
+        "installation": {
+            "title": "Instalación",
+            "description": "Instrucciones detalladas para la instalación y configuración inicial.",
+            "tabs": {
+                "php": "PHP Simple",
+                "laravel": "Laravel",
+                "flutter": "Flutter"
+            },
+            "php": {
+                "title": "Instalación para PHP",
+                "description": "Para integrar el sistema de licencias en una aplicación PHP estándar:"
+            },
+            "laravel": {
+                "title": "Instalación para Laravel",
+                "description": "Para integrar el sistema de licencias en una aplicación Laravel:",
+                "step1": "1. Crear un Proveedor de Servicios",
+                "step2": "2. Crear un Servicio de Licencias",
+                "step3": "3. Crear un archivo de configuración",
+                "step4": "4. Añadir el Proveedor de Servicios a config/app.php"
+            },
+            "flutter": {
+                "title": "Instalación para Flutter",
+                "description": "Para integrar el sistema de licencias en una aplicación Flutter:",
+                "step1": "1. Añadir dependencias a pubspec.yaml",
+                "step2": "2. Crear un servicio de licencias",
+                "step3": "3. Ejemplo de uso en su aplicación"
+            }
+        },
+        "verification": {
+            "title": "Verificación de Licencias",
+            "description": "Cómo implementar la verificación de licencias en su aplicación.",
+            "security_tip": "Para una seguridad óptima, recomendamos verificar la licencia en cada inicio de la aplicación y periódicamente durante su uso.",
+            "best_practices": {
+                "title": "Mejores Prácticas",
+                "item1": "Almacene la clave de licencia de forma segura (archivo de configuración cifrado, base de datos)",
+                "item2": "Almacene en caché el resultado de la verificación para evitar demasiadas solicitudes",
+                "item3": "Planifique un comportamiento degradado en caso de fallo de conexión con el servidor de licencias",
+                "item4": "Implemente una verificación periódica para aplicaciones de larga duración",
+                "item5": "Utilice HTTPS para todas las comunicaciones con el servidor de licencias"
+            }
+        },
+        "api": {
+            "title": "API de Gestión de Licencias",
+            "description": "Documentación completa de la API de gestión de licencias.",
+            "link_text": "Para una documentación detallada de la API, consulte la",
+            "link_title": "Documentación de la API"
         }
     }
 }

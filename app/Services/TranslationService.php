@@ -133,20 +133,31 @@ class TranslationService
         $cacheKey = 'translations.' . $locale;
         
         return Cache::remember($cacheKey, 60 * 24, function () use ($locale) {
+            $translations = [];
+            
+            // Charger le fichier principal de traduction
             $path = resource_path('locales/' . $locale . '/translation.json');
-            
             if (File::exists($path)) {
-                return json_decode(File::get($path), true) ?? [];
+                $translations = json_decode(File::get($path), true) ?? [];
+            } else {
+                // Fallback vers l'anglais si la traduction n'existe pas
+                $fallbackPath = resource_path('locales/en/translation.json');
+                if (File::exists($fallbackPath)) {
+                    $translations = json_decode(File::get($fallbackPath), true) ?? [];
+                }
             }
             
-            // Fallback vers l'anglais si la traduction n'existe pas
-            $fallbackPath = resource_path('locales/en/translation.json');
-            
-            if (File::exists($fallbackPath)) {
-                return json_decode(File::get($fallbackPath), true) ?? [];
+            // Charger les fichiers de traduction supplémentaires
+            $additionalFiles = File::glob(resource_path('locales/' . $locale . '/*.json'));
+            foreach ($additionalFiles as $file) {
+                if (basename($file) !== 'translation.json') {
+                    $key = pathinfo($file, PATHINFO_FILENAME);
+                    $content = json_decode(File::get($file), true) ?? [];
+                    $translations[$key] = $content;
+                }
             }
             
-            return [];
+            return $translations;
         });
     }
 

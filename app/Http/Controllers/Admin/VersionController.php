@@ -16,15 +16,40 @@ class VersionController extends Controller
     {
         $version = [
             'major' => 3,
-            'minor' => 0,
+            'minor' => 1,
             'patch' => 0,
             'release' => null,
             'full' => config('version.full')(),
-            'last_update' => '08/04/2025',
+            'last_update' => '09/04/2025',
         ];
         
         // Historique des versions
         $history = [
+            [
+                'version' => '3.1.0',
+                'date' => '09/04/2025',
+                'description' => 'Amélioration du système de gestion des licences et de l\'interface',
+                'categories' => [
+                    'Ajouts' => [
+                        'Nouveau système de gestion des licences avec support multi-projets',
+                        'Interface de gestion des clés API améliorée',
+                        'Système de journalisation des actions étendu',
+                        'Support multilingue étendu (FR, EN, ZH, TR)',
+                    ],
+                    'Améliorations' => [
+                        'Refonte complète de l\'interface utilisateur',
+                        'Optimisation des performances de l\'API',
+                        'Amélioration de la sécurité avec 2FA',
+                        'Meilleure gestion des erreurs et des exceptions',
+                    ],
+                    'Corrections de bugs' => [
+                        'Correction des problèmes de validation des licences',
+                        'Résolution des problèmes de cache',
+                        'Correction des erreurs d\'affichage dans l\'interface',
+                        'Amélioration de la gestion des timeouts',
+                    ],
+                ],
+            ],
             [
                 'version' => '3.0.0',
                 'date' => '08/04/2025',

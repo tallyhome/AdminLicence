@@ -1,13 +1,13 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Documentation des fournisseurs d\'email')
+@section('title', __('email_providers.page_title'))
 
 @section('content')
 <div class="container-fluid">
     <div class="row mb-4">
         <div class="col-12">
             <div class="d-flex justify-content-between align-items-center">
-                <h1>{{ __('Documentation des fournisseurs d\'email') }}</h1>
+                <h1>{{ $emailDocContent['title'] ?? __('email_providers.title') }}</h1>
                 <div class="language-selector">
                     <select class="form-select" onchange="window.location.href = '{{ route('admin.set.language') }}?lang=' + this.value">
                         @foreach($availableLanguages as $code => $name)
@@ -26,13 +26,234 @@
             <div class="card">
                 <div class="card-body">
                     <div class="markdown-content">
-                        @if(!empty($content))
+                        @if(isset($emailDocContent) && !empty($emailDocContent))
                             <div id="markdown-content">
-                                {!! Illuminate\Support\Str::markdown($content) !!}
+                                <h1>{{ $emailDocContent['title'] ?? __('email_providers.title') }}</h1>
+                                <p>{{ $emailDocContent['description'] }}</p>
+                                
+                                <h2>{{ $emailDocContent['table_of_contents'] }}</h2>
+                                <ol>
+                                    <li><a href="#introduction">{{ $emailDocContent['introduction']['title'] }}</a></li>
+                                    <li><a href="#smtp">{{ $emailDocContent['smtp']['title'] }}</a></li>
+                                    <li><a href="#phpmail">{{ $emailDocContent['phpmail']['title'] }}</a></li>
+                                    <li><a href="#mailgun">{{ $emailDocContent['mailgun']['title'] }}</a></li>
+                                    <li><a href="#mailchimp">{{ $emailDocContent['mailchimp']['title'] }}</a></li>
+                                    <li><a href="#rapidmail">{{ $emailDocContent['rapidmail']['title'] }}</a></li>
+                                    <li><a href="#comparison">{{ $emailDocContent['comparison']['title'] }}</a></li>
+                                    <li><a href="#troubleshooting">{{ $emailDocContent['troubleshooting']['title'] }}</a></li>
+                                </ol>
+                                
+                                <h2 id="introduction">{{ $emailDocContent['introduction']['title'] }}</h2>
+                                <p>{{ $emailDocContent['introduction']['description'] }}</p>
+                                
+                                <h2 id="smtp">{{ $emailDocContent['smtp']['title'] }}</h2>
+                                <p>{{ $emailDocContent['smtp']['description'] }}</p>
+                                
+                                <h3>{{ $emailDocContent['smtp']['configuration'] }}</h3>
+                                <ul>
+                                    @foreach($emailDocContent['smtp']['config_items'] as $item)
+                                        <li>{{ $item }}</li>
+                                    @endforeach
+                                </ul>
+                                
+                                <h3>{{ $emailDocContent['smtp']['advantages'] }}</h3>
+                                <ul>
+                                    @foreach($emailDocContent['smtp']['advantages_list'] as $advantage)
+                                        <li>{{ $advantage }}</li>
+                                    @endforeach
+                                </ul>
+                                
+                                <h3>{{ $emailDocContent['smtp']['disadvantages'] }}</h3>
+                                <ul>
+                                    @foreach($emailDocContent['smtp']['disadvantages_list'] as $disadvantage)
+                                        <li>{{ $disadvantage }}</li>
+                                    @endforeach
+                                </ul>
+                                
+                                <h3>{{ $emailDocContent['smtp']['example'] }}</h3>
+                                
+                                <h2 id="phpmail">{{ $emailDocContent['phpmail']['title'] }}</h2>
+                                <p>{{ $emailDocContent['phpmail']['description'] }}</p>
+                                
+                                <h3>{{ $emailDocContent['phpmail']['configuration'] }}</h3>
+                                <ul>
+                                    @foreach($emailDocContent['phpmail']['config_items'] as $item)
+                                        <li>{{ $item }}</li>
+                                    @endforeach
+                                </ul>
+                                
+                                <h3>{{ $emailDocContent['phpmail']['advantages'] }}</h3>
+                                <ul>
+                                    @foreach($emailDocContent['phpmail']['advantages_list'] as $advantage)
+                                        <li>{{ $advantage }}</li>
+                                    @endforeach
+                                </ul>
+                                
+                                <h3>{{ $emailDocContent['phpmail']['disadvantages'] }}</h3>
+                                <ul>
+                                    @foreach($emailDocContent['phpmail']['disadvantages_list'] as $disadvantage)
+                                        <li>{{ $disadvantage }}</li>
+                                    @endforeach
+                                </ul>
+                                
+                                <h3>{{ $emailDocContent['phpmail']['example'] }}</h3>
+                                
+                                <h2 id="mailgun">{{ $emailDocContent['mailgun']['title'] }}</h2>
+                                <p>{{ $emailDocContent['mailgun']['description'] }}</p>
+                                
+                                <h3>{{ $emailDocContent['mailgun']['configuration'] }}</h3>
+                                <ul>
+                                    @foreach($emailDocContent['mailgun']['config_items'] as $item)
+                                        <li>{{ $item }}</li>
+                                    @endforeach
+                                </ul>
+                                
+                                <h3>{{ $emailDocContent['mailgun']['advantages'] }}</h3>
+                                <ul>
+                                    @foreach($emailDocContent['mailgun']['advantages_list'] as $advantage)
+                                        <li>{{ $advantage }}</li>
+                                    @endforeach
+                                </ul>
+                                
+                                <h3>{{ $emailDocContent['mailgun']['disadvantages'] }}</h3>
+                                <ul>
+                                    @foreach($emailDocContent['mailgun']['disadvantages_list'] as $disadvantage)
+                                        <li>{{ $disadvantage }}</li>
+                                    @endforeach
+                                </ul>
+                                
+                                <h3>{{ $emailDocContent['mailgun']['example'] }}</h3>
+                                
+                                <h2 id="mailchimp">{{ $emailDocContent['mailchimp']['title'] }}</h2>
+                                <p>{{ $emailDocContent['mailchimp']['description'] }}</p>
+                                
+                                <h3>{{ $emailDocContent['mailchimp']['configuration'] }}</h3>
+                                <ul>
+                                    @foreach($emailDocContent['mailchimp']['config_items'] as $item)
+                                        <li>{{ $item }}</li>
+                                    @endforeach
+                                </ul>
+                                
+                                <h3>{{ $emailDocContent['mailchimp']['advantages'] }}</h3>
+                                <ul>
+                                    @foreach($emailDocContent['mailchimp']['advantages_list'] as $advantage)
+                                        <li>{{ $advantage }}</li>
+                                    @endforeach
+                                </ul>
+                                
+                                <h3>{{ $emailDocContent['mailchimp']['disadvantages'] }}</h3>
+                                <ul>
+                                    @foreach($emailDocContent['mailchimp']['disadvantages_list'] as $disadvantage)
+                                        <li>{{ $disadvantage }}</li>
+                                    @endforeach
+                                </ul>
+                                
+                                <h3>{{ $emailDocContent['mailchimp']['example'] }}</h3>
+                                
+                                <h2 id="rapidmail">{{ $emailDocContent['rapidmail']['title'] }}</h2>
+                                <p>{{ $emailDocContent['rapidmail']['description'] }}</p>
+                                
+                                <h3>{{ $emailDocContent['rapidmail']['configuration'] }}</h3>
+                                <ul>
+                                    @foreach($emailDocContent['rapidmail']['config_items'] as $item)
+                                        <li>{{ $item }}</li>
+                                    @endforeach
+                                </ul>
+                                
+                                <h3>{{ $emailDocContent['rapidmail']['advantages'] }}</h3>
+                                <ul>
+                                    @foreach($emailDocContent['rapidmail']['advantages_list'] as $advantage)
+                                        <li>{{ $advantage }}</li>
+                                    @endforeach
+                                </ul>
+                                
+                                <h3>{{ $emailDocContent['rapidmail']['disadvantages'] }}</h3>
+                                <ul>
+                                    @foreach($emailDocContent['rapidmail']['disadvantages_list'] as $disadvantage)
+                                        <li>{{ $disadvantage }}</li>
+                                    @endforeach
+                                </ul>
+                                
+                                <h3>{{ $emailDocContent['rapidmail']['example'] }}</h3>
+                                
+                                <h2 id="comparison">{{ $emailDocContent['comparison']['title'] }}</h2>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ $emailDocContent['comparison']['title'] }}</th>
+                                            <th>{{ $emailDocContent['comparison']['deliverability'] }}</th>
+                                            <th>{{ $emailDocContent['comparison']['price'] }}</th>
+                                            <th>{{ $emailDocContent['comparison']['ease_of_setup'] }}</th>
+                                            <th>{{ $emailDocContent['comparison']['advanced_features'] }}</th>
+                                            <th>{{ $emailDocContent['comparison']['gdpr_compliance'] }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>SMTP</td>
+                                            <td>{{ $emailDocContent['comparison']['variable'] }}</td>
+                                            <td>{{ $emailDocContent['comparison']['free'] }}</td>
+                                            <td>{{ $emailDocContent['comparison']['moderate'] }}</td>
+                                            <td>{{ $emailDocContent['comparison']['limited'] }}</td>
+                                            <td>{{ $emailDocContent['comparison']['depends'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PHPMail</td>
+                                            <td>{{ $emailDocContent['comparison']['variable'] }}</td>
+                                            <td>{{ $emailDocContent['comparison']['free'] }}</td>
+                                            <td>{{ $emailDocContent['comparison']['moderate'] }}</td>
+                                            <td>{{ $emailDocContent['comparison']['moderate'] }}</td>
+                                            <td>{{ $emailDocContent['comparison']['depends'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mailgun</td>
+                                            <td>{{ $emailDocContent['comparison']['high'] }}</td>
+                                            <td>{{ $emailDocContent['comparison']['freemium'] }}</td>
+                                            <td>{{ $emailDocContent['comparison']['easy'] }}</td>
+                                            <td>{{ $emailDocContent['comparison']['numerous'] }}</td>
+                                            <td>{{ $emailDocContent['comparison']['good'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mailchimp</td>
+                                            <td>{{ $emailDocContent['comparison']['very_high'] }}</td>
+                                            <td>{{ $emailDocContent['comparison']['paid'] }}</td>
+                                            <td>{{ $emailDocContent['comparison']['moderate'] }}</td>
+                                            <td>{{ $emailDocContent['comparison']['very_numerous'] }}</td>
+                                            <td>{{ $emailDocContent['comparison']['good'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rapidmail</td>
+                                            <td>{{ $emailDocContent['comparison']['high'] }}</td>
+                                            <td>{{ $emailDocContent['comparison']['paid'] }}</td>
+                                            <td>{{ $emailDocContent['comparison']['easy'] }}</td>
+                                            <td>{{ $emailDocContent['comparison']['numerous'] }}</td>
+                                            <td>{{ $emailDocContent['comparison']['excellent'] }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <h2 id="troubleshooting">{{ $emailDocContent['troubleshooting']['title'] }}</h2>
+                                <h3>{{ $emailDocContent['troubleshooting']['common_problems'] }}</h3>
+                                
+                                <h4>{{ $emailDocContent['troubleshooting']['emails_not_sent'] }}</h4>
+                                <ul>
+                                    @foreach($emailDocContent['troubleshooting']['emails_not_sent_tips'] as $tip)
+                                        <li>{{ $tip }}</li>
+                                    @endforeach
+                                </ul>
+                                
+                                <h4>{{ $emailDocContent['troubleshooting']['emails_as_spam'] }}</h4>
+                                <ul>
+                                    @foreach($emailDocContent['troubleshooting']['emails_as_spam_tips'] as $tip)
+                                        <li>{{ $tip }}</li>
+                                    @endforeach
+                                </ul>
+                                
+                                <h4>{{ $emailDocContent['troubleshooting']['configuration_issues'] }}</h4>
                             </div>
                         @else
                             <div class="alert alert-warning">
-                                {{ __('La documentation n\'est pas disponible pour le moment.') }}
+                                {{ __('email_providers.not_available') }}
                             </div>
                         @endif
                     </div>

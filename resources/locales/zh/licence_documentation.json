@@ -1,0 +1,54 @@
+{
+    "title": "许可证文档",
+    "integration_guide": {
+        "title": "许可证集成指南",
+        "description": "本文档将指导您完成将许可证系统集成到应用程序中的过程。"
+    },
+    "installation": {
+        "title": "安装",
+        "description": "安装和初始配置的详细说明。",
+        "tabs": {
+            "php": "简单PHP",
+            "laravel": "Laravel",
+            "flutter": "Flutter"
+        },
+        "php": {
+            "title": "PHP安装",
+            "description": "要将许可证系统集成到标准PHP应用程序中："
+        },
+        "laravel": {
+            "title": "Laravel安装",
+            "description": "要将许可证系统集成到Laravel应用程序中：",
+            "step1": "1. 创建服务提供者",
+            "step2": "2. 创建许可证服务",
+            "step3": "3. 创建配置文件",
+            "step4": "4. 将服务提供者添加到config/app.php"
+        },
+        "flutter": {
+            "title": "Flutter安装",
+            "description": "要将许可证系统集成到Flutter应用程序中：",
+            "step1": "1. 在pubspec.yaml中添加依赖项",
+            "step2": "2. 创建许可证服务",
+            "step3": "3. 在应用程序中使用的示例"
+        }
+    },
+    "verification": {
+        "title": "许可证验证",
+        "description": "如何在应用程序中实现许可证验证。",
+        "security_tip": "为了最佳安全性，我们建议在每次应用程序启动时以及使用期间定期验证许可证。",
+        "best_practices": {
+            "title": "最佳实践",
+            "item1": "安全存储许可证密钥（加密配置文件，数据库）",
+            "item2": "缓存验证结果以避免过多请求",
+            "item3": "为许可证服务器连接失败的情况规划降级行为",
+            "item4": "为长时间运行的应用程序实施定期验证",
+            "item5": "对与许可证服务器的所有通信使用HTTPS"
+        }
+    },
+    "api": {
+        "title": "许可证管理API",
+        "description": "许可证管理API的完整文档。",
+        "link_text": "有关详细的API文档，请参阅",
+        "link_title": "API文档"
+    }
+}

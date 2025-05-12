@@ -261,6 +261,11 @@
         "revoke_success": "Lisans anahtarı başarıyla iptal edildi",
         "reactivate_success": "Lisans anahtarı başarıyla yeniden etkinleştirildi"
     },
+    "email_providers": {
+        "page_title": "E-posta Sağlayıcıları Dokümantasyonu",
+        "title": "E-posta Sağlayıcıları Dokümantasyonu",
+        "not_available": "Dokümantasyon şu anda mevcut değil."
+    },
     "api": {
         "title": "API Belgeleri",
         "description": "AdminLicence'i uygulamanıza entegre etmek için bu uç noktaları kullanın",

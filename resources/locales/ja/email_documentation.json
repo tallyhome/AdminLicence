@@ -1,0 +1,168 @@
+{
+    "page_title": "メールプロバイダーのドキュメント",
+    "title": "メールプロバイダーのドキュメント",
+    "not_available": "現在、ドキュメントは利用できません。",
+    "description": "このドキュメントでは、アプリケーションで利用可能な様々なメールプロバイダーの設定方法と使用方法について説明します。",
+    "table_of_contents": "目次",
+    "introduction": {
+        "title": "はじめに",
+        "description": "このアプリケーションは、ユーザーへの通知、アラート、およびコミュニケーションを送信するための複数のメールプロバイダーをサポートしています。各プロバイダーには、それぞれの利点、制限、および設定要件があります。"
+    },
+    "smtp": {
+        "title": "SMTP",
+        "description": "SMTP（Simple Mail Transfer Protocol）は、インターネットを介してメールを送信するための標準的な方法です。ほとんどのメールサービスで動作する信頼性の高い普遍的なソリューションです。",
+        "configuration": "必要な設定",
+        "config_items": [
+            "SMTPホスト（例：smtp.gmail.com、smtp.office365.com）",
+            "ポート（通常はTLSの場合は587、SSLの場合は465）",
+            "ユーザー名（多くの場合、あなたのメールアドレス）",
+            "パスワード",
+            "暗号化方式（TLS/SSL）",
+            "送信者アドレス",
+            "送信者名"
+        ],
+        "advantages": "利点",
+        "advantages_list": [
+            "ほぼすべてのメールサービスと互換性がある",
+            "送信プロセスを完全に制御できる",
+            "サードパーティAPIへの依存がない"
+        ],
+        "disadvantages": "欠点",
+        "disadvantages_list": [
+            "設定が複雑な場合がある",
+            "一部のプロバイダーではセキュリティ調整が必要な場合がある",
+            "SMTPプロバイダーによって送信制限がある"
+        ],
+        "example": "設定例"
+    },
+    "phpmail": {
+        "title": "PHPMail",
+        "description": "PHPMailはPHPMailerライブラリを使用してメールを送信します。PHPのネイティブmail()関数よりも多くの機能を提供する堅牢なソリューションです。",
+        "configuration": "必要な設定",
+        "config_items": [
+            "SMTPと同じパラメータ（PHPMailerはバックグラウンドでSMTPを使用するため）"
+        ],
+        "advantages": "利点",
+        "advantages_list": [
+            "高度な添付ファイル処理",
+            "多言語サポート",
+            "ネイティブmail()よりも優れたエラー処理"
+        ],
+        "disadvantages": "欠点",
+        "disadvantages_list": [
+            "SMTPと同様"
+        ],
+        "example": "設定例"
+    },
+    "mailgun": {
+        "title": "Mailgun",
+        "description": "Mailgunは開発者向けに設計されたメールAPIサービスです。トランザクションメール用の高い配信性と高度な機能を提供します。",
+        "configuration": "必要な設定",
+        "config_items": [
+            "Mailgun APIキー",
+            "Mailgunで検証済みのドメイン",
+            "送信者アドレス",
+            "送信者名"
+        ],
+        "advantages": "利点",
+        "advantages_list": [
+            "高い配信性",
+            "詳細なトラッキング（開封、クリック）",
+            "シンプルで充実したドキュメントを持つAPI",
+            "無料版で寛大なクォータ（月1000メール）"
+        ],
+        "disadvantages": "欠点",
+        "disadvantages_list": [
+            "ドメイン検証が必要",
+            "無料クォータを超えると有料"
+        ],
+        "example": "設定例"
+    },
+    "mailchimp": {
+        "title": "Mailchimp",
+        "description": "Mailchimp Transactional（旧Mandrill）は、Mailchimpが提供するトランザクションメールサービスで、マーケティングメールやニュースレターに特に適しています。",
+        "configuration": "必要な設定",
+        "config_items": [
+            "Mailchimp Transactional APIキー",
+            "検証済み送信者アドレス",
+            "送信者名"
+        ],
+        "advantages": "利点",
+        "advantages_list": [
+            "優れた配信性",
+            "高度なトラッキングと分析ツール",
+            "洗練されたメールテンプレート",
+            "Mailchimpエコシステムとの統合"
+        ],
+        "disadvantages": "欠点",
+        "disadvantages_list": [
+            "有料サービス",
+            "初期設定がより複雑"
+        ],
+        "example": "設定例"
+    },
+    "rapidmail": {
+        "title": "Rapidmail",
+        "description": "RapidmailはGDPRを厳格に遵守するドイツのメールマーケティングサービスです。データ保護規制の遵守に関心のあるヨーロッパの企業に特に適しています。",
+        "configuration": "必要な設定",
+        "config_items": [
+            "Rapidmail APIキー",
+            "検証済み送信者アドレス",
+            "送信者名"
+        ],
+        "advantages": "利点",
+        "advantages_list": [
+            "GDPR準拠",
+            "ヨーロッパにあるサーバー",
+            "複数言語のインターフェース",
+            "良好な配信性"
+        ],
+        "disadvantages": "欠点",
+        "disadvantages_list": [
+            "他のサービスよりも知名度が低い",
+            "ドキュメントがあまり充実していない"
+        ],
+        "example": "設定例"
+    },
+    "comparison": {
+        "title": "プロバイダー比較",
+        "deliverability": "配信性",
+        "price": "価格",
+        "ease_of_setup": "設定の容易さ",
+        "advanced_features": "高度な機能",
+        "gdpr_compliance": "GDPR準拠",
+        "variable": "可変",
+        "free": "無料",
+        "moderate": "中程度",
+        "limited": "限定的",
+        "depends": "サーバーによる",
+        "high": "高い",
+        "freemium": "フリーミアム",
+        "easy": "簡単",
+        "numerous": "多数",
+        "good": "良好",
+        "very_high": "非常に高い",
+        "paid": "有料",
+        "very_numerous": "非常に多数",
+        "excellent": "優れている"
+    },
+    "troubleshooting": {
+        "title": "トラブルシューティング",
+        "common_problems": "一般的な問題",
+        "emails_not_sent": "メールが送信されない",
+        "emails_not_sent_tips": [
+            "認証情報を確認する",
+            "プロバイダーが正しく設定されていることを確認する",
+            "送信クォータを確認する",
+            "エラーログを確認する"
+        ],
+        "emails_as_spam": "スパムとして受信されるメール",
+        "emails_as_spam_tips": [
+            "ドメインのSPF、DKIM、DMARCの設定を確認する",
+            "検証済みの送信者アドレスを使用する",
+            "件名と内容にスパムトリガーワードを避ける",
+            "ドメインの評判が良好であることを確認する"
+        ],
+        "configuration_issues": "設定の問題"
+    }
+}

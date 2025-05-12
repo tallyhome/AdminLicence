@@ -1,0 +1,54 @@
+{
+    "title": "Lisans Belgeleri",
+    "integration_guide": {
+        "title": "Lisans Entegrasyon Kılavuzu",
+        "description": "Bu belge, lisans sistemini uygulamanıza entegre etme sürecinde size rehberlik edecektir."
+    },
+    "installation": {
+        "title": "Kurulum",
+        "description": "Kurulum ve başlangıç yapılandırması için ayrıntılı talimatlar.",
+        "tabs": {
+            "php": "Basit PHP",
+            "laravel": "Laravel",
+            "flutter": "Flutter"
+        },
+        "php": {
+            "title": "PHP için Kurulum",
+            "description": "Lisans sistemini standart bir PHP uygulamasına entegre etmek için:"
+        },
+        "laravel": {
+            "title": "Laravel için Kurulum",
+            "description": "Lisans sistemini bir Laravel uygulamasına entegre etmek için:",
+            "step1": "1. Bir Service Provider oluşturun",
+            "step2": "2. Bir Lisans Servisi oluşturun",
+            "step3": "3. Bir yapılandırma dosyası oluşturun",
+            "step4": "4. Service Provider'ı config/app.php'ye ekleyin"
+        },
+        "flutter": {
+            "title": "Flutter için Kurulum",
+            "description": "Lisans sistemini bir Flutter uygulamasına entegre etmek için:",
+            "step1": "1. pubspec.yaml'a bağımlılıkları ekleyin",
+            "step2": "2. Bir lisans servisi oluşturun",
+            "step3": "3. Uygulamanızda kullanım örneği"
+        }
+    },
+    "verification": {
+        "title": "Lisans Doğrulama",
+        "description": "Uygulamanızda lisans doğrulamasını nasıl uygulayacağınız.",
+        "security_tip": "Optimum güvenlik için, lisansı her uygulama başlangıcında ve kullanım sırasında periyodik olarak doğrulamanızı öneririz.",
+        "best_practices": {
+            "title": "En İyi Uygulamalar",
+            "item1": "Lisans anahtarını güvenli bir şekilde saklayın (şifrelenmiş yapılandırma dosyası, veritabanı)",
+            "item2": "Çok fazla istek göndermekten kaçınmak için doğrulama sonucunu önbelleğe alın",
+            "item3": "Lisans sunucusuna bağlantı hatası durumunda degrade davranış planlayın",
+            "item4": "Uzun süre çalışan uygulamalar için periyodik doğrulama uygulayın",
+            "item5": "Lisans sunucusuyla tüm iletişimler için HTTPS kullanın"
+        }
+    },
+    "api": {
+        "title": "Lisans Yönetimi API",
+        "description": "Lisans yönetimi API'sinin tam belgeleri.",
+        "link_text": "Ayrıntılı API belgeleri için lütfen",
+        "link_title": "API Belgeleri"
+    }
+}

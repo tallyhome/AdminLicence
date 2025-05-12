@@ -664,5 +664,64 @@
             "title": "Support",
             "description": "Wenn Sie bei der Integration der API auf Probleme stoßen oder Fragen haben, zögern Sie nicht, unser technisches Support-Team zu kontaktieren."
         }
+    },
+    "email_providers": {
+        "page_title": "Dokumentation der E-Mail-Anbieter",
+        "title": "Dokumentation der E-Mail-Anbieter",
+        "not_available": "Die Dokumentation ist derzeit nicht verfügbar."
+    },
+    "licence_documentation": {
+        "title": "Lizenzdokumentation",
+        "integration_guide": {
+            "title": "Lizenzintegrationsleitfaden",
+            "description": "Diese Dokumentation führt Sie durch den Prozess der Integration des Lizenzsystems in Ihre Anwendung."
+        },
+        "installation": {
+            "title": "Installation",
+            "description": "Detaillierte Anweisungen für die Installation und Erstkonfiguration.",
+            "tabs": {
+                "php": "Einfaches PHP",
+                "laravel": "Laravel",
+                "flutter": "Flutter"
+            },
+            "php": {
+                "title": "Installation für PHP",
+                "description": "Um das Lizenzsystem in eine Standard-PHP-Anwendung zu integrieren:"
+            },
+            "laravel": {
+                "title": "Installation für Laravel",
+                "description": "Um das Lizenzsystem in eine Laravel-Anwendung zu integrieren:",
+                "step1": "1. Erstellen Sie einen Service Provider",
+                "step2": "2. Erstellen Sie einen Lizenzdienst",
+                "step3": "3. Erstellen Sie eine Konfigurationsdatei",
+                "step4": "4. Fügen Sie den Service Provider zu config/app.php hinzu"
+            },
+            "flutter": {
+                "title": "Installation für Flutter",
+                "description": "Um das Lizenzsystem in eine Flutter-Anwendung zu integrieren:",
+                "step1": "1. Fügen Sie Abhängigkeiten zu pubspec.yaml hinzu",
+                "step2": "2. Erstellen Sie einen Lizenzdienst",
+                "step3": "3. Beispiel für die Verwendung in Ihrer Anwendung"
+            }
+        },
+        "verification": {
+            "title": "Lizenzüberprüfung",
+            "description": "Wie Sie die Lizenzüberprüfung in Ihrer Anwendung implementieren.",
+            "security_tip": "Für optimale Sicherheit empfehlen wir, die Lizenz bei jedem Anwendungsstart und regelmäßig während der Nutzung zu überprüfen.",
+            "best_practices": {
+                "title": "Best Practices",
+                "item1": "Speichern Sie den Lizenzschlüssel sicher (verschlüsselte Konfigurationsdatei, Datenbank)",
+                "item2": "Zwischenspeichern Sie das Überprüfungsergebnis, um zu viele Anfragen zu vermeiden",
+                "item3": "Planen Sie für ein eingeschränktes Verhalten bei Verbindungsausfall zum Lizenzserver",
+                "item4": "Implementieren Sie eine regelmäßige Überprüfung für Anwendungen mit langer Laufzeit",
+                "item5": "Verwenden Sie HTTPS für alle Kommunikationen mit dem Lizenzserver"
+            }
+        },
+        "api": {
+            "title": "Lizenzverwaltungs-API",
+            "description": "Vollständige Dokumentation der Lizenzverwaltungs-API.",
+            "link_text": "Für eine detaillierte API-Dokumentation, beziehen Sie sich bitte auf die",
+            "link_title": "API-Dokumentation"
+        }
     }
 }

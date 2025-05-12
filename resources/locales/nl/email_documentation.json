@@ -1,0 +1,168 @@
+{
+    "page_title": "Documentatie van E-mailproviders",
+    "title": "Documentatie van E-mailproviders",
+    "not_available": "De documentatie is momenteel niet beschikbaar.",
+    "description": "Dit document legt uit hoe je de verschillende e-mailproviders in de applicatie kunt configureren en gebruiken.",
+    "table_of_contents": "Inhoudsopgave",
+    "introduction": {
+        "title": "Inleiding",
+        "description": "De applicatie ondersteunt meerdere e-mailproviders voor het verzenden van notificaties, waarschuwingen en communicatie naar gebruikers. Elke provider heeft zijn eigen voordelen, beperkingen en configuratievereisten."
+    },
+    "smtp": {
+        "title": "SMTP",
+        "description": "SMTP (Simple Mail Transfer Protocol) is de standaardmethode voor het verzenden van e-mails via internet. Het is een betrouwbare en universele oplossing die werkt met de meeste e-mailservices.",
+        "configuration": "Vereiste Configuratie",
+        "config_items": [
+            "SMTP-host (bijv. smtp.gmail.com, smtp.office365.com)",
+            "Poort (meestal 587 voor TLS, 465 voor SSL)",
+            "Gebruikersnaam (vaak je e-mailadres)",
+            "Wachtwoord",
+            "Encryptiemethode (TLS/SSL)",
+            "Afzenderadres",
+            "Afzendernaam"
+        ],
+        "advantages": "Voordelen",
+        "advantages_list": [
+            "Compatibel met bijna alle e-mailservices",
+            "Volledige controle over het verzendproces",
+            "Geen afhankelijkheid van API's van derden"
+        ],
+        "disadvantages": "Nadelen",
+        "disadvantages_list": [
+            "Soms complexe configuratie",
+            "Kan beveiligingsaanpassingen vereisen bij sommige providers",
+            "Verzendlimieten afhankelijk van de SMTP-provider"
+        ],
+        "example": "Configuratievoorbeeld"
+    },
+    "phpmail": {
+        "title": "PHPMail",
+        "description": "PHPMail gebruikt de PHPMailer-bibliotheek om e-mails te verzenden. Het is een robuuste oplossing die meer functies biedt dan de native mail()-functie van PHP.",
+        "configuration": "Vereiste Configuratie",
+        "config_items": [
+            "Dezelfde parameters als SMTP (omdat PHPMailer SMTP op de achtergrond gebruikt)"
+        ],
+        "advantages": "Voordelen",
+        "advantages_list": [
+            "Geavanceerd bijlagebeheer",
+            "Meertalige ondersteuning",
+            "Betere foutafhandeling dan native mail()"
+        ],
+        "disadvantages": "Nadelen",
+        "disadvantages_list": [
+            "Vergelijkbaar met SMTP"
+        ],
+        "example": "Configuratievoorbeeld"
+    },
+    "mailgun": {
+        "title": "Mailgun",
+        "description": "Mailgun is een e-mail-API-service ontworpen voor ontwikkelaars. Het biedt hoge bezorgbaarheid en geavanceerde functies voor transactionele e-mails.",
+        "configuration": "Vereiste Configuratie",
+        "config_items": [
+            "Mailgun API-sleutel",
+            "Geverifieerd domein op Mailgun",
+            "Afzenderadres",
+            "Afzendernaam"
+        ],
+        "advantages": "Voordelen",
+        "advantages_list": [
+            "Hoge bezorgbaarheid",
+            "Gedetailleerde tracking (openingen, kliks)",
+            "Eenvoudige en goed gedocumenteerde API",
+            "Royale gratis tier (1000 e-mails/maand)"
+        ],
+        "disadvantages": "Nadelen",
+        "disadvantages_list": [
+            "Vereist domeinverificatie",
+            "Betaald boven de gratis quota"
+        ],
+        "example": "Configuratievoorbeeld"
+    },
+    "mailchimp": {
+        "title": "Mailchimp",
+        "description": "Mailchimp Transactional (voorheen Mandrill) is een transactionele e-mailservice aangeboden door Mailchimp, bijzonder geschikt voor marketing e-mails en nieuwsbrieven.",
+        "configuration": "Vereiste Configuratie",
+        "config_items": [
+            "Mailchimp Transactional API-sleutel",
+            "Geverifieerd afzenderadres",
+            "Afzendernaam"
+        ],
+        "advantages": "Voordelen",
+        "advantages_list": [
+            "Uitstekende bezorgbaarheid",
+            "Geavanceerde tracking- en analysetools",
+            "Geavanceerde e-mailsjablonen",
+            "Integratie met het Mailchimp-ecosysteem"
+        ],
+        "disadvantages": "Nadelen",
+        "disadvantages_list": [
+            "Betaalde service",
+            "Complexere initiële configuratie"
+        ],
+        "example": "Configuratievoorbeeld"
+    },
+    "rapidmail": {
+        "title": "Rapidmail",
+        "description": "Rapidmail is een Duitse e-mailmarketingservice die strikt voldoet aan de AVG. Het is bijzonder geschikt voor Europese bedrijven die bezorgd zijn over naleving van de regelgeving inzake gegevensbescherming.",
+        "configuration": "Vereiste Configuratie",
+        "config_items": [
+            "Rapidmail API-sleutel",
+            "Geverifieerd afzenderadres",
+            "Afzendernaam"
+        ],
+        "advantages": "Voordelen",
+        "advantages_list": [
+            "AVG-compliance",
+            "Servers gevestigd in Europa",
+            "Interface in meerdere talen",
+            "Goede bezorgbaarheid"
+        ],
+        "disadvantages": "Nadelen",
+        "disadvantages_list": [
+            "Minder bekend dan andere services",
+            "Minder uitgebreide documentatie"
+        ],
+        "example": "Configuratievoorbeeld"
+    },
+    "comparison": {
+        "title": "Vergelijking van Providers",
+        "deliverability": "Bezorgbaarheid",
+        "price": "Prijs",
+        "ease_of_setup": "Gemak van Configuratie",
+        "advanced_features": "Geavanceerde Functies",
+        "gdpr_compliance": "AVG-compliance",
+        "variable": "Variabel",
+        "free": "Gratis",
+        "moderate": "Gemiddeld",
+        "limited": "Beperkt",
+        "depends": "Afhankelijk van de server",
+        "high": "Hoog",
+        "freemium": "Freemium",
+        "easy": "Eenvoudig",
+        "numerous": "Talrijk",
+        "good": "Goed",
+        "very_high": "Zeer hoog",
+        "paid": "Betaald",
+        "very_numerous": "Zeer talrijk",
+        "excellent": "Uitstekend"
+    },
+    "troubleshooting": {
+        "title": "Probleemoplossing",
+        "common_problems": "Veelvoorkomende Problemen",
+        "emails_not_sent": "E-mails worden niet verzonden",
+        "emails_not_sent_tips": [
+            "Controleer je inloggegevens",
+            "Zorg ervoor dat de provider correct is geconfigureerd",
+            "Controleer verzendquota",
+            "Raadpleeg de foutlogboeken"
+        ],
+        "emails_as_spam": "E-mails ontvangen als spam",
+        "emails_as_spam_tips": [
+            "Controleer de SPF-, DKIM- en DMARC-configuratie van je domein",
+            "Gebruik een geverifieerd afzenderadres",
+            "Vermijd spam-triggerende woorden in onderwerp en inhoud",
+            "Zorg ervoor dat je domein een goede reputatie heeft"
+        ],
+        "configuration_issues": "Configuratieproblemen"
+    }
+}

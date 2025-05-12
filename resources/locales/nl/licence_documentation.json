@@ -1,0 +1,54 @@
+{
+    "title": "Licentiedocumentatie",
+    "integration_guide": {
+        "title": "Licentie-integratiegids",
+        "description": "Deze documentatie leidt u door het proces van integratie van het licentiesysteem in uw applicatie."
+    },
+    "installation": {
+        "title": "Installatie",
+        "description": "Gedetailleerde instructies voor installatie en initiële configuratie.",
+        "tabs": {
+            "php": "Eenvoudige PHP",
+            "laravel": "Laravel",
+            "flutter": "Flutter"
+        },
+        "php": {
+            "title": "Installatie voor PHP",
+            "description": "Om het licentiesysteem in een standaard PHP-applicatie te integreren:"
+        },
+        "laravel": {
+            "title": "Installatie voor Laravel",
+            "description": "Om het licentiesysteem in een Laravel-applicatie te integreren:",
+            "step1": "1. Maak een Service Provider",
+            "step2": "2. Maak een Licentieservice",
+            "step3": "3. Maak een configuratiebestand",
+            "step4": "4. Voeg de Service Provider toe aan config/app.php"
+        },
+        "flutter": {
+            "title": "Installatie voor Flutter",
+            "description": "Om het licentiesysteem in een Flutter-applicatie te integreren:",
+            "step1": "1. Voeg afhankelijkheden toe aan pubspec.yaml",
+            "step2": "2. Maak een licentieservice",
+            "step3": "3. Voorbeeld van gebruik in uw applicatie"
+        }
+    },
+    "verification": {
+        "title": "Licentieverificatie",
+        "description": "Hoe u licentieverificatie implementeert in uw applicatie.",
+        "security_tip": "Voor optimale beveiliging raden we aan de licentie te verifiëren bij elke start van de applicatie en periodiek tijdens het gebruik.",
+        "best_practices": {
+            "title": "Best Practices",
+            "item1": "Bewaar de licentiesleutel veilig (versleuteld configuratiebestand, database)",
+            "item2": "Cache het verificatieresultaat om te veel aanvragen te voorkomen",
+            "item3": "Plan voor gedegradeerd gedrag bij verbindingsfout met de licentieserver",
+            "item4": "Implementeer periodieke verificatie voor langlopende applicaties",
+            "item5": "Gebruik HTTPS voor alle communicatie met de licentieserver"
+        }
+    },
+    "api": {
+        "title": "Licentiebeheer API",
+        "description": "Volledige documentatie van de licentiebeheer API.",
+        "link_text": "Voor gedetailleerde API-documentatie, raadpleeg de",
+        "link_title": "API-documentatie"
+    }
+}

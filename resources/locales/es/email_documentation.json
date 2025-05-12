@@ -1,0 +1,168 @@
+{
+    "page_title": "Documentación de Proveedores de Email",
+    "title": "Documentación de Proveedores de Email",
+    "not_available": "La documentación no está disponible en este momento.",
+    "description": "Este documento explica cómo configurar y utilizar los diferentes proveedores de email disponibles en la aplicación.",
+    "table_of_contents": "Tabla de Contenidos",
+    "introduction": {
+        "title": "Introducción",
+        "description": "La aplicación admite múltiples proveedores de email para enviar notificaciones, alertas y comunicaciones a los usuarios. Cada proveedor tiene sus propias ventajas, limitaciones y requisitos de configuración."
+    },
+    "smtp": {
+        "title": "SMTP",
+        "description": "SMTP (Simple Mail Transfer Protocol) es el método estándar para enviar emails a través de Internet. Es una solución fiable y universal que funciona con la mayoría de los servicios de email.",
+        "configuration": "Configuración Requerida",
+        "config_items": [
+            "Host SMTP (ej: smtp.gmail.com, smtp.office365.com)",
+            "Puerto (generalmente 587 para TLS, 465 para SSL)",
+            "Nombre de usuario (a menudo su dirección de email)",
+            "Contraseña",
+            "Método de cifrado (TLS/SSL)",
+            "Dirección de remitente",
+            "Nombre de remitente"
+        ],
+        "advantages": "Ventajas",
+        "advantages_list": [
+            "Compatible con casi todos los servicios de email",
+            "Control total sobre el proceso de envío",
+            "Sin dependencia de APIs de terceros"
+        ],
+        "disadvantages": "Desventajas",
+        "disadvantages_list": [
+            "Configuración a veces compleja",
+            "Puede requerir ajustes de seguridad en algunos proveedores",
+            "Límites de envío según el proveedor SMTP"
+        ],
+        "example": "Ejemplo de Configuración"
+    },
+    "phpmail": {
+        "title": "PHPMail",
+        "description": "PHPMail utiliza la biblioteca PHPMailer para enviar emails. Es una solución robusta que ofrece más funcionalidades que la función mail() nativa de PHP.",
+        "configuration": "Configuración Requerida",
+        "config_items": [
+            "Los mismos parámetros que SMTP (ya que PHPMailer utiliza SMTP en segundo plano)"
+        ],
+        "advantages": "Ventajas",
+        "advantages_list": [
+            "Gestión avanzada de archivos adjuntos",
+            "Soporte multilingüe",
+            "Mejor gestión de errores que mail() nativo"
+        ],
+        "disadvantages": "Desventajas",
+        "disadvantages_list": [
+            "Similares a SMTP"
+        ],
+        "example": "Ejemplo de Configuración"
+    },
+    "mailgun": {
+        "title": "Mailgun",
+        "description": "Mailgun es un servicio de API de email diseñado para desarrolladores. Ofrece alta entregabilidad y funciones avanzadas para emails transaccionales.",
+        "configuration": "Configuración Requerida",
+        "config_items": [
+            "Clave API de Mailgun",
+            "Dominio verificado en Mailgun",
+            "Dirección de remitente",
+            "Nombre de remitente"
+        ],
+        "advantages": "Ventajas",
+        "advantages_list": [
+            "Alta entregabilidad",
+            "Seguimiento detallado (aperturas, clics)",
+            "API simple y bien documentada",
+            "Cuota generosa en versión gratuita (1000 emails/mes)"
+        ],
+        "disadvantages": "Desventajas",
+        "disadvantages_list": [
+            "Requiere verificación de dominio",
+            "De pago más allá de la cuota gratuita"
+        ],
+        "example": "Ejemplo de Configuración"
+    },
+    "mailchimp": {
+        "title": "Mailchimp",
+        "description": "Mailchimp Transactional (anteriormente Mandrill) es un servicio de envío de emails transaccionales ofrecido por Mailchimp, particularmente adecuado para emails de marketing y boletines.",
+        "configuration": "Configuración Requerida",
+        "config_items": [
+            "Clave API de Mailchimp Transactional",
+            "Dirección de remitente verificada",
+            "Nombre de remitente"
+        ],
+        "advantages": "Ventajas",
+        "advantages_list": [
+            "Excelente entregabilidad",
+            "Herramientas avanzadas de seguimiento y análisis",
+            "Plantillas de email sofisticadas",
+            "Integración con el ecosistema Mailchimp"
+        ],
+        "disadvantages": "Desventajas",
+        "disadvantages_list": [
+            "Servicio de pago",
+            "Configuración inicial más compleja"
+        ],
+        "example": "Ejemplo de Configuración"
+    },
+    "rapidmail": {
+        "title": "Rapidmail",
+        "description": "Rapidmail es un servicio de email marketing alemán que cumple estrictamente con el RGPD. Es particularmente adecuado para empresas europeas preocupadas por el cumplimiento de las regulaciones de protección de datos.",
+        "configuration": "Configuración Requerida",
+        "config_items": [
+            "Clave API de Rapidmail",
+            "Dirección de remitente verificada",
+            "Nombre de remitente"
+        ],
+        "advantages": "Ventajas",
+        "advantages_list": [
+            "Cumplimiento del RGPD",
+            "Servidores basados en Europa",
+            "Interfaz en varios idiomas",
+            "Buena entregabilidad"
+        ],
+        "disadvantages": "Desventajas",
+        "disadvantages_list": [
+            "Menos conocido que otros servicios",
+            "Documentación menos extensa"
+        ],
+        "example": "Ejemplo de Configuración"
+    },
+    "comparison": {
+        "title": "Comparación de Proveedores",
+        "deliverability": "Entregabilidad",
+        "price": "Precio",
+        "ease_of_setup": "Facilidad de Configuración",
+        "advanced_features": "Funcionalidades Avanzadas",
+        "gdpr_compliance": "Cumplimiento del RGPD",
+        "variable": "Variable",
+        "free": "Gratuito",
+        "moderate": "Moderada",
+        "limited": "Limitadas",
+        "depends": "Depende del servidor",
+        "high": "Alta",
+        "freemium": "Freemium",
+        "easy": "Fácil",
+        "numerous": "Numerosas",
+        "good": "Bueno",
+        "very_high": "Muy alta",
+        "paid": "De pago",
+        "very_numerous": "Muy numerosas",
+        "excellent": "Excelente"
+    },
+    "troubleshooting": {
+        "title": "Solución de Problemas",
+        "common_problems": "Problemas Comunes",
+        "emails_not_sent": "Los emails no se envían",
+        "emails_not_sent_tips": [
+            "Verifique sus credenciales",
+            "Asegúrese de que el proveedor esté configurado correctamente",
+            "Compruebe las cuotas de envío",
+            "Consulte los registros de errores"
+        ],
+        "emails_as_spam": "Emails recibidos como spam",
+        "emails_as_spam_tips": [
+            "Verifique la configuración SPF, DKIM y DMARC de su dominio",
+            "Utilice una dirección de remitente verificada",
+            "Evite palabras desencadenantes de spam en el asunto y contenido",
+            "Asegúrese de que su dominio tenga buena reputación"
+        ],
+        "configuration_issues": "Problemas de Configuración"
+    }
+}

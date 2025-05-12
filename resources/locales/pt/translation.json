@@ -430,17 +430,29 @@
             "confirm_password": "Confirmar Senha",
             "update_button": "Atualizar Senha"
         },
-        "favicon": {
-            "title": "Favicon",
-            "current": "Favicon Atual",
-            "new": "Novo Favicon",
-            "accepted_formats": "Formatos aceitos: ICO, PNG, JPG, JPEG, SVG. Tamanho máximo: 2 MB.",
-            "update_button": "Atualizar Favicon"
+        "support": {
+            "title": "Suporte",
+            "description": "Se encontrar algum problema ao integrar a API ou tiver dúvidas, não hesite em contactar a nossa equipe de suporte técnico."
+        }
+    },
+    "email_providers": {
+        "page_title": "Documentação de Provedores de Email",
+        "title": "Documentação de Provedores de Email",
+        "not_available": "A documentação não está disponível no momento."
+    },
+    "licence_documentation": {
+        "title": "Documentação de Licenças",
+        "integration_guide": {
+            "title": "Guia de Integração de Licenças",
+            "description": "Esta documentação irá guiá-lo através do processo de integração do sistema de licenças em sua aplicação."
         },
-        "theme": {
-            "title": "Tema",
-            "dark_mode": "Ativar Modo Escuro",
-            "apply_button": "Aplicar"
+        "installation": {
+            "title": "Instalação",
+            "description": "Instruções detalhadas para instalação e configuração inicial.",
+            "tabs": {
+                "php": "PHP Simples",
+                "laravel": "Laravel",
+                "flutter": "Flutter"
         },
         "two_factor": {
             "title": "Autenticação de dois fatores",
@@ -593,13 +605,14 @@
                 "Implemente um mecanismo de atualização de tokens",
                 "Use HTTPS para todas as comunicações com a API",
                 "Configure um sistema de tratamento de erros para processar respostas de erro da API",
-                "Limite o acesso à sua chave de API e nunca a exponha no lado do cliente",
-                "Implemente um mecanismo de cache para limitar chamadas à API"
+                "Limite o acesso à sua chave de API e nunca a exponha no lado do cliente"
             ]
-        },
-        "support": {
-            "title": "Suporte",
-            "description": "Se você encontrar problemas durante a integração da API ou tiver dúvidas, não hesite em entrar em contato com nossa equipe de suporte técnico."
         }
+    },
+    "api": {
+        "title": "API de Gerenciamento de Licenças",
+        "description": "Documentação completa da API de gerenciamento de licenças.",
+        "link_text": "Para documentação detalhada da API, consulte a",
+        "link_title": "Documentação da API"
     }
 }

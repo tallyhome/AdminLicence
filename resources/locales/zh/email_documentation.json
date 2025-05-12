@@ -1,0 +1,168 @@
+{
+    "page_title": "电子邮件提供商文档",
+    "title": "电子邮件提供商文档",
+    "not_available": "文档目前不可用。",
+    "description": "本文档解释如何配置和使用应用程序中可用的不同电子邮件提供商。",
+    "table_of_contents": "目录",
+    "introduction": {
+        "title": "介绍",
+        "description": "该应用程序支持多种电子邮件提供商，用于向用户发送通知、警报和通信。每个提供商都有其自身的优势、限制和配置要求。"
+    },
+    "smtp": {
+        "title": "SMTP",
+        "description": "SMTP（简单邮件传输协议）是通过互联网发送电子邮件的标准方法。它是一种可靠且通用的解决方案，适用于大多数电子邮件服务。",
+        "configuration": "所需配置",
+        "config_items": [
+            "SMTP主机（例如：smtp.gmail.com，smtp.office365.com）",
+            "端口（通常TLS使用587，SSL使用465）",
+            "用户名（通常是您的电子邮件地址）",
+            "密码",
+            "加密方法（TLS/SSL）",
+            "发件人地址",
+            "发件人名称"
+        ],
+        "advantages": "优势",
+        "advantages_list": [
+            "与几乎所有电子邮件服务兼容",
+            "对发送过程有完全控制",
+            "不依赖第三方API"
+        ],
+        "disadvantages": "劣势",
+        "disadvantages_list": [
+            "配置有时复杂",
+            "在某些提供商上可能需要安全调整",
+            "根据SMTP提供商的发送限制"
+        ],
+        "example": "配置示例"
+    },
+    "phpmail": {
+        "title": "PHPMail",
+        "description": "PHPMail使用PHPMailer库发送电子邮件。它是一个健壮的解决方案，提供比PHP原生mail()函数更多的功能。",
+        "configuration": "所需配置",
+        "config_items": [
+            "与SMTP相同的参数（因为PHPMailer在后台使用SMTP）"
+        ],
+        "advantages": "优势",
+        "advantages_list": [
+            "高级附件处理",
+            "多语言支持",
+            "比原生mail()更好的错误处理"
+        ],
+        "disadvantages": "劣势",
+        "disadvantages_list": [
+            "与SMTP类似"
+        ],
+        "example": "配置示例"
+    },
+    "mailgun": {
+        "title": "Mailgun",
+        "description": "Mailgun是为开发人员设计的电子邮件API服务。它为事务性电子邮件提供高送达率和高级功能。",
+        "configuration": "所需配置",
+        "config_items": [
+            "Mailgun API密钥",
+            "在Mailgun上验证的域名",
+            "发件人地址",
+            "发件人名称"
+        ],
+        "advantages": "优势",
+        "advantages_list": [
+            "高送达率",
+            "详细跟踪（打开，点击）",
+            "简单且文档完善的API",
+            "免费版本中慷慨的配额（每月1000封电子邮件）"
+        ],
+        "disadvantages": "劣势",
+        "disadvantages_list": [
+            "需要域名验证",
+            "超出免费配额后付费"
+        ],
+        "example": "配置示例"
+    },
+    "mailchimp": {
+        "title": "Mailchimp",
+        "description": "Mailchimp Transactional（前身为Mandrill）是Mailchimp提供的事务性电子邮件服务，特别适合营销电子邮件和新闻通讯。",
+        "configuration": "所需配置",
+        "config_items": [
+            "Mailchimp Transactional API密钥",
+            "已验证的发件人地址",
+            "发件人名称"
+        ],
+        "advantages": "优势",
+        "advantages_list": [
+            "出色的送达率",
+            "高级跟踪和分析工具",
+            "复杂的电子邮件模板",
+            "与Mailchimp生态系统集成"
+        ],
+        "disadvantages": "劣势",
+        "disadvantages_list": [
+            "付费服务",
+            "初始配置更复杂"
+        ],
+        "example": "配置示例"
+    },
+    "rapidmail": {
+        "title": "Rapidmail",
+        "description": "Rapidmail是一家严格遵守GDPR的德国电子邮件营销服务。它特别适合关注数据保护法规合规性的欧洲公司。",
+        "configuration": "所需配置",
+        "config_items": [
+            "Rapidmail API密钥",
+            "已验证的发件人地址",
+            "发件人名称"
+        ],
+        "advantages": "优势",
+        "advantages_list": [
+            "GDPR合规",
+            "服务器位于欧洲",
+            "多语言界面",
+            "良好的送达率"
+        ],
+        "disadvantages": "劣势",
+        "disadvantages_list": [
+            "比其他服务知名度低",
+            "文档不够全面"
+        ],
+        "example": "配置示例"
+    },
+    "comparison": {
+        "title": "提供商比较",
+        "deliverability": "送达率",
+        "price": "价格",
+        "ease_of_setup": "设置难易度",
+        "advanced_features": "高级功能",
+        "gdpr_compliance": "GDPR合规性",
+        "variable": "可变",
+        "free": "免费",
+        "moderate": "中等",
+        "limited": "有限",
+        "depends": "取决于服务器",
+        "high": "高",
+        "freemium": "免费增值",
+        "easy": "简单",
+        "numerous": "众多",
+        "good": "良好",
+        "very_high": "非常高",
+        "paid": "付费",
+        "very_numerous": "非常众多",
+        "excellent": "优秀"
+    },
+    "troubleshooting": {
+        "title": "故障排除",
+        "common_problems": "常见问题",
+        "emails_not_sent": "电子邮件未发送",
+        "emails_not_sent_tips": [
+            "检查您的凭据",
+            "确保提供商配置正确",
+            "检查发送配额",
+            "查阅错误日志"
+        ],
+        "emails_as_spam": "电子邮件被接收为垃圾邮件",
+        "emails_as_spam_tips": [
+            "检查您域名的SPF、DKIM和DMARC配置",
+            "使用已验证的发件人地址",
+            "避免在主题和内容中使用触发垃圾邮件的词语",
+            "确保您的域名有良好的声誉"
+        ],
+        "configuration_issues": "配置问题"
+    }
+}

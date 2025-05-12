@@ -664,5 +664,64 @@
             "title": "Support",
             "description": "If you encounter any issues while integrating the API or have questions, please don't hesitate to contact our technical support team."
         }
+    },
+    "email_providers": {
+        "page_title": "Email Providers Documentation",
+        "title": "Email Providers Documentation",
+        "not_available": "Documentation is not available at the moment."
+    },
+    "licence_documentation": {
+        "title": "License Documentation",
+        "integration_guide": {
+            "title": "License Integration Guide",
+            "description": "This documentation will guide you through the process of integrating the license system into your application."
+        },
+        "installation": {
+            "title": "Installation",
+            "description": "Detailed instructions for installation and initial configuration.",
+            "tabs": {
+                "php": "Simple PHP",
+                "laravel": "Laravel",
+                "flutter": "Flutter"
+            },
+            "php": {
+                "title": "Installation for PHP",
+                "description": "To integrate the license system into a standard PHP application:"
+            },
+            "laravel": {
+                "title": "Installation for Laravel",
+                "description": "To integrate the license system into a Laravel application:",
+                "step1": "1. Create a Service Provider",
+                "step2": "2. Create a License Service",
+                "step3": "3. Create a configuration file",
+                "step4": "4. Add the Service Provider to config/app.php"
+            },
+            "flutter": {
+                "title": "Installation for Flutter",
+                "description": "To integrate the license system into a Flutter application:",
+                "step1": "1. Add dependencies to pubspec.yaml",
+                "step2": "2. Create a license service",
+                "step3": "3. Example of usage in your application"
+            }
+        },
+        "verification": {
+            "title": "License Verification",
+            "description": "How to implement license verification in your application.",
+            "security_tip": "For optimal security, we recommend verifying the license at each application startup and periodically during its use.",
+            "best_practices": {
+                "title": "Best Practices",
+                "item1": "Store the license key securely (encrypted configuration file, database)",
+                "item2": "Cache the verification result to avoid too many requests",
+                "item3": "Plan for degraded behavior in case of connection failure to the license server",
+                "item4": "Implement periodic verification for long-running applications",
+                "item5": "Use HTTPS for all communications with the license server"
+            }
+        },
+        "api": {
+            "title": "License Management API",
+            "description": "Complete documentation of the license management API.",
+            "link_text": "For detailed API documentation, please refer to the",
+            "link_title": "API Documentation"
+        }
     }
 }

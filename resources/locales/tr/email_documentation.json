@@ -1,0 +1,168 @@
+{
+    "page_title": "E-posta Sağlayıcıları Dokümantasyonu",
+    "title": "E-posta Sağlayıcıları Dokümantasyonu",
+    "not_available": "Dokümantasyon şu anda mevcut değil.",
+    "description": "Bu belge, uygulamada bulunan farklı e-posta sağlayıcılarının nasıl yapılandırılacağını ve kullanılacağını açıklar.",
+    "table_of_contents": "İçindekiler",
+    "introduction": {
+        "title": "Giriş",
+        "description": "Uygulama, kullanıcılara bildirim, uyarı ve iletişim göndermek için birden fazla e-posta sağlayıcısını destekler. Her sağlayıcının kendine özgü avantajları, sınırlamaları ve yapılandırma gereksinimleri vardır."
+    },
+    "smtp": {
+        "title": "SMTP",
+        "description": "SMTP (Simple Mail Transfer Protocol), internet üzerinden e-posta göndermek için standart yöntemdir. Çoğu e-posta hizmetiyle çalışan güvenilir ve evrensel bir çözümdür.",
+        "configuration": "Gerekli Yapılandırma",
+        "config_items": [
+            "SMTP Sunucusu (örn: smtp.gmail.com, smtp.office365.com)",
+            "Port (genellikle TLS için 587, SSL için 465)",
+            "Kullanıcı adı (genellikle e-posta adresiniz)",
+            "Şifre",
+            "Şifreleme yöntemi (TLS/SSL)",
+            "Gönderen adresi",
+            "Gönderen adı"
+        ],
+        "advantages": "Avantajlar",
+        "advantages_list": [
+            "Neredeyse tüm e-posta hizmetleriyle uyumlu",
+            "Gönderim süreci üzerinde tam kontrol",
+            "Üçüncü taraf API'lerine bağımlılık yok"
+        ],
+        "disadvantages": "Dezavantajlar",
+        "disadvantages_list": [
+            "Bazen karmaşık yapılandırma",
+            "Bazı sağlayıcılarda güvenlik ayarları gerektirebilir",
+            "SMTP sağlayıcısına bağlı gönderim limitleri"
+        ],
+        "example": "Yapılandırma Örneği"
+    },
+    "phpmail": {
+        "title": "PHPMail",
+        "description": "PHPMail, e-posta göndermek için PHPMailer kütüphanesini kullanır. PHP'nin yerel mail() fonksiyonundan daha fazla özellik sunan sağlam bir çözümdür.",
+        "configuration": "Gerekli Yapılandırma",
+        "config_items": [
+            "SMTP ile aynı parametreler (PHPMailer arka planda SMTP kullandığı için)"
+        ],
+        "advantages": "Avantajlar",
+        "advantages_list": [
+            "Gelişmiş ek dosya yönetimi",
+            "Çok dilli destek",
+            "Yerel mail() fonksiyonundan daha iyi hata yönetimi"
+        ],
+        "disadvantages": "Dezavantajlar",
+        "disadvantages_list": [
+            "SMTP'ye benzer"
+        ],
+        "example": "Yapılandırma Örneği"
+    },
+    "mailgun": {
+        "title": "Mailgun",
+        "description": "Mailgun, geliştiriciler için tasarlanmış bir e-posta API hizmetidir. İşlem e-postaları için yüksek teslim edilebilirlik ve gelişmiş özellikler sunar.",
+        "configuration": "Gerekli Yapılandırma",
+        "config_items": [
+            "Mailgun API anahtarı",
+            "Mailgun'da doğrulanmış alan adı",
+            "Gönderen adresi",
+            "Gönderen adı"
+        ],
+        "advantages": "Avantajlar",
+        "advantages_list": [
+            "Yüksek teslim edilebilirlik",
+            "Detaylı izleme (açılmalar, tıklamalar)",
+            "Basit ve iyi belgelenmiş API",
+            "Ücretsiz sürümde cömert kota (ayda 1000 e-posta)"
+        ],
+        "disadvantages": "Dezavantajlar",
+        "disadvantages_list": [
+            "Alan adı doğrulaması gerektirir",
+            "Ücretsiz kotanın ötesinde ücretli"
+        ],
+        "example": "Yapılandırma Örneği"
+    },
+    "mailchimp": {
+        "title": "Mailchimp",
+        "description": "Mailchimp Transactional (eski adıyla Mandrill), Mailchimp tarafından sunulan, özellikle pazarlama e-postaları ve bültenler için uygun bir işlem e-postası hizmetidir.",
+        "configuration": "Gerekli Yapılandırma",
+        "config_items": [
+            "Mailchimp Transactional API anahtarı",
+            "Doğrulanmış gönderen adresi",
+            "Gönderen adı"
+        ],
+        "advantages": "Avantajlar",
+        "advantages_list": [
+            "Mükemmel teslim edilebilirlik",
+            "Gelişmiş izleme ve analiz araçları",
+            "Sofistike e-posta şablonları",
+            "Mailchimp ekosistemi ile entegrasyon"
+        ],
+        "disadvantages": "Dezavantajlar",
+        "disadvantages_list": [
+            "Ücretli hizmet",
+            "Daha karmaşık ilk yapılandırma"
+        ],
+        "example": "Yapılandırma Örneği"
+    },
+    "rapidmail": {
+        "title": "Rapidmail",
+        "description": "Rapidmail, GDPR'ye sıkı sıkıya uyan Alman bir e-posta pazarlama hizmetidir. Özellikle veri koruma düzenlemelerine uyum konusunda endişeli Avrupa şirketleri için uygundur.",
+        "configuration": "Gerekli Yapılandırma",
+        "config_items": [
+            "Rapidmail API anahtarı",
+            "Doğrulanmış gönderen adresi",
+            "Gönderen adı"
+        ],
+        "advantages": "Avantajlar",
+        "advantages_list": [
+            "GDPR uyumluluğu",
+            "Avrupa'da bulunan sunucular",
+            "Çoklu dil arayüzü",
+            "İyi teslim edilebilirlik"
+        ],
+        "disadvantages": "Dezavantajlar",
+        "disadvantages_list": [
+            "Diğer hizmetlerden daha az bilinir",
+            "Daha az kapsamlı dokümantasyon"
+        ],
+        "example": "Yapılandırma Örneği"
+    },
+    "comparison": {
+        "title": "Sağlayıcı Karşılaştırması",
+        "deliverability": "Teslim Edilebilirlik",
+        "price": "Fiyat",
+        "ease_of_setup": "Kurulum Kolaylığı",
+        "advanced_features": "Gelişmiş Özellikler",
+        "gdpr_compliance": "GDPR Uyumluluğu",
+        "variable": "Değişken",
+        "free": "Ücretsiz",
+        "moderate": "Orta",
+        "limited": "Sınırlı",
+        "depends": "Sunucuya bağlı",
+        "high": "Yüksek",
+        "freemium": "Freemium",
+        "easy": "Kolay",
+        "numerous": "Çok sayıda",
+        "good": "İyi",
+        "very_high": "Çok yüksek",
+        "paid": "Ücretli",
+        "very_numerous": "Çok fazla sayıda",
+        "excellent": "Mükemmel"
+    },
+    "troubleshooting": {
+        "title": "Sorun Giderme",
+        "common_problems": "Yaygın Sorunlar",
+        "emails_not_sent": "E-postalar gönderilmiyor",
+        "emails_not_sent_tips": [
+            "Kimlik bilgilerinizi kontrol edin",
+            "Sağlayıcının doğru yapılandırıldığından emin olun",
+            "Gönderim kotalarını kontrol edin",
+            "Hata günlüklerini inceleyin"
+        ],
+        "emails_as_spam": "E-postalar spam olarak alınıyor",
+        "emails_as_spam_tips": [
+            "Alan adınızın SPF, DKIM ve DMARC yapılandırmasını kontrol edin",
+            "Doğrulanmış bir gönderen adresi kullanın",
+            "Konu ve içerikte spam tetikleyici kelimelerden kaçının",
+            "Alan adınızın iyi bir itibarı olduğundan emin olun"
+        ],
+        "configuration_issues": "Yapılandırma Sorunları"
+    }
+}

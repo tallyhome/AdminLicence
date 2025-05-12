@@ -71,6 +71,11 @@
         "tickets": "التذاكر",
         "super_admin_tickets": "تذاكر المشرف الأعلى",
         "documentation": "التوثيق",
+        "email_providers": {
+            "page_title": "توثيق مزودي البريد الإلكتروني",
+            "title": "توثيق مزودي البريد الإلكتروني",
+            "not_available": "التوثيق غير متوفر حالياً."
+        },
         "keys_documentation": "توثيق المفاتيح",
         "email_providers_documentation": "توثيق مزودي البريد الإلكتروني",
         "saas_documentation": "توثيق SaaS متعدد المستخدمين",

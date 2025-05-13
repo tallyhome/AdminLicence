@@ -21,8 +21,33 @@ class SettingsController extends Controller
     {
         $admin = Auth::guard('admin')->user();
         $darkModeEnabled = session('dark_mode', false);
+        $settings = session('settings', [
+            'site_name' => config('app.name', 'AdminLicence'),
+            'site_description' => ''
+        ]);
         
-        return view('admin.settings.index', compact('admin', 'darkModeEnabled'));
+        return view('admin.settings.index', compact('admin', 'darkModeEnabled', 'settings'));
+    }
+
+    /**
+     * Mettre à jour les paramètres généraux du site
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function updateGeneral(Request $request)
+    {
+        $validated = $request->validate([
+            'site_name' => 'required|string|max:255',
+            'site_description' => 'nullable|string|max:1000',
+        ]);
+
+        // Stocker les paramètres dans un fichier de configuration ou une table de base de données
+        // Pour cet exemple, nous allons les stocker dans la session
+        session(['settings' => $validated]);
+
+        return redirect()->route('admin.settings.index')
+            ->with('success', t('settings.general.update_success'));
     }
 
     /**

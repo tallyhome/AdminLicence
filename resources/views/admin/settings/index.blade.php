@@ -19,44 +19,7 @@
     @endif
 
     <div class="row">
-        <!-- Informations du profil -->
-        <div class="col-md-6 mb-4">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">{{ t('settings.general.title') }}</h3>
-                </div>
-                <div class="card-body">
-                    <form action="{{ route('admin.settings.update') }}" method="POST">
-                        @csrf
-                        @method('PUT')
-                        
-                        <div class="mb-3">
-                            <label for="site_name" class="form-label">{{ t('settings.general.site_name') }}</label>
-                            <input type="text" class="form-control @error('site_name') is-invalid @enderror" 
-                                   id="site_name" name="site_name" value="{{ old('site_name', $settings->site_name ?? '') }}">
-                            @error('site_name')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
 
-                        <div class="mb-3">
-                            <label for="site_description" class="form-label">{{ t('settings.general.site_description') }}</label>
-                            <textarea class="form-control @error('site_description') is-invalid @enderror" 
-                                      id="site_description" name="site_description" rows="3">{{ old('site_description', $settings->site_description ?? '') }}</textarea>
-                            @error('site_description')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <div class="text-end">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save"></i> {{ t('common.save') }}
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
 
         <!-- Changer le mot de passe -->
         <div class="col-md-6 mb-4">

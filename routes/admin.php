@@ -189,6 +189,7 @@ Route::middleware('auth:admin')->group(function () {
 
     // Routes pour les paramètres généraux
     Route::get('settings', [SettingsController::class, 'index'])->name('admin.settings.index');
+    Route::put('settings/general', [SettingsController::class, 'updateGeneral'])->name('admin.settings.update');
     Route::put('settings/profile', [SettingsController::class, 'updateProfile'])->name('admin.settings.update-profile');
     Route::put('settings/password', [SettingsController::class, 'updatePassword'])->name('admin.settings.update-password');
     Route::put('settings/favicon', [SettingsController::class, 'updateFavicon'])->name('admin.settings.update-favicon');

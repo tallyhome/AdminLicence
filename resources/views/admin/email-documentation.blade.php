@@ -9,13 +9,16 @@
             <div class="d-flex justify-content-between align-items-center">
                 <h1>{{ $emailDocContent['title'] ?? __('email_providers.title') }}</h1>
                 <div class="language-selector">
-                    <select class="form-select" onchange="window.location.href = '{{ route('admin.set.language') }}?lang=' + this.value">
-                        @foreach($availableLanguages as $code => $name)
-                            <option value="{{ $code }}" {{ $currentLanguage === $code ? 'selected' : '' }}>
-                                {{ $name }}
-                            </option>
-                        @endforeach
-                    </select>
+                    <form id="language-form" action="{{ route('admin.set.language') }}" method="POST" class="d-inline">
+                        @csrf
+                        <select class="form-select" name="locale" onchange="document.getElementById('language-form').submit()">
+                            @foreach($availableLanguages as $code => $name)
+                                <option value="{{ $code }}" {{ $currentLanguage === $code ? 'selected' : '' }}>
+                                    {{ $name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </form>
                 </div>
             </div>
         </div>

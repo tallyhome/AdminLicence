@@ -16,36 +16,92 @@ class VersionController extends Controller
     {
         $version = [
             'major' => 3,
-            'minor' => 1,
-            'patch' => 0,
+            'minor' => 3,
+            'patch' => 1,
             'release' => null,
             'full' => config('version.full')(),
-            'last_update' => '09/04/2025',
+            'last_update' => '10/04/2025',
         ];
         
         // Historique des versions
         $history = [
             [
-                'version' => '3.1.0',
+                'version' => '3.3.1',
+                'date' => '10/04/2025',
+                'description' => 'Corrections de bugs et améliorations mineures',
+                'categories' => [
+                    'Améliorations' => [
+                        'Optimisation des requêtes de base de données',
+                        'Amélioration de la gestion des sessions',
+                    ],
+                    'Corrections de bugs' => [
+                        'Correction des problèmes de timezone',
+                        'Correction des erreurs de validation des licences',
+                        'Correction des problèmes d\'affichage dans l\'interface',
+                    ],
+                ],
+            ],
+            [
+                'version' => '3.3.0',
                 'date' => '09/04/2025',
-                'description' => 'Amélioration du système de gestion des licences et de l\'interface',
+                'description' => 'Amélioration du système de gestion des licences',
                 'categories' => [
                     'Ajouts' => [
-                        'Nouveau système de gestion des licences avec support multi-projets',
+                        'Support des licences à durée limitée',
+                        'API v2 avec support des webhooks',
+                        'Système de notifications en temps réel',
+                    ],
+                    'Améliorations' => [
+                        'Refonte de l\'API pour de meilleures performances',
+                        'Amélioration du système de validation des licences',
+                        'Interface d\'administration plus réactive',
+                    ],
+                    'Corrections de bugs' => [
+                        'Correction des problèmes de validation des licences expirées',
+                        'Résolution des problèmes de performance de l\'API',
+                    ],
+                ],
+            ],
+            [
+                'version' => '3.2.0',
+                'date' => '08/04/2025',
+                'description' => 'Amélioration du système de gestion des projets',
+                'categories' => [
+                    'Ajouts' => [
+                        'Système de gestion des projets amélioré',
+                        'Interface de gestion des équipes',
+                        'Système de permissions avancé',
+                    ],
+                    'Améliorations' => [
+                        'Refonte de l\'interface utilisateur',
+                        'Optimisation des performances',
+                        'Système de recherche plus puissant',
+                    ],
+                    'Corrections de bugs' => [
+                        'Correction des problèmes de pagination',
+                        'Résolution des erreurs de validation',
+                    ],
+                ],
+            ],
+            [
+                'version' => '3.1.0',
+                'date' => '09/04/2025',
+                'description' => 'Amélioration du système de gestion des licences',
+                'categories' => [
+                    'Ajouts' => [
+                        'Support multi-projets',
                         'Interface de gestion des clés API améliorée',
                         'Système de journalisation des actions étendu',
                         'Support multilingue étendu (FR, EN, ZH, TR)',
                     ],
                     'Améliorations' => [
-                        'Refonte complète de l\'interface utilisateur',
+                        'Refonte de l\'interface utilisateur',
                         'Optimisation des performances de l\'API',
                         'Amélioration de la sécurité avec 2FA',
-                        'Meilleure gestion des erreurs et des exceptions',
                     ],
                     'Corrections de bugs' => [
                         'Correction des problèmes de validation des licences',
                         'Résolution des problèmes de cache',
-                        'Correction des erreurs d\'affichage dans l\'interface',
                         'Amélioration de la gestion des timeouts',
                     ],
                 ],

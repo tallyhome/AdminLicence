@@ -35,7 +35,7 @@ class RedirectIfNotInstalled
 
             return $next($request);
         } catch (\Exception $e) {
-            \Log::error('Erreur dans RedirectIfNotInstalled: ' . $e->getMessage());
+            Log::error('Erreur dans RedirectIfNotInstalled: ' . $e->getMessage());
             // Retourner une réponse JSON pour les requêtes API
             if ($request->expectsJson() || $request->is('api/*')) {
                 return response()->json(['error' => 'Erreur serveur'], 500);
@@ -92,11 +92,11 @@ class RedirectIfNotInstalled
                 
                 return true;
             } catch (\PDOException $e) {
-                \Log::error('Erreur de connexion à la base de données: ' . $e->getMessage());
+                Log::error('Erreur de connexion à la base de données: ' . $e->getMessage());
                 return false;
             }
         } catch (\Exception $e) {
-            \Log::error('Erreur lors de la vérification de l\'installation: ' . $e->getMessage());
+            Log::error('Erreur lors de la vérification de l\'installation: ' . $e->getMessage());
             return false;
         }
     }

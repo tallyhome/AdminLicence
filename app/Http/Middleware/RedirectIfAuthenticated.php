@@ -26,7 +26,7 @@ class RedirectIfAuthenticated
                     return redirect()->route('admin.dashboard');
                 }
                 // Pour tout autre type d'authentification, redirigez vers la page d'accueil
-                return redirect(RouteServiceProvider::HOME);
+                return redirect('/');
             }
         }
 

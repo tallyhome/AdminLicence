@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Routing\UrlGenerator;
+use Illuminate\Support\Facades\Log;
 
 class LoginRedirectServiceProvider extends ServiceProvider
 {
@@ -23,17 +24,16 @@ class LoginRedirectServiceProvider extends ServiceProvider
                 {
                     // Rediriger les routes spécifiques vers leurs équivalents admin
                     if ($name === 'login') {
-                        return '/admin/login';
+                        return url('/admin/login');
                     }
                     
-                    // Rediriger vers le tableau de bord admin si la route n'existe pas
+                    // Pour toutes les autres routes, utiliser le comportement normal
                     try {
                         return parent::route($name, $parameters, $absolute);
                     } catch (\Exception $e) {
-                        return route('admin.dashboard');
+                        Log::warning('Route not found: ' . $name);
+                        return url('/admin');
                     }
-                    
-                    return parent::route($name, $parameters, $absolute);
                 }
             };
         });
@@ -44,11 +44,9 @@ class LoginRedirectServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Définir explicitement la route 'login' qui redirige vers 'admin.login'
-        if (!Route::has('login')) {
-            Route::get('/login', function () {
-                return redirect()->to('/admin/login');
-            })->name('login');
-        }
+        // Définir explicitement la route 'login' qui redirige vers '/admin/login'
+        Route::get('/login', function () {
+            return redirect()->to('/admin/login');
+        })->name('login');
     }
 }

@@ -480,11 +480,14 @@
         "stats_read": "Lettura delle statistiche"
     },
     "settings": {
-        "title": "Impostazioni Generali",
+        "title": "Impostazioni generali",
         "general": {
-            "title": "Informazioni Generali",
-            "site_name": "Nome del Sito",
-            "site_description": "Descrizione del Sito"
+            "title": "Informazioni generali",
+            "site_name": "Nome del sito",
+            "site_description": "Descrizione del sito",
+            "contact_email": "Email di contatto",
+            "contact_name": "Nome del contatto",
+            "update_success": "Impostazioni aggiornate con successo"
         },
         "password": {
             "title": "Cambia Password",

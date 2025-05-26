@@ -43,14 +43,10 @@
         </div>
         <div class="card-body">
             <div class="accordion" id="translationsAccordion">
-                @php
-                    $groupedTranslations = $translations->groupBy(function($item) {
-                        $parts = explode('.', $item['key']);
-                        return $parts[0];
-                    });
-                @endphp
-
-                @foreach($groupedTranslations as $section => $sectionTranslations)
+                @foreach($sections as $section)
+                    @php
+                        $sectionTranslations = $groupedTranslations->get($section, collect([]));
+                    @endphp
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="heading{{ $section }}">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
@@ -117,7 +113,7 @@
             </div>
             <div class="d-flex justify-content-between align-items-center mt-3">
                 <div class="text-muted">
-                    {{ t('common.showing') }} {{ count($sectionTranslations) }} {{ t('common.of') }} {{ count($sectionTranslations) }} {{ t('translations.entries') }}
+                    {{ t('common.showing') }} {{ $sectionTranslations->count() }} {{ t('translations.entries') }}
                 </div>
             </div>
                             </div>

@@ -1,0 +1,17 @@
+{
+    "title": "Yönetici Girişi",
+    "welcome": "Hoş Geldiniz",
+    "app_name": "AdminLicence",
+    "subtitle": "Lisanslarınızı ve projelerinizi kolayca yönetin",
+    "login": "Giriş",
+    "email": "E-posta adresi",
+    "password": "Şifre",
+    "remember_me": "Beni hatırla",
+    "login_button": "Giriş yap",
+    "forgot_password": "Şifrenizi mi unuttunuz?",
+    "features": {
+        "secure_management": "Güvenli lisans yönetimi",
+        "tracking_analysis": "Kullanım izleme ve analiz",
+        "and_more": "Ve daha fazlası..."
+    }
+}

@@ -75,9 +75,13 @@ use Illuminate\Support\Facades\Auth;
                             <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-48 rounded-md shadow-lg">
                                 <div class="py-1 rounded-md bg-white shadow-xs">
                                     @foreach(get_available_locales() as $locale)
-                                    <a href="?lang={{ $locale }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out {{ app()->getLocale() == $locale ? 'bg-gray-100' : '' }}">
-                                        {{ t('language.'.$locale) }}
-                                    </a>
+                                    <form action="{{ route('admin.set.language') }}" method="POST" class="block">
+                                        @csrf
+                                        <input type="hidden" name="locale" value="{{ $locale }}">
+                                        <button type="submit" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out {{ app()->getLocale() == $locale ? 'bg-gray-100' : '' }}">
+                                            {{ t('language.'.$locale) }}
+                                        </button>
+                                    </form>
                                     @endforeach
                                 </div>
                             </div>

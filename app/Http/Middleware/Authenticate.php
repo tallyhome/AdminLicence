@@ -13,11 +13,17 @@ class Authenticate extends Middleware
      */
     protected function redirectTo(Request $request): ?string
     {
+        // Si la requête attend une réponse JSON, ne pas rediriger
         if ($request->expectsJson()) {
             return null;
         }
         
-        // Rediriger directement vers l'URL de connexion admin au lieu d'utiliser route()
-        return '/admin/login';
+        // Si c'est une route admin, rediriger vers la page de connexion admin
+        if ($request->is('admin*')) {
+            return route('admin.login');
+        }
+        
+        // Pour les routes frontend, ne jamais rediriger
+        return null;
     }
 }

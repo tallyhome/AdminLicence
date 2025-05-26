@@ -1,0 +1,17 @@
+{
+    "title": "Beheerder Inloggen",
+    "welcome": "Welkom bij",
+    "app_name": "AdminLicence",
+    "subtitle": "Beheer uw licenties en projecten met gemak",
+    "login": "Inloggen",
+    "email": "E-mailadres",
+    "password": "Wachtwoord",
+    "remember_me": "Onthoud mij",
+    "login_button": "Inloggen",
+    "forgot_password": "Wachtwoord vergeten?",
+    "features": {
+        "secure_management": "Veilig licentiebeheer",
+        "tracking_analysis": "Gebruiksopvolging en -analyse",
+        "and_more": "En nog veel meer..."
+    }
+}

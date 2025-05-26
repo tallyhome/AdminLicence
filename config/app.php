@@ -96,18 +96,18 @@ return [
     */
 
     'available_locales' => [
-        'en', // Anglais
         'fr', // Français
+        'en', // Anglais
         'es', // Espagnol
+        'ru', // Russe
         'de', // Allemand
         'it', // Italien
-        'pt', // Portugais
         'nl', // Néerlandais
-        'ru', // Russe
-        'zh', // Chinois
+        'pt', // Portugais
+        'ar', // Arabe
         'ja', // Japonais
         'tr', // Turc
-        'ar'  // Arabe
+        'zh', // Chinois
     ],
 
     /*
@@ -169,6 +169,7 @@ return [
         \App\Providers\AuthServiceProvider::class,
         \App\Providers\RouteServiceProvider::class,
         \App\Providers\LoginRedirectServiceProvider::class,
+        \App\Providers\TranslationServiceProvider::class,
 
         /*
          * Laravel Framework Service Providers...
@@ -229,5 +230,18 @@ return [
     */
 
     'version' => '2.0.0',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Asset URL
+    |--------------------------------------------------------------------------
+    |
+    | This URL is used to properly generate URLs for assets, including
+    | CSS files, JavaScript files, and image files.
+    |
+    */
+
+    'asset_url' => env('ASSET_URL'),
+    'mix_url' => env('MIX_URL', ''),
 
 ];

@@ -484,7 +484,10 @@
         "general": {
             "title": "General Information",
             "site_name": "Site Name",
-            "site_description": "Site Description"
+            "site_description": "Site Description",
+            "contact_email": "Contact Email",
+            "contact_name": "Contact Name",
+            "update_success": "Settings updated successfully"
         },
         "password": {
             "title": "Change Password",
@@ -561,10 +564,10 @@
                 "title": "Two-Factor Authentication Configuration",
                 "description": "Configure your two-factor authentication to enhance your account security"
             },
-            "status": {
+            "status_info": {
                 "disabled_message": "Two-factor authentication is currently disabled"
             },
-            "setup": {
+            "setup_steps": {
                 "step1": "Step 1: Scan the QR code",
                 "step2": "Step 2: Enter the verification code",
                 "step3": "Step 3: Confirm activation"
@@ -581,7 +584,7 @@
         "available_endpoints": "Available Endpoints",
         "integration_approaches": "Integration Approaches",
         "integration_examples": "Integration Examples",
-        "best_practices": "Best Practices",
+        "best_practices_title": "Best Practices",
         "introduction_text": "The AdminLicence API allows you to validate your users' licenses directly from your applications. It provides secure endpoints to verify serial keys and obtain dynamic codes to enhance security.",
         "introduction_security": "All requests must be made via HTTPS to ensure the security of transmitted data.",
         "authentication_text": "To use the API, you must have a valid API key. You can create and manage your API keys in the API Keys section of the admin interface.",
@@ -660,7 +663,7 @@
                 "Implement a caching mechanism to limit API calls"
             ]
         },
-        "support": {
+        "api_support": {
             "title": "Support",
             "description": "If you encounter any issues while integrating the API or have questions, please don't hesitate to contact our technical support team."
         }

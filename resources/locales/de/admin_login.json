@@ -1,0 +1,17 @@
+{
+    "title": "Administrator Anmeldung",
+    "welcome": "Willkommen bei",
+    "app_name": "AdminLicence",
+    "subtitle": "Verwalten Sie Ihre Lizenzen und Projekte mit Leichtigkeit",
+    "login": "Anmeldung",
+    "email": "E-Mail-Adresse",
+    "password": "Passwort",
+    "remember_me": "Angemeldet bleiben",
+    "login_button": "Anmelden",
+    "forgot_password": "Passwort vergessen?",
+    "features": {
+        "secure_management": "Sichere Lizenzverwaltung",
+        "tracking_analysis": "Nutzungsverfolgung und -analyse",
+        "and_more": "Und vieles mehr..."
+    }
+}

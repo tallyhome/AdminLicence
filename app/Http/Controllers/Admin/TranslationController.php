@@ -23,48 +23,71 @@ class TranslationController extends Controller
     {
         $languages = $this->translationService->getAvailableLocales();
         $selectedLang = $request->query('lang', $languages[0]);
-        $page = $request->query('page', 1);
-        $perPage = 500; // Augmentation pour afficher plus de traductions
         
-        $translations = [];
         $jsonPath = resource_path("locales/{$selectedLang}/translation.json");
         
-        if (File::exists($jsonPath)) {
-            $content = File::get($jsonPath);
-            $data = json_decode($content, true);
-            if ($data) {
-                // S'assurer que toutes les sections sont présentes
-                $requiredSections = [
-                    'common', 'layout', 'auth', 'dashboard', 'pagination', 
-                    'projects', 'serial_keys', 'api', 'email', 'subscription', 
-                    'language', 'install', 'translations', 'validation'
-                ];
-                
-                foreach ($requiredSections as $section) {
-                    if (!isset($data[$section])) {
-                        $data[$section] = [];
-                    }
-                }
-                
-                $flattenedData = $this->flattenArray($data);
-                $translations = collect($flattenedData)
-                    ->map(function ($value, $key) use ($selectedLang) {
-                        return [
-                            'key' => $key,
-                            'value' => $value,
-                            'lang' => $selectedLang
-                        ];
-                    })
-                    ->values();
-            }
+        if (!File::exists($jsonPath)) {
+            return view('admin.translations.index', [
+                'languages' => $languages,
+                'translations' => collect([]),
+                'sections' => []
+            ]);
         }
-        
-        return view('admin.translations.index', [
-            'languages' => $languages,
-            'translations' => $translations,
-            'currentPage' => 1,
-            'perPage' => count($translations)
-        ]);
+
+        try {
+            // Lecture du fichier JSON
+            $content = File::get($jsonPath);
+            $data = json_decode($content, true) ?: [];
+            
+            // S'assurer que toutes les sections sont présentes
+            $requiredSections = [
+                'common', 'layout', 'auth', 'dashboard', 'pagination',
+                'projects', 'serial_keys', 'api', 'email', 'subscription',
+                'language', 'install', 'translations', 'validation',
+                'messages', 'errors', 'permissions', 'settings'
+            ];
+            
+            foreach ($requiredSections as $section) {
+                if (!isset($data[$section])) {
+                    $data[$section] = [];
+                }
+            }
+            
+            // Aplatir les données par section
+            $translations = collect();
+            foreach ($data as $section => $sectionData) {
+                $flattenedSection = $this->flattenArray($sectionData, $section . '.');
+                foreach ($flattenedSection as $key => $value) {
+                    $translations->push([
+                        'key' => $key,
+                        'value' => $value,
+                        'lang' => $selectedLang,
+                        'section' => explode('.', $key)[0]
+                    ]);
+                }
+            }
+            
+            // Grouper par section
+            $groupedTranslations = $translations->groupBy('section');
+            
+            return view('admin.translations.index', [
+                'languages' => $languages,
+                'translations' => $translations,
+                'sections' => $requiredSections,
+                'groupedTranslations' => $groupedTranslations
+            ]);
+            
+        } catch (\Exception $e) {
+            report($e);
+            return view('admin.translations.index', [
+                'languages' => $languages,
+                'translations' => collect([]),
+                'currentPage' => 1,
+                'totalPages' => 1,
+                'perPage' => $perPage,
+                'error' => 'Erreur lors du chargement des traductions'
+            ]);
+        }
     }
 
     protected function flattenArray(array $array, $prefix = ''): array

@@ -1,28 +1,41 @@
 {
     "common": {
-        "dashboard": "لوحة التحكم",
-        "projects": "المشاريع",
-        "serial_keys": "مفاتيح التسلسل",
-        "api_keys": "مفاتيح واجهة برمجة التطبيقات",
-        "api_documentation": "توثيق واجهة برمجة التطبيقات",
-        "email": "البريد الإلكتروني",
-        "logout": "تسجيل الخروج",
-        "version": "الإصدار",
-        "save": "حفظ",
-        "cancel": "إلغاء",
-        "delete": "حذف",
-        "edit": "تعديل",
-        "create": "إنشاء",
-        "back": "رجوع",
-        "actions": "إجراءات",
-        "status": "الحالة",
-        "name": "الاسم",
-        "description": "الوصف",
-        "date": "التاريخ",
-        "success": "نجاح",
-        "error": "خطأ",
-        "warning": "تحذير",
-        "info": "معلومات",
+        "fields": {
+            "name": "الاسم",
+            "description": "الوصف",
+            "status": "الحالة",
+            "actions": "إجراءات",
+            "date": "التاريخ",
+            "email": "البريد الإلكتروني",
+            "version": "الإصدار",
+            "title": "العنوان"
+        },
+        "actions": {
+            "save": "حفظ",
+            "cancel": "إلغاء",
+            "delete": "حذف",
+            "edit": "تعديل",
+            "create": "إنشاء",
+            "back": "رجوع",
+            "submit": "إرسال",
+            "manage": "إدارة"
+        },
+        "navigation": {
+            "dashboard": "لوحة التحكم",
+            "projects": "المشاريع",
+            "serial_keys": "مفاتيح التسلسل",
+            "api_keys": "مفاتيح واجهة برمجة التطبيقات",
+            "api_documentation": "توثيق واجهة برمجة التطبيقات",
+            "logout": "تسجيل الخروج"
+        },
+        "status": {
+            "success": "نجاح",
+            "error": "خطأ",
+            "warning": "تحذير",
+            "info": "معلومات",
+            "active": "نشط",
+            "inactive": "غير نشط"
+        },
         "total": "Total",
         "next": "Next",
         "previous": "Previous",
@@ -112,58 +125,63 @@
         "total_keys": "إجمالي المفاتيح",
         "active_keys": "المفاتيح النشطة",
         "recent_activity": "النشاط الأخير",
-        "used_keys": "Used Keys",
-        "suspended_keys": "Suspended Keys",
-        "revoked_keys": "Revoked Keys",
-        "keys_usage_by_project": "Keys Usage by Project",
-        "available_keys": "Available Keys",
-        "keys_usage_last_30_days": "Keys Usage (Last 30 Days)",
-        "distribution_by_project": "Distribution by Project",
-        "used": "used",
-        "available": "available",
-        "low_stock": "Low Stock",
-        "sufficient_stock": "Sufficient Stock",
-        "no_keys": "No Keys",
-        "activations": "Activations",
-        "deactivations": "Deactivations",
-        "statistics": "Statistics",
-        "quick_actions": "Quick Actions",
-        "system_status": "System Status",
-        "last_login": "Last Login",
-        "recent_keys": "Recent Keys",
-        "projects_count": "Projects"
+        "used_keys": "المفاتيح المستخدمة",
+        "suspended_keys": "المفاتيح المعلقة",
+        "revoked_keys": "المفاتيح الملغاة",
+        "keys_usage_by_project": "استخدام المفاتيح حسب المشروع",
+        "available_keys": "المفاتيح المتاحة",
+        "keys_usage_last_30_days": "استخدام المفاتيح (آخر 30 يومًا)",
+        "distribution_by_project": "التوزيع حسب المشروع",
+        "used": "مستخدم",
+        "available": "متاح",
+        "low_stock": "مخزون منخفض",
+        "sufficient_stock": "مخزون كافٍ",
+        "no_keys": "لا توجد مفاتيح",
+        "activations": "التفعيلات",
+        "deactivations": "إلغاء التفعيل",
+        "statistics": "الإحصائيات",
+        "quick_actions": "إجراءات سريعة",
+        "system_status": "حالة النظام",
+        "last_login": "آخر تسجيل دخول",
+        "recent_keys": "المفاتيح الأخيرة",
+        "projects_count": "المشاريع"
     },
     "projects": {
         "title": "المشاريع",
-        "create_project": "إنشاء مشروع",
-        "edit_project": "تعديل المشروع",
-        "project_name": "اسم المشروع",
-        "project_description": "وصف المشروع",
-        "project_status": "حالة المشروع",
-        "active": "نشط",
-        "inactive": "غير نشط",
-        "no_projects": "لم يتم العثور على مشاريع",
-        "project": "Project",
-        "project_details": "Project Details",
-        "project_settings": "Project Settings",
-        "project_keys": "Project Keys",
-        "project_activity": "Project Activity",
-        "project_information": "Project Information",
-        "no_description": "No description",
-        "website_url": "Website URL",
-        "not_specified": "Not specified",
-        "creation_date": "Creation Date",
-        "last_update": "Last Update",
-        "delete_project": "Delete Project",
-        "delete_confirmation": "Are you sure you want to delete this project? This action is irreversible.",
-        "creation_form": "Creation Form",
-        "edit_form": "Edit Form",
-        "save_changes": "Save Changes",
-        "name": "Name",
-        "created_at": "Created at",
-        "actions": "Actions",
-        "create_new": "Create new project",
-        "details": "Project details",
+        "sections": {
+            "details": "تفاصيل المشروع",
+            "settings": "إعدادات المشروع",
+            "keys": "مفاتيح المشروع",
+            "activity": "نشاط المشروع",
+            "information": "معلومات المشروع"
+        },
+        "fields": {
+            "website_url": "رابط الموقع",
+            "creation_date": "تاريخ الإنشاء",
+            "last_update": "آخر تحديث"
+        },
+        "actions": {
+            "create_project": "إنشاء مشروع",
+            "edit_project": "تعديل المشروع",
+            "delete_project": "حذف المشروع",
+            "create_new": "إنشاء مشروع جديد"
+        },
+        "messages": {
+            "no_projects": "لم يتم العثور على مشاريع",
+            "no_description": "لا يوجد وصف",
+            "not_specified": "غير محدد",
+            "delete_confirmation": "هل أنت متأكد من حذف هذا المشروع؟ هذا الإجراء لا يمكن التراجع عنه."
+        },
+        "forms": {
+            "creation": {
+                "title": "نموذج الإنشاء",
+                "submit": "إنشاء المشروع"
+            },
+            "edit": {
+                "title": "نموذج التعديل",
+                "submit": "حفظ التغييرات"
+            }
+        },
         "management": "إدارة المشاريع",
         "new_project": "مشروع جديد",
         "license_keys": "مفاتيح الترخيص",
@@ -549,23 +567,22 @@
             "authy": "Authy",
             "last_used": "آخر استخدام",
             "never_used": "لم يتم استخدامه أبدًا",
-            "regenerate_warning": "تحذير: ستؤدي إعادة إنشاء رموز النسخ الاحتياطي إلى إبطال جميع الرموز السابقة. تأكد من حفظها في مكان آمن."
-        },
-        "two_factor": {
+            "regenerate_warning": "تحذير: ستؤدي إعادة إنشاء رموز النسخ الاحتياطي إلى إبطال جميع الرموز السابقة. تأكد من حفظها في مكان آمن.",
             "configuration": {
                 "title": "تكوين المصادقة الثنائية",
                 "description": "قم بتكوين المصادقة الثنائية لتعزيز أمان حسابك"
             },
-            "status": {
+            "status_info": {
                 "disabled_message": "المصادقة الثنائية معطلة حالياً"
             },
-            "setup": {
+            "setup_steps": {
                 "step1": "الخطوة 1: امسح رمز QR",
                 "step2": "الخطوة 2: أدخل رمز التحقق",
                 "step3": "الخطوة 3: تأكيد التفعيل"
             },
             "auth_code": "رمز المصادقة"
         }
+
     },
     "api_documentation": {
         "title": "توثيق API",
@@ -644,7 +661,7 @@
                 "description": "يتيح هذا المنهج دمج نظام الترخيص في تطبيقات الموبايل المطورة باستخدام Flutter."
             }
         },
-        "best_practices": {
+        "best_practices_api": {
             "title": "أفضل الممارسات",
             "items": [
                 "تخزين رموز JWT بشكل آمن",
@@ -655,7 +672,7 @@
                 "تنفيذ آلية التخزين المؤقت للحد من استدعاءات API"
             ]
         },
-        "support": {
+        "api_support": {
             "title": "الدعم",
             "description": "إذا واجهت مشاكل في تكامل API أو لديك أي أسئلة، فلا تتردد في الاتصال بفريق الدعم الفني لدينا."
         }

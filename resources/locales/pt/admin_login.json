@@ -1,0 +1,17 @@
+{
+    "title": "Login de Administrador",
+    "welcome": "Bem-vindo ao",
+    "app_name": "AdminLicence",
+    "subtitle": "Gerencie suas licenças e projetos com facilidade",
+    "login": "Login",
+    "email": "Endereço de e-mail",
+    "password": "Senha",
+    "remember_me": "Lembrar-me",
+    "login_button": "Entrar",
+    "forgot_password": "Esqueceu a senha?",
+    "features": {
+        "secure_management": "Gerenciamento seguro de licenças",
+        "tracking_analysis": "Rastreamento e análise de uso",
+        "and_more": "E muito mais..."
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "title": "管理者ログイン",
+    "welcome": "ようこそ",
+    "app_name": "AdminLicence",
+    "subtitle": "ライセンスとプロジェクトを簡単に管理",
+    "login": "ログイン",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "remember_me": "ログイン情報を記憶する",
+    "login_button": "ログイン",
+    "forgot_password": "パスワードをお忘れですか？",
+    "features": {
+        "secure_management": "安全なライセンス管理",
+        "tracking_analysis": "使用状況の追跡と分析",
+        "and_more": "その他多数の機能..."
+    }
+}

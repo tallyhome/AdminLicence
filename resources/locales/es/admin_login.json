@@ -1,0 +1,17 @@
+{
+    "title": "Inicio de Sesión del Administrador",
+    "welcome": "Bienvenido a",
+    "app_name": "AdminLicence",
+    "subtitle": "Administre sus licencias y proyectos con facilidad",
+    "login": "Iniciar sesión",
+    "email": "Dirección de correo electrónico",
+    "password": "Contraseña",
+    "remember_me": "Recordarme",
+    "login_button": "Iniciar sesión",
+    "forgot_password": "¿Olvidó su contraseña?",
+    "features": {
+        "secure_management": "Gestión segura de licencias",
+        "tracking_analysis": "Seguimiento y análisis de uso",
+        "and_more": "Y mucho más..."
+    }
+}

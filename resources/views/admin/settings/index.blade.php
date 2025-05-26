@@ -19,6 +19,68 @@
     @endif
 
     <div class="row">
+        <div class="col-12 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">{{ t('settings.general.title') }}</h3>
+                </div>
+                <div class="card-body">
+                    <form action="{{ route('admin.settings.update') }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        
+                        <div class="mb-3">
+                            <label for="site_name" class="form-label">{{ t('settings.general.site_name') }}</label>
+                            <input type="text" class="form-control @error('site_name') is-invalid @enderror" 
+                                   id="site_name" name="site_name" 
+                                   value="{{ old('site_name', $settings['site_name']) }}" required>
+                            @error('site_name')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="site_description" class="form-label">{{ t('settings.general.site_description') }}</label>
+                            <textarea class="form-control @error('site_description') is-invalid @enderror" 
+                                      id="site_description" name="site_description" 
+                                      rows="3">{{ old('site_description', $settings['site_description']) }}</textarea>
+                            @error('site_description')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="contact_email" class="form-label">{{ t('settings.general.contact_email') }}</label>
+                            <input type="email" class="form-control @error('contact_email') is-invalid @enderror" 
+                                   id="contact_email" name="contact_email" 
+                                   value="{{ old('contact_email', $settings['contact_email'] ?? '') }}" required>
+                            @error('contact_email')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="contact_name" class="form-label">{{ t('settings.general.contact_name') }}</label>
+                            <input type="text" class="form-control @error('contact_name') is-invalid @enderror" 
+                                   id="contact_name" name="contact_name" 
+                                   value="{{ old('contact_name', $settings['contact_name'] ?? '') }}" required>
+                            @error('contact_name')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> {{ t('common.save') }}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
 
 
         <!-- Changer le mot de passe -->

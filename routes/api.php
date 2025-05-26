@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\LicenceApiController;
+use App\Http\Controllers\Api\TranslationApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,9 @@ Route::get('/test', [LicenceApiController::class, 'test']);
 
 // Routes pour la validation des licences - Version directe (pour compatibilité)
 Route::post('/check-serial', [LicenceApiController::class, 'checkSerial']);
+
+// Route pour récupérer les traductions
+Route::get('/translations', [TranslationApiController::class, 'getTranslations']);
 
 // Routes pour la validation des licences - Version avec préfixe v1
 Route::prefix('v1')->group(function () {

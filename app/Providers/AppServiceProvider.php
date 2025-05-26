@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,11 +22,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Commenté pour éviter les boucles de redirection
-        // Définir la route 'login' au démarrage de l'application
-        // Cette approche garantit que la route existe avant que tout composant essaie de l'utiliser
-        // Route::get('/login', function () {
-        //     return redirect()->route('admin.login');
-        // })->name('login');
+        // Forcer HTTPS en production
+        if (config('app.env') === 'production') {
+            URL::forceScheme('https');
+        }
+        
+        // S'assurer que asset() utilise le bon URL (important pour les assets Vite/Mix)
+        if (config('app.mix_url')) {
+            URL::forceRootUrl(config('app.mix_url'));
+        }
+        
+        // Définir la longueur par défaut des chaînes de caractères dans MySQL
+        Schema::defaultStringLength(191);
     }
 }

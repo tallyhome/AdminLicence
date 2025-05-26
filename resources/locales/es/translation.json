@@ -140,8 +140,7 @@
         "results": "results"
     },
     "projects": {
-        "projects.title": "Gestión de Proyectos",
-        "title": "Proyectos",
+        "title": "Gestión de Proyectos",
         "create_project": "Crear Proyecto",
         "edit_project": "Editar Proyecto",
         "project_name": "Nombre del Proyecto",
@@ -173,10 +172,10 @@
         "create_new": "Crear Nuevo Proyecto",
         "details": "Detalles del Proyecto",
         "manage": "Gestionar",
-        "view": "Ver",
-        "edit": "Editar",
-        "delete": "Eliminar",
-        "status": "Estado",
+        "view_action": "Ver",
+        "edit_action": "Editar",
+        "delete_action": "Eliminar",
+        "status_label": "Estado",
         "success_create": "Proyecto creado con éxito",
         "success_update": "Proyecto actualizado con éxito",
         "success_delete": "Proyecto eliminado con éxito",
@@ -494,11 +493,14 @@
         "stats_read": "Lectura de estadísticas"
     },
     "settings": {
-        "title": "Configuración General",
+        "title": "Configuración general",
         "general": {
-            "title": "Información General",
-            "site_name": "Nombre del Sitio",
-            "site_description": "Descripción del Sitio"
+            "title": "Información general",
+            "site_name": "Nombre del sitio",
+            "site_description": "Descripción del sitio",
+            "contact_email": "Correo de contacto",
+            "contact_name": "Nombre de contacto",
+            "update_success": "Configuración actualizada correctamente"
         },
         "password": {
             "title": "Cambiar Contraseña",
@@ -548,7 +550,7 @@
             "regenerate_backup_codes": "Regenerar códigos de respaldo",
             "regenerate_backup_codes_description": "La regeneración de los códigos de respaldo invalidará todos los códigos anteriores.",
             "confirm_regenerate": "¿Estás seguro de que quieres regenerar los códigos de respaldo?",
-            "status": {
+            "status_values": {
                 "enabled": "Activada",
                 "disabled": "Desactivada"
             },
@@ -575,10 +577,10 @@
                 "title": "Configuración de autenticación de dos factores",
                 "description": "Configure su autenticación de dos factores para mejorar la seguridad de su cuenta"
             },
-            "status": {
+            "status_info": {
                 "disabled_message": "La autenticación de dos factores está actualmente desactivada"
             },
-            "setup": {
+            "setup_steps": {
                 "step1": "Paso 1: Escanee el código QR",
                 "step2": "Paso 2: Ingrese el código de verificación",
                 "step3": "Paso 3: Confirme la activación"
@@ -663,7 +665,7 @@
                 "description": "Este enfoque permite integrar el sistema de licencias en aplicaciones móviles desarrolladas con Flutter."
             }
         },
-        "best_practices": {
+        "best_practices_api": {
             "title": "Mejores Prácticas",
             "items": [
                 "Almacena los tokens JWT de forma segura",

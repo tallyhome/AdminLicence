@@ -1,0 +1,17 @@
+{
+    "title": "管理员登录",
+    "welcome": "欢迎使用",
+    "app_name": "AdminLicence",
+    "subtitle": "轻松管理您的许可证和项目",
+    "login": "登录",
+    "email": "电子邮件地址",
+    "password": "密码",
+    "remember_me": "记住我",
+    "login_button": "登录",
+    "forgot_password": "忘记密码？",
+    "features": {
+        "secure_management": "安全的许可证管理",
+        "tracking_analysis": "使用跟踪和分析",
+        "and_more": "以及更多..."
+    }
+}

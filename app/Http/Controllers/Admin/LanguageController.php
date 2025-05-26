@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Services\TranslationService;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Cookie;
 
 class LanguageController extends Controller
 {
@@ -26,15 +28,34 @@ class LanguageController extends Controller
     public function setLanguage(Request $request)
     {
         $locale = $request->input('locale');
+        $availableLocales = config('app.available_locales', ['en', 'fr', 'es', 'de', 'it', 'pt', 'nl', 'ru']);
         
-        if (!in_array($locale, config('app.available_locales', []))) {
+        if (!in_array($locale, $availableLocales)) {
             return redirect()->back()->with('error', t('language.invalid_locale'));
         }
 
-        app()->setLocale($locale);
-        session()->put('locale', $locale);
-        session()->save();
-
-        return redirect()->back()->with('success', t('language.changed_successfully'));
+        try {
+            // Définir la locale dans l'application
+            app()->setLocale($locale);
+            
+            // Stocker en session
+            session()->put('locale', $locale);
+            session()->save();
+            
+            // Créer un cookie durable (30 jours)
+            Cookie::queue('locale', $locale, 60 * 24 * 30);
+            
+            // Log pour le débogage
+            Log::debug('Langue changée en: ' . $locale);
+            
+            // Forcer la régénération de la session pour éviter les problèmes de cache
+            $request->session()->regenerate();
+            
+            // Rediriger vers la page précédente
+            return redirect()->back()->with('success', t('language.changed_successfully'));
+        } catch (\Exception $e) {
+            Log::error('Erreur lors du changement de langue: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Une erreur est survenue lors du changement de langue');
+        }
     }
 }

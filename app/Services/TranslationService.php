@@ -137,23 +137,49 @@ class TranslationService
             
             // Charger le fichier principal de traduction
             $path = resource_path('locales/' . $locale . '/translation.json');
+            
+            // Vérifier si le fichier existe
             if (File::exists($path)) {
-                $translations = json_decode(File::get($path), true) ?? [];
+                try {
+                    $content = File::get($path);
+                    $decoded = json_decode($content, true);
+                    
+                    // Vérifier si le JSON est valide
+                    if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                        $translations = $decoded;
+                    } else {
+                        \Log::error("Erreur de décodage JSON pour {$locale}/translation.json: " . json_last_error_msg());
+                        // Fallback vers l'anglais
+                        $translations = $this->loadFallbackTranslations();
+                    }
+                } catch (\Exception $e) {
+                    \Log::error("Exception lors du chargement de {$locale}/translation.json: " . $e->getMessage());
+                    // Fallback vers l'anglais
+                    $translations = $this->loadFallbackTranslations();
+                }
             } else {
                 // Fallback vers l'anglais si la traduction n'existe pas
-                $fallbackPath = resource_path('locales/en/translation.json');
-                if (File::exists($fallbackPath)) {
-                    $translations = json_decode(File::get($fallbackPath), true) ?? [];
-                }
+                $translations = $this->loadFallbackTranslations();
             }
             
             // Charger les fichiers de traduction supplémentaires
             $additionalFiles = File::glob(resource_path('locales/' . $locale . '/*.json'));
             foreach ($additionalFiles as $file) {
                 if (basename($file) !== 'translation.json') {
-                    $key = pathinfo($file, PATHINFO_FILENAME);
-                    $content = json_decode(File::get($file), true) ?? [];
-                    $translations[$key] = $content;
+                    try {
+                        $key = pathinfo($file, PATHINFO_FILENAME);
+                        $content = File::get($file);
+                        $decoded = json_decode($content, true);
+                        
+                        // Vérifier si le JSON est valide
+                        if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                            $translations[$key] = $decoded;
+                        } else {
+                            \Log::error("Erreur de décodage JSON pour {$locale}/{$key}.json: " . json_last_error_msg());
+                        }
+                    } catch (\Exception $e) {
+                        \Log::error("Exception lors du chargement de {$locale}/{$key}.json: " . $e->getMessage());
+                    }
                 }
             }
             
@@ -214,5 +240,76 @@ class TranslationService
             $languages[$locale] = $this->getLocaleName($locale);
         }
         return $languages;
+    }
+
+    /**
+     * Charge les traductions de fallback (anglais)
+     *
+     * @return array
+     */
+    protected function loadFallbackTranslations(): array
+    {
+        $fallbackLocale = config('app.fallback_locale', 'en');
+        $fallbackPath = resource_path('locales/' . $fallbackLocale . '/translation.json');
+        
+        try {
+            if (File::exists($fallbackPath)) {
+                $content = File::get($fallbackPath);
+                $decoded = json_decode($content, true);
+                
+                if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                    return $decoded;
+                }
+            }
+        } catch (\Exception $e) {
+            \Log::error("Exception lors du chargement des traductions de fallback: " . $e->getMessage());
+        }
+        
+        // Si tout échoue, retourner un tableau vide
+        return [];
+    }
+
+    /**
+     * Force le chargement des traductions depuis les fichiers JSON dans le dossier resources/lang
+     * 
+     * @param string $locale
+     * @return array
+     */
+    public function loadJsonTranslations(string $locale): array
+    {
+        try {
+            // Chemin principal : fichier JSON direct dans resources/lang
+            $path = resource_path('lang/' . $locale . '.json');
+            
+            // Utiliser le fallback en anglais si la langue spécifiée n'est pas disponible
+            if (!File::exists($path)) {
+                $locale = config('app.fallback_locale', 'en');
+                $path = resource_path('lang/' . $locale . '.json');
+            }
+            
+            $translations = [];
+            
+            // Charger le contenu du fichier
+            if (File::exists($path)) {
+                $content = File::get($path);
+                $translations = json_decode($content, true) ?? [];
+                
+                // Vider le cache et stocker les nouvelles traductions
+                $cacheKey = 'translations.' . $locale;
+                Cache::forget($cacheKey);
+                Cache::put($cacheKey, $translations, now()->addDay());
+                
+                // S'assurer que le translator est disponible avant d'appeler addJsonPath
+                if (app()->bound('translator')) {
+                    app('translator')->addJsonPath(resource_path('lang'));
+                }
+            }
+            
+            return $translations;
+        } catch (\Exception $e) {
+            // En cas d'erreur, retourner un tableau vide et logger l'erreur
+            \Log::error('Erreur lors du chargement des traductions: ' . $e->getMessage());
+            return [];
+        }
     }
 }

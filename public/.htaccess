@@ -5,6 +5,9 @@
 
     RewriteEngine On
 
+    # Rediriger la racine vers home.php
+    RewriteRule ^$ home.php [L]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

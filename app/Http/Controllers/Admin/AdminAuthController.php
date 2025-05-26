@@ -12,8 +12,24 @@ use Illuminate\Support\Str;
 
 class AdminAuthController extends Controller
 {
-    public function showLoginForm()
+    public function showLoginForm(Request $request)
     {
+        // Gestion du changement de langue directement dans la page de connexion
+        $locale = $request->query('locale');
+        
+        if ($locale) {
+            $availableLocales = config('app.available_locales', ['en', 'fr', 'es', 'de', 'it', 'pt', 'nl', 'ru', 'zh', 'ja', 'ar', 'tr']);
+            
+            if (in_array($locale, $availableLocales)) {
+                // Définir la langue dans l'application
+                app()->setLocale($locale);
+                
+                // Stocker la langue en session et cookie
+                session(['locale' => $locale]);
+                cookie()->queue('locale', $locale, 60 * 24 * 30); // Cookie valable 30 jours
+            }
+        }
+        
         return view('auth.admin-login');
     }
 

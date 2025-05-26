@@ -25,7 +25,10 @@ use Illuminate\Support\Facades\Route;
 // Routes d'authentification
 Route::middleware('guest:admin')->group(function () {
     Route::get('login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
+    // Route directe pour la connexion admin (accessible depuis le frontend)
+    Route::get('direct-login', [AdminAuthController::class, 'showLoginForm'])->name('direct.admin.login');
     Route::post('login', [AdminAuthController::class, 'login']);
+    Route::post('/', [AdminAuthController::class, 'login']); // Route POST explicite pour /admin
     
     // Routes de réinitialisation de mot de passe
     Route::get('password/reset', [AdminAuthController::class, 'showLinkRequestForm'])->name('admin.password.request');
@@ -168,7 +171,7 @@ Route::middleware('auth:admin')->group(function () {
     });
 
     // Route pour le changement de langue
-    Route::post('set-language', [LanguageController::class, 'setLanguage'])->name('admin.set.language');
+    Route::post('/set-language', [LanguageController::class, 'setLanguage'])->name('admin.set.language');
 
     // Routes pour la gestion des traductions
     Route::prefix('settings/translations')->name('admin.settings.translations.')->group(function () {

@@ -1,0 +1,17 @@
+{
+    "title": "Administrator Login",
+    "welcome": "Welcome to",
+    "app_name": "AdminLicence",
+    "subtitle": "Manage your licenses and projects with ease",
+    "login": "Login",
+    "email": "Email address",
+    "password": "Password",
+    "remember_me": "Remember me",
+    "login_button": "Log in",
+    "forgot_password": "Forgot password?",
+    "features": {
+        "secure_management": "Secure license management",
+        "tracking_analysis": "Usage tracking and analysis",
+        "and_more": "And much more..."
+    }
+}

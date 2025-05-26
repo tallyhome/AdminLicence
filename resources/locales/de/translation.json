@@ -484,7 +484,10 @@
         "general": {
             "title": "Allgemeine Informationen",
             "site_name": "Seitenname",
-            "site_description": "Seitenbeschreibung"
+            "site_description": "Seitenbeschreibung",
+            "contact_email": "Kontakt E-Mail",
+            "contact_name": "Kontaktname",
+            "update_success": "Einstellungen erfolgreich aktualisiert"
         },
         "password": {
             "title": "Passwort ändern",
@@ -561,10 +564,10 @@
                 "title": "Zwei-Faktor-Authentifizierung Konfiguration",
                 "description": "Konfigurieren Sie Ihre Zwei-Faktor-Authentifizierung, um die Sicherheit Ihres Kontos zu erhöhen"
             },
-            "status": {
+            "status_info": {
                 "disabled_message": "Die Zwei-Faktor-Authentifizierung ist derzeit deaktiviert"
             },
-            "setup": {
+            "setup_steps": {
                 "step1": "Schritt 1: QR-Code scannen",
                 "step2": "Schritt 2: Bestätigungscode eingeben",
                 "step3": "Schritt 3: Aktivierung bestätigen"

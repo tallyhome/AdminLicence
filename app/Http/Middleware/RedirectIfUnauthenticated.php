@@ -17,9 +17,7 @@ class RedirectIfUnauthenticated
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // Nous supprimons cette partie qui crée une redirection en boucle
-        // car la route login est déjà définie dans RouteServiceProvider et UrlServiceProvider
-        
+        // Toujours laisser passer la requête sans redirection
         return $next($request);
     }
 }

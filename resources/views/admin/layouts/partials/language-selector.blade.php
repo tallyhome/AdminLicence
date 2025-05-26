@@ -13,113 +13,15 @@ use Illuminate\Support\Facades\Session;
         {{ strtoupper($locale) }}
     </button>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown" style="min-width: 100px;">
-        <li>
-            <form action="{{ route('admin.set.language') }}" method="POST">
+        @foreach(config('app.available_locales', ['fr', 'en', 'es', 'de', 'it', 'pt', 'nl', 'ru', 'zh', 'ja', 'tr', 'ar']) as $locale)
+            <form action="{{ route('admin.set.language') }}" method="POST" class="block">
                 @csrf
-                <input type="hidden" name="locale" value="fr">
-                <button type="submit" class="dropdown-item d-flex align-items-center {{ $locale === 'fr' ? 'active' : '' }}">
-                    <span class="flag-icon flag-icon-fr me-2"></span> FR
+                <input type="hidden" name="locale" value="{{ $locale }}">
+                <button type="submit" class="dropdown-item d-flex align-items-center {{ app()->getLocale() == $locale ? 'active' : '' }}">
+                    <span class="flag-icon flag-icon-{{ $locale === 'en' ? 'gb' : $locale }} me-2"></span>
+                    {{ strtoupper($locale) }}
                 </button>
             </form>
-        </li>
-        <li>
-            <form action="{{ route('admin.set.language') }}" method="POST">
-                @csrf
-                <input type="hidden" name="locale" value="en">
-                <button type="submit" class="dropdown-item d-flex align-items-center {{ $locale === 'en' ? 'active' : '' }}">
-                    <span class="flag-icon flag-icon-gb me-2"></span> EN
-                </button>
-            </form>
-        </li>
-        <li>
-            <form action="{{ route('admin.set.language') }}" method="POST">
-                @csrf
-                <input type="hidden" name="locale" value="es">
-                <button type="submit" class="dropdown-item d-flex align-items-center {{ $locale === 'es' ? 'active' : '' }}">
-                    <span class="flag-icon flag-icon-es me-2"></span> ES
-                </button>
-            </form>
-        </li>
-        <li>
-            <form action="{{ route('admin.set.language') }}" method="POST">
-                @csrf
-                <input type="hidden" name="locale" value="de">
-                <button type="submit" class="dropdown-item d-flex align-items-center {{ $locale === 'de' ? 'active' : '' }}">
-                    <span class="flag-icon flag-icon-de me-2"></span> DE
-                </button>
-            </form>
-        </li>
-        <li>
-            <form action="{{ route('admin.set.language') }}" method="POST">
-                @csrf
-                <input type="hidden" name="locale" value="it">
-                <button type="submit" class="dropdown-item d-flex align-items-center {{ $locale === 'it' ? 'active' : '' }}">
-                    <span class="flag-icon flag-icon-it me-2"></span> IT
-                </button>
-            </form>
-        </li>
-        <li>
-            <form action="{{ route('admin.set.language') }}" method="POST">
-                @csrf
-                <input type="hidden" name="locale" value="pt">
-                <button type="submit" class="dropdown-item d-flex align-items-center {{ $locale === 'pt' ? 'active' : '' }}">
-                    <span class="flag-icon flag-icon-pt me-2"></span> PT
-                </button>
-            </form>
-        </li>
-        <li>
-            <form action="{{ route('admin.set.language') }}" method="POST">
-                @csrf
-                <input type="hidden" name="locale" value="nl">
-                <button type="submit" class="dropdown-item d-flex align-items-center {{ $locale === 'nl' ? 'active' : '' }}">
-                    <span class="flag-icon flag-icon-nl me-2"></span> NL
-                </button>
-            </form>
-        </li>
-        <li>
-            <form action="{{ route('admin.set.language') }}" method="POST">
-                @csrf
-                <input type="hidden" name="locale" value="ru">
-                <button type="submit" class="dropdown-item d-flex align-items-center {{ $locale === 'ru' ? 'active' : '' }}">
-                    <span class="flag-icon flag-icon-ru me-2"></span> RU
-                </button>
-            </form>
-        </li>
-        <li>
-            <form action="{{ route('admin.set.language') }}" method="POST">
-                @csrf
-                <input type="hidden" name="locale" value="zh">
-                <button type="submit" class="dropdown-item d-flex align-items-center {{ $locale === 'zh' ? 'active' : '' }}">
-                    <span class="flag-icon flag-icon-cn me-2"></span> ZH
-                </button>
-            </form>
-        </li>
-        <li>
-            <form action="{{ route('admin.set.language') }}" method="POST">
-                @csrf
-                <input type="hidden" name="locale" value="ja">
-                <button type="submit" class="dropdown-item d-flex align-items-center {{ $locale === 'ja' ? 'active' : '' }}">
-                    <span class="flag-icon flag-icon-jp me-2"></span> JA
-                </button>
-            </form>
-        </li>
-        <li>
-            <form action="{{ route('admin.set.language') }}" method="POST">
-                @csrf
-                <input type="hidden" name="locale" value="tr">
-                <button type="submit" class="dropdown-item d-flex align-items-center {{ $locale === 'tr' ? 'active' : '' }}">
-                    <span class="flag-icon flag-icon-tr me-2"></span> TR
-                </button>
-            </form>
-        </li>
-        <li>
-            <form action="{{ route('admin.set.language') }}" method="POST">
-                @csrf
-                <input type="hidden" name="locale" value="ar">
-                <button type="submit" class="dropdown-item d-flex align-items-center {{ $locale === 'ar' ? 'active' : '' }}">
-                    <span class="flag-icon flag-icon-sa me-2"></span> AR
-                </button>
-            </form>
-        </li>
+        @endforeach
     </ul>
 </div> 

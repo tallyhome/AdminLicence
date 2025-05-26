@@ -4,11 +4,19 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>AdminLicence</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+        
+        <!-- Scripts -->
+        <script>
+            function redirectToLogin() {
+                window.location.href = '/admin/login';
+                return false;
+            }
+        </script>
 
         <!-- Styles / Scripts -->
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
@@ -32,10 +40,11 @@
                         </a>
                     @else
                         <a
-                            href="{{ route('admin.login') }}"
+                            href="{{ url('/admin/login') }}"
                             class="inline-block dark:bg-[#eeeeec] dark:border-[#eeeeec] dark:text-[#1C1C1A] dark:hover:bg-white dark:hover:border-white hover:bg-black hover:border-black px-5 py-1.5 bg-[#1b1b18] rounded-sm border border-black text-white text-sm leading-normal"
+                            onclick="return redirectToLogin();"
                         >
-                            Log in
+                            Login
                         </a>
 
                         @if (Route::has('register'))

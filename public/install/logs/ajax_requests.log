@@ -1526,3 +1526,171 @@
     }
 }
 
+{
+    "time": "2025-05-26 20:27:57",
+    "request": {
+        "license_key": "5YS8-NIBM-PJGC-MWHY"
+    },
+    "server": {
+        "DOCUMENT_ROOT": "R:\\Adev\\200  -  test\\adminlicence\\public",
+        "REMOTE_ADDR": "127.0.0.1",
+        "REMOTE_PORT": "62403",
+        "SERVER_SOFTWARE": "PHP 8.2.12 Development Server",
+        "SERVER_PROTOCOL": "HTTP\/1.1",
+        "SERVER_NAME": "127.0.0.1",
+        "SERVER_PORT": "8000",
+        "REQUEST_URI": "\/install\/ajax\/verify_license.php",
+        "REQUEST_METHOD": "POST",
+        "SCRIPT_NAME": "\/install\/ajax\/verify_license.php",
+        "SCRIPT_FILENAME": "R:\\Adev\\200  -  test\\adminlicence\\public\\install\\ajax\\verify_license.php",
+        "PHP_SELF": "\/install\/ajax\/verify_license.php",
+        "HTTP_HOST": "127.0.0.1:8000",
+        "HTTP_USER_AGENT": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko\/20100101 Firefox\/138.0",
+        "HTTP_ACCEPT": "application\/json, text\/javascript, *\/*; q=0.01",
+        "HTTP_ACCEPT_LANGUAGE": "fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3",
+        "HTTP_ACCEPT_ENCODING": "gzip, deflate, br, zstd",
+        "CONTENT_TYPE": "application\/x-www-form-urlencoded; charset=UTF-8",
+        "HTTP_CONTENT_TYPE": "application\/x-www-form-urlencoded; charset=UTF-8",
+        "HTTP_X_REQUESTED_WITH": "XMLHttpRequest",
+        "CONTENT_LENGTH": "31",
+        "HTTP_CONTENT_LENGTH": "31",
+        "HTTP_ORIGIN": "http:\/\/127.0.0.1:8000",
+        "HTTP_DNT": "1",
+        "HTTP_CONNECTION": "keep-alive",
+        "HTTP_REFERER": "http:\/\/127.0.0.1:8000\/install\/index.php?lang=fr",
+        "HTTP_COOKIE": "locale=eyJpdiI6Im5oc0ZGRG1ZSjk0U1BpWGxkUEpZUmc9PSIsInZhbHVlIjoiOHQvVXhCQjBFMkt5Sm9CajNaeVNaMFZOM1UyMVJoeVFSMXNGSlRsREk2M0gwam0zZkZQbUk4ZXZIZ0U5UVl1NyIsIm1hYyI6ImQwYzE3MWY5ZGRlNTBjMjcyODBkNjAzZjI1YTdiZGNlYTNmMGQ2ZTBlYzkzODg5ZmZkYWQyZGIyYWVlZGRmZjUiLCJ0YWciOiIifQ%3D%3D; io=2G6p8qMg8xwIN3JpAAAD; TawkConnectionTime=0; PHPSESSID=hcsc3m94mlr88j37gd0i4rd5nd; __next_hmr_refresh_hash__=2752; XSRF-TOKEN=eyJpdiI6IjFmWTZpQldiWjRKNlBlSjY1SkxvdkE9PSIsInZhbHVlIjoieUFRYk1lbkZJNzR5RG9ndThjQWdZYUtDZ1JpWFJ0MzdReXg5NlRiRFVseStiQUp5QzVHTE5JWVZvQmMrRVhMeTZ1aHJ4RW0raU9oMFFpanNpWTJvRHNhMkcyWnQ5M2t3WkpnUXZSTUw2eG1NODRoR2xYTVpOaExIVEpCWnZMclciLCJtYWMiOiI5MDY2MTMxMDVjNzU3NWE3NzE2Y2IzZjEwZDg0ZWUxZTE4MWI4OTEyZjZkZDM1YjY5NmQ0MWE4MjJmZDRiN2ZlIiwidGFnIjoiIn0%3D; adminlicence_session=eyJpdiI6InZxOGo5eFZDMDRvSG94MDJQY2dRUXc9PSIsInZhbHVlIjoiazNJZG1nRzNaZFdmWVV2Wi9Ud01CWDl4V3F0QkFNTjUxQnVkWVA2TmdINU9IODdNTS9ybElMRGRvUzBqZldLUG5JYUo1OVlqTUtNU1BBZmhXeE5OVVNrU3hZVWowaXlGNDgxUWJ5WDhSWmsyMnFNbUgxREtRQ2RScHVlVXdqYlgiLCJtYWMiOiI2ZmI1Y2VlMGFjODVhNjY3MzllZjliNDRkM2NmMTNjNjhmZDhkNGEzYmNkYjlhNDI0ZjIyZWI0ZjJkZWU1ZDk4IiwidGFnIjoiIn0%3D",
+        "HTTP_SEC_FETCH_DEST": "empty",
+        "HTTP_SEC_FETCH_MODE": "cors",
+        "HTTP_SEC_FETCH_SITE": "same-origin",
+        "HTTP_PRIORITY": "u=0",
+        "REQUEST_TIME_FLOAT": 1748284077.813111,
+        "REQUEST_TIME": 1748284077
+    }
+}
+
+{
+    "time": "2025-05-26 20:28:24",
+    "request": {
+        "license_key": "5YS8-NIBM-PJGC-MWHY"
+    },
+    "server": {
+        "DOCUMENT_ROOT": "R:\\Adev\\200  -  test\\adminlicence\\public",
+        "REMOTE_ADDR": "127.0.0.1",
+        "REMOTE_PORT": "62453",
+        "SERVER_SOFTWARE": "PHP 8.2.12 Development Server",
+        "SERVER_PROTOCOL": "HTTP\/1.1",
+        "SERVER_NAME": "127.0.0.1",
+        "SERVER_PORT": "8000",
+        "REQUEST_URI": "\/install\/ajax\/verify_license.php",
+        "REQUEST_METHOD": "POST",
+        "SCRIPT_NAME": "\/install\/ajax\/verify_license.php",
+        "SCRIPT_FILENAME": "R:\\Adev\\200  -  test\\adminlicence\\public\\install\\ajax\\verify_license.php",
+        "PHP_SELF": "\/install\/ajax\/verify_license.php",
+        "HTTP_HOST": "127.0.0.1:8000",
+        "HTTP_USER_AGENT": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko\/20100101 Firefox\/138.0",
+        "HTTP_ACCEPT": "application\/json, text\/javascript, *\/*; q=0.01",
+        "HTTP_ACCEPT_LANGUAGE": "fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3",
+        "HTTP_ACCEPT_ENCODING": "gzip, deflate, br, zstd",
+        "CONTENT_TYPE": "application\/x-www-form-urlencoded; charset=UTF-8",
+        "HTTP_CONTENT_TYPE": "application\/x-www-form-urlencoded; charset=UTF-8",
+        "HTTP_X_REQUESTED_WITH": "XMLHttpRequest",
+        "CONTENT_LENGTH": "31",
+        "HTTP_CONTENT_LENGTH": "31",
+        "HTTP_ORIGIN": "http:\/\/127.0.0.1:8000",
+        "HTTP_DNT": "1",
+        "HTTP_CONNECTION": "keep-alive",
+        "HTTP_REFERER": "http:\/\/127.0.0.1:8000\/install\/index.php?lang=fr",
+        "HTTP_COOKIE": "locale=eyJpdiI6Im5oc0ZGRG1ZSjk0U1BpWGxkUEpZUmc9PSIsInZhbHVlIjoiOHQvVXhCQjBFMkt5Sm9CajNaeVNaMFZOM1UyMVJoeVFSMXNGSlRsREk2M0gwam0zZkZQbUk4ZXZIZ0U5UVl1NyIsIm1hYyI6ImQwYzE3MWY5ZGRlNTBjMjcyODBkNjAzZjI1YTdiZGNlYTNmMGQ2ZTBlYzkzODg5ZmZkYWQyZGIyYWVlZGRmZjUiLCJ0YWciOiIifQ%3D%3D; io=2G6p8qMg8xwIN3JpAAAD; TawkConnectionTime=0; PHPSESSID=hcsc3m94mlr88j37gd0i4rd5nd; __next_hmr_refresh_hash__=2752; XSRF-TOKEN=eyJpdiI6IjFmWTZpQldiWjRKNlBlSjY1SkxvdkE9PSIsInZhbHVlIjoieUFRYk1lbkZJNzR5RG9ndThjQWdZYUtDZ1JpWFJ0MzdReXg5NlRiRFVseStiQUp5QzVHTE5JWVZvQmMrRVhMeTZ1aHJ4RW0raU9oMFFpanNpWTJvRHNhMkcyWnQ5M2t3WkpnUXZSTUw2eG1NODRoR2xYTVpOaExIVEpCWnZMclciLCJtYWMiOiI5MDY2MTMxMDVjNzU3NWE3NzE2Y2IzZjEwZDg0ZWUxZTE4MWI4OTEyZjZkZDM1YjY5NmQ0MWE4MjJmZDRiN2ZlIiwidGFnIjoiIn0%3D; adminlicence_session=eyJpdiI6InZxOGo5eFZDMDRvSG94MDJQY2dRUXc9PSIsInZhbHVlIjoiazNJZG1nRzNaZFdmWVV2Wi9Ud01CWDl4V3F0QkFNTjUxQnVkWVA2TmdINU9IODdNTS9ybElMRGRvUzBqZldLUG5JYUo1OVlqTUtNU1BBZmhXeE5OVVNrU3hZVWowaXlGNDgxUWJ5WDhSWmsyMnFNbUgxREtRQ2RScHVlVXdqYlgiLCJtYWMiOiI2ZmI1Y2VlMGFjODVhNjY3MzllZjliNDRkM2NmMTNjNjhmZDhkNGEzYmNkYjlhNDI0ZjIyZWI0ZjJkZWU1ZDk4IiwidGFnIjoiIn0%3D",
+        "HTTP_SEC_FETCH_DEST": "empty",
+        "HTTP_SEC_FETCH_MODE": "cors",
+        "HTTP_SEC_FETCH_SITE": "same-origin",
+        "HTTP_PRIORITY": "u=0",
+        "REQUEST_TIME_FLOAT": 1748284104.361849,
+        "REQUEST_TIME": 1748284104
+    }
+}
+
+{
+    "time": "2025-05-26 20:28:26",
+    "request": {
+        "license_key": "5YS8-NIBM-PJGC-MWHY"
+    },
+    "server": {
+        "DOCUMENT_ROOT": "R:\\Adev\\200  -  test\\adminlicence\\public",
+        "REMOTE_ADDR": "127.0.0.1",
+        "REMOTE_PORT": "62460",
+        "SERVER_SOFTWARE": "PHP 8.2.12 Development Server",
+        "SERVER_PROTOCOL": "HTTP\/1.1",
+        "SERVER_NAME": "127.0.0.1",
+        "SERVER_PORT": "8000",
+        "REQUEST_URI": "\/install\/ajax\/verify_license.php",
+        "REQUEST_METHOD": "POST",
+        "SCRIPT_NAME": "\/install\/ajax\/verify_license.php",
+        "SCRIPT_FILENAME": "R:\\Adev\\200  -  test\\adminlicence\\public\\install\\ajax\\verify_license.php",
+        "PHP_SELF": "\/install\/ajax\/verify_license.php",
+        "HTTP_HOST": "127.0.0.1:8000",
+        "HTTP_USER_AGENT": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko\/20100101 Firefox\/138.0",
+        "HTTP_ACCEPT": "application\/json, text\/javascript, *\/*; q=0.01",
+        "HTTP_ACCEPT_LANGUAGE": "fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3",
+        "HTTP_ACCEPT_ENCODING": "gzip, deflate, br, zstd",
+        "CONTENT_TYPE": "application\/x-www-form-urlencoded; charset=UTF-8",
+        "HTTP_CONTENT_TYPE": "application\/x-www-form-urlencoded; charset=UTF-8",
+        "HTTP_X_REQUESTED_WITH": "XMLHttpRequest",
+        "CONTENT_LENGTH": "31",
+        "HTTP_CONTENT_LENGTH": "31",
+        "HTTP_ORIGIN": "http:\/\/127.0.0.1:8000",
+        "HTTP_DNT": "1",
+        "HTTP_CONNECTION": "keep-alive",
+        "HTTP_REFERER": "http:\/\/127.0.0.1:8000\/install\/index.php?lang=fr",
+        "HTTP_COOKIE": "locale=eyJpdiI6Im5oc0ZGRG1ZSjk0U1BpWGxkUEpZUmc9PSIsInZhbHVlIjoiOHQvVXhCQjBFMkt5Sm9CajNaeVNaMFZOM1UyMVJoeVFSMXNGSlRsREk2M0gwam0zZkZQbUk4ZXZIZ0U5UVl1NyIsIm1hYyI6ImQwYzE3MWY5ZGRlNTBjMjcyODBkNjAzZjI1YTdiZGNlYTNmMGQ2ZTBlYzkzODg5ZmZkYWQyZGIyYWVlZGRmZjUiLCJ0YWciOiIifQ%3D%3D; io=2G6p8qMg8xwIN3JpAAAD; TawkConnectionTime=0; PHPSESSID=hcsc3m94mlr88j37gd0i4rd5nd; __next_hmr_refresh_hash__=2752; XSRF-TOKEN=eyJpdiI6IjFmWTZpQldiWjRKNlBlSjY1SkxvdkE9PSIsInZhbHVlIjoieUFRYk1lbkZJNzR5RG9ndThjQWdZYUtDZ1JpWFJ0MzdReXg5NlRiRFVseStiQUp5QzVHTE5JWVZvQmMrRVhMeTZ1aHJ4RW0raU9oMFFpanNpWTJvRHNhMkcyWnQ5M2t3WkpnUXZSTUw2eG1NODRoR2xYTVpOaExIVEpCWnZMclciLCJtYWMiOiI5MDY2MTMxMDVjNzU3NWE3NzE2Y2IzZjEwZDg0ZWUxZTE4MWI4OTEyZjZkZDM1YjY5NmQ0MWE4MjJmZDRiN2ZlIiwidGFnIjoiIn0%3D; adminlicence_session=eyJpdiI6InZxOGo5eFZDMDRvSG94MDJQY2dRUXc9PSIsInZhbHVlIjoiazNJZG1nRzNaZFdmWVV2Wi9Ud01CWDl4V3F0QkFNTjUxQnVkWVA2TmdINU9IODdNTS9ybElMRGRvUzBqZldLUG5JYUo1OVlqTUtNU1BBZmhXeE5OVVNrU3hZVWowaXlGNDgxUWJ5WDhSWmsyMnFNbUgxREtRQ2RScHVlVXdqYlgiLCJtYWMiOiI2ZmI1Y2VlMGFjODVhNjY3MzllZjliNDRkM2NmMTNjNjhmZDhkNGEzYmNkYjlhNDI0ZjIyZWI0ZjJkZWU1ZDk4IiwidGFnIjoiIn0%3D",
+        "HTTP_SEC_FETCH_DEST": "empty",
+        "HTTP_SEC_FETCH_MODE": "cors",
+        "HTTP_SEC_FETCH_SITE": "same-origin",
+        "HTTP_PRIORITY": "u=0",
+        "REQUEST_TIME_FLOAT": 1748284106.158313,
+        "REQUEST_TIME": 1748284106
+    }
+}
+
+{
+    "time": "2025-05-26 20:28:29",
+    "request": {
+        "license_key": "5YS8-NIBM-PJGC-MWHY"
+    },
+    "server": {
+        "DOCUMENT_ROOT": "R:\\Adev\\200  -  test\\adminlicence\\public",
+        "REMOTE_ADDR": "127.0.0.1",
+        "REMOTE_PORT": "62477",
+        "SERVER_SOFTWARE": "PHP 8.2.12 Development Server",
+        "SERVER_PROTOCOL": "HTTP\/1.1",
+        "SERVER_NAME": "127.0.0.1",
+        "SERVER_PORT": "8000",
+        "REQUEST_URI": "\/install\/ajax\/verify_license.php",
+        "REQUEST_METHOD": "POST",
+        "SCRIPT_NAME": "\/install\/ajax\/verify_license.php",
+        "SCRIPT_FILENAME": "R:\\Adev\\200  -  test\\adminlicence\\public\\install\\ajax\\verify_license.php",
+        "PHP_SELF": "\/install\/ajax\/verify_license.php",
+        "HTTP_HOST": "127.0.0.1:8000",
+        "HTTP_USER_AGENT": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko\/20100101 Firefox\/138.0",
+        "HTTP_ACCEPT": "application\/json, text\/javascript, *\/*; q=0.01",
+        "HTTP_ACCEPT_LANGUAGE": "fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3",
+        "HTTP_ACCEPT_ENCODING": "gzip, deflate, br, zstd",
+        "CONTENT_TYPE": "application\/x-www-form-urlencoded; charset=UTF-8",
+        "HTTP_CONTENT_TYPE": "application\/x-www-form-urlencoded; charset=UTF-8",
+        "HTTP_X_REQUESTED_WITH": "XMLHttpRequest",
+        "CONTENT_LENGTH": "31",
+        "HTTP_CONTENT_LENGTH": "31",
+        "HTTP_ORIGIN": "http:\/\/127.0.0.1:8000",
+        "HTTP_DNT": "1",
+        "HTTP_CONNECTION": "keep-alive",
+        "HTTP_REFERER": "http:\/\/127.0.0.1:8000\/install",
+        "HTTP_COOKIE": "locale=eyJpdiI6Im5oc0ZGRG1ZSjk0U1BpWGxkUEpZUmc9PSIsInZhbHVlIjoiOHQvVXhCQjBFMkt5Sm9CajNaeVNaMFZOM1UyMVJoeVFSMXNGSlRsREk2M0gwam0zZkZQbUk4ZXZIZ0U5UVl1NyIsIm1hYyI6ImQwYzE3MWY5ZGRlNTBjMjcyODBkNjAzZjI1YTdiZGNlYTNmMGQ2ZTBlYzkzODg5ZmZkYWQyZGIyYWVlZGRmZjUiLCJ0YWciOiIifQ%3D%3D; io=2G6p8qMg8xwIN3JpAAAD; TawkConnectionTime=0; PHPSESSID=hcsc3m94mlr88j37gd0i4rd5nd; __next_hmr_refresh_hash__=2752; XSRF-TOKEN=eyJpdiI6IjFmWTZpQldiWjRKNlBlSjY1SkxvdkE9PSIsInZhbHVlIjoieUFRYk1lbkZJNzR5RG9ndThjQWdZYUtDZ1JpWFJ0MzdReXg5NlRiRFVseStiQUp5QzVHTE5JWVZvQmMrRVhMeTZ1aHJ4RW0raU9oMFFpanNpWTJvRHNhMkcyWnQ5M2t3WkpnUXZSTUw2eG1NODRoR2xYTVpOaExIVEpCWnZMclciLCJtYWMiOiI5MDY2MTMxMDVjNzU3NWE3NzE2Y2IzZjEwZDg0ZWUxZTE4MWI4OTEyZjZkZDM1YjY5NmQ0MWE4MjJmZDRiN2ZlIiwidGFnIjoiIn0%3D; adminlicence_session=eyJpdiI6InZxOGo5eFZDMDRvSG94MDJQY2dRUXc9PSIsInZhbHVlIjoiazNJZG1nRzNaZFdmWVV2Wi9Ud01CWDl4V3F0QkFNTjUxQnVkWVA2TmdINU9IODdNTS9ybElMRGRvUzBqZldLUG5JYUo1OVlqTUtNU1BBZmhXeE5OVVNrU3hZVWowaXlGNDgxUWJ5WDhSWmsyMnFNbUgxREtRQ2RScHVlVXdqYlgiLCJtYWMiOiI2ZmI1Y2VlMGFjODVhNjY3MzllZjliNDRkM2NmMTNjNjhmZDhkNGEzYmNkYjlhNDI0ZjIyZWI0ZjJkZWU1ZDk4IiwidGFnIjoiIn0%3D",
+        "HTTP_SEC_FETCH_DEST": "empty",
+        "HTTP_SEC_FETCH_MODE": "cors",
+        "HTTP_SEC_FETCH_SITE": "same-origin",
+        "HTTP_PRIORITY": "u=0",
+        "REQUEST_TIME_FLOAT": 1748284109.66038,
+        "REQUEST_TIME": 1748284109
+    }
+}
+

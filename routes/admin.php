@@ -43,10 +43,19 @@ Route::middleware('guest:admin')->group(function () {
     Route::post('2fa/recovery', [TwoFactorAuthController::class, 'useRecoveryCode']);
 });
 
-// Routes protégées
+// Routes de gestion de licence (accessibles sans vérification de licence)
 Route::middleware('auth:admin')->group(function () {
+    // Routes pour la gestion de licence
+    Route::get('settings/license', [\App\Http\Controllers\Admin\LicenseController::class, 'index'])->name('admin.settings.license');
+    Route::post('settings/license', [\App\Http\Controllers\Admin\LicenseController::class, 'updateSettings'])->name('admin.settings.license.update');
+    Route::get('settings/license/force-check', [\App\Http\Controllers\Admin\LicenseController::class, 'forceCheck'])->name('admin.settings.license.force-check');
+    
     // Déconnexion
     Route::post('logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
+});
+
+// Routes protégées nécessitant une licence valide
+Route::middleware(['auth:admin', \App\Http\Middleware\CheckLicenseMiddleware::class])->group(function () {
 
     // Tableau de bord
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
@@ -194,6 +203,8 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('settings', [SettingsController::class, 'index'])->name('admin.settings.index');
     Route::put('settings/general', [SettingsController::class, 'updateGeneral'])->name('admin.settings.update');
     Route::put('settings/profile', [SettingsController::class, 'updateProfile'])->name('admin.settings.update-profile');
+    
+    // Les routes de gestion de licence ont été déplacées en dehors du middleware check.license
     Route::put('settings/password', [SettingsController::class, 'updatePassword'])->name('admin.settings.update-password');
     Route::put('settings/favicon', [SettingsController::class, 'updateFavicon'])->name('admin.settings.update-favicon');
     Route::put('settings/dark-mode', [SettingsController::class, 'toggleDarkMode'])->name('admin.settings.toggle-dark-mode');

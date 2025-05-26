@@ -6,19 +6,52 @@ use App\Http\Controllers\Controller;
 use App\Models\SerialKey;
 use App\Models\Project;
 use App\Models\LicenceHistory;
+use App\Models\Setting;
+use App\Services\LicenceService;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 
 class DashboardController extends Controller
 {
     /**
+     * Service de licence
+     *
+     * @var LicenceService
+     */
+    protected $licenceService;
+
+    /**
+     * Constructeur du contrôleur
+     *
+     * @param LicenceService $licenceService
+     */
+    public function __construct(LicenceService $licenceService)
+    {
+        $this->licenceService = $licenceService;
+    }
+
+    /**
      * Afficher le tableau de bord avec les statistiques.
      *
      * @param Request $request
-     * @return \Illuminate\View\View
+     * @return \Illuminate\View\View|\Illuminate\Http\RedirectResponse
      */
     public function index(Request $request)
     {
+        // Vérification périodique de la licence d'installation
+        $redirect = $this->checkLicensePeriodically();
+        if ($redirect) {
+            return $redirect;
+        }
+        
+        // Vérifier si la licence est valide avant de continuer
+        $licenseValid = session('license_check_result', false);
+        if (!$licenseValid && !request()->is('admin/settings/license')) {
+            return redirect()->route('admin.settings.license')
+                ->with('error', 'Votre licence d\'installation n\'est pas valide ou n\'est pas configurée. Veuillez configurer une licence valide pour continuer à utiliser le système.');
+        }
+        
         // Récupérer les paramètres de pagination
         $perPage = $request->input('per_page', 10);
         $validPerPage = in_array($perPage, [10, 25, 50, 100, 500, 1000]) ? $perPage : 10;
@@ -108,5 +141,76 @@ class DashboardController extends Controller
         ];
 
         return response()->json($stats);
+    }
+    
+    /**
+     * Vérifie périodiquement la licence d'installation
+     *
+     * @return \Illuminate\Http\RedirectResponse|null
+     */
+    protected function checkLicensePeriodically()
+    {
+        // Utiliser le cache de session pour éviter les vérifications répétées lors des rafraîchissements
+        $sessionKey = 'license_check_session_' . session()->getId();
+        if (session()->has($sessionKey)) {
+            // Si déjà vérifié dans cette session, vérifier si la licence est valide
+            if (session()->has('license_check_result') && !session('license_check_result')) {
+                // Si la licence n'est pas valide et que nous ne sommes pas déjà sur la page de licence
+                if (!request()->is('admin/settings/license')) {
+                    return redirect()->route('admin.settings.license')
+                        ->with('error', 'Votre licence d\'installation n\'est pas valide ou n\'est pas configurée. Veuillez configurer une licence valide pour continuer à utiliser le système.');
+                }
+            }
+            return null;
+        }
+        
+        // Initialiser le compteur de visites si nécessaire
+        if (!session()->has('dashboard_visit_count')) {
+            session(['dashboard_visit_count' => 0]);
+        }
+        
+        // Incrémenter le compteur
+        $visitCount = session('dashboard_visit_count') + 1;
+        session(['dashboard_visit_count' => $visitCount]);
+        
+        // Récupérer la fréquence de vérification (par défaut: 1 fois sur 5)
+        $checkFrequency = \App\Models\Setting::get('license_check_frequency', 5);
+        
+        // Déterminer si une vérification est nécessaire
+        $shouldCheck = ($visitCount % $checkFrequency === 0);
+        
+        // Vérifier si le résultat est déjà en session
+        if (session()->has('license_check_result') && !$shouldCheck) {
+            $licenseValid = session('license_check_result');
+        } else {
+            // Effectuer la vérification de licence
+            $licenseValid = $this->licenceService->verifyInstallationLicense();
+            
+            // Stocker le résultat en session
+            session(['license_check_result' => $licenseValid]);
+            
+            // Mettre à jour le paramètre de dernière vérification
+            if (class_exists('\App\Models\Setting')) {
+                \App\Models\Setting::set('last_license_check', now()->toDateTimeString());
+                \App\Models\Setting::set('license_valid', $licenseValid);
+            }
+        }
+        
+        // Marquer comme vérifié pour cette session (valable pour la durée de la session)
+        session()->put($sessionKey, true);
+        
+        // Ajouter le résultat à la vue
+        view()->share('licenseValid', $licenseValid);
+        
+        // Si la licence n'est pas valide, rediriger vers la page de licence
+        if (!$licenseValid) {
+            // Vérifier si nous sommes déjà sur la page de licence pour éviter une redirection en boucle
+            if (!request()->is('admin/settings/license')) {
+                return redirect()->route('admin.settings.license')
+                    ->with('error', 'Votre licence d\'installation n\'est pas valide ou n\'est pas configurée. Veuillez configurer une licence valide pour continuer à utiliser le système.');
+            }
+        }
+        
+        return null;
     }
 }

@@ -20,6 +20,14 @@
 
 <?php $__env->startSection('content'); ?>
 <div class="container-fluid">
+    <?php if(session('license_warning')): ?>
+    <div class="alert alert-warning alert-dismissible fade show mb-4" role="alert">
+        <strong><i class="fas fa-exclamation-triangle"></i> <?php echo e(session('license_warning')); ?></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <?php endif; ?>
 
     <!-- <?php echo e(t('dashboard.statistics')); ?> -->
     <div class="row">

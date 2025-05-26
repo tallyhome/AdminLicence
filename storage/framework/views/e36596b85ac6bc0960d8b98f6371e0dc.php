@@ -288,6 +288,26 @@ unset($__errorArgs, $__bag); ?>
             </div>
         </div>
         
+        <!-- Gestion de licence -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Gestion de licence</h3>
+                </div>
+                <div class="card-body">
+                    <p class="mb-3">
+                        Gérez la licence d'installation de votre application AdminLicence et configurez les paramètres de vérification périodique.
+                    </p>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <a href="<?php echo e(route('admin.settings.license')); ?>" class="btn btn-primary">
+                            <i class="fas fa-key"></i> Gérer la licence
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <!-- Authentification à deux facteurs -->
         <div class="col-md-6 mb-4">
             <div class="card">

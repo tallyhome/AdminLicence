@@ -31,6 +31,9 @@
         <!-- Partie gauche -->
         <div class="login-left">
             <div class="login-header">
+                <div class="logo-container" style="text-align: center; margin-bottom: 20px;">
+                    <img src="<?php echo e(asset('images/logo.png')); ?>" alt="Logo" style="max-width: 150px; height: auto;">
+                </div>
                 <h1><span data-i18n="admin_login.welcome"><?php echo e(t('admin_login.welcome')); ?></span><br><span data-i18n="admin_login.app_name"><?php echo e(t('admin_login.app_name')); ?></span></h1>
                 <p><br><span data-i18n="admin_login.subtitle"><?php echo e(t('admin_login.subtitle')); ?></span></p>
             </div>

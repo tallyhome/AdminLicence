@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Log;
 
 class TranslationService
 {
@@ -148,12 +149,12 @@ class TranslationService
                     if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
                         $translations = $decoded;
                     } else {
-                        \Log::error("Erreur de décodage JSON pour {$locale}/translation.json: " . json_last_error_msg());
+                        Log::error("Erreur de décodage JSON pour {$locale}/translation.json: " . json_last_error_msg());
                         // Fallback vers l'anglais
                         $translations = $this->loadFallbackTranslations();
                     }
                 } catch (\Exception $e) {
-                    \Log::error("Exception lors du chargement de {$locale}/translation.json: " . $e->getMessage());
+                    Log::error("Exception lors du chargement de {$locale}/translation.json: " . $e->getMessage());
                     // Fallback vers l'anglais
                     $translations = $this->loadFallbackTranslations();
                 }
@@ -175,10 +176,10 @@ class TranslationService
                         if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
                             $translations[$key] = $decoded;
                         } else {
-                            \Log::error("Erreur de décodage JSON pour {$locale}/{$key}.json: " . json_last_error_msg());
+                            Log::error("Erreur de décodage JSON pour {$locale}/{$key}.json: " . json_last_error_msg());
                         }
                     } catch (\Exception $e) {
-                        \Log::error("Exception lors du chargement de {$locale}/{$key}.json: " . $e->getMessage());
+                        Log::error("Exception lors du chargement de {$locale}/{$key}.json: " . $e->getMessage());
                     }
                 }
             }
@@ -262,7 +263,7 @@ class TranslationService
                 }
             }
         } catch (\Exception $e) {
-            \Log::error("Exception lors du chargement des traductions de fallback: " . $e->getMessage());
+            Log::error("Exception lors du chargement des traductions de fallback: " . $e->getMessage());
         }
         
         // Si tout échoue, retourner un tableau vide
@@ -308,7 +309,7 @@ class TranslationService
             return $translations;
         } catch (\Exception $e) {
             // En cas d'erreur, retourner un tableau vide et logger l'erreur
-            \Log::error('Erreur lors du chargement des traductions: ' . $e->getMessage());
+            Log::error('Erreur lors du chargement des traductions: ' . $e->getMessage());
             return [];
         }
     }

@@ -147,7 +147,7 @@
             "name_label": "Projectnaam",
             "description_label": "Beschrijving",
             "website_url_label": "Website URL",
-            "website_url_placeholder": "https:\/\/example.com",
+            "website_url_placeholder": "https://example.com",
             "status_label": "Status",
             "status_active": "Actief",
             "status_inactive": "Inactief",
@@ -183,7 +183,7 @@
             "name_label": "Projectnaam",
             "description_label": "Beschrijving",
             "website_url_label": "Website URL",
-            "website_url_placeholder": "https:\/\/example.com",
+            "website_url_placeholder": "https://example.com",
             "status_label": "Status",
             "status_active": "Actief",
             "status_inactive": "Inactief",
@@ -510,7 +510,9 @@
             "regenerate_backup_codes_description": "Het opnieuw genereren van back-upcodes maakt alle eerdere codes ongeldig.",
             "confirm_regenerate": "Weet je zeker dat je de back-upcodes opnieuw wilt genereren?",
             "status": {
-                "disabled_message": "Twee-factor authenticatie is momenteel uitgeschakeld"
+                "disabled_message": "Twee-factor authenticatie is momenteel uitgeschakeld",
+                "disabled": "Uitgeschakeld",
+                "enabled": "Ingeschakeld"
             },
             "configure": "Configureren",
             "test": "Testen",
@@ -591,7 +593,7 @@
         "token_description": "Het JWT-token verkregen tijdens sleutelverificatie",
         "laravel": "Laravel",
         "javascript": "JavaScript",
-        "flutter": "Flutter\/Dart",
+        "flutter": "Flutter/Dart",
         "laravel_advantages": [
             "Native integratie met het Laravel-framework",
             "Gebruik van Laravel-beveiligingsfuncties",
@@ -601,7 +603,7 @@
         "javascript_advantages": [
             "Compatibel met alle moderne browsers",
             "Eenvoudig te integreren in frontend-applicaties",
-            "Ondersteuning voor promises en async\/await"
+            "Ondersteuning voor promises en async/await"
         ],
         "javascript_use_case": "Frontend webapplicaties, Node.js-applicaties",
         "flutter_advantages": [
@@ -621,7 +623,7 @@
                 "description": "Deze benadering gebruikt de Laravel HTTP-client voor een eenvoudigere en elegantere integratie in Laravel-projecten."
             },
             "flutter": {
-                "title": "Flutter\/Dart (Mobiele applicaties)",
+                "title": "Flutter/Dart (Mobiele applicaties)",
                 "description": "Deze benadering maakt het mogelijk om het licentiesysteem te integreren in mobiele applicaties ontwikkeld met Flutter."
             }
         },
@@ -634,6 +636,62 @@
         "page_title": "E-mailproviders Documentatie",
         "title": "E-mailproviders Documentatie",
         "not_available": "Documentatie is momenteel niet beschikbaar."
+    },
+    "settings_license": {
+        "license": {
+            "title": "Licentiebeheer",
+            "info_title": "Licentie-informatie",
+            "installation_key": "Installatie Licentiesleutel",
+            "copy_key": "Kopieer Sleutel",
+            "status": "Licentiestatus",
+            "status_label": "Status",
+            "valid": "Geldig",
+            "invalid": "Ongeldig",
+            "expiry_date": "Vervaldatum",
+            "expiry_date_label": "Vervaldatum",
+            "expires_on": "Verloopt op",
+            "last_check": "Laatste Controle",
+            "never": "Nooit",
+            "check_now": "Nu Controleren",
+            "details": "Licentiedetails",
+            "domain": "Domein",
+            "ip_address": "IP-adres",
+            "not_defined": "Niet gedefinieerd",
+            "status_active": "Actief",
+            "status_suspended": "Opgeschort",
+            "status_revoked": "Ingetrokken",
+            "no_details": "Geen gedetailleerde informatie beschikbaar voor deze licentiesleutel.",
+            "configuration": "Licentieconfiguratie",
+            "key_saved_in_env": "Deze sleutel wordt opgeslagen in het .env-bestand van uw applicatie.",
+            "env_not_exists": "Het .env-bestand bestaat nog niet. Het wordt automatisch aangemaakt.",
+            "save_settings": "Instellingen Opslaan",
+            "manual_verification": "Handmatige Verificatie",
+            "manual_verification_desc": "U kunt een onmiddellijke verificatie van de installatielicentie forceren. Dit zal de geldigheidsstatus en bijbehorende informatie bijwerken.",
+            "debug_info": "Debug Informatie",
+            "detected_value": "Gedetecteerde waarde",
+            "not_found": "Niet gevonden",
+            "http_code": "HTTP-code",
+            "raw_api_response": "Ruwe API-respons",
+            "no_response": "Geen respons",
+            "unviewable_format": "Niet-weergavebaar formaat",
+            "auto_dismiss_alerts": "Sluit waarschuwingen automatisch na 5 seconden",
+            "copied": "Gekopieerd!",
+            "no_license_key_configured": "Er is geen licentiesleutel geconfigureerd in het .env-bestand.",
+            "api_verification_error": "Fout tijdens directe API-verificatie",
+            "valid_via_direct_api": "Licentie geldig via directe API",
+            "invalid_via_direct_api": "Licentie ongeldig via directe API",
+            "status_detail": "Status: :status",
+            "expired_on": "verlopen op :date",
+            "expires_on_date": "verloopt op :date",
+            "expiry_detail": "Vervaldatum: :expiry",
+            "registered_domain": "Geregistreerd domein: :domain",
+            "registered_ip": "Geregistreerd IP-adres: :ip",
+            "license_valid": "De licentie is geldig.",
+            "api_valid_service_invalid": "De API geeft aan dat de licentie geldig is, maar de licentieservice beschouwt deze als ongeldig. Mogelijk configuratieprobleem.",
+            "license_invalid_with_api_message": "De licentie is niet geldig volgens de API en service. API-bericht: :message",
+            "license_details_header": "Licentiedetails:",
+            "verification_error": "Er is een fout opgetreden bij het verifiëren van de licentie: :error"
+        }
     },
     "licence_documentation": {
         "title": "Licentiedocumentatie",
@@ -659,7 +717,7 @@
                 "step1": "1. Maak een Service Provider",
                 "step2": "2. Maak een Licentieservice",
                 "step3": "3. Maak een configuratiebestand",
-                "step4": "4. Voeg de Service Provider toe aan config\/app.php"
+                "step4": "4. Voeg de Service Provider toe aan config/app.php"
             },
             "flutter": {
                 "title": "Installatie voor Flutter",

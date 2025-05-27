@@ -185,7 +185,7 @@
             "name_label": "Nom du projet",
             "description_label": "Description",
             "website_url_label": "URL du site",
-            "website_url_placeholder": "https:\/\/exemple.com",
+            "website_url_placeholder": "https://exemple.com",
             "status_label": "Statut",
             "status_active": "Actif",
             "status_inactive": "Inactif",
@@ -197,7 +197,7 @@
             "name_label": "Nom du projet",
             "description_label": "Description",
             "website_url_label": "URL du site",
-            "website_url_placeholder": "https:\/\/exemple.com",
+            "website_url_placeholder": "https://exemple.com",
             "status_label": "Statut",
             "status_active": "Actif",
             "status_inactive": "Inactif",
@@ -552,7 +552,9 @@
             "regenerate_backup_codes_description": "La régénération des codes de secours invalidera tous les codes précédents.",
             "confirm_regenerate": "Êtes-vous sûr de vouloir régénérer les codes de secours ?",
             "status": {
-                "disabled_message": "L'authentification à deux facteurs est actuellement désactivée"
+                "disabled_message": "L'authentification à deux facteurs est actuellement désactivée",
+                "disabled": "Désactivée",
+                "enabled": "Activée"
             },
             "configure": "Configurer",
             "test": "Tester",
@@ -633,7 +635,7 @@
         "token_description": "Le token JWT obtenu lors de la vérification de la clé",
         "laravel": "Laravel",
         "javascript": "JavaScript",
-        "flutter": "Flutter\/Dart",
+        "flutter": "Flutter/Dart",
         "laravel_advantages": [
             "Intégration native avec le framework Laravel",
             "Utilisation des fonctionnalités de sécurité de Laravel",
@@ -643,7 +645,7 @@
         "javascript_advantages": [
             "Compatible avec tous les navigateurs modernes",
             "Facile à intégrer dans les applications frontend",
-            "Support des promesses et async\/await"
+            "Support des promesses et async/await"
         ],
         "javascript_use_case": "Applications web frontend, applications Node.js",
         "flutter_advantages": [
@@ -663,7 +665,7 @@
                 "description": "Cette approche utilise le client HTTP de Laravel pour une intégration plus simple et élégante dans les projets Laravel."
             },
             "flutter": {
-                "title": "Flutter\/Dart (Applications mobiles)",
+                "title": "Flutter/Dart (Applications mobiles)",
                 "description": "Cette approche permet d'intégrer le système de licence dans des applications mobiles développées avec Flutter."
             }
         },
@@ -701,7 +703,7 @@
                 "step1": "1. Créez un Service Provider",
                 "step2": "2. Créez un Service de Licence",
                 "step3": "3. Créez un fichier de configuration",
-                "step4": "4. Ajoutez le Service Provider dans config\/app.php"
+                "step4": "4. Ajoutez le Service Provider dans config/app.php"
             },
             "flutter": {
                 "title": "Installation pour Flutter",
@@ -795,7 +797,7 @@
         "updates": "Gestion des mises à jour",
         "updates_desc": "Déployez et contrôlez les mises à jour de vos logiciels.",
         "security": "Sécurité avancée",
-        "security_desc": "Chiffrement, restrictions IP\/domaine, logs détaillés.",
+        "security_desc": "Chiffrement, restrictions IP/domaine, logs détaillés.",
         "integrations": "Intégrations",
         "integrations_desc": "Compatibilité avec PHP, Python, Node, et plus.",
         "support": "Support dédié",
@@ -823,6 +825,62 @@
         "a3": "Oui, l'API REST fonctionne avec tout langage moderne.",
         "q4": "Proposez-vous un support technique ?",
         "a4": "Oui, par email et via le dashboard."
+    },
+    "settings_license": {
+        "license": {
+            "title": "Gestion de licence",
+            "no_license_key_configured": "Aucune clé de licence n'est configurée dans le fichier .env.",
+            "api_verification_error": "Erreur lors de la vérification directe de l'API",
+            "valid_via_direct_api": "Licence valide via API directe",
+            "invalid_via_direct_api": "Licence invalide via API directe",
+            "status_detail": "Statut: :status",
+            "expired_on": "expirée le :date",
+            "expires_on_date": "expire le :date",
+            "expiry_detail": "Expiration: :expiry",
+            "registered_domain": "Domaine enregistré: :domain",
+            "registered_ip": "Adresse IP enregistrée: :ip",
+            "license_valid": "La licence est valide.",
+            "api_valid_service_invalid": "L'API indique que la licence est valide, mais le service de licence la considère comme invalide. Problème de configuration potentiel.",
+            "license_invalid_with_api_message": "La licence n'est pas valide selon l'API et le service. Message API: :message",
+            "license_details_header": "Détails de la licence :",
+            "verification_error": "Une erreur est survenue lors de la vérification de la licence: :error",
+            "info_title": "Informations de licence",
+            "installation_key": "Clé de licence d'installation",
+            "copy_key": "Copier la clé",
+            "status": "Statut de la licence",
+            "status_label": "Statut",
+            "valid": "Valide",
+            "invalid": "Non valide",
+            "expiry_date": "Date d'expiration",
+            "expiry_date_label": "Date d'expiration",
+            "expires_on": "Expire le",
+            "last_check": "Dernière vérification",
+            "never": "Jamais",
+            "check_now": "Vérifier maintenant",
+            "details": "Détails de la licence",
+            "domain": "Domaine",
+            "ip_address": "Adresse IP",
+            "not_defined": "Non défini",
+            "status_active": "Actif",
+            "status_suspended": "Suspendu",
+            "status_revoked": "Révoqué",
+            "no_details": "Aucune information détaillée disponible pour cette clé de licence.",
+            "configuration": "Configuration de la licence",
+            "key_saved_in_env": "Cette clé sera enregistrée dans le fichier .env de votre application.",
+            "env_not_exists": "Le fichier .env n'existe pas encore. Il sera créé automatiquement.",
+            "save_settings": "Enregistrer les paramètres",
+            "manual_verification": "Vérification manuelle",
+            "manual_verification_desc": "Vous pouvez forcer une vérification immédiate de la licence d'installation. Cela mettra à jour le statut de validité et les informations associées.",
+            "debug_info": "Informations de débogage",
+            "detected_value": "Valeur détectée",
+            "not_found": "Non trouvé",
+            "http_code": "Code HTTP",
+            "raw_api_response": "Réponse API brute",
+            "no_response": "Aucune réponse",
+            "unviewable_format": "Format non affichable",
+            "auto_dismiss_alerts": "Auto-dismiss des alertes après 5 secondes",
+            "copied": "Copié !"
+        }
     },
     "support": {
         "title": "Support et contact",

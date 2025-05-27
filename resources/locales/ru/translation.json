@@ -672,4 +672,67 @@
             "description": "Если у вас возникли проблемы с интеграцией API или есть вопросы, не стесняйтесь обращаться в нашу службу технической поддержки."
         }
     }
+    "settings_license": {
+        "license": {
+            "no_license_key_configured": "В файле .env не настроен лицензионный ключ.",
+            "api_verification_error": "Ошибка при прямой проверке API",
+            "valid_via_direct_api": "Лицензия действительна через прямой API",
+            "invalid_via_direct_api": "Лицензия недействительна через прямой API",
+            "status_detail": "Статус: :status",
+            "expired_on": "истек :date",
+            "expires_on_date": "истекает :date",
+            "expiry_detail": "Срок действия: :expiry",
+            "registered_domain": "Зарегистрированный домен: :domain",
+            "registered_ip": "Зарегистрированный IP-адрес: :ip",
+            "license_valid": "Лицензия действительна.",
+            "api_valid_service_invalid": "API указывает, что лицензия действительна, но служба лицензирования считает ее недействительной. Возможная проблема с конфигурацией.",
+            "license_invalid_with_api_message": "Лицензия недействительна согласно API и службе. Сообщение API: :message",
+            "license_details_header": "Сведения о лицензии:",
+            "verification_error": "Произошла ошибка при проверке лицензии: :error",
+
+    "title": "Управление лицензией",
+    "info_title": "Информация о лицензии",
+    "installation_key": "Ключ установочной лицензии",
+    "copy_key": "Копировать ключ",
+    "status": "Статус лицензии",
+    "status_label": "Статус",
+    "valid": "Действительна",
+    "invalid": "Недействительна",
+    "expiry_date": "Дата истечения срока",
+    "expiry_date_label": "Дата истечения срока",
+    "expires_on": "Истекает",
+    "last_check": "Последняя проверка",
+    "never": "Никогда",
+    "check_now": "Проверить сейчас",
+    "details": "Детали лицензии",
+    "domain": "Домен",
+    "ip_address": "IP-адрес",
+    "not_defined": "Не определено",
+    "status_active": "Активна",
+    "status_suspended": "Приостановлена",
+    "status_revoked": "Отозвана",
+    "no_details": "Для этого лицензионного ключа нет подробной информации.",
+    "configuration": "Настройка лицензии",
+    "key_saved_in_env": "Этот ключ будет сохранен в файле .env вашего приложения.",
+    "env_not_exists": "Файл .env еще не существует. Он будет создан автоматически.",
+    "save_settings": "Сохранить настройки",
+    "manual_verification": "Ручная проверка",
+    "manual_verification_desc": "Вы можете принудительно выполнить немедленную проверку установочной лицензии. Это обновит статус действительности и связанную информацию.",
+    "debug_info": "Отладочная информация",
+    "detected_value": "Обнаруженное значение",
+    "not_found": "Не найдено",
+    "http_code": "HTTP-код",
+    "raw_api_response": "Необработанный ответ API",
+    "no_response": "Нет ответа",
+    "unviewable_format": "Неотображаемый формат",
+    "auto_dismiss_alerts": "Автоматически закрывать оповещения через 5 секунд",
+    "copied": "Скопировано!"
+}
+    },
+,
+    "settings.two_factor.status.disabled": "Отключено"
+,
+    "settings.two_factor.status.enabled": "Включено"
+,
+    "language.changed_successfully": "Язык успешно изменен"
 }

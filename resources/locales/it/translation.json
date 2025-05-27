@@ -180,7 +180,7 @@
             "name_label": "Nome del Progetto",
             "description_label": "Descrizione",
             "website_url_label": "URL del Sito Web",
-            "website_url_placeholder": "https:\/\/example.com",
+            "website_url_placeholder": "https://example.com",
             "status_label": "Stato",
             "status_active": "Attivo",
             "status_inactive": "Inattivo",
@@ -216,7 +216,7 @@
             "name_label": "Nome del Progetto",
             "description_label": "Descrizione",
             "website_url_label": "URL del Sito Web",
-            "website_url_placeholder": "https:\/\/example.com",
+            "website_url_placeholder": "https://example.com",
             "status_label": "Stato",
             "status_active": "Attivo",
             "status_inactive": "Inattivo",
@@ -543,7 +543,9 @@
             "regenerate_backup_codes_description": "La rigenerazione dei codici di backup invaliderà tutti i codici precedenti.",
             "confirm_regenerate": "Sei sicuro di voler rigenerare i codici di backup?",
             "status": {
-                "disabled_message": "L'autenticazione a due fattori è attualmente disattivata"
+                "disabled_message": "L'autenticazione a due fattori è attualmente disattivata",
+                "disabled": "Disabilitata",
+                "enabled": "Abilitata"
             },
             "configure": "Configura",
             "test": "Testa",
@@ -624,7 +626,7 @@
         "token_description": "Il token JWT ottenuto durante la verifica della chiave",
         "laravel": "Laravel",
         "javascript": "JavaScript",
-        "flutter": "Flutter\/Dart",
+        "flutter": "Flutter/Dart",
         "laravel_advantages": [
             "Integrazione nativa con il framework Laravel",
             "Utilizzo delle funzionalità di sicurezza di Laravel",
@@ -634,7 +636,7 @@
         "javascript_advantages": [
             "Compatibile con tutti i browser moderni",
             "Facile da integrare nelle applicazioni frontend",
-            "Supporto per promesse e async\/await"
+            "Supporto per promesse e async/await"
         ],
         "javascript_use_case": "Applicazioni web frontend, applicazioni Node.js",
         "flutter_advantages": [
@@ -654,7 +656,7 @@
                 "description": "Questo approccio utilizza il client HTTP di Laravel per un'integrazione più semplice ed elegante nei progetti Laravel."
             },
             "flutter": {
-                "title": "Flutter\/Dart (Applicazioni mobili)",
+                "title": "Flutter/Dart (Applicazioni mobili)",
                 "description": "Questo approccio permette di integrare il sistema di licenze nelle applicazioni mobili sviluppate con Flutter."
             }
         },
@@ -667,6 +669,62 @@
         "page_title": "Documentazione dei Provider Email",
         "title": "Documentazione dei Provider Email",
         "not_available": "La documentazione non è disponibile al momento."
+    },
+    "settings_license": {
+        "license": {
+            "title": "Gestione Licenze",
+            "info_title": "Informazioni Licenza",
+            "installation_key": "Chiave di Licenza di Installazione",
+            "copy_key": "Copia Chiave",
+            "status": "Stato della Licenza",
+            "status_label": "Stato",
+            "valid": "Valida",
+            "invalid": "Non valida",
+            "expiry_date": "Data di Scadenza",
+            "expiry_date_label": "Data di Scadenza",
+            "expires_on": "Scade il",
+            "last_check": "Ultima Verifica",
+            "never": "Mai",
+            "check_now": "Verifica Ora",
+            "details": "Dettagli Licenza",
+            "domain": "Dominio",
+            "ip_address": "Indirizzo IP",
+            "not_defined": "Non definito",
+            "status_active": "Attiva",
+            "status_suspended": "Sospesa",
+            "status_revoked": "Revocata",
+            "no_details": "Nessuna informazione dettagliata disponibile per questa chiave di licenza.",
+            "configuration": "Configurazione Licenza",
+            "key_saved_in_env": "Questa chiave sarà salvata nel file .env della tua applicazione.",
+            "env_not_exists": "Il file .env non esiste ancora. Verrà creato automaticamente.",
+            "save_settings": "Salva Impostazioni",
+            "manual_verification": "Verifica Manuale",
+            "manual_verification_desc": "Puoi forzare una verifica immediata della licenza di installazione. Questo aggiornerà lo stato di validità e le informazioni associate.",
+            "debug_info": "Informazioni di Debug",
+            "detected_value": "Valore rilevato",
+            "not_found": "Non trovato",
+            "http_code": "Codice HTTP",
+            "raw_api_response": "Risposta API grezza",
+            "no_response": "Nessuna risposta",
+            "unviewable_format": "Formato non visualizzabile",
+            "auto_dismiss_alerts": "Chiudi automaticamente gli avvisi dopo 5 secondi",
+            "copied": "Copiato!",
+            "no_license_key_configured": "Nessuna chiave di licenza è configurata nel file .env.",
+            "api_verification_error": "Errore durante la verifica diretta dell'API",
+            "valid_via_direct_api": "Licenza valida tramite API diretta",
+            "invalid_via_direct_api": "Licenza non valida tramite API diretta",
+            "status_detail": "Stato: :status",
+            "expired_on": "scaduta il :date",
+            "expires_on_date": "scade il :date",
+            "expiry_detail": "Scadenza: :expiry",
+            "registered_domain": "Dominio registrato: :domain",
+            "registered_ip": "Indirizzo IP registrato: :ip",
+            "license_valid": "La licenza è valida.",
+            "api_valid_service_invalid": "L'API indica che la licenza è valida, ma il servizio di licenza la considera non valida. Potenziale problema di configurazione.",
+            "license_invalid_with_api_message": "La licenza non è valida secondo l'API e il servizio. Messaggio API: :message",
+            "license_details_header": "Dettagli della licenza:",
+            "verification_error": "Si è verificato un errore durante la verifica della licenza: :error"
+        }
     },
     "licence_documentation": {
         "title": "Documentazione delle Licenze",
@@ -692,7 +750,7 @@
                 "step1": "1. Crea un Service Provider",
                 "step2": "2. Crea un Servizio di Licenza",
                 "step3": "3. Crea un file di configurazione",
-                "step4": "4. Aggiungi il Service Provider a config\/app.php"
+                "step4": "4. Aggiungi il Service Provider a config/app.php"
             },
             "flutter": {
                 "title": "Installazione per Flutter",

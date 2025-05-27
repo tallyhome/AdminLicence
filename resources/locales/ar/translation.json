@@ -677,4 +677,67 @@
             "description": "إذا واجهت مشاكل في تكامل API أو لديك أي أسئلة، فلا تتردد في الاتصال بفريق الدعم الفني لدينا."
         }
     }
+    "settings_license": {
+        "license": {
+            "no_license_key_configured": "لم يتم تكوين مفتاح الترخيص في ملف .env.",
+            "api_verification_error": "خطأ أثناء التحقق المباشر من واجهة برمجة التطبيقات",
+            "valid_via_direct_api": "الترخيص صالح عبر واجهة برمجة التطبيقات المباشرة",
+            "invalid_via_direct_api": "الترخيص غير صالح عبر واجهة برمجة التطبيقات المباشرة",
+            "status_detail": "الحالة: :status",
+            "expired_on": "انتهت صلاحيته في :date",
+            "expires_on_date": "تنتهي صلاحيته في :date",
+            "expiry_detail": "انتهاء الصلاحية: :expiry",
+            "registered_domain": "النطاق المسجل: :domain",
+            "registered_ip": "عنوان IP المسجل: :ip",
+            "license_valid": "الترخيص صالح.",
+            "api_valid_service_invalid": "تشير واجهة برمجة التطبيقات إلى أن الترخيص صالح، لكن خدمة الترخيص تعتبره غير صالح. مشكلة تكوين محتملة.",
+            "license_invalid_with_api_message": "الترخيص غير صالح وفقًا لواجهة برمجة التطبيقات والخدمة. رسالة API: :message",
+            "license_details_header": "تفاصيل الترخيص:",
+            "verification_error": "حدث خطأ أثناء التحقق من الترخيص: :error",
+
+    "title": "إدارة الترخيص",
+    "info_title": "معلومات الترخيص",
+    "installation_key": "مفتاح ترخيص التثبيت",
+    "copy_key": "نسخ المفتاح",
+    "status": "حالة الترخيص",
+    "status_label": "الحالة",
+    "valid": "صالح",
+    "invalid": "غير صالح",
+    "expiry_date": "تاريخ انتهاء الصلاحية",
+    "expiry_date_label": "تاريخ انتهاء الصلاحية",
+    "expires_on": "ينتهي في",
+    "last_check": "آخر فحص",
+    "never": "أبدا",
+    "check_now": "تحقق الآن",
+    "details": "تفاصيل الترخيص",
+    "domain": "النطاق",
+    "ip_address": "عنوان IP",
+    "not_defined": "غير محدد",
+    "status_active": "نشط",
+    "status_suspended": "معلق",
+    "status_revoked": "ملغى",
+    "no_details": "لا توجد معلومات مفصلة متاحة لمفتاح الترخيص هذا.",
+    "configuration": "إعدادات الترخيص",
+    "key_saved_in_env": "سيتم حفظ هذا المفتاح في ملف .env الخاص بتطبيقك.",
+    "env_not_exists": "ملف .env غير موجود بعد. سيتم إنشاؤه تلقائيًا.",
+    "save_settings": "حفظ الإعدادات",
+    "manual_verification": "التحقق اليدوي",
+    "manual_verification_desc": "يمكنك فرض التحقق الفوري من ترخيص التثبيت. سيؤدي ذلك إلى تحديث حالة الصلاحية والمعلومات المرتبطة بها.",
+    "debug_info": "معلومات التصحيح",
+    "detected_value": "القيمة المكتشفة",
+    "not_found": "غير موجود",
+    "http_code": "رمز HTTP",
+    "raw_api_response": "استجابة API الخام",
+    "no_response": "لا توجد استجابة",
+    "unviewable_format": "تنسيق غير قابل للعرض",
+    "auto_dismiss_alerts": "إغلاق التنبيهات تلقائيًا بعد 5 ثوانٍ",
+    "copied": "تم النسخ!"
+}
+    },
+,
+    "settings.two_factor.status.disabled": "معطل"
+,
+    "settings.two_factor.status.enabled": "مفعل"
+,
+    "language.changed_successfully": "تم تغيير اللغة بنجاح"
 }

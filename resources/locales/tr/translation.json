@@ -644,4 +644,67 @@
             "description": "API entegrasyonunda sorun yaşıyorsanız veya sorularınız varsa, teknik destek ekibimizle iletişime geçmekten çekinmeyin."
         }
     }
+    "settings_license": {
+        "license": {
+            "no_license_key_configured": ".env dosyasında yapılandırılmış lisans anahtarı yok.",
+            "api_verification_error": "Doğrudan API doğrulaması sırasında hata",
+            "valid_via_direct_api": "Doğrudan API aracılığıyla geçerli lisans",
+            "invalid_via_direct_api": "Doğrudan API aracılığıyla geçersiz lisans",
+            "status_detail": "Durum: :status",
+            "expired_on": ":date tarihinde sona erdi",
+            "expires_on_date": ":date tarihinde sona eriyor",
+            "expiry_detail": "Son Kullanma: :expiry",
+            "registered_domain": "Kayıtlı alan adı: :domain",
+            "registered_ip": "Kayıtlı IP adresi: :ip",
+            "license_valid": "Lisans geçerlidir.",
+            "api_valid_service_invalid": "API, lisansın geçerli olduğunu gösteriyor, ancak lisans hizmeti bunu geçersiz olarak kabul ediyor. Olası yapılandırma sorunu.",
+            "license_invalid_with_api_message": "Lisans, API ve hizmete göre geçerli değil. API mesajı: :message",
+            "license_details_header": "Lisans ayrıntıları:",
+            "verification_error": "Lisans doğrulanırken bir hata oluştu: :error",
+
+    "title": "Lisans Yönetimi",
+    "info_title": "Lisans Bilgileri",
+    "installation_key": "Kurulum Lisans Anahtarı",
+    "copy_key": "Anahtarı Kopyala",
+    "status": "Lisans Durumu",
+    "status_label": "Durum",
+    "valid": "Geçerli",
+    "invalid": "Geçersiz",
+    "expiry_date": "Son Kullanma Tarihi",
+    "expiry_date_label": "Son Kullanma Tarihi",
+    "expires_on": "Sona erme tarihi",
+    "last_check": "Son Kontrol",
+    "never": "Hiçbir zaman",
+    "check_now": "Şimdi Kontrol Et",
+    "details": "Lisans Detayları",
+    "domain": "Alan Adı",
+    "ip_address": "IP Adresi",
+    "not_defined": "Tanımlanmamış",
+    "status_active": "Aktif",
+    "status_suspended": "Askıya Alınmış",
+    "status_revoked": "İptal Edilmiş",
+    "no_details": "Bu lisans anahtarı için ayrıntılı bilgi bulunmamaktadır.",
+    "configuration": "Lisans Yapılandırması",
+    "key_saved_in_env": "Bu anahtar uygulamanızın .env dosyasına kaydedilecektir.",
+    "env_not_exists": ".env dosyası henüz mevcut değil. Otomatik olarak oluşturulacaktır.",
+    "save_settings": "Ayarları Kaydet",
+    "manual_verification": "Manuel Doğrulama",
+    "manual_verification_desc": "Kurulum lisansının anında doğrulanmasını zorlayabilirsiniz. Bu, geçerlilik durumunu ve ilişkili bilgileri güncelleyecektir.",
+    "debug_info": "Hata Ayıklama Bilgileri",
+    "detected_value": "Algılanan değer",
+    "not_found": "Bulunamadı",
+    "http_code": "HTTP Kodu",
+    "raw_api_response": "Ham API Yanıtı",
+    "no_response": "Yanıt yok",
+    "unviewable_format": "Görüntülenemeyen format",
+    "auto_dismiss_alerts": "Uyarıları 5 saniye sonra otomatik kapat",
+    "copied": "Kopyalandı!"
+}
+    },
+,
+    "settings.two_factor.status.disabled": "Devre dışı"
+,
+    "settings.two_factor.status.enabled": "Etkin"
+,
+    "language.changed_successfully": "Dil başarıyla değiştirildi"
 }

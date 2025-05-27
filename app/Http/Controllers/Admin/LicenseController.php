@@ -83,12 +83,11 @@ class LicenseController extends Controller
     public function updateSettings(Request $request)
     {
         $request->validate([
-            'check_frequency' => 'required|integer|min:1|max:100',
             'license_key' => 'nullable|string|max:255'
         ]);
         
-        // Mettre à jour la fréquence de vérification
-        Setting::set('license_check_frequency', $request->input('check_frequency'), 'Fréquence de vérification de licence');
+        // Définir une valeur fixe pour la fréquence de vérification (non modifiable par l'utilisateur)
+        Setting::set('license_check_frequency', 5, 'Fréquence de vérification de licence');
         
         // Mettre à jour la clé de licence dans le fichier .env si fournie
         $licenseKey = $request->input('license_key');
@@ -109,7 +108,7 @@ class LicenseController extends Controller
         }
         
         return redirect()->route('admin.settings.license')
-            ->with('success', 'Les paramètres de vérification de licence ont été mis à jour avec succès.');
+            ->with('success', 'La clé de licence a été mise à jour avec succès.');
     }
     
     /**
@@ -137,7 +136,7 @@ class LicenseController extends Controller
             if (empty($licenseKey)) {
                 Log::warning('Aucune clé de licence configurée');
                 return redirect()->route('admin.settings.license')
-                    ->with('error', 'Aucune clé de licence n\'est configurée dans le fichier .env.');
+                    ->with('error', t('settings_license.license.no_license_key_configured'));
             }
             
             // Récupérer le domaine et l'adresse IP
@@ -217,7 +216,7 @@ class LicenseController extends Controller
             \App\Models\Setting::set('debug_api_http_code', (string)$httpCode);
             
             $directApiValid = false;
-            $apiMessage = 'Erreur lors de la vérification directe de l\'API';
+            $apiMessage = t('settings_license.license.api_verification_error');
             
             if ($response !== false) {
                 // Décoder la réponse JSON
@@ -329,9 +328,9 @@ class LicenseController extends Controller
                     
                     if (isset($decoded['status']) && ($decoded['status'] === 'success' || $decoded['status'] === true)) {
                         $directApiValid = true;
-                        $apiMessage = $decoded['message'] ?? 'Licence valide via API directe';
+                        $apiMessage = $decoded['message'] ?? t('settings_license.license.valid_via_direct_api');
                     } else {
-                        $apiMessage = $decoded['message'] ?? 'Licence invalide via API directe';
+                        $apiMessage = $decoded['message'] ?? t('settings_license.license.invalid_via_direct_api');
                     }
                 }
             }
@@ -364,15 +363,15 @@ class LicenseController extends Controller
                         $statusText = 'active';
                         break;
                     case 'suspended':
-                        $statusText = '<span class="text-warning">suspendue</span>';
+                        $statusText = 'suspendue';
                         break;
                     case 'revoked':
-                        $statusText = '<span class="text-danger">révoquée</span>';
+                        $statusText = 'révoquée';
                         break;
                     default:
                         $statusText = $licenseStatus;
                 }
-                $details[] = "Statut: {$statusText}";
+                $details[] = t('settings_license.license.status_detail', ['status' => $statusText]);
             }
             
             if ($expiryDate) {
@@ -381,36 +380,36 @@ class LicenseController extends Controller
                 $expired = $expiry < $now;
                 
                 $expiryText = $expired ? 
-                    '<span class="text-danger">expirée le ' . $expiry->format('d/m/Y') . '</span>' : 
-                    'expire le ' . $expiry->format('d/m/Y');
+                    t('settings_license.license.expired_on', ['date' => $expiry->format('d/m/Y')]) : 
+                    t('settings_license.license.expires_on_date', ['date' => $expiry->format('d/m/Y')]);
                     
-                $details[] = "Expiration: {$expiryText}";
+                $details[] = t('settings_license.license.expiry_detail', ['expiry' => $expiryText]);
             }
             
             if ($registeredDomain) {
-                $details[] = "Domaine enregistré: {$registeredDomain}";
+                $details[] = t('settings_license.license.registered_domain', ['domain' => $registeredDomain]);
             }
             
             if ($registeredIP) {
-                $details[] = "Adresse IP enregistrée: {$registeredIP}";
+                $details[] = t('settings_license.license.registered_ip', ['ip' => $registeredIP]);
             }
             
             // Message principal
             $message = '';
             
             if ($isValid) {
-                $message = 'La licence est valide.';
+                $message = t('settings_license.license.license_valid');
             } else {
                 if ($directApiValid) {
-                    $message = 'L\'API indique que la licence est valide, mais le service de licence la considère comme invalide. Problème de configuration potentiel.';
+                    $message = t('settings_license.license.api_valid_service_invalid');
                 } else {
-                    $message = 'La licence n\'est pas valide selon l\'API et le service. Message API: ' . $apiMessage;
+                    $message = t('settings_license.license.license_invalid_with_api_message', ['message' => $apiMessage]);
                 }
             }
             
             // Ajouter les détails si disponibles
             if (!empty($details)) {
-                $message .= '<br><br><strong>Détails de la licence :</strong><br>' . implode('<br>', $details);
+                $message .= "\n\n" . t('settings_license.license.license_details_header') . "\n" . implode("\n", $details);
             }
             
             // Stocker les informations pour la vue
@@ -431,7 +430,7 @@ class LicenseController extends Controller
             ]);
             
             return redirect()->route('admin.settings.license')
-                ->with('error', 'Une erreur est survenue lors de la vérification de la licence: ' . $e->getMessage());
+                ->with('error', t('settings_license.license.verification_error', ['error' => $e->getMessage()]));
         }
     }
     

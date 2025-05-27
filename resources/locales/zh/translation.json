@@ -161,7 +161,7 @@
             "name_label": "项目名称",
             "description_label": "描述",
             "website_url_label": "网站地址",
-            "website_url_placeholder": "https:\/\/example.com",
+            "website_url_placeholder": "https://example.com",
             "status_label": "状态",
             "status_active": "活动",
             "status_inactive": "非活动",
@@ -197,7 +197,7 @@
             "name_label": "项目名称",
             "description_label": "描述",
             "website_url_label": "网站URL",
-            "website_url_placeholder": "https:\/\/example.com",
+            "website_url_placeholder": "https://example.com",
             "status_label": "状态",
             "status_active": "激活",
             "status_inactive": "未激活",
@@ -371,6 +371,47 @@
             "title": "电子邮件提供商文档",
             "not_available": "文档目前不可用。"
         },
+        "settings_license": {
+            "license": {
+                "title": "许可证管理",
+                "info_title": "许可证信息",
+                "installation_key": "安装许可证密钥",
+                "copy_key": "复制密钥",
+                "status": "许可证状态",
+                "status_label": "状态",
+                "valid": "有效",
+                "invalid": "无效",
+                "expiry_date": "到期日期",
+                "expiry_date_label": "到期日期",
+                "expires_on": "到期于",
+                "last_check": "最后检查",
+                "never": "从未",
+                "check_now": "立即检查",
+                "details": "许可证详情",
+                "domain": "域名",
+                "ip_address": "IP地址",
+                "not_defined": "未定义",
+                "status_active": "活跃",
+                "status_suspended": "已暂停",
+                "status_revoked": "已撤销",
+                "no_details": "此许可证密钥没有可用的详细信息。",
+                "configuration": "许可证配置",
+                "key_saved_in_env": "此密钥将保存在您应用程序的.env文件中。",
+                "env_not_exists": ".env文件尚不存在。它将自动创建。",
+                "save_settings": "保存设置",
+                "manual_verification": "手动验证",
+                "manual_verification_desc": "您可以强制立即验证安装许可证。这将更新有效性状态和相关信息。",
+                "debug_info": "调试信息",
+                "detected_value": "检测到的值",
+                "not_found": "未找到",
+                "http_code": "HTTP代码",
+                "raw_api_response": "原始API响应",
+                "no_response": "无响应",
+                "unviewable_format": "不可查看的格式",
+                "auto_dismiss_alerts": "5秒后自动关闭警报",
+                "copied": "已复制！"
+            }
+        },
         "licence_documentation": "密钥文档",
         "email_providers_documentation": "邮件提供商文档",
         "saas_documentation": "多租户SaaS文档",
@@ -542,7 +583,9 @@
             "regenerate_backup_codes_description": "重新生成备用码将使所有之前的代码失效。",
             "confirm_regenerate": "您确定要重新生成备用码吗？",
             "status": {
-                "disabled_message": "双重认证当前已禁用"
+                "disabled_message": "双重认证当前已禁用",
+                "disabled": "已禁用",
+                "enabled": "已启用"
             },
             "configure": "配置",
             "test": "测试",
@@ -623,7 +666,7 @@
         "token_description": "在密钥验证期间获取的 JWT 令牌",
         "laravel": "Laravel",
         "javascript": "JavaScript",
-        "flutter": "Flutter\/Dart",
+        "flutter": "Flutter/Dart",
         "laravel_advantages": [
             "与 Laravel 框架原生集成",
             "利用 Laravel 安全功能",
@@ -633,7 +676,7 @@
         "javascript_advantages": [
             "与所有现代浏览器兼容",
             "易于集成到前端应用程序",
-            "支持 Promise 和 async\/await"
+            "支持 Promise 和 async/await"
         ],
         "javascript_use_case": "前端 Web 应用程序、Node.js 应用程序",
         "flutter_advantages": [
@@ -653,13 +696,32 @@
                 "description": "此方法使用 Laravel HTTP 客户端，在 Laravel 项目中实现更简单和优雅的集成。"
             },
             "flutter": {
-                "title": "Flutter\/Dart（移动应用程序）",
+                "title": "Flutter/Dart（移动应用程序）",
                 "description": "此方法允许将许可证系统集成到使用 Flutter 开发的移动应用程序中。"
             }
         },
         "support": {
             "title": "支持",
             "description": "如果您在集成 API 时遇到问题或有任何疑问，请随时联系我们的技术支持团队。"
+        }
+    },
+    "settings_license": {
+        "license": {
+            "no_license_key_configured": ".env文件中未配置许可证密钥。",
+            "api_verification_error": "直接API验证期间出错",
+            "valid_via_direct_api": "通过直接API有效的许可证",
+            "invalid_via_direct_api": "通过直接API无效的许可证",
+            "status_detail": "状态：:status",
+            "expired_on": "已于:date过期",
+            "expires_on_date": "将于:date过期",
+            "expiry_detail": "到期：:expiry",
+            "registered_domain": "注册域名：:domain",
+            "registered_ip": "注册IP地址：:ip",
+            "license_valid": "许可证有效。",
+            "api_valid_service_invalid": "API表明许可证有效，但许可证服务认为它无效。可能存在配置问题。",
+            "license_invalid_with_api_message": "根据API和服务，许可证无效。API消息：:message",
+            "license_details_header": "许可证详情：",
+            "verification_error": "验证许可证时发生错误：:error"
         }
     }
 }

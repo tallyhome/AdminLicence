@@ -180,7 +180,7 @@
             "name_label": "Projektname",
             "description_label": "Beschreibung",
             "website_url_label": "Website-URL",
-            "website_url_placeholder": "https:\/\/example.com",
+            "website_url_placeholder": "https://example.com",
             "status_label": "Status",
             "status_active": "Aktiv",
             "status_inactive": "Inaktiv",
@@ -216,7 +216,7 @@
             "name_label": "Projektname",
             "description_label": "Beschreibung",
             "website_url_label": "Website-URL",
-            "website_url_placeholder": "https:\/\/example.com",
+            "website_url_placeholder": "https://example.com",
             "status_label": "Status",
             "status_active": "Aktiv",
             "status_inactive": "Inaktiv",
@@ -629,7 +629,7 @@
         "token_description": "Das während der Schlüsselüberprüfung erhaltene JWT-Token",
         "laravel": "Laravel",
         "javascript": "JavaScript",
-        "flutter": "Flutter\/Dart",
+        "flutter": "Flutter/Dart",
         "laravel_advantages": [
             "Native Integration mit dem Laravel-Framework",
             "Nutzung der Laravel-Sicherheitsfunktionen",
@@ -639,7 +639,7 @@
         "javascript_advantages": [
             "Kompatibel mit allen modernen Browsern",
             "Einfach in Frontend-Anwendungen zu integrieren",
-            "Unterstützung für Promises und async\/await"
+            "Unterstützung für Promises und async/await"
         ],
         "javascript_use_case": "Frontend-Webanwendungen, Node.js-Anwendungen",
         "flutter_advantages": [
@@ -659,7 +659,7 @@
                 "description": "Dieser Ansatz verwendet den Laravel HTTP-Client für eine einfachere und elegantere Integration in Laravel-Projekte."
             },
             "flutter": {
-                "title": "Flutter\/Dart (Mobilanwendungen)",
+                "title": "Flutter/Dart (Mobilanwendungen)",
                 "description": "Dieser Ansatz ermöglicht die Integration des Lizenzsystems in mit Flutter entwickelte Mobilanwendungen."
             }
         },
@@ -672,6 +672,62 @@
         "page_title": "Dokumentation der E-Mail-Anbieter",
         "title": "Dokumentation der E-Mail-Anbieter",
         "not_available": "Die Dokumentation ist derzeit nicht verfügbar."
+    },
+    "settings_license": {
+        "license": {
+            "title": "Lizenzverwaltung",
+            "info_title": "Lizenzinformationen",
+            "installation_key": "Installations-Lizenzschlüssel",
+            "copy_key": "Schlüssel kopieren",
+            "status": "Lizenzstatus",
+            "status_label": "Status",
+            "valid": "Gültig",
+            "invalid": "Ungültig",
+            "expiry_date": "Ablaufdatum",
+            "expiry_date_label": "Ablaufdatum",
+            "expires_on": "Läuft ab am",
+            "last_check": "Letzte Überprüfung",
+            "never": "Nie",
+            "check_now": "Jetzt überprüfen",
+            "details": "Lizenzdetails",
+            "domain": "Domain",
+            "ip_address": "IP-Adresse",
+            "not_defined": "Nicht definiert",
+            "status_active": "Aktiv",
+            "status_suspended": "Ausgesetzt",
+            "status_revoked": "Widerrufen",
+            "no_details": "Für diesen Lizenzschlüssel sind keine detaillierten Informationen verfügbar.",
+            "configuration": "Lizenzkonfiguration",
+            "key_saved_in_env": "Dieser Schlüssel wird in der .env-Datei Ihrer Anwendung gespeichert.",
+            "env_not_exists": "Die .env-Datei existiert noch nicht. Sie wird automatisch erstellt.",
+            "save_settings": "Einstellungen speichern",
+            "manual_verification": "Manuelle Überprüfung",
+            "manual_verification_desc": "Sie können eine sofortige Überprüfung der Installationslizenz erzwingen. Dies aktualisiert den Gültigkeitsstatus und die zugehörigen Informationen.",
+            "debug_info": "Debug-Informationen",
+            "detected_value": "Erkannter Wert",
+            "not_found": "Nicht gefunden",
+            "http_code": "HTTP-Code",
+            "raw_api_response": "Rohe API-Antwort",
+            "no_response": "Keine Antwort",
+            "unviewable_format": "Nicht anzeigbares Format",
+            "auto_dismiss_alerts": "Benachrichtigungen nach 5 Sekunden automatisch ausblenden",
+            "copied": "Kopiert!",
+            "no_license_key_configured": "In der .env-Datei ist kein Lizenzschlüssel konfiguriert.",
+            "api_verification_error": "Fehler bei der direkten API-Überprüfung",
+            "valid_via_direct_api": "Lizenz über direkte API gültig",
+            "invalid_via_direct_api": "Lizenz über direkte API ungültig",
+            "status_detail": "Status: :status",
+            "expired_on": "abgelaufen am :date",
+            "expires_on_date": "läuft ab am :date",
+            "expiry_detail": "Ablauf: :expiry",
+            "registered_domain": "Registrierte Domain: :domain",
+            "registered_ip": "Registrierte IP-Adresse: :ip",
+            "license_valid": "Die Lizenz ist gültig.",
+            "api_valid_service_invalid": "Die API zeigt an, dass die Lizenz gültig ist, aber der Lizenzdienst betrachtet sie als ungültig. Mögliches Konfigurationsproblem.",
+            "license_invalid_with_api_message": "Die Lizenz ist laut API und Dienst nicht gültig. API-Nachricht: :message",
+            "license_details_header": "Lizenzdetails:",
+            "verification_error": "Bei der Überprüfung der Lizenz ist ein Fehler aufgetreten: :error"
+        }
     },
     "licence_documentation": {
         "title": "Lizenzdokumentation",
@@ -697,7 +753,7 @@
                 "step1": "1. Erstellen Sie einen Service Provider",
                 "step2": "2. Erstellen Sie einen Lizenzdienst",
                 "step3": "3. Erstellen Sie eine Konfigurationsdatei",
-                "step4": "4. Fügen Sie den Service Provider zu config\/app.php hinzu"
+                "step4": "4. Fügen Sie den Service Provider zu config/app.php hinzu"
             },
             "flutter": {
                 "title": "Installation für Flutter",

@@ -244,4 +244,67 @@
             "information": "情報"
         }
     }
+    "settings_license": {
+        "license": {
+            "no_license_key_configured": ".envファイルにライセンスキーが設定されていません。",
+            "api_verification_error": "API直接検証中のエラー",
+            "valid_via_direct_api": "直接APIを介して有効なライセンス",
+            "invalid_via_direct_api": "直接APIを介して無効なライセンス",
+            "status_detail": "ステータス: :status",
+            "expired_on": ":dateに期限切れ",
+            "expires_on_date": ":dateに期限切れ",
+            "expiry_detail": "有効期限: :expiry",
+            "registered_domain": "登録ドメイン: :domain",
+            "registered_ip": "登録IPアドレス: :ip",
+            "license_valid": "ライセンスは有効です。",
+            "api_valid_service_invalid": "APIはライセンスが有効であることを示していますが、ライセンスサービスはそれを無効と見なしています。潜在的な構成の問題。",
+            "license_invalid_with_api_message": "APIとサービスによると、ライセンスは有効ではありません。APIメッセージ: :message",
+            "license_details_header": "ライセンスの詳細:",
+            "verification_error": "ライセンスの検証中にエラーが発生しました: :error",
+
+    "title": "ライセンス管理",
+    "info_title": "ライセンス情報",
+    "installation_key": "インストールライセンスキー",
+    "copy_key": "キーをコピー",
+    "status": "ライセンスステータス",
+    "status_label": "ステータス",
+    "valid": "有効",
+    "invalid": "無効",
+    "expiry_date": "有効期限",
+    "expiry_date_label": "有効期限",
+    "expires_on": "有効期限日",
+    "last_check": "最終確認",
+    "never": "確認なし",
+    "check_now": "今すぐ確認",
+    "details": "ライセンス詳細",
+    "domain": "ドメイン",
+    "ip_address": "IPアドレス",
+    "not_defined": "未定義",
+    "status_active": "アクティブ",
+    "status_suspended": "一時停止",
+    "status_revoked": "取り消し済み",
+    "no_details": "このライセンスキーの詳細情報はありません。",
+    "configuration": "ライセンス設定",
+    "key_saved_in_env": "このキーはアプリケーションの.envファイルに保存されます。",
+    "env_not_exists": ".envファイルはまだ存在しません。自動的に作成されます。",
+    "save_settings": "設定を保存",
+    "manual_verification": "手動検証",
+    "manual_verification_desc": "インストールライセンスの即時検証を強制できます。これにより、有効性ステータスと関連情報が更新されます。",
+    "debug_info": "デバッグ情報",
+    "detected_value": "検出値",
+    "not_found": "見つかりません",
+    "http_code": "HTTPコード",
+    "raw_api_response": "生のAPI応答",
+    "no_response": "応答なし",
+    "unviewable_format": "表示不可能な形式",
+    "auto_dismiss_alerts": "5秒後にアラートを自動的に閉じる",
+    "copied": "コピーしました！"
+}
+    },
+,
+    "settings.two_factor.status.disabled": "無効"
+,
+    "settings.two_factor.status.enabled": "有効"
+,
+    "language.changed_successfully": "言語が正常に変更されました"
 }

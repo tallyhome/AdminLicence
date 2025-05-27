@@ -1,63 +1,71 @@
-<?php $__env->startSection('title', 'Gestion de licence'); ?>
+<?php $__env->startSection('title', t('settings_license.license.title')); ?>
 
 <?php $__env->startSection('content'); ?>
 <div class="container-fluid p-0">
-    <h1 class="h3 mb-3">Gestion de licence</h1>
+    <h1 class="h3 mb-3"><?php echo e(t('settings_license.license.title')); ?></h1>
 
     <div class="row">
         <div class="col-12">
             <?php if(session('success')): ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert" id="successAlert">
-                    <div class="alert-message"><?php echo session('success'); ?></div>
+                    <div class="alert-message"><?php echo nl2br(e(session('success'))); ?></div>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-                <script>
-                    // Auto-dismiss de l'alerte de succès après 5 secondes
-                    setTimeout(function() {
-                        var successAlert = document.getElementById('successAlert');
-                        if (successAlert) {
-                            var bsAlert = new bootstrap.Alert(successAlert);
-                            bsAlert.close();
-                        }
-                    }, 5000);
-                </script>
             <?php endif; ?>
 
             <?php if(session('error')): ?>
-                <div class="alert alert-danger alert-dismissible" role="alert">
-                    <div class="alert-message"><?php echo session('error'); ?></div>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" id="errorAlert">
+                    <div class="alert-message"><?php echo nl2br(e(session('error'))); ?></div>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
+            <?php endif; ?>
+            
+            <?php if(session('success') || session('error')): ?>
+                <script>
+                    // <?php echo e(t('settings_license.license.auto_dismiss_alerts')); ?>
+
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var alerts = document.querySelectorAll('.alert');
+                        if (alerts.length > 0) {
+                            setTimeout(function() {
+                                alerts.forEach(function(alert) {
+                                    var bsAlert = new bootstrap.Alert(alert);
+                                    bsAlert.close();
+                                });
+                            }, 5000);
+                        }
+                    });
+                </script>
             <?php endif; ?>
 
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title mb-0">Informations de licence</h5>
+                    <h5 class="card-title mb-0"><?php echo e(t('settings_license.license.info_title')); ?></h5>
                 </div>
                 <div class="card-body">
                     <div class="row mb-4">
                         <div class="col-md-6">
-                            <h6>Clé de licence d'installation</h6>
+                            <h6><?php echo e(t('settings_license.license.installation_key')); ?></h6>
                             <div class="d-flex align-items-center mb-3">
                                 <div class="input-group">
                                     <input type="text" class="form-control" value="<?php echo e($licenseKey ?? 'Non configurée'); ?>" readonly>
-                                    <button class="btn btn-outline-secondary" type="button" id="copyLicenseKey" data-bs-toggle="tooltip" title="Copier la clé">
+                                    <button class="btn btn-outline-secondary" type="button" id="copyLicenseKey" data-bs-toggle="tooltip" title="<?php echo e(t('settings_license.license.copy_key')); ?>">
                                         <i class="fas fa-copy"></i>
                                     </button>
                                 </div>
                             </div>
                             
-                            <h6>Statut de la licence</h6>
+                            <h6><?php echo e(t('settings_license.license.status')); ?></h6>
                             <div class="mb-3">
                                 <?php if($isValid): ?>
-                                    <span class="badge bg-success">Valide</span>
+                                    <span class="badge bg-success"><?php echo e(t('settings_license.license.valid')); ?></span>
                                 <?php else: ?>
-                                    <span class="badge bg-danger">Non valide</span>
+                                    <span class="badge bg-danger"><?php echo e(t('settings_license.license.invalid')); ?></span>
                                 <?php endif; ?>
                             </div>
                             
                             <?php if($expiresAt): ?>
-                                <h6>Date d'expiration</h6>
+                                <h6><?php echo e(t('settings_license.license.expiry_date')); ?></h6>
                                 <div class="mb-3">
                                     <span class="<?php echo e($expiresAt && $expiresAt->isPast() ? 'text-danger' : ''); ?>">
                                         <?php echo e($expiresAt->format('d/m/Y')); ?>
@@ -66,27 +74,28 @@
                                 </div>
                             <?php endif; ?>
                             
-                            <h6>Dernière vérification</h6>
+                            <h6><?php echo e(t('settings_license.license.last_check')); ?></h6>
                             <div class="mb-3">
-                                <?php echo e($lastCheck ? \Carbon\Carbon::parse($lastCheck)->format('d/m/Y H:i:s') : 'Jamais'); ?>
+                                <?php echo e($lastCheck ? \Carbon\Carbon::parse($lastCheck)->format('d/m/Y H:i:s') : t('settings_license.license.never')); ?>
 
                             </div>
                             
                             <div class="mt-4">
                                 <a href="<?php echo e(route('admin.settings.license.force-check')); ?>" class="btn btn-primary">
-                                    <i class="fas fa-sync-alt"></i> Vérifier maintenant
+                                    <i class="fas fa-sync-alt"></i> <?php echo e(t('settings_license.license.check_now')); ?>
+
                                 </a>
                             </div>
                         </div>
                         
                         <div class="col-md-6">
                             <?php if(session('license_details') || $licenseDetails): ?>
-                                <h6>Détails de la licence</h6>
+                                <h6><?php echo e(t('settings_license.license.details')); ?></h6>
                                 <table class="table table-sm">
                                     <tbody>
                                         <?php if(session('license_details')): ?>
                                         <tr>
-                                            <th>Statut</th>
+                                            <th><?php echo e(t('settings_license.license.status_label')); ?></th>
                                             <td>
                                                 <?php
                                                     $status = session('license_details')['status'] ?? 'inconnu';
@@ -115,7 +124,7 @@
                                         </tr>
                                         
                                         <tr>
-                                            <th>Date d'expiration</th>
+                                            <th><?php echo e(t('settings_license.license.expiry_date_label')); ?></th>
                                             <td>
                                                 <?php
                                                     $expiryDate = session('license_details')['expiry_date'] ?? null;
@@ -181,29 +190,29 @@
                                             <td><?php echo e($licenseDetails->created_at->format('d/m/Y')); ?></td>
                                         </tr>
                                         <tr>
-                                            <th>Expire le</th>
+                                            <th><?php echo e(t('settings_license.license.expires_on')); ?></th>
                                             <td class="<?php echo e($licenseDetails->expires_at && $licenseDetails->expires_at->isPast() ? 'text-danger' : ''); ?>">
-                                                <?php echo e($licenseDetails->expires_at ? $licenseDetails->expires_at->format('d/m/Y') : 'Jamais'); ?>
+                                                <?php echo e($licenseDetails->expires_at ? $licenseDetails->expires_at->format('d/m/Y') : t('settings_license.license.never')); ?>
 
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th>Domaine</th>
-                                            <td><?php echo e($licenseDetails->domain ?? 'Non défini'); ?></td>
+                                            <th><?php echo e(t('settings_license.license.domain')); ?></th>
+                                            <td><?php echo e($licenseDetails->domain ?? t('settings_license.license.not_defined')); ?></td>
                                         </tr>
                                         <tr>
-                                            <th>Adresse IP</th>
-                                            <td><?php echo e($licenseDetails->ip_address ?? 'Non définie'); ?></td>
+                                            <th><?php echo e(t('settings_license.license.ip_address')); ?></th>
+                                            <td><?php echo e($licenseDetails->ip_address ?? t('settings_license.license.not_defined')); ?></td>
                                         </tr>
                                         <tr>
-                                            <th>Statut</th>
+                                            <th><?php echo e(t('settings_license.license.status')); ?></th>
                                             <td>
                                                 <?php if($licenseDetails->status == 'active'): ?>
-                                                    <span class="badge bg-success">Actif</span>
+                                                     <span class="badge bg-success"><?php echo e(t('settings_license.license.status_active')); ?></span>
                                                 <?php elseif($licenseDetails->status == 'suspended'): ?>
-                                                    <span class="badge bg-warning">Suspendu</span>
+                                                     <span class="badge bg-warning"><?php echo e(t('settings_license.license.status_suspended')); ?></span>
                                                 <?php elseif($licenseDetails->status == 'revoked'): ?>
-                                                    <span class="badge bg-danger">Révoqué</span>
+                                                     <span class="badge bg-danger"><?php echo e(t('settings_license.license.status_revoked')); ?></span>
                                                 <?php else: ?>
                                                     <span class="badge bg-secondary"><?php echo e($licenseDetails->status); ?></span>
                                                 <?php endif; ?>
@@ -214,7 +223,8 @@
                                 </table>
                             <?php else: ?>
                                 <div class="alert alert-warning">
-                                    <i class="fas fa-exclamation-triangle"></i> Aucune information détaillée disponible pour cette clé de licence.
+                                    <i class="fas fa-exclamation-triangle"></i> <?php echo e(t('settings_license.license.no_details')); ?>
+
                                 </div>
                             <?php endif; ?>
                         </div>
@@ -224,34 +234,29 @@
 
             <div class="card mt-4">
                 <div class="card-header">
-                    <h5 class="card-title mb-0">Configuration de la licence</h5>
+                    <h5 class="card-title mb-0"><?php echo e(t('settings_license.license.configuration')); ?></h5>
                 </div>
                 <div class="card-body">
                     <form action="<?php echo e(route('admin.settings.license.update')); ?>" method="POST">
                         <?php echo csrf_field(); ?>
                         <div class="mb-3">
-                            <label for="license_key" class="form-label">Clé de licence d'installation</label>
+                            <label for="license_key" class="form-label"><?php echo e(t('settings_license.license.installation_key')); ?></label>
                             <input type="text" class="form-control" id="license_key" name="license_key" value="<?php echo e($licenseKey); ?>" placeholder="XXXX-XXXX-XXXX-XXXX">
                             <div class="form-text">
                                 <?php if($envExists): ?>
-                                    Cette clé sera enregistrée dans le fichier .env de votre application.
+                                    <?php echo e(t('settings_license.license.key_saved_in_env')); ?>
+
                                 <?php else: ?>
-                                    <span class="text-warning"><i class="fas fa-exclamation-triangle"></i> Le fichier .env n'existe pas encore. Il sera créé automatiquement.</span>
+                                    <span class="text-warning"><i class="fas fa-exclamation-triangle"></i> <?php echo e(t('settings_license.license.env_not_exists')); ?></span>
                                 <?php endif; ?>
                             </div>
                         </div>
                         
-                        <div class="mb-3">
-                            <label for="check_frequency" class="form-label">Fréquence de vérification</label>
-                            <div class="input-group">
-                                <input type="number" class="form-control" id="check_frequency" name="check_frequency" value="<?php echo e($checkFrequency); ?>" min="1" max="100" required>
-                                <span class="input-group-text">visites</span>
-                            </div>
-                            <div class="form-text">La licence sera vérifiée une fois tous les N visites du tableau de bord.</div>
-                        </div>
+
                         
                         <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-save"></i> Enregistrer les paramètres
+                            <i class="fas fa-save"></i> <?php echo e(t('settings_license.license.save_settings')); ?>
+
                         </button>
                     </form>
                 </div>
@@ -259,12 +264,13 @@
             
             <div class="card mt-4">
                 <div class="card-header">
-                    <h5 class="card-title mb-0">Vérification manuelle</h5>
+                    <h5 class="card-title mb-0"><?php echo e(t('settings_license.license.manual_verification')); ?></h5>
                 </div>
                 <div class="card-body">
-                    <p>Vous pouvez forcer une vérification immédiate de la licence d'installation. Cela mettra à jour le statut de validité et les informations associées.</p>
+                    <p><?php echo e(t('settings_license.license.manual_verification_desc')); ?></p>
                     <a href="<?php echo e(route('admin.settings.license.force-check')); ?>" class="btn btn-primary">
-                        <i class="fas fa-sync-alt"></i> Vérifier maintenant
+                        <i class="fas fa-sync-alt"></i> <?php echo e(t('settings_license.license.check_now')); ?>
+
                     </a>
                 </div>
             </div>
@@ -272,33 +278,33 @@
             <!-- Débogage -->
             <div class="card mt-4">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5 class="card-title mb-0">Informations de débogage</h5>
+                    <h5 class="card-title mb-0"><?php echo e(t('settings_license.license.debug_info')); ?></h5>
                     <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#debugInfo">
                         <i class="fas fa-chevron-down"></i>
                     </button>
                 </div>
                 <div class="card-body collapse" id="debugInfo">
-                    <h6>Date d'expiration</h6>
+                    <h6><?php echo e(t('settings_license.license.expiry_date')); ?></h6>
                     <div class="mb-3">
-                        Valeur détectée: <code><?php echo e((string) \App\Models\Setting::get('debug_expiry_date', 'Non trouvée')); ?></code>
+                        <?php echo e(t('settings_license.license.detected_value')); ?>: <code><?php echo e((string) \App\Models\Setting::get('debug_expiry_date', t('settings_license.license.not_found'))); ?></code>
                     </div>
                     
-                    <h6>Statut de licence</h6>
+                    <h6><?php echo e(t('settings_license.license.status')); ?></h6>
                     <div class="mb-3">
-                        Valeur détectée: <code><?php echo e((string) \App\Models\Setting::get('license_status', 'Non trouvé')); ?></code>
+                        <?php echo e(t('settings_license.license.detected_value')); ?>: <code><?php echo e((string) \App\Models\Setting::get('license_status', t('settings_license.license.not_found'))); ?></code>
                     </div>
                     
-                    <h6>Code HTTP</h6>
+                    <h6><?php echo e(t('settings_license.license.http_code')); ?></h6>
                     <div class="mb-3">
                         <code><?php echo e((string) \App\Models\Setting::get('debug_api_http_code', 'N/A')); ?></code>
                     </div>
                     
-                    <h6>Réponse API brute</h6>
+                    <h6><?php echo e(t('settings_license.license.raw_api_response')); ?></h6>
                     <div class="mb-3">
                         <?php
-                            $apiResponse = \App\Models\Setting::get('debug_api_response', 'Aucune réponse');
+                            $apiResponse = \App\Models\Setting::get('debug_api_response', t('settings_license.license.no_response'));
                             if (!is_string($apiResponse)) {
-                                $apiResponse = json_encode($apiResponse, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) ?: 'Format non affichable';
+                                $apiResponse = json_encode($apiResponse, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) ?: t('settings_license.license.unviewable_format');
                             }
                         ?>
                         <textarea class="form-control" rows="8" readonly><?php echo e($apiResponse); ?></textarea>
@@ -340,7 +346,7 @@
             var tooltip = bootstrap.Tooltip.getInstance(this);
             var originalTitle = this.getAttribute('data-bs-original-title');
             tooltip.hide();
-            this.setAttribute('data-bs-original-title', 'Copié !');
+            this.setAttribute('data-bs-original-title', '<?php echo e(t('settings_license.license.copied')); ?>');
             tooltip.show();
             
             // Restaurer le titre original après 1.5 secondes

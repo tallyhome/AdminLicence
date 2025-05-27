@@ -4,8 +4,10 @@ namespace App\Services;
 
 use App\Models\SerialKey;
 use App\Models\Admin;
+use App\Models\LicenceHistory;
 use App\Notifications\LicenceStatusChanged;
 use App\Services\WebSocketService;
+use App\Services\LicenceHistoryService;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
@@ -18,11 +20,17 @@ class LicenceService
     protected $webSocketService;
     
     /**
+     * @var LicenceHistoryService
+     */
+    protected $historyService;
+    
+    /**
      * Constructeur du service de licence
      */
-    public function __construct(WebSocketService $webSocketService)
+    public function __construct(WebSocketService $webSocketService, LicenceHistoryService $historyService)
     {
         $this->webSocketService = $webSocketService;
+        $this->historyService = $historyService;
     }
     /**
      * Valide une clé de série
@@ -64,6 +72,25 @@ class LicenceService
                     $key->domain = $domain;
                     $key->ip_address = $ipAddress;
                     $key->save();
+                    
+                    // Enregistrer l'utilisation dans l'historique
+                    $this->historyService->logAction($key, 'verify', [
+                        'domain' => $domain,
+                        'ip_address' => $ipAddress,
+                        'timestamp' => now()->toDateTimeString(),
+                        'success' => true
+                    ]);
+                } else {
+                    // Enregistrer l'échec de validation dans l'historique
+                    if ($key) {
+                        $this->historyService->logAction($key, 'verify_failed', [
+                            'domain' => $domain,
+                            'ip_address' => $ipAddress,
+                            'timestamp' => now()->toDateTimeString(),
+                            'reason' => $isExpired ? 'expired' : 'invalid_status',
+                            'success' => false
+                        ]);
+                    }
                 }
                 
                 // Générer le message approprié

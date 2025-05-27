@@ -110,11 +110,28 @@ class DashboardController extends Controller
         // Statistiques d'utilisation par jour (30 derniers jours)
         // Utiliser la date actuelle (27 mai 2025)
         $currentDate = Carbon::createFromDate(2025, 5, 27);
-        $usageStats = LicenceHistory::where('created_at', '>=', $currentDate->copy()->subDays(30))
+        $startDate = $currentDate->copy()->subDays(30);
+        
+        // Récupérer les données d'utilisation à partir de l'historique
+        $rawUsageStats = LicenceHistory::where('created_at', '>=', $startDate)
             ->selectRaw('DATE(created_at) as date, COUNT(*) as count')
             ->groupBy('date')
             ->orderBy('date')
-            ->get();
+            ->get()
+            ->keyBy('date');
+        
+        // Créer un tableau complet de 30 jours avec des valeurs à zéro pour les jours sans données
+        $usageStatsArray = [];
+        for ($i = 0; $i <= 30; $i++) {
+            $date = $startDate->copy()->addDays($i)->format('Y-m-d');
+            $usageStatsArray[] = [
+                'date' => $date,
+                'count' => $rawUsageStats->has($date) ? $rawUsageStats[$date]->count : 0
+            ];
+        }
+        
+        // Convertir le tableau en collection Laravel pour pouvoir utiliser la méthode pluck()
+        $usageStats = collect($usageStatsArray);
 
         return view('admin.dashboard', compact(
             'stats',

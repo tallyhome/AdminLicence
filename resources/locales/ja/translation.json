@@ -85,7 +85,8 @@
         "create": {
             "title": "新規シリアルキーの作成",
             "success": "シリアルキーが作成されました"
-        }
+        },
+        "search_by_key": "キーで検索"
     },
     "projects": {
         "title": "プロジェクト",

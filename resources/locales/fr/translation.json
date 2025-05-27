@@ -279,7 +279,8 @@
         "domain_optional": "Domaine (optionnel)",
         "ip_address_optional": "Adresse IP (optionnel)",
         "expiration_date_optional": "Date d'expiration (optionnel)",
-        "create_keys": "Créer les clés"
+        "create_keys": "Créer les clés",
+        "search_by_key": "Recherche par clé"
     },
     "api": {
         "title": "Documentation API",
@@ -524,7 +525,11 @@
             "disabled": "Authentification à deux facteurs désactivée",
             "enable": "Activer l'authentification à deux facteurs",
             "disable": "Désactiver l'authentification à deux facteurs",
-            "setup": "Configuration de l'authentification à deux facteurs",
+            "setup": {
+                "step1": "Étape 1 : Scannez le code QR",
+                "step2": "Étape 2 : Entrez le code de vérification",
+                "step3": "Étape 3 : Confirmez l'activation"
+            },
             "scan_qr": "Scannez le code QR avec votre application d'authentification",
             "enter_code": "Entrez le code de vérification",
             "verification_code": "Code de vérification",
@@ -547,8 +552,7 @@
             "regenerate_backup_codes_description": "La régénération des codes de secours invalidera tous les codes précédents.",
             "confirm_regenerate": "Êtes-vous sûr de vouloir régénérer les codes de secours ?",
             "status": {
-                "enabled": "Activée",
-                "disabled": "Désactivée"
+                "disabled_message": "L'authentification à deux facteurs est actuellement désactivée"
             },
             "configure": "Configurer",
             "test": "Tester",
@@ -573,14 +577,6 @@
                 "title": "Configuration de l'authentification à deux facteurs",
                 "description": "Configurez votre authentification à deux facteurs pour renforcer la sécurité de votre compte"
             },
-            "status": {
-                "disabled_message": "L'authentification à deux facteurs est actuellement désactivée"
-            },
-            "setup": {
-                "step1": "Étape 1 : Scannez le code QR",
-                "step2": "Étape 2 : Entrez le code de vérification",
-                "step3": "Étape 3 : Confirmez l'activation"
-            },
             "auth_code": "Code d'authentification"
         }
     },
@@ -593,7 +589,17 @@
         "available_endpoints": "Endpoints disponibles",
         "integration_approaches": "Approches d'intégration",
         "integration_examples": "Exemples d'intégration",
-        "best_practices": "Bonnes pratiques",
+        "best_practices": {
+            "title": "Bonnes pratiques",
+            "items": [
+                "Stockez les tokens JWT de manière sécurisée",
+                "Implémentez un mécanisme de rafraîchissement des tokens",
+                "Utilisez HTTPS pour toutes les communications avec l'API",
+                "Mettez en place un système de gestion des erreurs pour traiter les réponses d'erreur de l'API",
+                "Limitez l'accès à votre clé API et ne l'exposez jamais côté client",
+                "Implémentez un mécanisme de cache pour limiter les appels à l'API"
+            ]
+        },
         "introduction_text": "L'API AdminLicence vous permet de valider les licences de vos utilisateurs directement depuis vos applications. Elle offre des endpoints sécurisés pour vérifier la validité des clés de série et obtenir des codes dynamiques pour renforcer la sécurité.",
         "introduction_security": "Toutes les requêtes doivent être effectuées via HTTPS pour garantir la sécurité des données transmises.",
         "authentication_text": "Pour utiliser l'API, vous devez disposer d'une clé API valide. Vous pouvez créer et gérer vos clés API dans la section Clés API de l'interface d'administration.",
@@ -627,7 +633,7 @@
         "token_description": "Le token JWT obtenu lors de la vérification de la clé",
         "laravel": "Laravel",
         "javascript": "JavaScript",
-        "flutter": "Flutter/Dart",
+        "flutter": "Flutter\/Dart",
         "laravel_advantages": [
             "Intégration native avec le framework Laravel",
             "Utilisation des fonctionnalités de sécurité de Laravel",
@@ -637,7 +643,7 @@
         "javascript_advantages": [
             "Compatible avec tous les navigateurs modernes",
             "Facile à intégrer dans les applications frontend",
-            "Support des promesses et async/await"
+            "Support des promesses et async\/await"
         ],
         "javascript_use_case": "Applications web frontend, applications Node.js",
         "flutter_advantages": [
@@ -657,20 +663,9 @@
                 "description": "Cette approche utilise le client HTTP de Laravel pour une intégration plus simple et élégante dans les projets Laravel."
             },
             "flutter": {
-                "title": "Flutter/Dart (Applications mobiles)",
+                "title": "Flutter\/Dart (Applications mobiles)",
                 "description": "Cette approche permet d'intégrer le système de licence dans des applications mobiles développées avec Flutter."
             }
-        },
-        "best_practices": {
-            "title": "Bonnes pratiques",
-            "items": [
-                "Stockez les tokens JWT de manière sécurisée",
-                "Implémentez un mécanisme de rafraîchissement des tokens",
-                "Utilisez HTTPS pour toutes les communications avec l'API",
-                "Mettez en place un système de gestion des erreurs pour traiter les réponses d'erreur de l'API",
-                "Limitez l'accès à votre clé API et ne l'exposez jamais côté client",
-                "Implémentez un mécanisme de cache pour limiter les appels à l'API"
-            ]
         },
         "support": {
             "title": "Support",
@@ -706,7 +701,7 @@
                 "step1": "1. Créez un Service Provider",
                 "step2": "2. Créez un Service de Licence",
                 "step3": "3. Créez un fichier de configuration",
-                "step4": "4. Ajoutez le Service Provider dans config/app.php"
+                "step4": "4. Ajoutez le Service Provider dans config\/app.php"
             },
             "flutter": {
                 "title": "Installation pour Flutter",
@@ -800,7 +795,7 @@
         "updates": "Gestion des mises à jour",
         "updates_desc": "Déployez et contrôlez les mises à jour de vos logiciels.",
         "security": "Sécurité avancée",
-        "security_desc": "Chiffrement, restrictions IP/domaine, logs détaillés.",
+        "security_desc": "Chiffrement, restrictions IP\/domaine, logs détaillés.",
         "integrations": "Intégrations",
         "integrations_desc": "Compatibilité avec PHP, Python, Node, et plus.",
         "support": "Support dédié",

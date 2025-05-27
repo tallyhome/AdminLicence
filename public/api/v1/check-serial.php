@@ -65,13 +65,29 @@ try {
         // Générer un token manuellement
         $token = md5($data['serial_key'] . time() . rand(1000, 9999));
         
+        // Formater la date d'expiration au format jj/mm/aaaa si nécessaire
+        $expiryDate = isset($result['expires_at']) ? $result['expires_at'] : null;
+        if ($expiryDate && !preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $expiryDate)) {
+            try {
+                $date = new \DateTime($expiryDate);
+                $expiryDate = $date->format('d/m/Y');
+            } catch (\Exception $e) {
+                // Garder la date telle quelle si le format n'est pas reconnu
+                error_log('Erreur de formatage de date: ' . $e->getMessage());
+            }
+        }
+        
         echo json_encode([
             'status' => 'success',
             'message' => 'Clé de série valide',
             'data' => [
                 'token' => $token,
                 'project' => isset($result['project']) ? $result['project'] : '',
-                'expires_at' => isset($result['expires_at']) ? $result['expires_at'] : null,
+                'expires_at' => $expiryDate,
+                'status' => isset($result['status']) ? $result['status'] : 'active',
+                'is_expired' => isset($result['is_expired']) ? $result['is_expired'] : false,
+                'is_suspended' => isset($result['is_suspended']) ? $result['is_suspended'] : false,
+                'is_revoked' => isset($result['is_revoked']) ? $result['is_revoked'] : false
             ],
         ]);
     }

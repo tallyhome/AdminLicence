@@ -161,7 +161,7 @@
             "name_label": "项目名称",
             "description_label": "描述",
             "website_url_label": "网站地址",
-            "website_url_placeholder": "https://example.com",
+            "website_url_placeholder": "https:\/\/example.com",
             "status_label": "状态",
             "status_active": "活动",
             "status_inactive": "非活动",
@@ -197,7 +197,7 @@
             "name_label": "项目名称",
             "description_label": "描述",
             "website_url_label": "网站URL",
-            "website_url_placeholder": "https://example.com",
+            "website_url_placeholder": "https:\/\/example.com",
             "status_label": "状态",
             "status_active": "激活",
             "status_inactive": "未激活",
@@ -252,7 +252,8 @@
         "delete_success": "许可证密钥删除成功",
         "suspend_success": "许可证密钥暂停成功",
         "revoke_success": "许可证密钥吊销成功",
-        "reactivate_success": "许可证密钥重新激活成功"
+        "reactivate_success": "许可证密钥重新激活成功",
+        "search_by_key": "按键搜索"
     },
     "api": {
         "title": "API文档",
@@ -514,7 +515,11 @@
             "disabled": "双重认证已禁用",
             "enable": "启用双重认证",
             "disable": "禁用双重认证",
-            "setup": "设置双重认证",
+            "setup": {
+                "step1": "步骤1：扫描二维码",
+                "step2": "步骤2：输入验证码",
+                "step3": "步骤3：确认激活"
+            },
             "scan_qr": "使用您的认证应用扫描二维码",
             "enter_code": "输入验证码",
             "verification_code": "验证码",
@@ -537,8 +542,7 @@
             "regenerate_backup_codes_description": "重新生成备用码将使所有之前的代码失效。",
             "confirm_regenerate": "您确定要重新生成备用码吗？",
             "status": {
-                "enabled": "已启用",
-                "disabled": "已禁用"
+                "disabled_message": "双重认证当前已禁用"
             },
             "configure": "配置",
             "test": "测试",
@@ -563,14 +567,6 @@
                 "title": "双重认证配置",
                 "description": "配置双重认证以提高您的账户安全性"
             },
-            "status": {
-                "disabled_message": "双重认证当前已禁用"
-            },
-            "setup": {
-                "step1": "步骤1：扫描二维码",
-                "step2": "步骤2：输入验证码",
-                "step3": "步骤3：确认激活"
-            },
             "auth_code": "认证码"
         }
     },
@@ -583,7 +579,17 @@
         "available_endpoints": "可用端点",
         "integration_approaches": "集成方法",
         "integration_examples": "集成示例",
-        "best_practices": "最佳实践",
+        "best_practices": {
+            "title": "最佳实践",
+            "items": [
+                "安全存储 JWT 令牌",
+                "实现令牌刷新机制",
+                "所有 API 通信使用 HTTPS",
+                "设置错误处理系统以处理 API 错误响应",
+                "限制对 API 密钥的访问，切勿在客户端暴露",
+                "实现缓存机制以限制 API 调用"
+            ]
+        },
         "introduction_text": "AdminLicence API 允许您直接从应用程序中验证用户的许可证。它提供安全的端点来验证序列密钥并获取动态代码以提高安全性。",
         "introduction_security": "所有请求必须通过 HTTPS 进行，以确保传输数据的安全性。",
         "authentication_text": "要使用 API，您需要拥有有效的 API 密钥。您可以在管理界面的 API 密钥部分创建和管理您的 API 密钥。",
@@ -617,7 +623,7 @@
         "token_description": "在密钥验证期间获取的 JWT 令牌",
         "laravel": "Laravel",
         "javascript": "JavaScript",
-        "flutter": "Flutter/Dart",
+        "flutter": "Flutter\/Dart",
         "laravel_advantages": [
             "与 Laravel 框架原生集成",
             "利用 Laravel 安全功能",
@@ -627,7 +633,7 @@
         "javascript_advantages": [
             "与所有现代浏览器兼容",
             "易于集成到前端应用程序",
-            "支持 Promise 和 async/await"
+            "支持 Promise 和 async\/await"
         ],
         "javascript_use_case": "前端 Web 应用程序、Node.js 应用程序",
         "flutter_advantages": [
@@ -647,20 +653,9 @@
                 "description": "此方法使用 Laravel HTTP 客户端，在 Laravel 项目中实现更简单和优雅的集成。"
             },
             "flutter": {
-                "title": "Flutter/Dart（移动应用程序）",
+                "title": "Flutter\/Dart（移动应用程序）",
                 "description": "此方法允许将许可证系统集成到使用 Flutter 开发的移动应用程序中。"
             }
-        },
-        "best_practices": {
-            "title": "最佳实践",
-            "items": [
-                "安全存储 JWT 令牌",
-                "实现令牌刷新机制",
-                "所有 API 通信使用 HTTPS",
-                "设置错误处理系统以处理 API 错误响应",
-                "限制对 API 密钥的访问，切勿在客户端暴露",
-                "实现缓存机制以限制 API 调用"
-            ]
         },
         "support": {
             "title": "支持",

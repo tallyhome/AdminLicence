@@ -9,15 +9,25 @@
     <div class="row">
         <div class="col-12">
             @if(session('success'))
-                <div class="alert alert-success alert-dismissible" role="alert">
-                    <div class="alert-message">{{ session('success') }}</div>
+                <div class="alert alert-success alert-dismissible fade show" role="alert" id="successAlert">
+                    <div class="alert-message">{!! session('success') !!}</div>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
+                <script>
+                    // Auto-dismiss de l'alerte de succès après 5 secondes
+                    setTimeout(function() {
+                        var successAlert = document.getElementById('successAlert');
+                        if (successAlert) {
+                            var bsAlert = new bootstrap.Alert(successAlert);
+                            bsAlert.close();
+                        }
+                    }, 5000);
+                </script>
             @endif
 
             @if(session('error'))
                 <div class="alert alert-danger alert-dismissible" role="alert">
-                    <div class="alert-message">{{ session('error') }}</div>
+                    <div class="alert-message">{!! session('error') !!}</div>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
@@ -70,10 +80,97 @@
                         </div>
                         
                         <div class="col-md-6">
-                            @if($licenseDetails)
+                            @if(session('license_details') || $licenseDetails)
                                 <h6>Détails de la licence</h6>
                                 <table class="table table-sm">
                                     <tbody>
+                                        @if(session('license_details'))
+                                        <tr>
+                                            <th>Statut</th>
+                                            <td>
+                                                @php
+                                                    $status = session('license_details')['status'] ?? 'inconnu';
+                                                    $statusClass = '';
+                                                    $statusText = $status;
+                                                    
+                                                    switch($status) {
+                                                        case 'active':
+                                                            $statusClass = 'text-success';
+                                                            $statusText = 'Active';
+                                                            break;
+                                                        case 'suspended':
+                                                            $statusClass = 'text-warning';
+                                                            $statusText = 'Suspendue';
+                                                            break;
+                                                        case 'revoked':
+                                                            $statusClass = 'text-danger';
+                                                            $statusText = 'Révoquée';
+                                                            break;
+                                                        default:
+                                                            $statusText = ucfirst($status);
+                                                    }
+                                                @endphp
+                                                <span class="{{ $statusClass }}">{{ $statusText }}</span>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <th>Date d'expiration</th>
+                                            <td>
+                                                @php
+                                                    $expiryDate = session('license_details')['expiry_date'] ?? null;
+                                                    $hasExpiry = false;
+                                                    $expiry = null;
+                                                    $expired = false;
+                                                    
+                                                    if (!empty($expiryDate)) {
+                                                        try {
+                                                            $expiry = new \DateTime($expiryDate);
+                                                            $now = new \DateTime();
+                                                            $expired = $expiry < $now;
+                                                            $hasExpiry = true;
+                                                        } catch (\Exception $e) {
+                                                            // Si la date n'est pas au bon format, on l'affiche telle quelle
+                                                            $hasExpiry = false;
+                                                        }
+                                                    }
+                                                @endphp
+                                                
+                                                @if($hasExpiry)
+                                                    <span class="{{ $expired ? 'text-danger' : 'text-success' }}">
+                                                        {{ $expiry->format('d/m/Y') }}
+                                                        @if($expired)
+                                                            <i class="fas fa-exclamation-triangle" data-bs-toggle="tooltip" title="Licence expirée"></i>
+                                                        @else
+                                                            <i class="fas fa-check-circle" data-bs-toggle="tooltip" title="Licence valide jusqu'à cette date"></i>
+                                                        @endif
+                                                    </span>
+                                                @else
+                                                    @if($expiryDate)
+                                                        {{ $expiryDate }} <i class="fas fa-info-circle" data-bs-toggle="tooltip" title="Format de date non reconnu"></i>
+                                                    @else
+                                                        <span class="text-muted">Non spécifiée</span>
+                                                    @endif
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        
+                                        @if(session('license_details')['registered_domain'])
+                                        <tr>
+                                            <th>Domaine enregistré</th>
+                                            <td>{{ session('license_details')['registered_domain'] }}</td>
+                                        </tr>
+                                        @endif
+                                        
+                                        @if(session('license_details')['registered_ip'])
+                                        <tr>
+                                            <th>Adresse IP enregistrée</th>
+                                            <td>{{ session('license_details')['registered_ip'] }}</td>
+                                        </tr>
+                                        @endif
+                                        @endif
+                                        
+                                        @if($licenseDetails)
                                         <tr>
                                             <th>Projet</th>
                                             <td>{{ $licenseDetails->project->name ?? 'N/A' }}</td>
@@ -110,6 +207,7 @@
                                                 @endif
                                             </td>
                                         </tr>
+                                    @endif
                                     </tbody>
                                 </table>
                             @else
@@ -168,6 +266,43 @@
                     </a>
                 </div>
             </div>
+            
+            <!-- Débogage -->
+            <div class="card mt-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">Informations de débogage</h5>
+                    <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#debugInfo">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div class="card-body collapse" id="debugInfo">
+                    <h6>Date d'expiration</h6>
+                    <div class="mb-3">
+                        Valeur détectée: <code>{{ (string) \App\Models\Setting::get('debug_expiry_date', 'Non trouvée') }}</code>
+                    </div>
+                    
+                    <h6>Statut de licence</h6>
+                    <div class="mb-3">
+                        Valeur détectée: <code>{{ (string) \App\Models\Setting::get('license_status', 'Non trouvé') }}</code>
+                    </div>
+                    
+                    <h6>Code HTTP</h6>
+                    <div class="mb-3">
+                        <code>{{ (string) \App\Models\Setting::get('debug_api_http_code', 'N/A') }}</code>
+                    </div>
+                    
+                    <h6>Réponse API brute</h6>
+                    <div class="mb-3">
+                        @php
+                            $apiResponse = \App\Models\Setting::get('debug_api_response', 'Aucune réponse');
+                            if (!is_string($apiResponse)) {
+                                $apiResponse = json_encode($apiResponse, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) ?: 'Format non affichable';
+                            }
+                        @endphp
+                        <textarea class="form-control" rows="8" readonly>{{ $apiResponse }}</textarea>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -176,6 +311,17 @@
 @section('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Auto-dismiss pour les alertes de succès après 5 secondes
+        const successAlerts = document.querySelectorAll('.alert-success');
+        if (successAlerts.length > 0) {
+            setTimeout(function() {
+                successAlerts.forEach(function(alert) {
+                    const bsAlert = new bootstrap.Alert(alert);
+                    bsAlert.close();
+                });
+            }, 5000); // 5000ms = 5 secondes
+        }
+        
         // Initialiser les tooltips
         var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {

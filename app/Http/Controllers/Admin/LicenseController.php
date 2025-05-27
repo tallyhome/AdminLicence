@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\View;
 
 class LicenseController extends Controller
 {
@@ -204,11 +205,16 @@ class LicenseController extends Controller
             // Fermer la session cURL
             curl_close($ch);
             
-            Log::info('Réponse API directe', [
+            // DÉBOGAGE DÉTAILLÉ
+            Log::alert('DÉBOGAGE - RÉPONSE API BRUTE', [
                 'http_code' => $httpCode,
-                'response' => $response,
+                'response_raw' => $response,
                 'error' => $error
             ]);
+            
+            // Enregistrer la réponse brute pour débogage (s'assurer qu'elle est en format chaîne)
+            \App\Models\Setting::set('debug_api_response', is_string($response) ? $response : json_encode($response, JSON_PRETTY_PRINT));
+            \App\Models\Setting::set('debug_api_http_code', (string)$httpCode);
             
             $directApiValid = false;
             $apiMessage = 'Erreur lors de la vérification directe de l\'API';
@@ -219,6 +225,107 @@ class LicenseController extends Controller
                 
                 if (json_last_error() === JSON_ERROR_NONE) {
                     Log::info('Réponse JSON décodée', $decoded);
+                    
+                    // Extraire les informations de licence, en supportant différents formats de réponse API
+                    $licenseData = [];
+                    
+                    // Logger la réponse complète pour débogage
+                    Log::info('Réponse complète de l\'API', $decoded);
+                    
+                    // Cas 1: API v4 - format data
+                    if (isset($decoded['data']) && is_array($decoded['data'])) {
+                        $licenseData = $decoded['data'];
+                        Log::info('Format API v4 détecté (avec data)');  
+                    }
+                    // Cas 2: API v1.8.0 - format plat
+                    else if (isset($decoded['status'])) {
+                        // L'API v1.8.0 peut renvoyer les données directement sans le niveau 'data'
+                        $licenseData = $decoded;
+                        Log::info('Format API v1.8.0 détecté (format plat)'); 
+                    }
+                    // Cas 3: Format incomplet ou inconnu
+                    else {
+                        Log::warning('Format de réponse API inconnu ou incomplet');
+                    }
+                    
+                    // Logger toutes les données de licence pour débogage
+                    Log::info('Données de licence extraites', $licenseData);
+                    
+                    // Déterminer le statut
+                    $licenseStatus = 'inconnu';
+                    if (isset($licenseData['status'])) {
+                        // Format API v4 ou v1.8.0 avec status explicite
+                        $licenseStatus = $licenseData['status'];
+                    } else if (isset($decoded['success']) && $decoded['success'] === true) {
+                        // Format API alternatif, success = true signifie que la licence est active
+                        $licenseStatus = 'active';
+                    }
+                    
+                    // Déterminer la date d'expiration - exploration complète
+                    $expiryDate = null;
+                    $possibleExpiryKeys = [
+                        'expires_at', 'expiry_date', 'expire', 'expire_date', 'expiration', 
+                        'expiration_date', 'valid_until', 'validity_end', 'end_date', 'end'
+                    ];
+                    
+                    // Chercher dans licenseData d'abord
+                    foreach ($possibleExpiryKeys as $key) {
+                        if (isset($licenseData[$key]) && !empty($licenseData[$key])) {
+                            $expiryDate = $licenseData[$key];
+                            Log::info("Date d'expiration trouvée dans licenseData[$key]: " . $expiryDate);
+                            break;
+                        }
+                    }
+                    
+                    // Si toujours null, chercher dans decoded
+                    if ($expiryDate === null) {
+                        foreach ($possibleExpiryKeys as $key) {
+                            if (isset($decoded[$key]) && !empty($decoded[$key])) {
+                                $expiryDate = $decoded[$key];
+                                Log::info("Date d'expiration trouvée dans decoded[$key]: " . $expiryDate);
+                                break;
+                            }
+                        }
+                    }
+                    
+                    // Si aucune date trouvée et que la licence est valide, ajouter une date par défaut (1 an)
+                    if ($expiryDate === null && (isset($decoded['success']) && $decoded['success'] === true)) {
+                        $expiryDate = date('Y-m-d', strtotime('+1 year'));
+                        Log::info("Aucune date d'expiration trouvée, utilisation d'une date par défaut: " . $expiryDate);
+                    }
+                    
+                    // Enregistrer pour débogage
+                    \App\Models\Setting::set('debug_expiry_date', $expiryDate ?? 'non trouvée');
+                    
+                    // Récupérer les autres informations
+                    $registeredDomain = $licenseData['domain'] ?? null;
+                    $registeredIP = $licenseData['ip_address'] ?? null;
+                    $lastVerified = $licenseData['last_verified'] ?? null;
+                    
+                    // Si le statut est valide selon le message mais que nous n'avons pas pu extraire un statut, le définir
+                    if ($licenseStatus === 'inconnu' && isset($decoded['success']) && $decoded['success'] === true) {
+                        $licenseStatus = 'active';
+                    }
+                    
+                    // Logger les données finales extraites
+                    Log::info('Données finales après traitement', [
+                        'status' => $licenseStatus,
+                        'expiry_date' => $expiryDate,
+                        'domain' => $registeredDomain,
+                        'ip' => $registeredIP
+                    ]);
+                        
+                    // Déterminer l'état actif/suspendu/révoqué
+                    $isActive = $licenseStatus === 'active';
+                    $isSuspended = $licenseStatus === 'suspended';
+                    $isRevoked = $licenseStatus === 'revoked';
+                    
+                    // Enregistrer ces informations dans les paramètres
+                    \App\Models\Setting::set('license_status', $licenseStatus);
+                    \App\Models\Setting::set('license_expiry_date', $expiryDate);
+                    \App\Models\Setting::set('license_registered_domain', $registeredDomain);
+                    \App\Models\Setting::set('license_registered_ip', $registeredIP);
+                    \App\Models\Setting::set('license_last_verified', $lastVerified);
                     
                     if (isset($decoded['status']) && ($decoded['status'] === 'success' || $decoded['status'] === true)) {
                         $directApiValid = true;
@@ -241,6 +348,54 @@ class LicenseController extends Controller
             Setting::set('last_license_check', now()->toDateTimeString());
             Setting::set('license_valid', $isValid);
             
+            // Récupérer les informations de licence depuis les paramètres
+            $licenseStatus = \App\Models\Setting::get('license_status', 'inconnu');
+            $expiryDate = \App\Models\Setting::get('license_expiry_date');
+            $registeredDomain = \App\Models\Setting::get('license_registered_domain');
+            $registeredIP = \App\Models\Setting::get('license_registered_ip');
+            
+            // Construire le message avec tous les détails
+            $details = [];
+            
+            if ($licenseStatus) {
+                $statusText = '';
+                switch ($licenseStatus) {
+                    case 'active':
+                        $statusText = 'active';
+                        break;
+                    case 'suspended':
+                        $statusText = '<span class="text-warning">suspendue</span>';
+                        break;
+                    case 'revoked':
+                        $statusText = '<span class="text-danger">révoquée</span>';
+                        break;
+                    default:
+                        $statusText = $licenseStatus;
+                }
+                $details[] = "Statut: {$statusText}";
+            }
+            
+            if ($expiryDate) {
+                $expiry = new \DateTime($expiryDate);
+                $now = new \DateTime();
+                $expired = $expiry < $now;
+                
+                $expiryText = $expired ? 
+                    '<span class="text-danger">expirée le ' . $expiry->format('d/m/Y') . '</span>' : 
+                    'expire le ' . $expiry->format('d/m/Y');
+                    
+                $details[] = "Expiration: {$expiryText}";
+            }
+            
+            if ($registeredDomain) {
+                $details[] = "Domaine enregistré: {$registeredDomain}";
+            }
+            
+            if ($registeredIP) {
+                $details[] = "Adresse IP enregistrée: {$registeredIP}";
+            }
+            
+            // Message principal
             $message = '';
             
             if ($isValid) {
@@ -252,6 +407,20 @@ class LicenseController extends Controller
                     $message = 'La licence n\'est pas valide selon l\'API et le service. Message API: ' . $apiMessage;
                 }
             }
+            
+            // Ajouter les détails si disponibles
+            if (!empty($details)) {
+                $message .= '<br><br><strong>Détails de la licence :</strong><br>' . implode('<br>', $details);
+            }
+            
+            // Stocker les informations pour la vue
+            session()->flash('license_details', [
+                'status' => $licenseStatus,
+                'expiry_date' => $expiryDate,
+                'registered_domain' => $registeredDomain,
+                'registered_ip' => $registeredIP,
+                'is_valid' => $isValid
+            ]);
             
             return redirect()->route('admin.settings.license')
                 ->with($isValid ? 'success' : 'error', $message);
@@ -302,5 +471,87 @@ class LicenseController extends Controller
         }
         
         return true;
+    }
+    
+    /**
+     * Afficher la page de recherche de clés de licence
+     *
+     * @param Request $request
+     * @return \Illuminate\View\View
+     */
+    public function search(Request $request)
+    {
+        $query = $request->get('query');
+        $results = null;
+        
+        if ($query) {
+            $results = SerialKey::where('serial_key', 'like', "%{$query}%")
+                ->with('project')
+                ->orderBy('created_at', 'desc')
+                ->paginate(10);
+        }
+        
+        return view('admin.license-search', compact('results'));
+    }
+    
+    /**
+     * Afficher les détails d'une clé de licence (pour l'affichage modal)
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function details($id)
+    {
+        $key = SerialKey::with(['project', 'histories' => function($query) {
+            $query->orderBy('created_at', 'desc')->limit(10);
+        }])->findOrFail($id);
+        
+        return View::make('admin.partials.license-details', compact('key'))->render();
+    }
+    
+    /**
+     * Suspendre une clé de licence
+     *
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function suspend($id)
+    {
+        $key = SerialKey::findOrFail($id);
+        $this->licenceService->suspendKey($key);
+        
+        return redirect()->back()->with('success', 'La clé de licence a été suspendue avec succès.');
+    }
+    
+    /**
+     * Révoquer une clé de licence
+     *
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function revoke($id)
+    {
+        $key = SerialKey::findOrFail($id);
+        $this->licenceService->revokeKey($key);
+        
+        return redirect()->back()->with('success', 'La clé de licence a été révoquée avec succès.');
+    }
+    
+    /**
+     * Activer une clé de licence
+     *
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function activate($id)
+    {
+        $key = SerialKey::findOrFail($id);
+        $result = $this->licenceService->activateKey($key);
+        
+        if ($result) {
+            return redirect()->back()->with('success', 'La clé de licence a été activée avec succès.');
+        } else {
+            return redirect()->back()->with('error', 'Impossible d\'activer une clé révoquée.');
+        }
     }
 }

@@ -37,12 +37,24 @@
                         <p>{{ t('licence_documentation.installation.description') }}</p>
                         
                         <div class="mt-3">
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <strong>Nouveauté :</strong> Des exemples détaillés d'intégration sont disponibles pour tous les types de projets.
+                                <ul class="mb-0 mt-2">
+                                    <li><a href="{{ route('admin.examples.javascript') }}" class="text-decoration-underline">Exemple complet pour JavaScript</a> - Intégration dans des applications frontend et Node.js</li>
+                                    <li><a href="{{ route('admin.examples.flutter') }}" class="text-decoration-underline">Exemple complet pour Flutter</a> - Intégration mobile avec vérification hors ligne</li>
+                                </ul>
+                            </div>
+                            
                             <ul class="nav nav-tabs" id="installationTabs" role="tablist">
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="php-tab" data-bs-toggle="tab" data-bs-target="#php" type="button" role="tab">{{ t('licence_documentation.installation.tabs.php') }}</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="laravel-tab" data-bs-toggle="tab" data-bs-target="#laravel" type="button" role="tab">{{ t('licence_documentation.installation.tabs.laravel') }}</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="javascript-tab" data-bs-toggle="tab" data-bs-target="#javascript" type="button" role="tab">JavaScript</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="flutter-tab" data-bs-toggle="tab" data-bs-target="#flutter" type="button" role="tab">{{ t('licence_documentation.installation.tabs.flutter') }}</button>
@@ -66,41 +78,69 @@
  * @return array Résultat de la vérification
  */
 function verifierLicence($cleSeriale, $domaine = null, $adresseIP = null) {
-    // URL de l'API de vérification
+    // URL de l'API de vérification - utiliser le point d'entrée PHP direct qui est le plus fiable
     $url = "https://licence.votredomaine.com/api/check-serial.php";
     
     // Données à envoyer
     $donnees = [
         'serial_key' => $cleSeriale,
-        'domain' => $domaine ?: $_SERVER['SERVER_NAME'],
-        'ip_address' => $adresseIP ?: $_SERVER['REMOTE_ADDR']
+        'domain' => $domaine ?: (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : ''),
+        'ip_address' => $adresseIP ?: (isset($_SERVER['SERVER_ADDR']) ? $_SERVER['SERVER_ADDR'] : '')
     ];
     
     // Initialiser cURL
     $ch = curl_init($url);
     
     // Configurer cURL
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($donnees));
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'Content-Type: application/json'
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_POST => true,
+        CURLOPT_POSTFIELDS => json_encode($donnees),
+        CURLOPT_HTTPHEADER => [
+            'Content-Type: application/json',
+            'Accept: application/json'
+        ],
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_SSL_VERIFYPEER => false // Désactiver pour le débogage seulement, activer en production
     ]);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 10); // Timeout de 10 secondes
     
     // Exécuter la requête
     $reponse = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $erreur = curl_error($ch);
+    
+    // Fermer la session cURL
     curl_close($ch);
     
-    // Décoder la réponse JSON
+    // Traiter la réponse
+    if ($erreur) {
+        return ['success' => false, 'message' => 'Erreur de connexion: ' . $erreur];
+    }
+    
     $resultat = json_decode($reponse, true);
     
-    // Préparer le résultat
+    // Vérifier les différents statuts de la clé
+    $statut = $resultat['data']['status'] ?? null;
+    $estExpire = $resultat['data']['is_expired'] ?? false;
+    $estSuspendu = $resultat['data']['is_suspended'] ?? false;
+    $estRevoque = $resultat['data']['is_revoked'] ?? false;
+    $dateExpiration = $resultat['data']['expires_at'] ?? null;
+    
+    // Préparer les données de réponse avec plus d'informations
+    $donnees = [
+        'token' => $resultat['data']['token'] ?? null,
+        'project' => $resultat['data']['project'] ?? null,
+        'expires_at' => $dateExpiration,
+        'status' => $statut,
+        'is_expired' => $estExpire,
+        'is_suspended' => $estSuspendu,
+        'is_revoked' => $estRevoque
+    ];
+    
     return [
-        'valide' => ($httpCode == 200 && isset($resultat['status']) && $resultat['status'] === 'success'),
+        'success' => ($httpCode == 200 && isset($resultat['status']) && $resultat['status'] == 'success'),
         'message' => $resultat['message'] ?? 'Erreur inconnue',
-        'donnees' => $resultat['data'] ?? null
+        'donnees' => $donnees
     ];
 }
 
@@ -175,28 +215,51 @@ class LicenceServiceProvider extends ServiceProvider
             $cleSeriale = config('licence.key');
             
             if (empty($cleSeriale)) {
+                Log::warning('Clé de licence non configurée');
                 return redirect()->route('licence.error', ['message' => 'Clé de licence non configurée']);
             }
             
-            // Vérifier si la licence est en cache
+            // Vérifier si la vérification est en cache
             if (Cache::has('licence_valide')) {
-                return true;
+                return null; // Aucune redirection nécessaire, la licence est valide et en cache
             }
             
-            // Préparer les données
-            $donnees = [
+            // Utiliser le point d'entrée PHP direct qui est le plus fiable
+            $response = Http::post('https://votre-domaine.com/api/check-serial.php', [
                 'serial_key' => $cleSeriale,
                 'domain' => request()->getHost(),
                 'ip_address' => request()->ip()
-            ];
+            ]);
             
-            // Faire la requête API
-            $response = Http::post(config('licence.api_url'), $donnees);
-            
+            // Vérifier si la requête a réussi
             if ($response->successful() && $response->json('status') === 'success') {
-                // Mettre en cache le résultat pour éviter trop de requêtes
-                Cache::put('licence_valide', true, now()->addHours(24));
-                return true;
+                // Récupérer les informations complètes de la licence
+                $licenceData = $response->json('data');
+                
+                // Vérifier si la licence est expirée, suspendue ou révoquée
+                $estExpire = $licenceData['is_expired'] ?? false;
+                $estSuspendu = $licenceData['is_suspended'] ?? false;
+                $estRevoque = $licenceData['is_revoked'] ?? false;
+                
+                if ($estExpire) {
+                    Log::error('Licence expirée. Date d\'expiration: ' . ($licenceData['expires_at'] ?? 'Non définie'));
+                    return redirect()->route('licence.error', ['message' => 'Votre licence a expiré']);
+                }
+                
+                if ($estSuspendu) {
+                    Log::error('Licence suspendue');
+                    return redirect()->route('licence.error', ['message' => 'Votre licence est suspendue']);
+                }
+                
+                if ($estRevoque) {
+                    Log::error('Licence révoquée');
+                    return redirect()->route('licence.error', ['message' => 'Votre licence a été révoquée']);
+                }
+                
+                // Stocker le résultat en cache pendant 24 heures
+                Cache::put('licence_valide', true, 60 * 60 * 24);
+                Cache::put('licence_data', $licenceData, 60 * 60 * 24);
+                return null; // Aucune redirection nécessaire
             }
             
             // Licence invalide
@@ -332,22 +395,58 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LicenceService {
+  // URL de l'API de vérification
   static const String API_URL = 'https://licence.votredomaine.com/api/check-serial.php';
+  
+  // Clés pour le stockage local
   static const String LICENCE_KEY_PREF = 'licence_key';
-  static const String LICENCE_VALID_PREF = 'licence_valid';
-  static const String LICENCE_EXPIRY_PREF = 'licence_expiry';
-
-  // Sauvegarder la clé de licence
-  Future<bool> saveLicenceKey(String key) async {
-    final prefs = await SharedPreferences.getInstance();
-    return prefs.setString(LICENCE_KEY_PREF, key);
+  static const String LICENCE_DATA_PREF = 'licence_data';
+  static const String LICENCE_VALID_UNTIL_PREF = 'licence_valid_until';
+  
+  // Méthode pour vérifier une clé de licence
+  Future<Map<String, dynamic>> verifierLicence(String cleSeriale, {String? domaine, String? adresseIP}) async {
+    try {
+      // Préparer les données à envoyer
+      final Map<String, dynamic> donnees = {
+        'serial_key': cleSeriale,
+        'domain': domaine ?? 'flutter_app',
+        'ip_address': adresseIP ?? '127.0.0.1'
+      };
+      
+      // Effectuer la requête
+      final response = await http.post(
+        Uri.parse(API_URL),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: jsonEncode(donnees),
+      );
+      
+      // Analyser la réponse
+      final Map<String, dynamic> resultat = json.decode(response.body);
+      
+      return {
+        'success': resultat['status'] == 'success',
+        'message': resultat['message'] ?? 'Erreur inconnue',
+        'donnees': resultat['data']
+      };
+    } catch (e) {
+      return {
+        'success': false,
+        'message': 'Erreur: $e',
+        'donnees': null
+      };
+    }
   }
+</code></pre>
 
-  // Récupérer la clé de licence
-  Future<String?> getLicenceKey() async {
-    final prefs = await SharedPreferences.getInstance();
-    return prefs.getString(LICENCE_KEY_PREF);
-  }
+                                    <div class="mt-3">
+                                        <a href="{{ route('admin.examples.flutter') }}" class="btn btn-primary">
+                                            <i class="fas fa-code me-2"></i> Voir l'exemple complet pour Flutter
+                                        </a>
+                                    </div>
+
 
   // Vérifier si la licence est valide
   Future<bool> isLicenceValid() async {

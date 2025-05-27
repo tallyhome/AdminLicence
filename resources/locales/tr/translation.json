@@ -169,7 +169,7 @@
             "name_label": "Proje Adı",
             "description_label": "Açıklama",
             "website_url_label": "Web Sitesi URL'si",
-            "website_url_placeholder": "https://example.com",
+            "website_url_placeholder": "https:\/\/example.com",
             "status_label": "Durum",
             "status_active": "Aktif",
             "status_inactive": "Pasif",
@@ -204,7 +204,7 @@
             "name_label": "Proje Adı",
             "description_label": "Açıklama",
             "website_url_label": "Web Sitesi URL'si",
-            "website_url_placeholder": "https://example.com",
+            "website_url_placeholder": "https:\/\/example.com",
             "status_label": "Durum",
             "status_active": "Aktif",
             "status_inactive": "Pasif",
@@ -259,7 +259,8 @@
         "delete_success": "Lisans anahtarı başarıyla silindi",
         "suspend_success": "Lisans anahtarı başarıyla askıya alındı",
         "revoke_success": "Lisans anahtarı başarıyla iptal edildi",
-        "reactivate_success": "Lisans anahtarı başarıyla yeniden etkinleştirildi"
+        "reactivate_success": "Lisans anahtarı başarıyla yeniden etkinleştirildi",
+        "search_by_key": "Anahtara göre ara"
     },
     "email_providers": {
         "page_title": "E-posta Sağlayıcıları Dokümantasyonu",
@@ -420,7 +421,6 @@
         "previous_step": "Previous step",
         "install": "Install"
     },
-
     "pagination": {
         "per_page": ":number per page",
         "showing": "Showing :first to :last of :total results",
@@ -561,7 +561,17 @@
         "available_endpoints": "Kullanılabilir Uç Noktalar",
         "integration_approaches": "Entegrasyon Yaklaşımları",
         "integration_examples_title": "Entegrasyon Örnekleri",
-        "best_practices": "En İyi Uygulamalar",
+        "best_practices": {
+            "title": "En İyi Uygulamalar",
+            "items": [
+                "JWT token'larını güvenli bir şekilde saklayın",
+                "Token yenileme mekanizması uygulayın",
+                "API ile tüm iletişimlerde HTTPS kullanın",
+                "API hata yanıtlarını işlemek için hata yönetim sistemi kurun",
+                "API anahtarınıza erişimi sınırlayın ve asla istemci tarafında açığa çıkarmayın",
+                "API çağrılarını sınırlamak için önbellek mekanizması uygulayın"
+            ]
+        },
         "introduction_text": "AdminLicence API, kullanıcılarınızın lisanslarını doğrudan uygulamalarınızdan doğrulamanıza olanak tanır. Seri anahtarları doğrulamak ve güvenliği artırmak için dinamik kodlar almak üzere güvenli uç noktalar sağlar.",
         "introduction_security": "Tüm istekler, iletilen verilerin güvenliğini sağlamak için HTTPS üzerinden yapılmalıdır.",
         "authentication_text": "API'yi kullanmak için geçerli bir API anahtarına sahip olmanız gerekir. API anahtarlarınızı yönetici arayüzündeki API Anahtarları bölümünden oluşturabilir ve yönetebilirsiniz.",
@@ -595,7 +605,7 @@
         "token_description": "Anahtar doğrulaması sırasında alınan JWT token",
         "laravel": "Laravel",
         "javascript": "JavaScript",
-        "flutter": "Flutter/Dart",
+        "flutter": "Flutter\/Dart",
         "laravel_advantages": [
             "Laravel framework ile yerel entegrasyon",
             "Laravel güvenlik özelliklerinin kullanımı",
@@ -605,7 +615,7 @@
         "javascript_advantages": [
             "Tüm modern tarayıcılarla uyumlu",
             "Frontend uygulamalarına kolay entegrasyon",
-            "Promise ve async/await desteği"
+            "Promise ve async\/await desteği"
         ],
         "javascript_use_case": "Frontend web uygulamaları, Node.js uygulamaları",
         "flutter_advantages": [
@@ -625,20 +635,9 @@
                 "description": "Bu yaklaşım, Laravel projelerinde daha basit ve zarif bir entegrasyon için Laravel HTTP istemcisini kullanır."
             },
             "flutter": {
-                "title": "Flutter/Dart (Mobil uygulamalar)",
+                "title": "Flutter\/Dart (Mobil uygulamalar)",
                 "description": "Bu yaklaşım, Flutter ile geliştirilen mobil uygulamalara lisans sistemini entegre etmenizi sağlar."
             }
-        },
-        "best_practices": {
-            "title": "En İyi Uygulamalar",
-            "items": [
-                "JWT token'larını güvenli bir şekilde saklayın",
-                "Token yenileme mekanizması uygulayın",
-                "API ile tüm iletişimlerde HTTPS kullanın",
-                "API hata yanıtlarını işlemek için hata yönetim sistemi kurun",
-                "API anahtarınıza erişimi sınırlayın ve asla istemci tarafında açığa çıkarmayın",
-                "API çağrılarını sınırlamak için önbellek mekanizması uygulayın"
-            ]
         },
         "api_support": {
             "title": "Destek",

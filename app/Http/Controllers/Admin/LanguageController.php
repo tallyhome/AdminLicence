@@ -51,6 +51,16 @@ class LanguageController extends Controller
             // Forcer la régénération de la session pour éviter les problèmes de cache
             $request->session()->regenerate();
             
+            // Vérifier si l'URL précédente est disponible
+            $previousUrl = url()->previous();
+            $baseUrl = url('/');
+            
+            // Si l'URL précédente n'est pas disponible ou pointe vers la même page
+            // rediriger vers la page d'accueil admin pour éviter les boucles
+            if (empty($previousUrl) || $previousUrl === $request->fullUrl()) {
+                return redirect('/admin')->with('success', t('language.changed_successfully'));
+            }
+            
             // Rediriger vers la page précédente
             return redirect()->back()->with('success', t('language.changed_successfully'));
         } catch (\Exception $e) {

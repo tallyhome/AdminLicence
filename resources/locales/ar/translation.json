@@ -192,7 +192,7 @@
             "name_label": "اسم المشروع",
             "description_label": "الوصف",
             "website_url_label": "رابط الموقع",
-            "website_url_placeholder": "https://example.com",
+            "website_url_placeholder": "https:\/\/example.com",
             "status_label": "الحالة",
             "status_active": "نشط",
             "status_inactive": "غير نشط",
@@ -227,7 +227,7 @@
             "name_label": "اسم المشروع",
             "description_label": "الوصف",
             "website_url_label": "رابط الموقع",
-            "website_url_placeholder": "https://example.com",
+            "website_url_placeholder": "https:\/\/example.com",
             "status_label": "الحالة",
             "status_active": "نشط",
             "status_inactive": "غير نشط",
@@ -282,7 +282,8 @@
         "delete_success": "تم حذف مفتاح الترخيص بنجاح",
         "suspend_success": "تم تعليق مفتاح الترخيص بنجاح",
         "revoke_success": "تم إلغاء مفتاح الترخيص بنجاح",
-        "reactivate_success": "تم إعادة تفعيل مفتاح الترخيص بنجاح"
+        "reactivate_success": "تم إعادة تفعيل مفتاح الترخيص بنجاح",
+        "search_by_key": "البحث عن طريق المفتاح"
     },
     "api": {
         "title": "توثيق واجهة برمجة التطبيقات",
@@ -582,7 +583,6 @@
             },
             "auth_code": "رمز المصادقة"
         }
-
     },
     "api_documentation": {
         "title": "توثيق API",
@@ -627,7 +627,7 @@
         "token_description": "رمز JWT الذي تم الحصول عليه أثناء التحقق من المفتاح",
         "laravel": "Laravel",
         "javascript": "JavaScript",
-        "flutter": "Flutter/Dart",
+        "flutter": "Flutter\/Dart",
         "laravel_advantages": [
             "تكامل أصلي مع إطار عمل Laravel",
             "الاستفادة من ميزات أمان Laravel",
@@ -637,7 +637,7 @@
         "javascript_advantages": [
             "متوافق مع جميع المتصفحات الحديثة",
             "تكامل سهل مع تطبيقات الواجهة الأمامية",
-            "دعم Promise و async/await"
+            "دعم Promise و async\/await"
         ],
         "javascript_use_case": "تطبيقات الويب الأمامية، تطبيقات Node.js",
         "flutter_advantages": [
@@ -657,7 +657,7 @@
                 "description": "يستخدم هذا المنهج عميل HTTP الخاص بـ Laravel لتحقيق تكامل أبسط وأنيق في مشاريع Laravel."
             },
             "flutter": {
-                "title": "Flutter/Dart (تطبيقات الموبايل)",
+                "title": "Flutter\/Dart (تطبيقات الموبايل)",
                 "description": "يتيح هذا المنهج دمج نظام الترخيص في تطبيقات الموبايل المطورة باستخدام Flutter."
             }
         },

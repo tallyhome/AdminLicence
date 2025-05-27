@@ -55,13 +55,28 @@ if (!$result['valid']) {
     // Générer un token si nécessaire
     $token = $result['token'] ?? md5($data['serial_key'] . time() . rand(1000, 9999));
     
+    // Formater la date d'expiration au format jj/mm/aaaa si nécessaire
+    $expiryDate = $result['expires_at'] ?? null;
+    if ($expiryDate && !preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $expiryDate)) {
+        try {
+            $date = new \DateTime($expiryDate);
+            $expiryDate = $date->format('d/m/Y');
+        } catch (\Exception $e) {
+            // Garder la date telle quelle si le format n'est pas reconnu
+        }
+    }
+    
     echo json_encode([
         'status' => 'success',
         'message' => 'Clé de série valide',
         'data' => [
             'token' => $token,
             'project' => $result['project'] ?? '',
-            'expires_at' => $result['expires_at'] ?? null,
+            'expires_at' => $expiryDate,
+            'status' => $result['status'] ?? 'active',
+            'is_expired' => $result['is_expired'] ?? false,
+            'is_suspended' => $result['is_suspended'] ?? false,
+            'is_revoked' => $result['is_revoked'] ?? false
         ],
     ]);
 }

@@ -42,6 +42,69 @@ class LicenceService
         ];
 
         try {
+            // Vérifier d'abord si la clé existe dans la base de données locale
+            $key = SerialKey::where('serial_key', $serialKey)->first();
+            
+            // Si la clé est trouvée localement, utiliser ces informations
+            if ($key) {
+                Log::info('Clé trouvée dans la base de données locale', ['key' => $serialKey, 'status' => $key->status]);
+                
+                // Vérifier si la clé est expirée
+                $isExpired = false;
+                if ($key->expires_at) {
+                    $expiryDate = \Carbon\Carbon::parse($key->expires_at);
+                    $isExpired = $expiryDate->isPast();
+                }
+                
+                // Déterminer la validité de la clé
+                $isValid = $key->status === 'active' && !$isExpired;
+                
+                // Mettre à jour le domaine et l'adresse IP si nécessaire
+                if ($isValid && $domain && $ipAddress) {
+                    $key->domain = $domain;
+                    $key->ip_address = $ipAddress;
+                    $key->save();
+                }
+                
+                // Générer le message approprié
+                $message = 'Clé de série ';
+                if ($isExpired) {
+                    $message .= 'expirée';
+                } elseif ($key->status === 'suspended') {
+                    $message .= 'suspendue';
+                } elseif ($key->status === 'revoked') {
+                    $message .= 'révoquée';
+                } elseif ($isValid) {
+                    $message .= 'valide';
+                } else {
+                    $message .= 'invalide';
+                }
+                
+                // Formater la date d'expiration
+                $formattedDate = null;
+                if ($key->expires_at) {
+                    try {
+                        $formattedDate = \Carbon\Carbon::parse($key->expires_at)->format('d/m/Y');
+                    } catch (\Exception $e) {
+                        $formattedDate = $key->expires_at;
+                    }
+                }
+                
+                return [
+                    'valid' => $isValid,
+                    'message' => $message,
+                    'token' => md5($serialKey . $domain . $ipAddress . time()),
+                    'project' => $key->project ? $key->project->name : 'AdminLicence',
+                    'expires_at' => $formattedDate,
+                    'status' => $key->status,
+                    'is_expired' => $isExpired,
+                    'is_suspended' => $key->status === 'suspended',
+                    'is_revoked' => $key->status === 'revoked',
+                    'status_code' => $isValid ? 200 : 401
+                ];
+            }
+            
+            // Si la clé n'est pas trouvée localement, essayer avec l'API externe
             // Configuration de l'API de licence
             $apiUrl = 'https://licence.myvcard.fr';
             $apiKey = 'sk_wuRFNJ7fI6CaMzJptdfYhzAGW3DieKwC';

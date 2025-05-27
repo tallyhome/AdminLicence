@@ -180,7 +180,7 @@
             "name_label": "Nome del Progetto",
             "description_label": "Descrizione",
             "website_url_label": "URL del Sito Web",
-            "website_url_placeholder": "https://example.com",
+            "website_url_placeholder": "https:\/\/example.com",
             "status_label": "Stato",
             "status_active": "Attivo",
             "status_inactive": "Inattivo",
@@ -216,7 +216,7 @@
             "name_label": "Nome del Progetto",
             "description_label": "Descrizione",
             "website_url_label": "URL del Sito Web",
-            "website_url_placeholder": "https://example.com",
+            "website_url_placeholder": "https:\/\/example.com",
             "status_label": "Stato",
             "status_active": "Attivo",
             "status_inactive": "Inattivo",
@@ -271,7 +271,8 @@
         "delete_success": "Chiave di licenza eliminata con successo",
         "suspend_success": "Chiave di licenza sospesa con successo",
         "revoke_success": "Chiave di licenza revocata con successo",
-        "reactivate_success": "Chiave di licenza riattivata con successo"
+        "reactivate_success": "Chiave di licenza riattivata con successo",
+        "search_by_key": "Ricerca per chiave"
     },
     "api": {
         "title": "Documentazione API",
@@ -515,7 +516,11 @@
             "disabled": "L'autenticazione a due fattori è disattivata",
             "enable": "Attiva l'autenticazione a due fattori",
             "disable": "Disattiva l'autenticazione a due fattori",
-            "setup": "Configura l'autenticazione a due fattori",
+            "setup": {
+                "step1": "Passo 1: Scansiona il codice QR",
+                "step2": "Passo 2: Inserisci il codice di verifica",
+                "step3": "Passo 3: Conferma l'attivazione"
+            },
             "scan_qr": "Scansiona il codice QR con la tua app di autenticazione",
             "enter_code": "Inserisci il codice di verifica",
             "verification_code": "Codice di verifica",
@@ -538,8 +543,7 @@
             "regenerate_backup_codes_description": "La rigenerazione dei codici di backup invaliderà tutti i codici precedenti.",
             "confirm_regenerate": "Sei sicuro di voler rigenerare i codici di backup?",
             "status": {
-                "enabled": "Attiva",
-                "disabled": "Disattivata"
+                "disabled_message": "L'autenticazione a due fattori è attualmente disattivata"
             },
             "configure": "Configura",
             "test": "Testa",
@@ -564,14 +568,6 @@
                 "title": "Configurazione dell'autenticazione a due fattori",
                 "description": "Configura l'autenticazione a due fattori per migliorare la sicurezza del tuo account"
             },
-            "status": {
-                "disabled_message": "L'autenticazione a due fattori è attualmente disattivata"
-            },
-            "setup": {
-                "step1": "Passo 1: Scansiona il codice QR",
-                "step2": "Passo 2: Inserisci il codice di verifica",
-                "step3": "Passo 3: Conferma l'attivazione"
-            },
             "auth_code": "Codice di autenticazione"
         }
     },
@@ -584,7 +580,17 @@
         "available_endpoints": "Endpoint Disponibili",
         "integration_approaches": "Approcci di Integrazione",
         "integration_examples": "Esempi di Integrazione",
-        "best_practices": "Migliori Pratiche",
+        "best_practices": {
+            "title": "Migliori Pratiche",
+            "items": [
+                "Memorizza i token JWT in modo sicuro",
+                "Implementa un meccanismo di aggiornamento dei token",
+                "Usa HTTPS per tutte le comunicazioni con l'API",
+                "Configura un sistema di gestione degli errori per elaborare le risposte di errore dell'API",
+                "Limita l'accesso alla tua chiave API e non esporla mai lato client",
+                "Implementa un meccanismo di cache per limitare le chiamate all'API"
+            ]
+        },
         "introduction_text": "L'API AdminLicence ti permette di convalidare le licenze dei tuoi utenti direttamente dalle tue applicazioni. Fornisce endpoint sicuri per verificare le chiavi seriali e ottenere codici dinamici per migliorare la sicurezza.",
         "introduction_security": "Tutte le richieste devono essere effettuate tramite HTTPS per garantire la sicurezza dei dati trasmessi.",
         "authentication_text": "Per utilizzare l'API, devi avere una chiave API valida. Puoi creare e gestire le tue chiavi API nella sezione Chiavi API dell'interfaccia di amministrazione.",
@@ -618,7 +624,7 @@
         "token_description": "Il token JWT ottenuto durante la verifica della chiave",
         "laravel": "Laravel",
         "javascript": "JavaScript",
-        "flutter": "Flutter/Dart",
+        "flutter": "Flutter\/Dart",
         "laravel_advantages": [
             "Integrazione nativa con il framework Laravel",
             "Utilizzo delle funzionalità di sicurezza di Laravel",
@@ -628,7 +634,7 @@
         "javascript_advantages": [
             "Compatibile con tutti i browser moderni",
             "Facile da integrare nelle applicazioni frontend",
-            "Supporto per promesse e async/await"
+            "Supporto per promesse e async\/await"
         ],
         "javascript_use_case": "Applicazioni web frontend, applicazioni Node.js",
         "flutter_advantages": [
@@ -648,20 +654,9 @@
                 "description": "Questo approccio utilizza il client HTTP di Laravel per un'integrazione più semplice ed elegante nei progetti Laravel."
             },
             "flutter": {
-                "title": "Flutter/Dart (Applicazioni mobili)",
+                "title": "Flutter\/Dart (Applicazioni mobili)",
                 "description": "Questo approccio permette di integrare il sistema di licenze nelle applicazioni mobili sviluppate con Flutter."
             }
-        },
-        "best_practices": {
-            "title": "Migliori Pratiche",
-            "items": [
-                "Memorizza i token JWT in modo sicuro",
-                "Implementa un meccanismo di aggiornamento dei token",
-                "Usa HTTPS per tutte le comunicazioni con l'API",
-                "Configura un sistema di gestione degli errori per elaborare le risposte di errore dell'API",
-                "Limita l'accesso alla tua chiave API e non esporla mai lato client",
-                "Implementa un meccanismo di cache per limitare le chiamate all'API"
-            ]
         },
         "support": {
             "title": "Supporto",
@@ -697,7 +692,7 @@
                 "step1": "1. Crea un Service Provider",
                 "step2": "2. Crea un Servizio di Licenza",
                 "step3": "3. Crea un file di configurazione",
-                "step4": "4. Aggiungi il Service Provider a config/app.php"
+                "step4": "4. Aggiungi il Service Provider a config\/app.php"
             },
             "flutter": {
                 "title": "Installazione per Flutter",

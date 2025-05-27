@@ -33,6 +33,12 @@ if (!is_dir($publicPath)) {
     die("Erreur : Le dossier 'public' n'existe pas.\n");
 }
 
-// Démarrer le serveur PHP intégré
-$command = "php -S {$host}:{$port} -t " . escapeshellarg($publicPath);
+// Démarrer le serveur PHP intégré avec notre routeur personnalisé
+$routerPath = __DIR__ . '/router.php';
+if (!file_exists($routerPath)) {
+    die("Erreur : Le fichier 'router.php' n'existe pas. Veuillez le créer d'abord.\n");
+}
+
+$command = "php -S {$host}:{$port} -t " . escapeshellarg($publicPath) . " " . escapeshellarg($routerPath);
+echo "Exécution de la commande : {$command}\n\n";
 passthru($command);

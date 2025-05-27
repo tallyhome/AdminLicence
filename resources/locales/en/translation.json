@@ -281,7 +281,8 @@
         "delete_success": "License key deleted successfully",
         "suspend_success": "License key suspended successfully",
         "revoke_success": "License key revoked successfully",
-        "reactivate_success": "License key reactivated successfully"
+        "reactivate_success": "License key reactivated successfully",
+        "search_by_key": "Search by Key"
     },
     "api": {
         "title": "API Documentation",
@@ -618,7 +619,7 @@
         "token_description": "The JWT token obtained during key verification",
         "laravel": "Laravel",
         "javascript": "JavaScript",
-        "flutter": "Flutter/Dart",
+        "flutter": "Flutter\/Dart",
         "laravel_advantages": [
             "Native integration with Laravel framework",
             "Use of Laravel security features",
@@ -628,7 +629,7 @@
         "javascript_advantages": [
             "Compatible with all modern browsers",
             "Easy to integrate into frontend applications",
-            "Support for promises and async/await"
+            "Support for promises and async\/await"
         ],
         "javascript_use_case": "Frontend web applications, Node.js applications",
         "flutter_advantages": [
@@ -648,7 +649,7 @@
                 "description": "This approach uses Laravel's HTTP client for simpler and more elegant integration in Laravel projects."
             },
             "flutter": {
-                "title": "Flutter/Dart (Mobile applications)",
+                "title": "Flutter\/Dart (Mobile applications)",
                 "description": "This approach allows integrating the license system into mobile applications developed with Flutter."
             }
         },
@@ -697,7 +698,7 @@
                 "step1": "1. Create a Service Provider",
                 "step2": "2. Create a License Service",
                 "step3": "3. Create a configuration file",
-                "step4": "4. Add the Service Provider to config/app.php"
+                "step4": "4. Add the Service Provider to config\/app.php"
             },
             "flutter": {
                 "title": "Installation for Flutter",

@@ -45,20 +45,20 @@
         "unused": "Niet gebruikt"
     },
     "layout": {
-        "support": "Ondersteuning",
+        "support": "Support",
         "tickets": "Tickets",
         "super_admin_tickets": "Super Admin Tickets",
-        "documentation": "Documentatie",
-        "keys_documentation": "Sleutels Documentatie",
-        "email_providers_documentation": "E-mail Providers Documentatie",
-        "saas_documentation": "SaaS Multigebruiker Documentatie",
-        "version_info": "Versie Informatie",
-        "general": "Algemeen",
-        "two_factor_auth": "Twee-factor Authenticatie",
-        "version": "Versie",
-        "toggle_navigation": "Navigatie omschakelen",
-        "created_by": "Gemaakt door",
-        "all_rights_reserved": "Alle rechten voorbehouden"
+        "documentation": "Documentation",
+        "keys_documentation": "Keys Documentation",
+        "email_providers_documentation": "Email Providers Documentation",
+        "saas_documentation": "SaaS Multiuser Documentation",
+        "version_info": "Version Information",
+        "general": "General",
+        "two_factor_auth": "Two-Factor Authentication",
+        "version": "Version",
+        "toggle_navigation": "Toggle navigation",
+        "created_by": "Created by",
+        "all_rights_reserved": "All rights reserved"
     },
     "auth": {
         "login": "Inloggen",
@@ -147,7 +147,7 @@
             "name_label": "Projectnaam",
             "description_label": "Beschrijving",
             "website_url_label": "Website URL",
-            "website_url_placeholder": "https://example.com",
+            "website_url_placeholder": "https:\/\/example.com",
             "status_label": "Status",
             "status_active": "Actief",
             "status_inactive": "Inactief",
@@ -183,7 +183,7 @@
             "name_label": "Projectnaam",
             "description_label": "Beschrijving",
             "website_url_label": "Website URL",
-            "website_url_placeholder": "https://example.com",
+            "website_url_placeholder": "https:\/\/example.com",
             "status_label": "Status",
             "status_active": "Actief",
             "status_inactive": "Inactief",
@@ -238,7 +238,8 @@
         "delete_success": "Licentiesleutel succesvol verwijderd",
         "suspend_success": "Licentiesleutel succesvol opgeschort",
         "revoke_success": "Licentiesleutel succesvol ingetrokken",
-        "reactivate_success": "Licentiesleutel succesvol geheractiveerd"
+        "reactivate_success": "Licentiesleutel succesvol geheractiveerd",
+        "search_by_key": "Zoeken op sleutel"
     },
     "api": {
         "title": "API-documentatie",
@@ -338,22 +339,6 @@
         "invalid_locale": "De geselecteerde taal is niet beschikbaar",
         "change_language": "Change language",
         "language_changed": "Language has been changed successfully"
-    },
-    "layout": {
-        "support": "Support",
-        "tickets": "Tickets",
-        "super_admin_tickets": "Super Admin Tickets",
-        "documentation": "Documentation",
-        "keys_documentation": "Keys Documentation",
-        "email_providers_documentation": "Email Providers Documentation",
-        "saas_documentation": "SaaS Multiuser Documentation",
-        "version_info": "Version Information",
-        "general": "General",
-        "two_factor_auth": "Two-Factor Authentication",
-        "version": "Version",
-        "toggle_navigation": "Toggle navigation",
-        "created_by": "Created by",
-        "all_rights_reserved": "All rights reserved"
     },
     "pagination": {
         "per_page": ":number per page",
@@ -498,7 +483,11 @@
             "disabled": "Twee-factor authenticatie is uitgeschakeld",
             "enable": "Twee-factor authenticatie inschakelen",
             "disable": "Twee-factor authenticatie uitschakelen",
-            "setup": "Twee-factor authenticatie instellen",
+            "setup": {
+                "step1": "Stap 1: Scan de QR-code",
+                "step2": "Stap 2: Voer de verificatiecode in",
+                "step3": "Stap 3: Bevestig de activering"
+            },
             "scan_qr": "Scan de QR-code met je authenticatie-app",
             "enter_code": "Voer de verificatiecode in",
             "verification_code": "Verificatiecode",
@@ -521,8 +510,7 @@
             "regenerate_backup_codes_description": "Het opnieuw genereren van back-upcodes maakt alle eerdere codes ongeldig.",
             "confirm_regenerate": "Weet je zeker dat je de back-upcodes opnieuw wilt genereren?",
             "status": {
-                "enabled": "Ingeschakeld",
-                "disabled": "Uitgeschakeld"
+                "disabled_message": "Twee-factor authenticatie is momenteel uitgeschakeld"
             },
             "configure": "Configureren",
             "test": "Testen",
@@ -547,14 +535,6 @@
                 "title": "Twee-factor authenticatie configuratie",
                 "description": "Configureer uw twee-factor authenticatie om de beveiliging van uw account te verbeteren"
             },
-            "status": {
-                "disabled_message": "Twee-factor authenticatie is momenteel uitgeschakeld"
-            },
-            "setup": {
-                "step1": "Stap 1: Scan de QR-code",
-                "step2": "Stap 2: Voer de verificatiecode in",
-                "step3": "Stap 3: Bevestig de activering"
-            },
             "auth_code": "Authenticatiecode"
         }
     },
@@ -567,7 +547,17 @@
         "available_endpoints": "Beschikbare Endpoints",
         "integration_approaches": "Integratiebenaderingen",
         "integration_examples": "Integratievoorbeelden",
-        "best_practices": "Beste Praktijken",
+        "best_practices": {
+            "title": "Beste Praktijken",
+            "items": [
+                "Sla JWT-tokens veilig op",
+                "Implementeer een token-vernieuwingsmechanisme",
+                "Gebruik HTTPS voor alle API-communicatie",
+                "Stel een foutafhandelingssysteem in voor het verwerken van API-foutreacties",
+                "Beperk de toegang tot uw API-sleutel en exposeer deze nooit aan de clientzijde",
+                "Implementeer een caching-mechanisme om API-aanroepen te beperken"
+            ]
+        },
         "introduction_text": "De AdminLicence API stelt u in staat om de licenties van uw gebruikers direct vanuit uw applicaties te valideren. Het biedt beveiligde endpoints voor het verifiëren van serienummers en het verkrijgen van dynamische codes om de beveiliging te verbeteren.",
         "introduction_security": "Alle verzoeken moeten via HTTPS worden gedaan om de beveiliging van verzonden gegevens te garanderen.",
         "authentication_text": "Om de API te gebruiken, moet u een geldige API-sleutel hebben. U kunt uw API-sleutels aanmaken en beheren in de API-sleutels sectie van de beheerinterface.",
@@ -601,7 +591,7 @@
         "token_description": "Het JWT-token verkregen tijdens sleutelverificatie",
         "laravel": "Laravel",
         "javascript": "JavaScript",
-        "flutter": "Flutter/Dart",
+        "flutter": "Flutter\/Dart",
         "laravel_advantages": [
             "Native integratie met het Laravel-framework",
             "Gebruik van Laravel-beveiligingsfuncties",
@@ -611,7 +601,7 @@
         "javascript_advantages": [
             "Compatibel met alle moderne browsers",
             "Eenvoudig te integreren in frontend-applicaties",
-            "Ondersteuning voor promises en async/await"
+            "Ondersteuning voor promises en async\/await"
         ],
         "javascript_use_case": "Frontend webapplicaties, Node.js-applicaties",
         "flutter_advantages": [
@@ -631,20 +621,9 @@
                 "description": "Deze benadering gebruikt de Laravel HTTP-client voor een eenvoudigere en elegantere integratie in Laravel-projecten."
             },
             "flutter": {
-                "title": "Flutter/Dart (Mobiele applicaties)",
+                "title": "Flutter\/Dart (Mobiele applicaties)",
                 "description": "Deze benadering maakt het mogelijk om het licentiesysteem te integreren in mobiele applicaties ontwikkeld met Flutter."
             }
-        },
-        "best_practices": {
-            "title": "Beste Praktijken",
-            "items": [
-                "Sla JWT-tokens veilig op",
-                "Implementeer een token-vernieuwingsmechanisme",
-                "Gebruik HTTPS voor alle API-communicatie",
-                "Stel een foutafhandelingssysteem in voor het verwerken van API-foutreacties",
-                "Beperk de toegang tot uw API-sleutel en exposeer deze nooit aan de clientzijde",
-                "Implementeer een caching-mechanisme om API-aanroepen te beperken"
-            ]
         },
         "support": {
             "title": "Ondersteuning",
@@ -680,7 +659,7 @@
                 "step1": "1. Maak een Service Provider",
                 "step2": "2. Maak een Licentieservice",
                 "step3": "3. Maak een configuratiebestand",
-                "step4": "4. Voeg de Service Provider toe aan config/app.php"
+                "step4": "4. Voeg de Service Provider toe aan config\/app.php"
             },
             "flutter": {
                 "title": "Installatie voor Flutter",

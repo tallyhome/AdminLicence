@@ -174,7 +174,7 @@
             "name_label": "Название проекта",
             "description_label": "Описание",
             "website_url_label": "URL сайта",
-            "website_url_placeholder": "https://example.com",
+            "website_url_placeholder": "https:\/\/example.com",
             "status_label": "Статус",
             "status_active": "Активный",
             "status_inactive": "Неактивный",
@@ -209,7 +209,7 @@
             "name_label": "Название проекта",
             "description_label": "Описание",
             "website_url_label": "URL сайта",
-            "website_url_placeholder": "https://example.com",
+            "website_url_placeholder": "https:\/\/example.com",
             "status_label": "Статус",
             "status_active": "Активный",
             "status_inactive": "Неактивный",
@@ -264,7 +264,8 @@
         "delete_success": "Лицензионный ключ успешно удалён",
         "suspend_success": "Лицензионный ключ успешно приостановлен",
         "revoke_success": "Лицензионный ключ успешно отозван",
-        "reactivate_success": "Лицензионный ключ успешно реактивирован"
+        "reactivate_success": "Лицензионный ключ успешно реактивирован",
+        "search_by_key": "Поиск по ключу"
     },
     "api": {
         "documentation_title": "Документация API",
@@ -423,7 +424,6 @@
         "previous_step": "Previous step",
         "install": "Install"
     },
-
     "pagination": {
         "per_page": ":number per page",
         "showing": "Showing :first to :last of :total results",
@@ -435,7 +435,6 @@
         "of": "of",
         "results": "results"
     },
-
     "api_keys": {
         "management": "Управление API ключами",
         "create": "Создать API ключ",
@@ -624,7 +623,7 @@
         "token_description": "JWT-токен, полученный во время проверки ключа",
         "laravel": "Laravel",
         "javascript": "JavaScript",
-        "flutter": "Flutter/Dart",
+        "flutter": "Flutter\/Dart",
         "laravel_advantages": [
             "Нативная интеграция с фреймворком Laravel",
             "Использование функций безопасности Laravel",
@@ -634,7 +633,7 @@
         "javascript_advantages": [
             "Совместим со всеми современными браузерами",
             "Легко интегрируется в frontend-приложения",
-            "Поддержка промисов и async/await"
+            "Поддержка промисов и async\/await"
         ],
         "javascript_use_case": "Frontend веб-приложения, Node.js-приложения",
         "flutter_advantages": [
@@ -654,7 +653,7 @@
                 "description": "Этот подход использует HTTP-клиент Laravel для более простой и элегантной интеграции в проектах Laravel."
             },
             "flutter": {
-                "title": "Flutter/Dart (Мобильные приложения)",
+                "title": "Flutter\/Dart (Мобильные приложения)",
                 "description": "Этот подход позволяет интегрировать систему лицензий в мобильные приложения, разработанные с помощью Flutter."
             }
         },

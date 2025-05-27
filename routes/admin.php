@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\ClientExampleController;
 use App\Http\Controllers\Admin\TranslationController;
 use App\Http\Controllers\Admin\EmailVariableController;
+use App\Http\Controllers\Admin\LicenseController;
 use Illuminate\Support\Facades\Route;
 
 // Routes d'authentification
@@ -66,9 +67,19 @@ Route::middleware(['auth:admin', \App\Http\Middleware\CheckLicenseMiddleware::cl
     // Documentation
     Route::get('/api-documentation', [ApiDocumentationController::class, 'index'])->name('admin.api.documentation');
     
-    Route::get('/licence-documentation', [ApiDocumentationController::class, 'licenceDocumentation'])->name('admin.licence.documentation');
+    Route::get('/licence-documentation', [ApiDocumentationController::class, 'licenceDocumentation'])->name('admin.documentation.licence');
     
-    Route::get('/email-documentation', [ApiDocumentationController::class, 'emailDocumentation'])->name('admin.email.documentation');
+    Route::get('/email-documentation', [ApiDocumentationController::class, 'emailDocumentation'])->name('admin.documentation.email');
+    
+    // Routes pour les exemples d'intégration des licences
+    Route::prefix('examples')->name('admin.examples.')->group(function () {
+        Route::get('/javascript', function () { return view('admin.examples.javascript-licence'); })->name('javascript');
+        Route::get('/flutter', function () { return view('admin.examples.flutter-licence'); })->name('flutter');
+    });
+    
+    // Routes pour la recherche de licence
+    Route::get('/license/search', [LicenseController::class, 'search'])->name('admin.license.search');
+    Route::get('/license/details/{id}', [LicenseController::class, 'details'])->name('admin.license.details');
 
     // Exemples d'intégration client
     Route::get('/client-example', [ClientExampleController::class, 'index'])->name('admin.client-example');

@@ -180,7 +180,7 @@
             "name_label": "Projektname",
             "description_label": "Beschreibung",
             "website_url_label": "Website-URL",
-            "website_url_placeholder": "https://example.com",
+            "website_url_placeholder": "https:\/\/example.com",
             "status_label": "Status",
             "status_active": "Aktiv",
             "status_inactive": "Inaktiv",
@@ -216,7 +216,7 @@
             "name_label": "Projektname",
             "description_label": "Beschreibung",
             "website_url_label": "Website-URL",
-            "website_url_placeholder": "https://example.com",
+            "website_url_placeholder": "https:\/\/example.com",
             "status_label": "Status",
             "status_active": "Aktiv",
             "status_inactive": "Inaktiv",
@@ -271,7 +271,8 @@
         "delete_success": "Lizenzschlüssel erfolgreich gelöscht",
         "suspend_success": "Lizenzschlüssel erfolgreich suspendiert",
         "revoke_success": "Lizenzschlüssel erfolgreich widerrufen",
-        "reactivate_success": "Lizenzschlüssel erfolgreich reaktiviert"
+        "reactivate_success": "Lizenzschlüssel erfolgreich reaktiviert",
+        "search_by_key": "Suche nach Schlüssel"
     },
     "api": {
         "title": "API-Dokumentation",
@@ -584,7 +585,17 @@
         "available_endpoints": "Verfügbare Endpunkte",
         "integration_approaches": "Integrationsansätze",
         "integration_examples": "Integrationsbeispiele",
-        "best_practices": "Best Practices",
+        "best_practices": {
+            "title": "Best Practices",
+            "items": [
+                "Speichern Sie JWT-Tokens sicher",
+                "Implementieren Sie einen Token-Aktualisierungsmechanismus",
+                "Verwenden Sie HTTPS für alle API-Kommunikationen",
+                "Richten Sie ein Fehlerbehandlungssystem ein, um API-Fehlerantworten zu verarbeiten",
+                "Beschränken Sie den Zugriff auf Ihren API-Schlüssel und exponieren Sie ihn nie clientseitig",
+                "Implementieren Sie einen Caching-Mechanismus, um API-Aufrufe zu begrenzen"
+            ]
+        },
         "introduction_text": "Die AdminLicence-API ermöglicht es Ihnen, die Lizenzen Ihrer Benutzer direkt aus Ihren Anwendungen zu validieren. Sie bietet sichere Endpunkte zur Überprüfung von Seriennummern und zum Abrufen dynamischer Codes zur Verbesserung der Sicherheit.",
         "introduction_security": "Alle Anfragen müssen über HTTPS erfolgen, um die Sicherheit der übertragenen Daten zu gewährleisten.",
         "authentication_text": "Um die API zu nutzen, benötigen Sie einen gültigen API-Schlüssel. Sie können Ihre API-Schlüssel im API-Schlüssel-Bereich der Administrationsoberfläche erstellen und verwalten.",
@@ -618,7 +629,7 @@
         "token_description": "Das während der Schlüsselüberprüfung erhaltene JWT-Token",
         "laravel": "Laravel",
         "javascript": "JavaScript",
-        "flutter": "Flutter/Dart",
+        "flutter": "Flutter\/Dart",
         "laravel_advantages": [
             "Native Integration mit dem Laravel-Framework",
             "Nutzung der Laravel-Sicherheitsfunktionen",
@@ -628,7 +639,7 @@
         "javascript_advantages": [
             "Kompatibel mit allen modernen Browsern",
             "Einfach in Frontend-Anwendungen zu integrieren",
-            "Unterstützung für Promises und async/await"
+            "Unterstützung für Promises und async\/await"
         ],
         "javascript_use_case": "Frontend-Webanwendungen, Node.js-Anwendungen",
         "flutter_advantages": [
@@ -648,20 +659,9 @@
                 "description": "Dieser Ansatz verwendet den Laravel HTTP-Client für eine einfachere und elegantere Integration in Laravel-Projekte."
             },
             "flutter": {
-                "title": "Flutter/Dart (Mobilanwendungen)",
+                "title": "Flutter\/Dart (Mobilanwendungen)",
                 "description": "Dieser Ansatz ermöglicht die Integration des Lizenzsystems in mit Flutter entwickelte Mobilanwendungen."
             }
-        },
-        "best_practices": {
-            "title": "Best Practices",
-            "items": [
-                "Speichern Sie JWT-Tokens sicher",
-                "Implementieren Sie einen Token-Aktualisierungsmechanismus",
-                "Verwenden Sie HTTPS für alle API-Kommunikationen",
-                "Richten Sie ein Fehlerbehandlungssystem ein, um API-Fehlerantworten zu verarbeiten",
-                "Beschränken Sie den Zugriff auf Ihren API-Schlüssel und exponieren Sie ihn nie clientseitig",
-                "Implementieren Sie einen Caching-Mechanismus, um API-Aufrufe zu begrenzen"
-            ]
         },
         "support": {
             "title": "Support",
@@ -697,7 +697,7 @@
                 "step1": "1. Erstellen Sie einen Service Provider",
                 "step2": "2. Erstellen Sie einen Lizenzdienst",
                 "step3": "3. Erstellen Sie eine Konfigurationsdatei",
-                "step4": "4. Fügen Sie den Service Provider zu config/app.php hinzu"
+                "step4": "4. Fügen Sie den Service Provider zu config\/app.php hinzu"
             },
             "flutter": {
                 "title": "Installation für Flutter",

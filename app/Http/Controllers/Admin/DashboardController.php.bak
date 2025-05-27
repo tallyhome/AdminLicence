@@ -108,9 +108,9 @@ class DashboardController extends Controller
         }
 
         // Statistiques d'utilisation par jour (30 derniers jours)
-        // Utiliser la date actuelle (27 mai 2025)
-        $currentDate = Carbon::createFromDate(2025, 5, 27);
-        $usageStats = LicenceHistory::where('created_at', '>=', $currentDate->copy()->subDays(30))
+        // Utiliser une date fixe en 2023 pour correspondre aux données générées
+        $fixedDate = Carbon::createFromDate(2023, 5, 27);
+        $usageStats = LicenceHistory::where('created_at', '>=', $fixedDate->copy()->subDays(30))
             ->selectRaw('DATE(created_at) as date, COUNT(*) as count')
             ->groupBy('date')
             ->orderBy('date')

@@ -6,9 +6,14 @@
 <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1>{{ t('serial_keys.title') }}</h1>
-        <a href="{{ route('admin.serial-keys.create') }}" class="btn btn-primary">
-            <i class="fas fa-plus"></i> {{ t('serial_keys.create_key') }}
-        </a>
+        <div>
+            <a href="{{ route('admin.license.search') }}" class="btn btn-info me-2">
+                <i class="fas fa-search"></i> {{ t('serial_keys.search_by_key') }}
+            </a>
+            <a href="{{ route('admin.serial-keys.create') }}" class="btn btn-primary">
+                <i class="fas fa-plus"></i> {{ t('serial_keys.create_key') }}
+            </a>
+        </div>
     </div>
 
     <div class="card">

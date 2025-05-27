@@ -44,13 +44,29 @@ class LicenceApiController extends Controller
             ], $result['status_code']);
         }
 
+        // Formater la date d'expiration au format jj/mm/aaaa
+        $expiryDate = $result['expires_at'] ?? null;
+        if ($expiryDate) {
+            try {
+                $formattedDate = \Carbon\Carbon::parse($expiryDate)->format('d/m/Y');
+            } catch (\Exception $e) {
+                $formattedDate = $expiryDate;
+            }
+        } else {
+            $formattedDate = null;
+        }
+        
         return response()->json([
             'status' => 'success',
             'message' => 'Clé de série valide',
             'data' => [
                 'token' => $result['token'],
                 'project' => $result['project'],
-                'expires_at' => $result['expires_at'],
+                'expires_at' => $formattedDate,
+                'status' => $result['status'] ?? 'active',
+                'is_expired' => $result['is_expired'] ?? false,
+                'is_suspended' => $result['is_suspended'] ?? false,
+                'is_revoked' => $result['is_revoked'] ?? false
             ],
         ]);
     }

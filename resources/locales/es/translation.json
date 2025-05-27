@@ -193,7 +193,7 @@
             "name_label": "Nombre del Proyecto",
             "description_label": "Descripción",
             "website_url_label": "URL del Sitio Web",
-            "website_url_placeholder": "https://example.com",
+            "website_url_placeholder": "https:\/\/example.com",
             "status_label": "Estado",
             "status_active": "Activo",
             "status_inactive": "Inactivo",
@@ -229,7 +229,7 @@
             "name_label": "Nombre del Proyecto",
             "description_label": "Descripción",
             "website_url_label": "URL del Sitio Web",
-            "website_url_placeholder": "https://example.com",
+            "website_url_placeholder": "https:\/\/example.com",
             "status_label": "Estado",
             "status_active": "Activo",
             "status_inactive": "Inactivo",
@@ -284,7 +284,8 @@
         "delete_success": "Clave de licencia eliminada con éxito",
         "suspend_success": "Clave de licencia suspendida con éxito",
         "revoke_success": "Clave de licencia revocada con éxito",
-        "reactivate_success": "Clave de licencia reactivada con éxito"
+        "reactivate_success": "Clave de licencia reactivada con éxito",
+        "search_by_key": "Búsqueda por clave"
     },
     "api": {
         "title": "Documentación API",
@@ -631,7 +632,7 @@
         "token_description": "El token JWT obtenido durante la verificación de la clave",
         "laravel": "Laravel",
         "javascript": "JavaScript",
-        "flutter": "Flutter/Dart",
+        "flutter": "Flutter\/Dart",
         "laravel_advantages": [
             "Integración nativa con el framework Laravel",
             "Uso de las características de seguridad de Laravel",
@@ -641,7 +642,7 @@
         "javascript_advantages": [
             "Compatible con todos los navegadores modernos",
             "Fácil de integrar en aplicaciones frontend",
-            "Soporte para promesas y async/await"
+            "Soporte para promesas y async\/await"
         ],
         "javascript_use_case": "Aplicaciones web frontend, aplicaciones Node.js",
         "flutter_advantages": [
@@ -661,7 +662,7 @@
                 "description": "Este enfoque utiliza el cliente HTTP de Laravel para una integración más simple y elegante en proyectos Laravel."
             },
             "flutter": {
-                "title": "Flutter/Dart (Aplicaciones móviles)",
+                "title": "Flutter\/Dart (Aplicaciones móviles)",
                 "description": "Este enfoque permite integrar el sistema de licencias en aplicaciones móviles desarrolladas con Flutter."
             }
         },
@@ -710,7 +711,7 @@
                 "step1": "1. Crear un Proveedor de Servicios",
                 "step2": "2. Crear un Servicio de Licencias",
                 "step3": "3. Crear un archivo de configuración",
-                "step4": "4. Añadir el Proveedor de Servicios a config/app.php"
+                "step4": "4. Añadir el Proveedor de Servicios a config\/app.php"
             },
             "flutter": {
                 "title": "Instalación para Flutter",

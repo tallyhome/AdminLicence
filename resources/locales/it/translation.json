@@ -239,7 +239,8 @@
         "suspended": "Sospesa",
         "revoked": "Revocata",
         "key_details": "Dettagli chiave",
-        "key_usage": "Utilizzo chiave",
+        "key_usage": "Utilizzo della chiave",
+        "key_used": "Chiave utilizzata",
         "key_history": "Storico chiave",
         "hardware_id": "ID Hardware",
         "created_at": "Creato il",
@@ -292,7 +293,8 @@
         "testing": "Test dell'API",
         "documentation": "API Documentation",
         "endpoints": "Endpoints",
-        "request": "Request"
+        "request": "Request",
+        "best_practices": "Migliori pratiche"
     },
     "email": {
         "title": "Configurazione email",
@@ -582,7 +584,12 @@
         "available_endpoints": "Endpoint Disponibili",
         "integration_approaches": "Approcci di Integrazione",
         "integration_examples": "Esempi di Integrazione",
-        "best_practices": {
+        "best_practices": "Migliori Pratiche",
+        "support": {
+            "title": "Supporto",
+            "description": "Se incontri problemi durante l'integrazione dell'API o hai domande, non esitare a contattare il nostro team di supporto tecnico."
+        },
+        "best_practices_object": {
             "title": "Migliori Pratiche",
             "items": [
                 "Memorizza i token JWT in modo sicuro",

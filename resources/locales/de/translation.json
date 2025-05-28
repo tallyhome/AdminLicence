@@ -239,7 +239,8 @@
         "suspended": "Suspendiert",
         "revoked": "Widerrufen",
         "key_details": "Schlüsseldetails",
-        "key_usage": "Schlüsselverwendung",
+        "key_usage": "Schlüsselnutzung",
+        "key_used": "Schlüssel verwendet",
         "key_history": "Schlüsselverlauf",
         "hardware_id": "Hardware-ID",
         "created_at": "Erstellt am",
@@ -292,7 +293,8 @@
         "testing": "API-Test",
         "documentation": "API Documentation",
         "endpoints": "Endpoints",
-        "request": "Request"
+        "request": "Request",
+        "best_practices": "Bewährte Praktiken"
     },
     "email": {
         "title": "E-Mail-Konfiguration",
@@ -585,7 +587,12 @@
         "available_endpoints": "Verfügbare Endpunkte",
         "integration_approaches": "Integrationsansätze",
         "integration_examples": "Integrationsbeispiele",
-        "best_practices": {
+        "best_practices": "Bewährte Methoden",
+        "support": {
+            "title": "Support",
+            "description": "Wenn Sie Probleme bei der Integration der API haben oder Fragen haben, zögern Sie nicht, unser technisches Support-Team zu kontaktieren."
+        },
+        "best_practices_details": {
             "title": "Best Practices",
             "items": [
                 "Speichern Sie JWT-Tokens sicher",
@@ -662,10 +669,6 @@
                 "title": "Flutter/Dart (Mobilanwendungen)",
                 "description": "Dieser Ansatz ermöglicht die Integration des Lizenzsystems in mit Flutter entwickelte Mobilanwendungen."
             }
-        },
-        "support": {
-            "title": "Support",
-            "description": "Wenn Sie bei der Integration der API auf Probleme stoßen oder Fragen haben, zögern Sie nicht, unser technisches Support-Team zu kontaktieren."
         }
     },
     "email_providers": {

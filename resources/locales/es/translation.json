@@ -253,6 +253,7 @@
         "revoked": "Revocada",
         "key_details": "Detalles de la clave",
         "key_usage": "Uso de la clave",
+        "key_used": "Clave utilizada",
         "key_history": "Historial de la clave",
         "hardware_id": "ID de hardware",
         "created_at": "Creado el",
@@ -305,7 +306,8 @@
         "testing": "Prueba de API",
         "documentation": "API Documentation",
         "endpoints": "Endpoints",
-        "request": "Request"
+        "request": "Request",
+        "best_practices": "Mejores prácticas"
     },
     "email": {
         "title": "Configuración de correo electrónico",
@@ -601,8 +603,12 @@
         "authentication": "Autenticación",
         "available_endpoints": "Endpoints Disponibles",
         "integration_approaches": "Enfoques de Integración",
-        "integration_examples": "Ejemplos de Integración",
-        "best_practices": "Mejores Prácticas",
+        "integration_examples": "Ejemplos de integración",
+        "best_practices": "Mejores prácticas",
+        "support": {
+            "title": "Soporte",
+            "description": "Si encuentras problemas al integrar la API o tienes preguntas, no dudes en contactar a nuestro equipo de soporte técnico."
+        },
         "introduction_text": "La API de AdminLicence te permite validar las licencias de tus usuarios directamente desde tus aplicaciones. Proporciona endpoints seguros para verificar claves de serie y obtener códigos dinámicos para mejorar la seguridad.",
         "introduction_security": "Todas las solicitudes deben realizarse a través de HTTPS para garantizar la seguridad de los datos transmitidos.",
         "authentication_text": "Para usar la API, debes tener una clave API válida. Puedes crear y gestionar tus claves API en la sección Claves API de la interfaz de administración.",

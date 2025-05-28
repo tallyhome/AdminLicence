@@ -234,9 +234,23 @@
         "errors_description": "A API retorna códigos de status HTTP padrão para indicar o sucesso ou falha de uma solicitação",
         "endpoints": "Endpoints",
         "request": "Request",
+        "best_practices": "Melhores práticas",
         "licence_title": "API de Gerenciamento de Licenças",
         "link_text": "Para documentação detalhada da API, consulte a",
         "link_title": "Documentação da API"
+    },
+    "api_documentation": {
+        "title": "Documentação da API",
+        "description": "Esta documentação irá ajudá-lo a integrar a API de validação de licenças em suas aplicações.",
+        "table_of_contents": "Sumário",
+        "introduction": "Introdução",
+        "authentication": "Autenticação",
+        "available_endpoints": "Endpoints Disponíveis",
+        "integration_approaches": "Abordagens de Integração",
+        "integration_examples": "Exemplos de Integração",
+        "best_practices": {
+            "title": "Melhores práticas"
+        }
     },
     "api_keys": {
         "management": "Gestão de chaves API",
@@ -392,14 +406,18 @@
     },
     "api_documentation": {
         "title": "Documentação da API",
-        "description": "Esta documentação ajudará você a integrar a API de validação de licenças em suas aplicações.",
-        "table_of_contents": "Índice",
+        "description": "Esta documentação irá ajudá-lo a integrar a API de validação de licenças em suas aplicações.",
+        "table_of_contents": "Sumário",
         "introduction": "Introdução",
         "authentication": "Autenticação",
         "available_endpoints": "Endpoints Disponíveis",
         "integration_approaches": "Abordagens de Integração",
-        "integration_examples_title": "Exemplos de Integração",
-        "best_practices_title": "Melhores Práticas",
+        "integration_examples": "Exemplos de Integração",
+        "best_practices": "Melhores práticas",
+        "support": {
+            "title": "Suporte",
+            "description": "Se você encontrar problemas ao integrar a API ou tiver dúvidas, não hesite em entrar em contato com nossa equipe de suporte técnico."
+        },
         "introduction_text": "A API do AdminLicence permite que você valide as licenças dos seus usuários diretamente de suas aplicações. Ela fornece endpoints seguros para verificar chaves de série e obter códigos dinâmicos para aumentar a segurança.",
         "introduction_security": "Todas as solicitações devem ser feitas via HTTPS para garantir a segurança dos dados transmitidos.",
         "authentication_text": "Para usar a API, você precisa ter uma chave de API válida. Você pode criar e gerenciar suas chaves de API na seção Chaves de API da interface de administração.",

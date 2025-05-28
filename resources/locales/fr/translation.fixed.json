@@ -1,0 +1,38 @@
+{
+    "common": {
+        "add": "Ajouter",
+        "dashboard": "Tableau de bord",
+        "projects": "Projets",
+        "serial_keys": "Clés de série",
+        "api_keys": "Clés API",
+        "api_documentation": "Documentation API",
+        "email": "Email",
+        "logout": "Déconnexion",
+        "version": "Version",
+        "save": "Enregistrer",
+        "cancel": "Annuler",
+        "delete": "Supprimer",
+        "edit": "Modifier",
+        "create": "Créer",
+        "back": "Retour aux paramètres",
+        "actions": "Actions",
+        "status": "Statut",
+        "name": "Nom",
+        "description": "Description"
+    },
+    "api_documentation": {
+        "title": "Documentation API",
+        "description": "Cette documentation vous guidera à travers l'intégration de l'API dans votre application.",
+        "table_of_contents": "Table des matières",
+        "introduction": "Introduction",
+        "authentication": "Authentification",
+        "available_endpoints": "Endpoints disponibles",
+        "integration_approaches": "Approches d'intégration",
+        "integration_examples": "Exemples d'intégration",
+        "best_practices": "Meilleures pratiques",
+        "support": {
+            "title": "Support",
+            "description": "Si vous rencontrez des problèmes lors de l'intégration de l'API ou si vous avez des questions, n'hésitez pas à contacter notre équipe de support technique."
+        }
+    }
+}

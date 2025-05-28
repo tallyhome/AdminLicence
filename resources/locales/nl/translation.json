@@ -207,6 +207,7 @@
         "revoked": "Ingetrokken",
         "key_details": "Sleuteldetails",
         "key_usage": "Sleutelgebruik",
+        "key_used": "Sleutel gebruikt",
         "key_history": "Sleutelgeschiedenis",
         "hardware_id": "Hardware-ID",
         "created_at": "Aangemaakt op",
@@ -255,7 +256,8 @@
         "create_key": "Create API Key",
         "documentation": "API Documentation",
         "endpoints": "Endpoints",
-        "request": "Request"
+        "request": "Request",
+        "best_practices": "Best practices"
     },
     "email": {
         "title": "E-mailconfiguratie",
@@ -549,7 +551,12 @@
         "available_endpoints": "Beschikbare Endpoints",
         "integration_approaches": "Integratiebenaderingen",
         "integration_examples": "Integratievoorbeelden",
-        "best_practices": {
+        "best_practices": "Beste praktijken",
+        "support": {
+            "title": "Ondersteuning",
+            "description": "Als u problemen ondervindt bij het integreren van de API of als u vragen heeft, aarzel dan niet om contact op te nemen met ons technisch ondersteuningsteam."
+        },
+        "best_practices_object": {
             "title": "Beste Praktijken",
             "items": [
                 "Sla JWT-tokens veilig op",

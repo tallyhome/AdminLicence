@@ -273,7 +273,8 @@
         "testing": "API测试",
         "documentation": "API Documentation",
         "endpoints": "Endpoints",
-        "request": "Request"
+        "request": "Request",
+        "best_practices": "最佳实践"
     },
     "email": {
         "title": "邮件配置",

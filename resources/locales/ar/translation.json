@@ -299,7 +299,8 @@
         "create_key": "Create API Key",
         "documentation": "API Documentation",
         "endpoints": "Endpoints",
-        "request": "Request"
+        "request": "Request",
+        "best_practices": "أفضل الممارسات"
     },
     "email": {
         "title": "تكوين البريد الإلكتروني",
@@ -594,6 +595,10 @@
         "integration_approaches": "مناهج التكامل",
         "integration_examples": "أمثلة التكامل",
         "best_practices": "أفضل الممارسات",
+        "support": {
+            "title": "الدعم",
+            "description": "إذا واجهت مشكلات أثناء دمج واجهة برمجة التطبيقات أو كانت لديك أسئلة، فلا تتردد في الاتصال بفريق الدعم الفني لدينا."
+        },
         "introduction_text": "يتيح لك AdminLicence API التحقق من تراخيص المستخدمين مباشرة من تطبيقاتك. يوفر نقاط نهاية آمنة للتحقق من المفاتيح التسلسلية والحصول على رموز ديناميكية لتعزيز الأمان.",
         "introduction_security": "يجب إجراء جميع الطلبات عبر HTTPS لضمان أمان البيانات المنقولة.",
         "authentication_text": "لاستخدام API، تحتاج إلى مفتاح API صالح. يمكنك إنشاء وإدارة مفاتيح API الخاصة بك في قسم مفاتيح API في واجهة الإدارة.",
@@ -676,7 +681,7 @@
             "title": "الدعم",
             "description": "إذا واجهت مشاكل في تكامل API أو لديك أي أسئلة، فلا تتردد في الاتصال بفريق الدعم الفني لدينا."
         }
-    }
+    },
     "settings_license": {
         "license": {
             "no_license_key_configured": "لم يتم تكوين مفتاح الترخيص في ملف .env.",
@@ -731,13 +736,13 @@
     "no_response": "لا توجد استجابة",
     "unviewable_format": "تنسيق غير قابل للعرض",
     "auto_dismiss_alerts": "إغلاق التنبيهات تلقائيًا بعد 5 ثوانٍ",
-    "copied": "تم النسخ!"
-}
-    },
-,
-    "settings.two_factor.status.disabled": "معطل"
-,
-    "settings.two_factor.status.enabled": "مفعل"
-,
-    "language.changed_successfully": "تم تغيير اللغة بنجاح"
+    "copied": "تم النسخ!",
+    "settings": {
+        "two_factor": {
+            "status": {
+                "disabled": "معطل",
+                "enabled": "مفعل"
+            }
+        }
+    }
 }

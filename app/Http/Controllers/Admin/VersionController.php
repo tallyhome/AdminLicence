@@ -15,16 +15,83 @@ class VersionController extends Controller
     public function index()
     {
         $version = [
-            'major' => 3,
-            'minor' => 3,
-            'patch' => 1,
+            'major' => 4,
+            'minor' => 2,
+            'patch' => 0,
             'release' => null,
             'full' => config('version.full')(),
-            'last_update' => '10/04/2025',
+            'last_update' => '27/05/2025',
         ];
         
         // Historique des versions
         $history = [
+            [
+                'version' => '4.2.0',
+                'date' => '27/05/2025',
+                'description' => 'Amélioration majeure de la gestion des traductions et de la localisation',
+                'categories' => [
+                    'Ajouts' => [
+                        'Ajout de nouvelles clés de traduction pour la gestion des licences',
+                        'Support complet de la localisation pour toutes les fonctionnalités de gestion de licences',
+                        'Ajout de clés de traduction pour l\'authentification à deux facteurs',
+                        'Ajout de notifications localisées pour les changements de langue',
+                    ],
+                    'Améliorations' => [
+                        'Refonte du système de traduction pour une meilleure organisation des clés',
+                        'Optimisation de la structure des fichiers de traduction',
+                        'Amélioration de la cohérence des messages dans l\'interface utilisateur',
+                        'Mise à jour des traductions dans toutes les langues supportées',
+                    ],
+                    'Corrections de bugs' => [
+                        'Correction des erreurs de syntaxe dans certains fichiers de traduction',
+                        'Résolution des problèmes d\'affichage des caractères spéciaux dans certaines langues',
+                        'Correction des messages d\'erreur non traduits dans l\'API',
+                    ],
+                ],
+            ],
+            [
+                'version' => '4.1.0',
+                'date' => '15/05/2025',
+                'description' => 'Amélioration de la sécurité et de la gestion des utilisateurs',
+                'categories' => [
+                    'Ajouts' => [
+                        'Implémentation de l\'authentification à deux facteurs (2FA)',
+                        'Ajout d\'un système de journalisation des tentatives de connexion',
+                        'Support des jetons d\'API avec permissions granulaires',
+                    ],
+                    'Améliorations' => [
+                        'Renforcement de la sécurité des mots de passe',
+                        'Amélioration du processus de récupération de compte',
+                        'Interface d\'administration des utilisateurs plus complète',
+                    ],
+                    'Corrections de bugs' => [
+                        'Correction des problèmes de session lors de la déconnexion',
+                        'Résolution des conflits avec certains plugins de sécurité',
+                    ],
+                ],
+            ],
+            [
+                'version' => '4.0.0',
+                'date' => '01/05/2025',
+                'description' => 'Mise à jour majeure avec passage à Laravel 12',
+                'categories' => [
+                    'Ajouts' => [
+                        'Migration vers Laravel 12 pour de meilleures performances',
+                        'Nouveau système d\'installation avec assistant de configuration',
+                        'Documentation complète de l\'API intégrée à l\'application',
+                    ],
+                    'Améliorations' => [
+                        'Refonte complète de l\'architecture pour plus de modularité',
+                        'Optimisation des performances de l\'application',
+                        'Interface utilisateur modernisée et plus réactive',
+                    ],
+                    'Corrections de bugs' => [
+                        'Résolution des problèmes de compatibilité avec PHP 8.3',
+                        'Correction des erreurs liées aux commandes artisan',
+                        'Résolution des problèmes avec l\'assistant d\'installation',
+                    ],
+                ],
+            ],
             [
                 'version' => '3.3.1',
                 'date' => '10/04/2025',

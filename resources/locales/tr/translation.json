@@ -285,7 +285,8 @@
         "testing": "API Testi",
         "documentation": "API Documentation",
         "endpoints": "Endpoints",
-        "request": "Request"
+        "request": "Request",
+        "best_practices": "En iyi uygulamalar"
     },
     "email": {
         "title": "E-posta Yapılandırması",
@@ -643,7 +644,7 @@
             "title": "Destek",
             "description": "API entegrasyonunda sorun yaşıyorsanız veya sorularınız varsa, teknik destek ekibimizle iletişime geçmekten çekinmeyin."
         }
-    }
+    },
     "settings_license": {
         "license": {
             "no_license_key_configured": ".env dosyasında yapılandırılmış lisans anahtarı yok.",
@@ -698,13 +699,13 @@
     "no_response": "Yanıt yok",
     "unviewable_format": "Görüntülenemeyen format",
     "auto_dismiss_alerts": "Uyarıları 5 saniye sonra otomatik kapat",
-    "copied": "Kopyalandı!"
-}
-    },
-,
-    "settings.two_factor.status.disabled": "Devre dışı"
-,
-    "settings.two_factor.status.enabled": "Etkin"
-,
-    "language.changed_successfully": "Dil başarıyla değiştirildi"
+    "copied": "Kopyalandı!",
+    "settings": {
+        "two_factor": {
+            "status": {
+                "disabled": "Devre dışı",
+                "enabled": "Etkin"
+            }
+        }
+    }
 }

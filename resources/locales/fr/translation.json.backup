@@ -241,6 +241,7 @@
         "revoked": "Révoquée",
         "key_details": "Détails de la clé",
         "key_usage": "Utilisation de la clé",
+        "key_used": "Clé utilisée",
         "key_history": "Historique de la clé",
         "hardware_id": "ID Matériel",
         "created_at": "Créé le",
@@ -281,7 +282,7 @@
         "expiration_date_optional": "Date d'expiration (optionnel)",
         "create_keys": "Créer les clés",
         "search_by_key": "Recherche par clé",
-        "key_used": "Clé utilisée"
+        "search_placeholder": "Rechercher par clé, domaine ou IP..."
     },
     "api": {
         "title": "Documentation API",
@@ -301,7 +302,8 @@
         "testing": "Test de l'API",
         "documentation": "Documentation API",
         "endpoints": "Endpoints",
-        "request": "Requête"
+        "request": "Requête",
+        "best_practices": "Meilleures pratiques"
     },
     "email": {
         "title": "Configuration des emails",
@@ -592,9 +594,13 @@
         "available_endpoints": "Endpoints disponibles",
         "integration_approaches": "Approches d'intégration",
         "integration_examples": "Exemples d'intégration",
-        "best_practices": {
-            "title": "Bonnes pratiques",
-            "items": [
+        "best_practices": "Meilleures pratiques",
+        "support": {
+            "title": "Support",
+            "description": "Si vous rencontrez des problèmes lors de l'intégration de l'API ou si vous avez des questions, n'hésitez pas à contacter notre équipe de support technique."
+        },
+        "best_practices_items": [
+
                 "Stockez les tokens JWT de manière sécurisée",
                 "Implémentez un mécanisme de rafraîchissement des tokens",
                 "Utilisez HTTPS pour toutes les communications avec l'API",
@@ -669,10 +675,6 @@
                 "title": "Flutter/Dart (Applications mobiles)",
                 "description": "Cette approche permet d'intégrer le système de licence dans des applications mobiles développées avec Flutter."
             }
-        },
-        "support": {
-            "title": "Support",
-            "description": "Si vous rencontrez des problèmes lors de l'intégration de l'API ou si vous avez des questions, n'hésitez pas à contacter notre équipe de support technique."
         }
     },
     "email_providers": {

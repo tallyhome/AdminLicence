@@ -2,14 +2,10 @@
 
 <?php $__env->startSection('content'); ?>
 <div class="container-fluid">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1><?php echo e(t('serial_keys.title')); ?></h1>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4><?php echo e(t('serial_keys.title')); ?></h4>
         <div>
-            <a href="<?php echo e(route('admin.license.search')); ?>" class="btn btn-info me-2">
-                <i class="fas fa-search"></i> <?php echo e(t('serial_keys.search_by_key')); ?>
-
-            </a>
-            <a href="<?php echo e(route('admin.serial-keys.create')); ?>" class="btn btn-primary">
+            <a href="<?php echo e(route('admin.serial-keys.create')); ?>" class="btn btn-primary btn-sm">
                 <i class="fas fa-plus"></i> <?php echo e(t('serial_keys.create_key')); ?>
 
             </a>
@@ -17,18 +13,18 @@
     </div>
 
     <div class="card">
-        <div class="card-header">
-            <h3 class="card-title"><?php echo e(t('serial_keys.list')); ?></h3>
+        <div class="card-header bg-light">
+            <h5 class="card-title mb-0"><?php echo e(t('serial_keys.list')); ?></h5>
         </div>
-        <div class="card-body border-bottom pb-3">
+        <div class="card-body border-bottom pb-2 pt-2">
             <form action="<?php echo e(route('admin.serial-keys.index')); ?>" method="GET" id="searchForm">
                 <input type="hidden" name="per_page" value="<?php echo e(request()->input('per_page', 10)); ?>">
                 
                 <div class="row align-items-end">
-                    <div class="col-md-2">
-                        <div class="form-group">
+                    <div class="col-md-1-5">
+                        <div class="form-group" style="width: 100%; min-width: 80px;">
                             <label for="status"><?php echo e(t('serial_keys.status')); ?></label>
-                            <select name="status" id="status" class="form-control">
+                            <select name="status" id="status" class="form-control form-control-sm">
                                 <option value=""><?php echo e(t('common.all')); ?></option>
                                 <option value="active" <?php echo e(request('status') === 'active' ? 'selected' : ''); ?>><?php echo e(t('serial_keys.status_active')); ?></option>
                                 <option value="suspended" <?php echo e(request('status') === 'suspended' ? 'selected' : ''); ?>><?php echo e(t('serial_keys.status_suspended')); ?></option>
@@ -37,10 +33,10 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="form-group" style="width: 100%; min-width: 120px;">
+                    <div class="col-md-1-5">
+                        <div class="form-group" style="width: 100%; min-width: 80px;">
                             <label for="project"><?php echo e(t('serial_keys.project')); ?></label>
-                            <select name="project_id" id="project" class="form-control">
+                            <select name="project_id" id="project" class="form-control form-control-sm">
                                 <option value=""><?php echo e(t('common.all')); ?></option>
                                 <?php $__currentLoopData = $projects; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $project): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <option value="<?php echo e($project->id); ?>" <?php echo e(request('project_id') == $project->id ? 'selected' : ''); ?>>
@@ -51,36 +47,52 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <div class="form-group" style="width: 100%; min-width: 100px;">
-                            <label for="used"><?php echo e(t('serial_keys.key_usage')); ?></label>
-                            <select name="used" id="used" class="form-control">
+                    <div class="col-md-1">
+                        <div class="form-group" style="width: 100%; min-width: 60px;">
+                            <label for="used"><?php echo e(t('serial_keys.key_used')); ?></label>
+                            <select name="used" id="used" class="form-control form-control-sm">
                                 <option value=""><?php echo e(t('common.all')); ?></option>
                                 <option value="true" <?php echo e(request('used') === 'true' ? 'selected' : ''); ?>><?php echo e(t('common.used')); ?></option>
                                 <option value="false" <?php echo e(request('used') === 'false' ? 'selected' : ''); ?>><?php echo e(t('common.unused')); ?></option>
                             </select>
                         </div>
                     </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="domain"><?php echo e(t('serial_keys.domain')); ?></label>
+                            <input type="text" name="domain" id="domain" class="form-control form-control-sm" value="<?php echo e(request('domain')); ?>" placeholder="exemple.com">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="ip_address"><?php echo e(t('serial_keys.ip_address')); ?></label>
+                            <input type="text" name="ip_address" id="ip_address" class="form-control form-control-sm" value="<?php echo e(request('ip_address')); ?>" placeholder="127.0.0.1">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="search"><?php echo e(t('common.search')); ?></label>
+                            <input type="text" name="search" id="search" class="form-control form-control-sm" value="<?php echo e(request('search')); ?>" placeholder="<?php echo e(t('serial_keys.search_placeholder')); ?>">
+                        </div>
+                    </div>
                     <div class="col-md-1">
-                        <div class="form-group" style="width: 100%; min-width: 60px;">
+                        <div class="form-group" style="width: 100%; min-width: 40px;">
                             <label for="per_page"><?php echo e(t('pagination.per_page', ['number' => ''])); ?></label>
-                            <select name="per_page" id="per_page" class="form-control" onchange="document.getElementById('searchForm').submit();">
-                                <option value="10" <?php echo e(request('per_page', 10) == 10 ? 'selected' : ''); ?>>10</option>
+                            <select name="per_page" id="per_page" class="form-control form-control-sm" onchange="document.getElementById('searchForm').submit()">
+                                <option value="10" <?php echo e(request('per_page') == 10 ? 'selected' : ''); ?>>10</option>
                                 <option value="25" <?php echo e(request('per_page') == 25 ? 'selected' : ''); ?>>25</option>
                                 <option value="50" <?php echo e(request('per_page') == 50 ? 'selected' : ''); ?>>50</option>
                                 <option value="100" <?php echo e(request('per_page') == 100 ? 'selected' : ''); ?>>100</option>
-                                <option value="250" <?php echo e(request('per_page') == 250 ? 'selected' : ''); ?>>250</option>
                                 <option value="500" <?php echo e(request('per_page') == 500 ? 'selected' : ''); ?>>500</option>
                                 <option value="1000" <?php echo e(request('per_page') == 1000 ? 'selected' : ''); ?>>1000</option>
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-4 d-flex justify-content-end">
-                        <div class="form-group" style="width: 60%; min-width: 120px;">
+                    <div class="col-md-1 d-flex justify-content-end">
+                        <div class="form-group" style="width: 100%; min-width: 50px;">
                             <label>&nbsp;</label>
-                            <button type="submit" class="btn btn-primary w-100">
-                                <i class="fas fa-search"></i> <?php echo e(t('common.search')); ?>
-
+                            <button type="submit" class="btn btn-primary btn-sm w-100">
+                                <i class="fas fa-search"></i>
                             </button>
                         </div>
                     </div>
@@ -89,7 +101,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-striped">
+                <table class="table table-striped table-sm">
                     <thead>
                         <tr>
                             <th><?php echo e(t('serial_keys.key')); ?></th>
@@ -157,7 +169,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="d-flex justify-content-center mt-4">
+            <div class="d-flex justify-content-center mt-3">
                 <?php echo e($serialKeys->links('pagination::bootstrap-4')); ?>
 
             </div>

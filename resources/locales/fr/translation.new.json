@@ -1,0 +1,9 @@
+{
+    "api_documentation": {
+        "best_practices": "Meilleures pratiques",
+        "support": {
+            "title": "Support",
+            "description": "Si vous rencontrez des problèmes lors de l'intégration de l'API ou si vous avez des questions, n'hésitez pas à contacter notre équipe de support technique."
+        }
+    }
+}

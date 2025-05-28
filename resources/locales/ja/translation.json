@@ -74,7 +74,8 @@
         "authentication": {
             "title": "認証",
             "description": "APIキーを使用した認証"
-        }
+        },
+        "best_practices": "ベストプラクティス"
     },
     "serial_keys": {
         "title": "シリアルキー",
@@ -243,7 +244,7 @@
             "loading": "読み込み中...",
             "information": "情報"
         }
-    }
+    },
     "settings_license": {
         "license": {
             "no_license_key_configured": ".envファイルにライセンスキーが設定されていません。",

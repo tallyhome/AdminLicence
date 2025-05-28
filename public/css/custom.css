@@ -1,0 +1,16 @@
+/* Styles personnalisés pour AdminLicence */
+
+/* Classe personnalisée pour les colonnes de taille intermédiaire */
+.col-md-1-5 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+@media (min-width: 768px) {
+    .col-md-1-5 {
+        flex: 0 0 12.5%;
+        max-width: 12.5%;
+    }
+}

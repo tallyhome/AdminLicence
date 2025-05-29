@@ -1,0 +1,21 @@
+# Protection de l'ancien dashboard
+# Redirection vers le nouveau dashboard
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Rediriger toutes les requêtes vers le nouveau dashboard
+    RewriteCond %{REQUEST_URI} ^/dashboard [NC,OR]
+    RewriteCond %{REQUEST_URI} ^/optimization [NC,OR]
+    RewriteCond %{REQUEST_URI} ^/api-diagnostic [NC]
+    RewriteRule ^(.*)$ /admin/dashboard [R=301,L]
+</IfModule>
+
+# Empêcher l'accès direct aux fichiers
+<FilesMatch "\.php$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Message en cas d'accès direct
+ErrorDocument 403 "Accès interdit. L'ancien dashboard a été désactivé. Veuillez utiliser le nouveau dashboard."

@@ -1,0 +1,29 @@
+# Protection des fichiers API
+# Autoriser uniquement les requêtes POST pour les fichiers API
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} !^POST$
+    RewriteRule ^check-serial\.php$ - [F,L]
+    RewriteRule ^v1/check-serial\.php$ - [F,L]
+</IfModule>
+
+# Protection contre l'accès direct aux fichiers PHP
+<FilesMatch "^(simple-check|ultra-simple)\.php$">
+    # Autoriser uniquement l'accès depuis le serveur lui-même ou depuis des IP spécifiques
+    Order deny,allow
+    Deny from all
+    # Autoriser l'accès depuis localhost et le serveur lui-même
+    Allow from 127.0.0.1 ::1
+    # Vous pouvez ajouter d'autres adresses IP autorisées ici
+    # Allow from xxx.xxx.xxx.xxx
+    
+    # Alternative : utiliser l'authentification par mot de passe
+    # AuthType Basic
+    # AuthName "Zone restreinte"
+    # AuthUserFile /chemin/vers/.htpasswd
+    # Require valid-user
+</FilesMatch>
+
+# Désactiver l'affichage des erreurs PHP
+php_flag display_errors off
+php_flag display_startup_errors off

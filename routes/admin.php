@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\ClientExampleController;
 use App\Http\Controllers\Admin\TranslationController;
 use App\Http\Controllers\Admin\EmailVariableController;
 use App\Http\Controllers\Admin\LicenseController;
+use App\Http\Controllers\Admin\OptimizationController;
 use Illuminate\Support\Facades\Route;
 
 // Routes d'authentification
@@ -67,9 +68,12 @@ Route::middleware(['auth:admin', \App\Http\Middleware\CheckLicenseMiddleware::cl
     // Documentation
     Route::get('/api-documentation', [ApiDocumentationController::class, 'index'])->name('admin.api.documentation');
     
+    // Routes de documentation avec noms alternatifs
     Route::get('/licence-documentation', [ApiDocumentationController::class, 'licenceDocumentation'])->name('admin.documentation.licence');
+    Route::get('/licence-documentation-alt', [ApiDocumentationController::class, 'licenceDocumentation'])->name('admin.licence.documentation');
     
     Route::get('/email-documentation', [ApiDocumentationController::class, 'emailDocumentation'])->name('admin.documentation.email');
+    Route::get('/email-documentation-alt', [ApiDocumentationController::class, 'emailDocumentation'])->name('admin.email.documentation');
     
     // Routes pour les exemples d'intégration des licences
     Route::prefix('examples')->name('admin.examples.')->group(function () {
@@ -219,6 +223,20 @@ Route::middleware(['auth:admin', \App\Http\Middleware\CheckLicenseMiddleware::cl
     Route::put('settings/password', [SettingsController::class, 'updatePassword'])->name('admin.settings.update-password');
     Route::put('settings/favicon', [SettingsController::class, 'updateFavicon'])->name('admin.settings.update-favicon');
     Route::put('settings/dark-mode', [SettingsController::class, 'toggleDarkMode'])->name('admin.settings.toggle-dark-mode');
+    
+    // Routes pour les outils d'optimisation
+    Route::get('/settings/optimization', [OptimizationController::class, 'index'])->name('admin.settings.optimization');
+    Route::post('/settings/optimization/clean-logs', [OptimizationController::class, 'cleanLogs'])->name('admin.settings.optimization.clean-logs');
+    Route::post('/settings/optimization/optimize-images', [OptimizationController::class, 'optimizeImages'])->name('admin.settings.optimization.optimize-images');
+    Route::post('/settings/optimization/asset-example', [OptimizationController::class, 'generateAssetExample'])->name('admin.settings.optimization.asset-example');
+
+    // Diagnostic API
+    Route::get('/settings/api-diagnostic', [\App\Http\Controllers\Admin\ApiDiagnosticController::class, 'index'])->name('admin.settings.api-diagnostic');
+    Route::post('/settings/api-diagnostic/test-serial-key', [\App\Http\Controllers\Admin\ApiDiagnosticController::class, 'testSerialKey'])->name('admin.settings.api-diagnostic.test-serial-key');
+    Route::post('/settings/api-diagnostic/test-api-connection', [\App\Http\Controllers\Admin\ApiDiagnosticController::class, 'testApiConnection'])->name('admin.settings.api-diagnostic.test-api-connection');
+    Route::post('/settings/api-diagnostic/test-database', [\App\Http\Controllers\Admin\ApiDiagnosticController::class, 'testDatabaseConnection'])->name('admin.settings.api-diagnostic.test-database');
+    Route::post('/settings/api-diagnostic/check-permissions', [\App\Http\Controllers\Admin\ApiDiagnosticController::class, 'checkPermissions'])->name('admin.settings.api-diagnostic.check-permissions');
+    Route::post('/settings/api-diagnostic/get-logs', [\App\Http\Controllers\Admin\ApiDiagnosticController::class, 'getLatestLogs'])->name('admin.settings.api-diagnostic.get-logs');
     
     // Routes pour l'authentification à deux facteurs
     Route::get('settings/two-factor', [TwoFactorAuthController::class, 'index'])->name('admin.settings.two-factor');

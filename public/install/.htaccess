@@ -1,33 +1,69 @@
-# Protect the installation directory
-# If installation is complete, deny access to all files
+# Protection renforcée du dossier d'installation
+# Bloquer complètement l'accès après l'installation
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
     
-    # Check if installation is complete (installed.lock exists)
+    # Vérifier si l'installation est terminée (installed.lock existe)
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{DOCUMENT_ROOT}/install/installed.lock -f
     RewriteRule ^(.*)$ - [F,L]
     
-    # Redirect all requests to index.php if not a file or directory
+    # Rediriger toutes les requêtes vers index.php si ce n'est pas un fichier ou un répertoire
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ index.php [L]
 </IfModule>
 
-# Deny access to sensitive files
-<FilesMatch "^(functions\.php|installed\.lock)$">
+# Bloquer l'accès aux fichiers sensibles
+<FilesMatch "^(functions\.php|installed\.lock|.*\.log|debug\.php|test.*\.php|direct-api-test\.php)$">
     Order allow,deny
     Deny from all
 </FilesMatch>
 
-# PHP settings
+# Bloquer l'accès aux fichiers PHP dans les sous-répertoires
+<FilesMatch "\.(php|phtml|php3|php4|php5|php7)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Autoriser uniquement index.php, install.php et languages.php
+<Files ~ "^(index\.php|install\.php|languages\.php)$">
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Allow from all
+    </IfModule>
+</Files>
+
+# Paramètres PHP
 <IfModule mod_php7.c>
     php_flag display_errors Off
     php_flag log_errors On
-    php_value error_log /path/to/error.log
+    php_value error_log logs/error.log
 </IfModule>
 
-# Prevent directory listing
+# Paramètres PHP pour PHP 8+
+<IfModule mod_php.c>
+    php_flag display_errors Off
+    php_flag log_errors On
+    php_value error_log logs/error.log
+</IfModule>
+
+# Empêcher la navigation dans les répertoires
 Options -Indexes
+
+# Protection supplémentaire contre les attaques XSS
+<IfModule mod_headers.c>
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>

@@ -55,7 +55,10 @@ class LicenceService
             
             // Si la clé est trouvée localement, utiliser ces informations
             if ($key) {
-                Log::info('Clé trouvée dans la base de données locale', ['key' => $serialKey, 'status' => $key->status]);
+                // Log uniquement en environnement de développement
+                if (env('APP_ENV') === 'local' || env('APP_DEBUG') === true) {
+                    Log::debug('Clé trouvée dans la base de données locale', ['key' => $serialKey, 'status' => $key->status]);
+                }
                 
                 // Vérifier si la clé est expirée
                 $isExpired = false;
@@ -147,11 +150,13 @@ class LicenceService
                 'api_secret' => $apiSecret
             ];
             
-            // Logger la requête pour le débogage
-            Log::debug('Envoi de requête de vérification de licence', [
-                'url' => $apiUrl . $endpoint,
-                'data' => $data
-            ]);
+            // Logger la requête uniquement en environnement de développement
+            if (env('APP_ENV') === 'local' || env('APP_DEBUG') === true) {
+                Log::debug('Envoi de requête de vérification de licence', [
+                    'url' => $apiUrl . $endpoint,
+                    'data' => $data
+                ]);
+            }
             
             // Initialiser cURL
             $ch = curl_init($apiUrl . $endpoint);
@@ -182,13 +187,15 @@ class LicenceService
             // Fermer la session cURL
             curl_close($ch);
             
-            // Logger la réponse pour le débogage
-            Log::debug('Réponse API de licence', [
-                'http_code' => $httpCode,
-                'response' => $response,
-                'error' => $error,
-                'info' => $info
-            ]);
+            // Logger la réponse uniquement en environnement de développement
+            if (env('APP_ENV') === 'local' || env('APP_DEBUG') === true) {
+                Log::debug('Réponse API de licence', [
+                    'http_code' => $httpCode,
+                    'response' => $response,
+                    'error' => $error,
+                    'info' => $info
+                ]);
+            }
             
             // Vérifier si la requête a échoué
             if ($response === false) {
@@ -232,7 +239,10 @@ class LicenceService
             // Vérifier si la licence est valide selon le format de réponse du script d'installation
             if ($httpCode == 200 && isset($decoded['status'])) {
                 if ($decoded['status'] === 'success' || $decoded['status'] === true) {
-                    Log::info('Licence valide!', ['response' => $decoded]);
+                    // Log uniquement en environnement de développement ou en cas d'erreur
+                    if (env('APP_ENV') === 'local' || env('APP_DEBUG') === true) {
+                        Log::info('Licence valide!', ['response' => $decoded]);
+                    }
                     
                     return [
                         'valid' => true,
@@ -411,11 +421,13 @@ class LicenceService
             // Récupérer la clé de licence d'installation depuis les paramètres
             $licenseKey = env('INSTALLATION_LICENSE_KEY');
             
-            // Journaliser le début de la vérification
-            Log::info('Début de vérification de licence', [
-                'license_key' => $licenseKey,
-                'app_env' => env('APP_ENV', 'production')
-            ]);
+            // Journaliser le début de la vérification (uniquement en debug)
+            if (env('APP_ENV') === 'local' || env('APP_DEBUG') === true) {
+                Log::debug('Début de vérification de licence', [
+                    'license_key' => $licenseKey,
+                    'app_env' => env('APP_ENV', 'production')
+                ]);
+            }
             
             // Vérifier si une clé de licence est configurée
             if (empty($licenseKey)) {
@@ -430,10 +442,12 @@ class LicenceService
             $cacheKey = 'license_verification_' . md5($licenseKey);
             if (!$forceRefresh && Cache::has($cacheKey)) {
                 $cachedResult = Cache::get($cacheKey);
-                Log::info('Résultat de vérification de licence récupéré du cache', [
-                    'valid' => $cachedResult,
-                    'key' => $licenseKey
-                ]);
+                // Log uniquement en environnement de développement
+                if (env('APP_ENV') === 'local' || env('APP_DEBUG') === true) {
+                    Log::debug('Résultat de vérification de licence récupéré du cache', [
+                        'valid' => $cachedResult
+                    ]);
+                }
                 return $cachedResult;
             }
             
@@ -443,21 +457,31 @@ class LicenceService
             // Récupérer l'adresse IP du serveur
             $ipAddress = $_SERVER['SERVER_ADDR'] ?? gethostbyname(gethostname());
             
-            Log::info('Paramètres de vérification d\'API', [
-                'license_key' => $licenseKey,
-                'domain' => $domain,
-                'ip_address' => $ipAddress
-            ]);
+            // Log uniquement en environnement de développement
+            if (env('APP_ENV') === 'local' || env('APP_DEBUG') === true) {
+                Log::debug('Paramètres de vérification d\'API', [
+                    'domain' => $domain,
+                    'ip_address' => $ipAddress
+                ]);
+            }
             
             // Vérifier la validité de la licence via l'API externe
             $result = $this->validateSerialKey($licenseKey, $domain, $ipAddress);
             $isValid = $result['valid'] === true;
             
-            Log::info('Résultat de vérification de licence via API', [
-                'valid' => $isValid,
-                'message' => $result['message'] ?? 'Aucun message',
-                'data' => $result['data'] ?? []
-            ]);
+            // Log uniquement en environnement de développement ou en cas d'erreur
+            if ($isValid) {
+                if (env('APP_ENV') === 'local' || env('APP_DEBUG') === true) {
+                    Log::info('Licence valide!', [
+                        'response' => $result
+                    ]);
+                }
+            } else {
+                // Toujours logger les erreurs de licence
+                Log::warning('Licence invalide!', [
+                    'message' => $result['message'] ?? 'Aucun message'
+                ]);
+            }
             
             // Mettre en cache le résultat pendant 24 heures
             Cache::put($cacheKey, $isValid, 60 * 24);

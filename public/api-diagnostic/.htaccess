@@ -1,0 +1,18 @@
+# Protection de l'ancienne page de diagnostic API
+# Redirection vers la nouvelle page de diagnostic API
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Rediriger toutes les requêtes vers la nouvelle page de diagnostic API
+    RewriteRule ^(.*)$ /admin/settings/api-diagnostic [R=301,L]
+</IfModule>
+
+# Empêcher l'accès direct aux fichiers
+<FilesMatch "\.php$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Message en cas d'accès direct
+ErrorDocument 403 "Accès interdit. L'ancienne page de diagnostic API a été désactivée. Veuillez utiliser la nouvelle page de diagnostic API dans les paramètres."

@@ -57,9 +57,24 @@ return [
             'prefix_indexes' => true,
             'strict' => true,
             'engine' => null,
+            'modes' => [
+                //'ONLY_FULL_GROUP_BY',
+                'STRICT_TRANS_TABLES',
+                'NO_ZERO_IN_DATE',
+                'NO_ZERO_DATE',
+                'ERROR_FOR_DIVISION_BY_ZERO',
+                'NO_ENGINE_SUBSTITUTION',
+            ],
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+                PDO::ATTR_PERSISTENT => true,
+                PDO::ATTR_EMULATE_PREPARES => true,
+                PDO::ATTR_TIMEOUT => 120,
+                // La taille du buffer est gérée par le serveur MySQL
+                PDO::MYSQL_ATTR_LOCAL_INFILE => true,
             ]) : [],
+            'wait_timeout' => 120,
+            'connect_timeout' => 10,
         ],
 
         'mariadb' => [

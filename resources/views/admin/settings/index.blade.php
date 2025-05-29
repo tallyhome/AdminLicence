@@ -235,6 +235,49 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Outils d'optimisation -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Outils d'optimisation</h3>
+                </div>
+                <div class="card-body">
+                    <p class="mb-3">
+                        Optimisez les performances de votre application avec des outils pour nettoyer les logs, optimiser les images et gérer les assets.
+                    </p>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <a href="{{ route('admin.settings.optimization') }}" class="btn btn-primary">
+                            <i class="fas fa-tools"></i> Accéder aux outils d'optimisation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Diagnostic API -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Diagnostic API</h3>
+                </div>
+                <div class="card-body">
+                    <p class="mb-3">
+                        Testez et diagnostiquez les fonctionnalités API de votre application : validation de clés, connexion à la base de données, permissions et logs.
+                    </p>
+                    
+                    <div class="d-flex align-items-center mb-3">
+                        <a href="{{ route('admin.settings.api-diagnostic') }}" class="btn btn-primary me-2">
+                            <i class="fas fa-stethoscope"></i> Interface de diagnostic
+                        </a>
+                        <a href="{{ url('/api-diagnostic.php') }}" target="_blank" class="btn btn-outline-secondary">
+                            <i class="fas fa-external-link-alt"></i> Outil autonome
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection

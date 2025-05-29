@@ -45,29 +45,51 @@ class CheckLicenseMiddleware
                     ->with('error', 'Aucune clé de licence n\'est configurée. Veuillez configurer une licence valide pour continuer à utiliser le système.');
             }
             
-            // Forcer la vérification sans utiliser le cache
-            // Nous désactivons temporairement le cache pour garantir une vérification fraîche
-            \Illuminate\Support\Facades\Cache::forget('license_verification_' . md5($licenseKey));
+            // Vérifier si nous avons un résultat en cache
+            $cacheKey = 'license_verification_' . md5($licenseKey);
+            $cachedResult = \Illuminate\Support\Facades\Cache::get($cacheKey);
             
-            // Vérifier directement avec l'API
-            $domain = $request->getHost();
-            $ipAddress = $_SERVER['SERVER_ADDR'] ?? gethostbyname(gethostname());
+            // Vérifier si nous devons faire une nouvelle vérification API
+            // 1. Si aucun résultat en cache
+            // 2. Si la dernière vérification date de plus de 6 heures
+            $lastCheckKey = 'last_license_check_' . md5($licenseKey);
+            $lastCheck = \Illuminate\Support\Facades\Cache::get($lastCheckKey, 0);
+            $currentTime = time();
+            $eightHoursInSeconds = 8 * 60 * 60;
             
-            // Vérifier directement la validité de la clé avec l'API
-            $result = $this->licenceService->validateSerialKey($licenseKey, $domain, $ipAddress);
-            $isValid = $result['valid'] === true;
+            if ($cachedResult === null || ($currentTime - $lastCheck) > $eightHoursInSeconds) {
+                // Vérifier directement avec l'API
+                $domain = $request->getHost();
+                $ipAddress = $_SERVER['SERVER_ADDR'] ?? gethostbyname(gethostname());
+                
+                // Vérifier directement la validité de la clé avec l'API
+                $result = $this->licenceService->validateSerialKey($licenseKey, $domain, $ipAddress);
+                $isValid = $result['valid'] === true;
+                
+                // Mettre à jour le timestamp de la dernière vérification
+                \Illuminate\Support\Facades\Cache::put($lastCheckKey, $currentTime, 60 * 24 * 7); // 7 jours
+            } else {
+                // Utiliser le résultat en cache
+                $isValid = $cachedResult;
+                $result = ['valid' => $isValid, 'message' => 'Résultat en cache', 'data' => []]; 
+            }
             
-            // Journaliser le résultat pour le débogage
-            Log::info('Vérification de licence dans le middleware', [
-                'license_key' => $licenseKey,
-                'valid' => $isValid,
-                'message' => $result['message'] ?? 'Aucun message',
-                'path' => $request->path(),
-                'data' => $result['data'] ?? []
-            ]);
+            // Journaliser uniquement les échecs ou les changements de statut
+            if (!$isValid) {
+                // Journaliser les échecs de validation de licence
+                Log::warning('Licence invalide dans le middleware', [
+                    'message' => $result['message'] ?? 'Aucun détail disponible',
+                    'path' => $request->path()
+                ]);
+            } elseif (!$cachedResult && $isValid) {
+                // Journaliser uniquement la première validation réussie ou après un changement de statut
+                Log::info('Licence validée avec succès', [
+                    'path' => $request->path()
+                ]);
+            }
             
-            // Stocker le résultat en cache
-            \Illuminate\Support\Facades\Cache::put('license_verification_' . md5($licenseKey), $isValid, 60 * 24);
+            // Stocker le résultat en cache (24 heures)
+            \Illuminate\Support\Facades\Cache::put($cacheKey, $isValid, 60 * 24);
             
             // Si la licence n'est pas valide, rediriger vers la page de licence
             if (!$isValid) {

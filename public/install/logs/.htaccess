@@ -1,0 +1,15 @@
+# Protection des fichiers de logs
+# Bloquer complètement l'accès aux fichiers de logs
+<FilesMatch ".*">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Bloquer l'accès à tous les fichiers
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ - [F,L]
+</IfModule>
+
+# Désactiver l'affichage des répertoires
+Options -Indexes

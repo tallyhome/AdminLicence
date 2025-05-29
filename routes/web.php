@@ -90,3 +90,22 @@ Route::middleware(['web', 'locale'])->group(function () {
 
 // Inclure les routes admin
 require __DIR__.'/admin.php';
+
+// Routes de redirection de l'ancien dashboard vers le nouveau
+Route::middleware(['web'])->group(function () {
+    // Redirection générale de l'ancien dashboard
+    Route::get('/dashboard', [\App\Http\Controllers\OldDashboardController::class, 'redirect'])->name('old.dashboard');
+    
+    // Redirection des pages d'optimisation
+    Route::get('/optimization', [\App\Http\Controllers\OldDashboardController::class, 'redirectOptimization'])->name('old.optimization');
+    Route::post('/optimization/clean-logs', [\App\Http\Controllers\OldDashboardController::class, 'redirectOptimization']);
+    Route::post('/optimization/optimize-images', [\App\Http\Controllers\OldDashboardController::class, 'redirectOptimization']);
+    
+    // Redirection des pages de diagnostic API
+    Route::get('/api-diagnostic', [\App\Http\Controllers\OldDashboardController::class, 'redirectApiDiagnostic'])->name('old.api-diagnostic');
+    Route::post('/api-diagnostic/test-serial-key', [\App\Http\Controllers\OldDashboardController::class, 'redirectApiDiagnostic']);
+    Route::post('/api-diagnostic/test-api-connection', [\App\Http\Controllers\OldDashboardController::class, 'redirectApiDiagnostic']);
+    Route::post('/api-diagnostic/test-database', [\App\Http\Controllers\OldDashboardController::class, 'redirectApiDiagnostic']);
+    Route::post('/api-diagnostic/check-permissions', [\App\Http\Controllers\OldDashboardController::class, 'redirectApiDiagnostic']);
+    Route::post('/api-diagnostic/get-logs', [\App\Http\Controllers\OldDashboardController::class, 'redirectApiDiagnostic']);
+});

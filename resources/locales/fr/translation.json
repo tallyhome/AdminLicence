@@ -281,7 +281,8 @@
         "expiration_date_optional": "Date d'expiration (optionnel)",
         "create_keys": "Créer les clés",
         "search_by_key": "Recherche par clé",
-        "key_used": "Clé utilisée"
+        "key_used": "Clé utilisée",
+        "search_placeholder": "Rechercher par clé, domaine, IP, etc..."
     },
     "api": {
         "title": "Documentation API",

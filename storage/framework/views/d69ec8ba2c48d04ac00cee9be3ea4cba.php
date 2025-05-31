@@ -59,14 +59,156 @@
                     Nettoyage des logs
                 </div>
                 <div class="card-body">
-                    <p>Taille actuelle des logs : <strong><?php echo e($logsSize); ?></strong></p>
-                    <p>Cette opération va nettoyer les fichiers de logs inutiles dans le dossier <code>public/install/logs/</code>. Les logs importants seront archivés, les autres seront supprimés.</p>
-                    <form action="<?php echo e(route('admin.settings.optimization.clean-logs')); ?>" method="POST">
-                        <?php echo csrf_field(); ?>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-broom me-1"></i> Nettoyer les logs
-                        </button>
-                    </form>
+                    <p>Taille totale des logs : <strong><?php echo e($logsSize); ?></strong></p>
+                    <p>Cette opération va nettoyer les fichiers de logs inutiles. Les logs importants seront archivés, les autres seront supprimés.</p>
+                    
+                    <ul class="nav nav-tabs mb-3" id="logsTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="all-logs-tab" data-bs-toggle="tab" data-bs-target="#all-logs" type="button" role="tab" aria-controls="all-logs" aria-selected="true">
+                                Tous les logs
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="install-logs-tab" data-bs-toggle="tab" data-bs-target="#install-logs" type="button" role="tab" aria-controls="install-logs" aria-selected="false">
+                                Logs d'installation <span class="badge bg-secondary"><?php echo e($installLogsSize); ?></span>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="laravel-logs-tab" data-bs-toggle="tab" data-bs-target="#laravel-logs" type="button" role="tab" aria-controls="laravel-logs" aria-selected="false">
+                                Logs Laravel <span class="badge bg-secondary"><?php echo e($laravelLogsSize); ?></span>
+                            </button>
+                        </li>
+                    </ul>
+                    
+                    <div class="tab-content" id="logsTabsContent">
+                        <!-- Tous les logs -->
+                        <div class="tab-pane fade show active" id="all-logs" role="tabpanel" aria-labelledby="all-logs-tab">
+                            <div class="d-flex mb-3">
+                                <form action="<?php echo e(route('admin.settings.optimization.clean-logs')); ?>" method="POST" class="me-2">
+                                    <?php echo csrf_field(); ?>
+                                    <input type="hidden" name="log_type" value="all">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-broom me-1"></i> Nettoyer tous les logs
+                                    </button>
+                                </form>
+                                
+                                <form action="<?php echo e(route('admin.settings.optimization.clean-logs')); ?>" method="POST">
+                                    <?php echo csrf_field(); ?>
+                                    <input type="hidden" name="log_type" value="all">
+                                    <input type="hidden" name="delete_all" value="1">
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Attention : Cette action va supprimer tous les fichiers de logs. Êtes-vous sûr de vouloir continuer ?');">
+                                        <i class="fas fa-trash-alt me-1"></i> Supprimer tous les logs
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <!-- Logs d'installation -->
+                        <div class="tab-pane fade" id="install-logs" role="tabpanel" aria-labelledby="install-logs-tab">
+                            <div class="d-flex mb-3">
+                                <form action="<?php echo e(route('admin.settings.optimization.clean-logs')); ?>" method="POST" class="me-2">
+                                    <?php echo csrf_field(); ?>
+                                    <input type="hidden" name="log_type" value="install">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-broom me-1"></i> Nettoyer les logs d'installation
+                                    </button>
+                                </form>
+                                
+                                <form action="<?php echo e(route('admin.settings.optimization.clean-logs')); ?>" method="POST">
+                                    <?php echo csrf_field(); ?>
+                                    <input type="hidden" name="log_type" value="install">
+                                    <input type="hidden" name="delete_all" value="1">
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Attention : Cette action va supprimer tous les fichiers de logs d\'installation. Êtes-vous sûr de vouloir continuer ?');">
+                                        <i class="fas fa-trash-alt me-1"></i> Supprimer les logs d'installation
+                                    </button>
+                                </form>
+                            </div>
+                            
+                            <div class="table-responsive mt-3">
+                                <table class="table table-striped table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Nom du fichier</th>
+                                            <th>Taille</th>
+                                            <th>Date de modification</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $__empty_1 = true; $__currentLoopData = $installLogFiles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $log): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                        <tr>
+                                            <td><?php echo e($log['name']); ?></td>
+                                            <td><?php echo e($log['size']); ?></td>
+                                            <td><?php echo e($log['date']); ?></td>
+                                            <td>
+                                                <a href="<?php echo e(route('admin.settings.optimization.view-log', ['path' => $log['path']])); ?>" target="_blank" class="btn btn-sm btn-info">
+                                                    <i class="fas fa-eye"></i> Voir
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                        <tr>
+                                            <td colspan="4" class="text-center">Aucun fichier de log d'installation trouvé</td>
+                                        </tr>
+                                        <?php endif; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Logs Laravel -->
+                        <div class="tab-pane fade" id="laravel-logs" role="tabpanel" aria-labelledby="laravel-logs-tab">
+                            <div class="d-flex mb-3">
+                                <form action="<?php echo e(route('admin.settings.optimization.clean-logs')); ?>" method="POST" class="me-2">
+                                    <?php echo csrf_field(); ?>
+                                    <input type="hidden" name="log_type" value="laravel">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-broom me-1"></i> Nettoyer les logs Laravel
+                                    </button>
+                                </form>
+                                
+                                <form action="<?php echo e(route('admin.settings.optimization.clean-logs')); ?>" method="POST">
+                                    <?php echo csrf_field(); ?>
+                                    <input type="hidden" name="log_type" value="laravel">
+                                    <input type="hidden" name="delete_all" value="1">
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Attention : Cette action va supprimer tous les fichiers de logs Laravel. Êtes-vous sûr de vouloir continuer ?');">
+                                        <i class="fas fa-trash-alt me-1"></i> Supprimer les logs Laravel
+                                    </button>
+                                </form>
+                            </div>
+                            
+                            <div class="table-responsive mt-3">
+                                <table class="table table-striped table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Nom du fichier</th>
+                                            <th>Taille</th>
+                                            <th>Date de modification</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $__empty_1 = true; $__currentLoopData = $laravelLogFiles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $log): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                        <tr>
+                                            <td><?php echo e($log['name']); ?></td>
+                                            <td><?php echo e($log['size']); ?></td>
+                                            <td><?php echo e($log['date']); ?></td>
+                                            <td>
+                                                <a href="<?php echo e(route('admin.settings.optimization.view-log', ['path' => $log['path']])); ?>" target="_blank" class="btn btn-sm btn-info">
+                                                    <i class="fas fa-eye"></i> Voir
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                        <tr>
+                                            <td colspan="4" class="text-center">Aucun fichier de log Laravel trouvé</td>
+                                        </tr>
+                                        <?php endif; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -19,8 +19,19 @@ class OptimizationController extends Controller
      */
     public function index()
     {
-        // Récupérer la taille des logs
-        $logsSize = $this->getDirectorySize(public_path('install/logs'));
+        // Récupérer la taille des logs d'installation
+        $installLogsSize = $this->getDirectorySize(public_path('install/logs'));
+        
+        // Récupérer la taille des logs Laravel
+        $laravelLogsSize = $this->getDirectorySize(storage_path('logs'));
+        
+        // Taille totale des logs
+        $logsSize = $this->formatBytes($this->getDirectorySizeInBytes(public_path('install/logs')) + 
+                                        $this->getDirectorySizeInBytes(storage_path('logs')));
+        
+        // Récupérer la liste des fichiers de logs
+        $installLogFiles = $this->getLogFiles('install');
+        $laravelLogFiles = $this->getLogFiles('laravel');
         
         // Récupérer la taille des images
         $imagesSize = $this->getDirectorySize(public_path('images'));
@@ -31,6 +42,10 @@ class OptimizationController extends Controller
         
         return view('admin.settings.optimization', compact(
             'logsSize',
+            'installLogsSize',
+            'laravelLogsSize',
+            'installLogFiles',
+            'laravelLogFiles',
             'imagesSize',
             'cssFiles',
             'jsFiles'
@@ -49,8 +64,24 @@ class OptimizationController extends Controller
             $output = [];
             $returnCode = 0;
             
-            // Exécuter le script de nettoyage des logs
-            $process = new Process(['php', public_path('install/clean-logs.php')]);
+            // Vérifier si on doit tout supprimer
+            $deleteAll = $request->has('delete_all');
+            
+            // Vérifier quel type de logs nettoyer
+            $logType = $request->input('log_type', 'all');
+            
+            // Exécuter le script de nettoyage des logs avec les paramètres appropriés
+            $command = ['php', public_path('install/clean-logs.php')];
+            
+            if ($deleteAll) {
+                $command[] = '--delete-all';
+            }
+            
+            if ($logType !== 'all') {
+                $command[] = '--type=' . $logType;
+            }
+            
+            $process = new Process($command);
             $process->run();
             
             if (!$process->isSuccessful()) {
@@ -61,11 +92,20 @@ class OptimizationController extends Controller
             
             // Journaliser le résultat
             Log::info('Nettoyage des logs effectué avec succès', [
-                'output' => $output
+                'output' => $output,
+                'delete_all' => $deleteAll,
+                'log_type' => $logType
             ]);
             
+            $typeLabel = $logType === 'install' ? 'd\'installation' : 
+                        ($logType === 'laravel' ? 'Laravel' : '');
+            
+            $message = $deleteAll ? 
+                'Tous les fichiers de logs' . ($typeLabel ? ' ' . $typeLabel : '') . ' ont été supprimés avec succès.' : 
+                'Les fichiers de logs' . ($typeLabel ? ' ' . $typeLabel : '') . ' ont été nettoyés avec succès.';
+            
             return redirect()->route('admin.settings.optimization')
-                ->with('success', 'Les fichiers de logs ont été nettoyés avec succès.')
+                ->with('success', $message)
                 ->with('output', $output);
                 
         } catch (\Exception $e) {
@@ -156,8 +196,19 @@ class OptimizationController extends Controller
      */
     protected function getDirectorySize($directory)
     {
+        return $this->formatBytes($this->getDirectorySizeInBytes($directory));
+    }
+    
+    /**
+     * Calcule la taille d'un répertoire en octets
+     *
+     * @param string $directory Chemin du répertoire
+     * @return int Taille en octets
+     */
+    protected function getDirectorySizeInBytes($directory)
+    {
         if (!File::isDirectory($directory)) {
-            return '0 B';
+            return 0;
         }
         
         $size = 0;
@@ -165,7 +216,7 @@ class OptimizationController extends Controller
             $size += $file->getSize();
         }
         
-        return $this->formatBytes($size);
+        return $size;
     }
     
     /**
@@ -208,5 +259,72 @@ class OptimizationController extends Controller
         $bytes /= pow(1024, $pow);
         
         return round($bytes, $precision) . ' ' . $units[$pow];
+    }
+    
+    /**
+     * Récupère la liste des fichiers de logs avec leurs informations
+     *
+     * @param string $type Type de logs (install ou laravel)
+     * @return array Liste des fichiers de logs
+     */
+    protected function getLogFiles($type = 'install')
+    {
+        $logsDir = $type === 'install' ? public_path('install/logs') : storage_path('logs');
+        $basePath = $type === 'install' ? 'install/logs' : 'storage/logs';
+        $logFiles = [];
+        
+        if (!File::isDirectory($logsDir)) {
+            return $logFiles;
+        }
+        
+        foreach (File::files($logsDir) as $file) {
+            if ($file->getExtension() === 'log') {
+                $logFiles[] = [
+                    'name' => $file->getFilename(),
+                    'path' => $basePath . '/' . $file->getFilename(),
+                    'size' => $this->formatBytes($file->getSize()),
+                    'date' => date('Y-m-d H:i:s', $file->getMTime()),
+                    'age' => floor((time() - $file->getMTime()) / (60 * 60 * 24)), // âge en jours
+                    'type' => $type
+                ];
+            }
+        }
+        
+        // Trier par date de modification (plus récent en premier)
+        usort($logFiles, function($a, $b) {
+            return strtotime($b['date']) - strtotime($a['date']);
+        });
+        
+        return $logFiles;
+    }
+    
+    /**
+     * Affiche le contenu d'un fichier de log
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function viewLog(Request $request)
+    {
+        $logPath = $request->input('path');
+        
+        // Déterminer si c'est un log Laravel ou d'installation
+        if (str_starts_with($logPath, 'storage/logs/')) {
+            $fullPath = base_path($logPath);
+            $validPath = str_starts_with($logPath, 'storage/logs/') && str_ends_with($logPath, '.log');
+        } else {
+            $fullPath = public_path($logPath);
+            $validPath = str_starts_with($logPath, 'install/logs/') && str_ends_with($logPath, '.log');
+        }
+        
+        // Vérifier que le chemin est valide et dans le dossier logs
+        if (!File::exists($fullPath) || !$validPath) {
+            abort(404, 'Fichier de log non trouvé');
+        }
+        
+        $content = File::get($fullPath);
+        
+        return response($content, 200)
+            ->header('Content-Type', 'text/plain');
     }
 }

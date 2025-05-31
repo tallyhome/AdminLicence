@@ -227,6 +227,7 @@ Route::middleware(['auth:admin', \App\Http\Middleware\CheckLicenseMiddleware::cl
     // Routes pour les outils d'optimisation
     Route::get('/settings/optimization', [OptimizationController::class, 'index'])->name('admin.settings.optimization');
     Route::post('/settings/optimization/clean-logs', [OptimizationController::class, 'cleanLogs'])->name('admin.settings.optimization.clean-logs');
+    Route::get('/settings/optimization/view-log', [OptimizationController::class, 'viewLog'])->name('admin.settings.optimization.view-log');
     Route::post('/settings/optimization/optimize-images', [OptimizationController::class, 'optimizeImages'])->name('admin.settings.optimization.optimize-images');
     Route::post('/settings/optimization/asset-example', [OptimizationController::class, 'generateAssetExample'])->name('admin.settings.optimization.asset-example');
 

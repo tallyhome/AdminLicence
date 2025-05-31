@@ -300,12 +300,72 @@
     "unviewable_format": "表示不可能な形式",
     "auto_dismiss_alerts": "5秒後にアラートを自動的に閉じる",
     "copied": "コピーしました！"
-}
+        }
     },
-,
-    "settings.two_factor.status.disabled": "無効"
-,
-    "settings.two_factor.status.enabled": "有効"
-,
-    "language.changed_successfully": "言語が正常に変更されました"
+    "optimization": {
+        "title": "最適化ツール",
+        "operation_result": "操作結果",
+        "example_code": "サンプルコード",
+        "copy_code": "このコードをコピーして、Bladeビューで使用してください：",
+        "logs_cleaning": "ログのクリーニング",
+        "current_logs_size": "現在のログサイズ",
+        "logs_cleaning_description": "この操作は不要なログファイルをクリーンアップします。重要なログはアーカイブされ、残りは削除されます。",
+        "all_logs": "すべてのログ",
+        "installation_logs": "インストールログ",
+        "laravel_logs": "Laravelログ",
+        "clean_all_logs": "すべてのログをクリーンアップ",
+        "delete_all_logs": "すべてのログを削除",
+        "delete_all_logs_confirm": "注意：この操作はすべてのログファイルを削除します。続行してよろしいですか？",
+        "clean_installation_logs": "インストールログをクリーンアップ",
+        "delete_installation_logs": "インストールログを削除",
+        "delete_installation_logs_confirm": "注意：この操作はすべてのインストールログファイルを削除します。続行してよろしいですか？",
+        "clean_laravel_logs": "Laravelログをクリーンアップ",
+        "delete_laravel_logs": "Laravelログを削除",
+        "delete_laravel_logs_confirm": "注意：この操作はすべてのLaravelログファイルを削除します。続行してよろしいですか？",
+        "filename": "ファイル名",
+        "size": "サイズ",
+        "modification_date": "変更日",
+        "view": "表示",
+        "no_installation_logs_found": "インストールログファイルが見つかりません",
+        "no_laravel_logs_found": "Laravelログファイルが見つかりません",
+        "image_optimization": "画像最適化",
+        "current_images_size": "現在の画像サイズ",
+        "images_optimization_description": "この操作はpublic/images/フォルダ内の画像を最適化し、許容可能な品質を維持しながらそのサイズを削減します。",
+        "quality": "品質 (0-100)",
+        "high_compression": "高圧縮",
+        "high_quality": "高品質",
+        "force_optimization": "強制最適化（既に最適化されている場合でも）",
+        "optimize_images": "画像を最適化",
+        "api_diagnostic_tool": "API診断ツール",
+        "api_diagnostic_description": "このツールは、ライセンス確認APIに関連する問題を診断し、解決するのに役立ちます。",
+        "api_general_info": "API一般情報",
+        "api_serial_key_test": "シリアルキーテスト",
+        "api_connection_test": "外部API接続テスト",
+        "api_database_test": "データベース接続テスト",
+        "api_file_permissions": "ファイル権限チェック",
+        "api_log_entries": "最近のログエントリを表示",
+        "api_default_credentials": "デフォルト認証情報",
+        "open_api_diagnostic": "API診断ツールを開く",
+        "asset_versioning": "アセットバージョニング",
+        "asset_versioning_description": "アセットバージョニングシステムは、CSS、JavaScript、および画像のキャッシュを最適化します。ファイルの変更日に基づいてバージョンパラメータを自動的に追加します。",
+        "asset_type": "アセットタイプ",
+        "css_file": "CSSファイル",
+        "js_file": "JavaScriptファイル",
+        "image": "画像",
+        "image_path": "画像パス",
+        "generate_example": "例を生成",
+        "how_to_use": "使用方法",
+        "blade_directives_description": "Bladeファイルでは、次のディレクティブを使用します："
+    },
+    "settings": {
+        "two_factor": {
+            "status": {
+                "disabled": "無効",
+                "enabled": "有効"
+            }
+        }
+    },
+    "language": {
+        "changed_successfully": "言語が正常に変更されました"
+    }
 }

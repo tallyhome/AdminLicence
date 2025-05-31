@@ -619,7 +619,7 @@
             "description": "Esta documentação irá guiá-lo pelo processo de integração do sistema de licenças na sua aplicação."
         },
         "installation": {
-{{ ... }}
+            "title": "Instalação",
             "description": "Instruções detalhadas para instalação e configuração inicial.",
             "tabs": {
                 "php": "PHP Simples",

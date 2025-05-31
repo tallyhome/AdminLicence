@@ -130,7 +130,7 @@
             "deleted": "プロジェクトが削除されました"
         }
     },
-    "settings": {
+    "settings_page": {
         "title": "設定",
         "general": {
             "title": "一般設定",

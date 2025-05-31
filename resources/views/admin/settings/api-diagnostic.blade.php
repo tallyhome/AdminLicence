@@ -2,6 +2,19 @@
 
 @section('title', 'Diagnostic API')
 
+@section('styles')
+<style>
+    .cursor-pointer {
+        cursor: pointer;
+    }
+    .card.cursor-pointer:hover {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
+        transition: all 0.2s ease-in-out;
+    }
+</style>
+@endsection
+
 @section('content')
 <div class="container-fluid px-4">
     <h1 class="mt-4">Diagnostic API</h1>
@@ -100,6 +113,7 @@
             </div>
         </div>
     </div>
+    
     
     <div class="row">
         <!-- Test de clé de série -->
@@ -242,56 +256,104 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 mb-4">
-                            <div class="card bg-primary text-white h-100">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="me-3">
-                                            <div class="text-white-75 small">Clés de série</div>
-                                            <div class="text-lg fw-bold">{{ $dbStats['serial_keys'] }}</div>
+                            <a href="{{ route('admin.serial-keys.index') }}" class="text-decoration-none">
+                                <div class="card bg-primary text-white h-100" id="serialKeysCard" style="cursor: pointer;">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="me-3">
+                                                <div class="text-white-75 small">Clés de série</div>
+                                                <div class="text-lg fw-bold">{{ $dbStats['serial_keys'] ?? 0 }}</div>
+                                            </div>
+                                            <i class="fas fa-key fa-2x text-white-50"></i>
                                         </div>
-                                        <i class="fas fa-key fa-2x text-white-50"></i>
+                                    </div>
+                                    <div class="card-footer bg-primary border-0 text-center py-1">
+                                        <span class="small text-white-75">
+                                            <i class="fas fa-external-link-alt"></i> Voir toutes les clés
+                                        </span>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-md-6 mb-4">
-                            <div class="card bg-success text-white h-100">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="me-3">
-                                            <div class="text-white-75 small">Projets</div>
-                                            <div class="text-lg fw-bold">{{ $dbStats['projects'] }}</div>
+                            <a href="{{ route('admin.projects.index') }}" class="text-decoration-none">
+                                <div class="card bg-success text-white h-100" id="projectsCard" style="cursor: pointer;">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="me-3">
+                                                <div class="text-white-75 small">Projets</div>
+                                                <div class="text-lg fw-bold">{{ $dbStats['projects'] ?? 0 }}</div>
+                                            </div>
+                                            <i class="fas fa-project-diagram fa-2x text-white-50"></i>
                                         </div>
-                                        <i class="fas fa-project-diagram fa-2x text-white-50"></i>
+                                    </div>
+                                    <div class="card-footer bg-success border-0 text-center py-1">
+                                        <span class="small text-white-75">
+                                            <i class="fas fa-external-link-alt"></i> Voir tous les projets
+                                        </span>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-md-6 mb-4">
-                            <div class="card bg-warning text-white h-100">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="me-3">
-                                            <div class="text-white-75 small">Administrateurs</div>
-                                            <div class="text-lg fw-bold">{{ $dbStats['admins'] }}</div>
+                            <a href="{{ route('admin.admins.index') }}" class="text-decoration-none">
+                                <div class="card bg-warning text-white h-100" id="adminsCard" style="cursor: pointer;">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="me-3">
+                                                <div class="text-white-75 small">Administrateurs</div>
+                                                <div class="text-lg fw-bold">{{ $dbStats['admins'] ?? 0 }}</div>
+                                            </div>
+                                            <i class="fas fa-users-cog fa-2x text-white-50"></i>
                                         </div>
-                                        <i class="fas fa-users-cog fa-2x text-white-50"></i>
+                                    </div>
+                                    <div class="card-footer bg-warning border-0 text-center py-1">
+                                        <span class="small text-white-75">
+                                            <i class="fas fa-external-link-alt"></i> Voir tous les administrateurs
+                                        </span>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-md-6 mb-4">
-                            <div class="card bg-info text-white h-100">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="me-3">
-                                            <div class="text-white-75 small">Clés actives</div>
-                                            <div class="text-lg fw-bold">{{ $dbStats['active_keys'] }}</div>
+                            <a href="{{ route('admin.serial-keys.index', ['status' => 'active']) }}" class="text-decoration-none">
+                                <div class="card bg-info text-white h-100" id="activeKeysCard" style="cursor: pointer;">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="me-3">
+                                                <div class="text-white-75 small">Clés actives</div>
+                                                <div class="text-lg fw-bold">{{ $dbStats['active_keys'] ?? 0 }}</div>
+                                            </div>
+                                            <i class="fas fa-check-circle fa-2x text-white-50"></i>
                                         </div>
-                                        <i class="fas fa-check-circle fa-2x text-white-50"></i>
+                                    </div>
+                                    <div class="card-footer bg-info border-0 text-center py-1">
+                                        <span class="small text-white-75">
+                                            <i class="fas fa-external-link-alt"></i> Voir les clés actives
+                                        </span>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <a href="{{ route('admin.api-keys.index') }}" class="text-decoration-none">
+                                <div class="card bg-secondary text-white h-100" id="apiKeysCard" style="cursor: pointer;">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="me-3">
+                                                <div class="text-white-75 small">Clés API</div>
+                                                <div class="text-lg fw-bold">{{ $dbStats['api_keys'] ?? 0 }}</div>
+                                            </div>
+                                            <i class="fas fa-key fa-2x text-white-50"></i>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer bg-secondary border-0 text-center py-1">
+                                        <span class="small text-white-75">
+                                            <i class="fas fa-external-link-alt"></i> Voir toutes les clés API
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -338,6 +400,237 @@
 @section('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Fonctions pour charger les données dans les modales
+        function loadSerialKeys() {
+            const modalBody = document.querySelector('#serialKeysModal .modal-body');
+            modalBody.innerHTML = '<div class="text-center"><div class="spinner-border text-primary" role="status"></div><p class="mt-2">Chargement des clés de série...</p></div>';
+            
+            fetch('{{ route("admin.settings.api-diagnostic.get-serial-keys") }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify({})
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.items.length > 0) {
+                    let html = '<div class="table-responsive"><table class="table table-striped table-sm"><thead><tr><th>Clé</th><th>Projet</th><th>Statut</th><th>Date d\'expiration</th></tr></thead><tbody>';
+                    
+                    data.items.forEach(item => {
+                        html += `<tr>
+                            <td>${item.serial_key}</td>
+                            <td>${item.project_name || 'N/A'}</td>
+                            <td><span class="badge bg-${item.status_class}">${item.status}</span></td>
+                            <td>${item.expires_at || 'Aucune'}</td>
+                        </tr>`;
+                    });
+                    
+                    html += '</tbody></table></div>';
+                    modalBody.innerHTML = html;
+                } else {
+                    modalBody.innerHTML = '<div class="alert alert-info">Aucune clé de série trouvée.</div>';
+                }
+            })
+            .catch(error => {
+                modalBody.innerHTML = '<div class="alert alert-danger">Erreur lors du chargement des clés de série.</div>';
+                console.error('Error:', error);
+            });
+        }
+        
+        function loadProjects() {
+            const modalBody = document.querySelector('#projectsModal .modal-body');
+            modalBody.innerHTML = '<div class="text-center"><div class="spinner-border text-primary" role="status"></div><p class="mt-2">Chargement des projets...</p></div>';
+            
+            fetch('{{ route("admin.settings.api-diagnostic.get-projects") }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify({})
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.items.length > 0) {
+                    let html = '<div class="table-responsive"><table class="table table-striped table-sm"><thead><tr><th>Nom</th><th>Statut</th><th>Clés de série</th><th>Date de création</th></tr></thead><tbody>';
+                    
+                    data.items.forEach(item => {
+                        html += `<tr>
+                            <td>${item.name}</td>
+                            <td><span class="badge bg-${item.status_class}">${item.status}</span></td>
+                            <td>${item.serial_keys_count}</td>
+                            <td>${item.created_at}</td>
+                        </tr>`;
+                    });
+                    
+                    html += '</tbody></table></div>';
+                    modalBody.innerHTML = html;
+                } else {
+                    modalBody.innerHTML = '<div class="alert alert-info">Aucun projet trouvé.</div>';
+                }
+            })
+            .catch(error => {
+                modalBody.innerHTML = '<div class="alert alert-danger">Erreur lors du chargement des projets.</div>';
+                console.error('Error:', error);
+            });
+        }
+        
+        function loadAdmins() {
+            const modalBody = document.querySelector('#adminsModal .modal-body');
+            modalBody.innerHTML = '<div class="text-center"><div class="spinner-border text-primary" role="status"></div><p class="mt-2">Chargement des administrateurs...</p></div>';
+            
+            fetch('{{ route("admin.settings.api-diagnostic.get-admins") }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify({})
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.items.length > 0) {
+                    let html = '<div class="table-responsive"><table class="table table-striped table-sm"><thead><tr><th>Nom</th><th>Email</th><th>Dernière connexion</th></tr></thead><tbody>';
+                    
+                    data.items.forEach(item => {
+                        html += `<tr>
+                            <td>${item.name}</td>
+                            <td>${item.email}</td>
+                            <td>${item.last_login || 'Jamais'}</td>
+                        </tr>`;
+                    });
+                    
+                    html += '</tbody></table></div>';
+                    modalBody.innerHTML = html;
+                } else {
+                    modalBody.innerHTML = '<div class="alert alert-info">Aucun administrateur trouvé.</div>';
+                }
+            })
+            .catch(error => {
+                modalBody.innerHTML = '<div class="alert alert-danger">Erreur lors du chargement des administrateurs.</div>';
+                console.error('Error:', error);
+            });
+        }
+        
+        function loadActiveKeys() {
+            const modalBody = document.querySelector('#activeKeysModal .modal-body');
+            modalBody.innerHTML = '<div class="text-center"><div class="spinner-border text-primary" role="status"></div><p class="mt-2">Chargement des clés actives...</p></div>';
+            
+            fetch('{{ route("admin.settings.api-diagnostic.get-active-keys") }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify({})
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.items.length > 0) {
+                    let html = '<div class="table-responsive"><table class="table table-striped table-sm"><thead><tr><th>Clé</th><th>Projet</th><th>Domaine</th><th>Date d\'expiration</th></tr></thead><tbody>';
+                    
+                    data.items.forEach(item => {
+                        html += `<tr>
+                            <td>${item.serial_key}</td>
+                            <td>${item.project_name || 'N/A'}</td>
+                            <td>${item.domain || 'Tous'}</td>
+                            <td>${item.expires_at || 'Aucune'}</td>
+                        </tr>`;
+                    });
+                    
+                    html += '</tbody></table></div>';
+                    modalBody.innerHTML = html;
+                } else {
+                    modalBody.innerHTML = '<div class="alert alert-info">Aucune clé active trouvée.</div>';
+                }
+            })
+            .catch(error => {
+                modalBody.innerHTML = '<div class="alert alert-danger">Erreur lors du chargement des clés actives.</div>';
+                console.error('Error:', error);
+            });
+        }
+        
+        function loadApiKeys() {
+            const modalBody = document.querySelector('#apiKeysModal .modal-body');
+            modalBody.innerHTML = '<div class="text-center"><div class="spinner-border text-primary" role="status"></div><p class="mt-2">Chargement des clés API...</p></div>';
+            
+            fetch('{{ route("admin.settings.api-diagnostic.get-api-keys") }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify({})
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.items.length > 0) {
+                    let html = '<div class="table-responsive"><table class="table table-striped table-sm"><thead><tr><th>Clé</th><th>Projet</th><th>Statut</th><th>Dernière utilisation</th></tr></thead><tbody>';
+                    
+                    data.items.forEach(item => {
+                        html += `<tr>
+                            <td>${item.key.substring(0, 10)}...</td>
+                            <td>${item.project_name || 'N/A'}</td>
+                            <td><span class="badge bg-${item.status_class}">${item.status}</span></td>
+                            <td>${item.last_used_at || 'Jamais'}</td>
+                        </tr>`;
+                    });
+                    
+                    html += '</tbody></table></div>';
+                    modalBody.innerHTML = html;
+                } else {
+                    modalBody.innerHTML = '<div class="alert alert-info">Aucune clé API trouvée.</div>';
+                }
+            })
+            .catch(error => {
+                modalBody.innerHTML = '<div class="alert alert-danger">Erreur lors du chargement des clés API.</div>';
+                console.error('Error:', error);
+            });
+        }
+        
+        // Initialisation des événements pour les modales
+        document.querySelector('#serialKeysModal').addEventListener('show.bs.modal', loadSerialKeys);
+        document.querySelector('#projectsModal').addEventListener('show.bs.modal', loadProjects);
+        document.querySelector('#adminsModal').addEventListener('show.bs.modal', loadAdmins);
+        document.querySelector('#activeKeysModal').addEventListener('show.bs.modal', loadActiveKeys);
+        document.querySelector('#apiKeysModal').addEventListener('show.bs.modal', loadApiKeys);
+        
+        // Gestionnaire d'événements pour les cartes statistiques cliquables
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sélectionner tous les éléments avec la classe modal-trigger
+            var triggers = document.querySelectorAll('.modal-trigger');
+            
+            // Ajouter un gestionnaire d'événements click à chaque élément
+            triggers.forEach(function(trigger) {
+                trigger.style.cursor = 'pointer'; // Assurer que le curseur est un pointeur
+                
+                trigger.addEventListener('click', function() {
+                    var modalId = this.getAttribute('data-modal-target');
+                    console.log('Ouverture de la modale:', modalId);
+                    
+                    try {
+                        var modalElement = document.getElementById(modalId);
+                        if (!modalElement) {
+                            console.error('Erreur: Modale non trouvée:', modalId);
+                            return;
+                        }
+                        
+                        // Utiliser l'API Bootstrap pour ouvrir la modale
+                        var modal = new bootstrap.Modal(modalElement);
+                        modal.show();
+                    } catch (e) {
+                        console.error('Erreur lors de l\'ouverture de la modale:', e);
+                    }
+                });
+            });
+        });
         // Gestion du champ de clé personnalisée
         const serialKeySelect = document.getElementById('serialKey');
         const customKeyField = document.getElementById('customKeyField');
@@ -649,6 +942,224 @@
             });
         });
         
+        // Gestion des clics sur les cartes de statistiques
+        document.querySelector('.card[data-bs-target="#serialKeysModal"]').addEventListener('click', function() {
+            loadModalData('{{ route("admin.settings.api-diagnostic.get-serial-keys") }}', '#serialKeysModal', function(data) {
+                let tableHtml = `
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Clé de série</th>
+                                <th>Projet</th>
+                                <th>Statut</th>
+                                <th>Expiration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                
+                data.items.forEach(item => {
+                    tableHtml += `
+                        <tr>
+                            <td><code>${item.serial_key}</code></td>
+                            <td>${item.project_name || 'N/A'}</td>
+                            <td><span class="badge bg-${item.status_class}">${item.status}</span></td>
+                            <td>${item.expires_at || 'N/A'}</td>
+                        </tr>
+                    `;
+                });
+                
+                tableHtml += `
+                        </tbody>
+                    </table>
+                `;
+                
+                return tableHtml;
+            });
+        });
+        
+        document.querySelector('.card[data-bs-target="#projectsModal"]').addEventListener('click', function() {
+            loadModalData('{{ route("admin.settings.api-diagnostic.get-projects") }}', '#projectsModal', function(data) {
+                let tableHtml = `
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Statut</th>
+                                <th>Clés</th>
+                                <th>Créé le</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                
+                data.items.forEach(item => {
+                    tableHtml += `
+                        <tr>
+                            <td>${item.name}</td>
+                            <td><span class="badge bg-${item.status_class}">${item.status}</span></td>
+                            <td>${item.serial_keys_count}</td>
+                            <td>${item.created_at}</td>
+                        </tr>
+                    `;
+                });
+                
+                tableHtml += `
+                        </tbody>
+                    </table>
+                `;
+                
+                return tableHtml;
+            });
+        });
+        
+        document.querySelector('.card[data-bs-target="#adminsModal"]').addEventListener('click', function() {
+            loadModalData('{{ route("admin.settings.api-diagnostic.get-admins") }}', '#adminsModal', function(data) {
+                let tableHtml = `
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Email</th>
+                                <th>Dernière connexion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                
+                data.items.forEach(item => {
+                    tableHtml += `
+                        <tr>
+                            <td>${item.name}</td>
+                            <td>${item.email}</td>
+                            <td>${item.last_login || 'Jamais'}</td>
+                        </tr>
+                    `;
+                });
+                
+                tableHtml += `
+                        </tbody>
+                    </table>
+                `;
+                
+                return tableHtml;
+            });
+        });
+        
+        document.querySelector('.card[data-bs-target="#activeKeysModal"]').addEventListener('click', function() {
+            loadModalData('{{ route("admin.settings.api-diagnostic.get-active-keys") }}', '#activeKeysModal', function(data) {
+                let tableHtml = `
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Clé de série</th>
+                                <th>Projet</th>
+                                <th>Domaine</th>
+                                <th>Expiration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                
+                data.items.forEach(item => {
+                    tableHtml += `
+                        <tr>
+                            <td><code>${item.serial_key}</code></td>
+                            <td>${item.project_name || 'N/A'}</td>
+                            <td>${item.domain || 'N/A'}</td>
+                            <td>${item.expires_at || 'N/A'}</td>
+                        </tr>
+                    `;
+                });
+                
+                tableHtml += `
+                        </tbody>
+                    </table>
+                `;
+                
+                return tableHtml;
+            });
+        });
+        
+        document.querySelector('.card[data-bs-target="#apiKeysModal"]').addEventListener('click', function() {
+            loadModalData('{{ route("admin.settings.api-diagnostic.get-api-keys") }}', '#apiKeysModal', function(data) {
+                let tableHtml = `
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Clé API</th>
+                                <th>Projet</th>
+                                <th>Statut</th>
+                                <th>Dernière utilisation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                
+                data.items.forEach(item => {
+                    tableHtml += `
+                        <tr>
+                            <td><code>${item.key}</code></td>
+                            <td>${item.project_name || 'N/A'}</td>
+                            <td><span class="badge bg-${item.status_class}">${item.status}</span></td>
+                            <td>${item.last_used_at || 'Jamais'}</td>
+                        </tr>
+                    `;
+                });
+                
+                tableHtml += `
+                        </tbody>
+                    </table>
+                `;
+                
+                return tableHtml;
+            });
+        });
+        
+        // Fonction utilitaire pour charger les données dans une modale
+        function loadModalData(url, modalSelector, renderCallback) {
+            const modalBody = document.querySelector(`${modalSelector} .modal-body`);
+            
+            // Afficher le spinner de chargement
+            modalBody.innerHTML = `
+                <div class="text-center">
+                    <div class="spinner-border text-primary" role="status"></div>
+                    <p class="mt-2">Chargement des données...</p>
+                </div>
+            `;
+            
+            // Effectuer la requête AJAX
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify({})
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.items && data.items.length > 0) {
+                    modalBody.innerHTML = renderCallback(data);
+                } else {
+                    modalBody.innerHTML = `
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle me-2"></i> Aucune donnée disponible
+                        </div>
+                    `;
+                }
+            })
+            .catch(error => {
+                modalBody.innerHTML = `
+                    <div class="alert alert-danger">
+                        <i class="fas fa-exclamation-triangle me-2"></i> Erreur lors du chargement des données
+                    </div>
+                `;
+                console.error('Erreur:', error);
+            });
+        }
+    
         // Rafraîchir les logs
         const refreshLogsBtn = document.getElementById('refreshLogsBtn');
         const logsContent = document.getElementById('logsContent');
@@ -693,4 +1204,30 @@
         });
     });
 </script>
+
+<!-- Inclusion des modales -->
+@include('admin.settings.api-diagnostic-modals')
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Sélectionner toutes les cartes cliquables
+        const clickableCards = document.querySelectorAll('.card-clickable');
+        
+        // Ajouter un gestionnaire d'événements à chaque carte
+        clickableCards.forEach(function(card) {
+            card.addEventListener('click', function() {
+                // Récupérer l'ID de la modale à ouvrir
+                const modalId = this.getAttribute('data-modal-id');
+                
+                // Ouvrir la modale en utilisant l'API JavaScript native de Bootstrap
+                const modalElement = document.getElementById(modalId);
+                if (modalElement) {
+                    const modal = new bootstrap.Modal(modalElement);
+                    modal.show();
+                }
+            });
+        });
+    });
+</script>
+
 @endsection

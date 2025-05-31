@@ -238,6 +238,11 @@ Route::middleware(['auth:admin', \App\Http\Middleware\CheckLicenseMiddleware::cl
     Route::post('/settings/api-diagnostic/test-database', [\App\Http\Controllers\Admin\ApiDiagnosticController::class, 'testDatabaseConnection'])->name('admin.settings.api-diagnostic.test-database');
     Route::post('/settings/api-diagnostic/check-permissions', [\App\Http\Controllers\Admin\ApiDiagnosticController::class, 'checkPermissions'])->name('admin.settings.api-diagnostic.check-permissions');
     Route::post('/settings/api-diagnostic/get-logs', [\App\Http\Controllers\Admin\ApiDiagnosticController::class, 'getLatestLogs'])->name('admin.settings.api-diagnostic.get-logs');
+    Route::post('/settings/api-diagnostic/get-serial-keys', [\App\Http\Controllers\Admin\ApiDiagnosticController::class, 'getSerialKeys'])->name('admin.settings.api-diagnostic.get-serial-keys');
+    Route::post('/settings/api-diagnostic/get-projects', [\App\Http\Controllers\Admin\ApiDiagnosticController::class, 'getProjects'])->name('admin.settings.api-diagnostic.get-projects');
+    Route::post('/settings/api-diagnostic/get-admins', [\App\Http\Controllers\Admin\ApiDiagnosticController::class, 'getAdmins'])->name('admin.settings.api-diagnostic.get-admins');
+    Route::post('/settings/api-diagnostic/get-active-keys', [\App\Http\Controllers\Admin\ApiDiagnosticController::class, 'getActiveKeys'])->name('admin.settings.api-diagnostic.get-active-keys');
+    Route::post('/settings/api-diagnostic/get-api-keys', [\App\Http\Controllers\Admin\ApiDiagnosticController::class, 'getApiKeys'])->name('admin.settings.api-diagnostic.get-api-keys');
     
     // Routes pour l'authentification à deux facteurs
     Route::get('settings/two-factor', [TwoFactorAuthController::class, 'index'])->name('admin.settings.two-factor');

@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Http;
 use Symfony\Component\Process\Process;
 use App\Models\SerialKey;
 use App\Models\Project;
+use App\Models\Admin;
 use App\Services\LicenceService;
+use Carbon\Carbon;
 
 class ApiDiagnosticController extends Controller
 {
@@ -396,6 +398,7 @@ class ApiDiagnosticController extends Controller
                 'projects' => Project::count(),
                 'admins' => DB::table('admins')->count(),
                 'active_keys' => SerialKey::where('status', 'active')->count(),
+                'api_keys' => DB::table('api_keys')->count(),
                 'expired_keys' => SerialKey::where('status', 'expired')->count(),
                 'revoked_keys' => SerialKey::where('status', 'revoked')->count(),
                 'suspended_keys' => SerialKey::where('status', 'suspended')->count()
@@ -570,5 +573,226 @@ class ApiDiagnosticController extends Controller
         }
         
         return $permissions;
+    }
+    
+    /**
+     * Récupère les détails des clés de série
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getSerialKeys(Request $request)
+    {
+        try {
+            $serialKeys = SerialKey::with('project')
+                ->orderBy('created_at', 'desc')
+                ->take(30)
+                ->get()
+                ->map(function($key) {
+                    return [
+                        'serial_key' => $key->serial_key,
+                        'project_name' => $key->project ? $key->project->name : null,
+                        'status' => ucfirst($key->status),
+                        'status_class' => $this->getStatusClass($key->status),
+                        'expires_at' => $key->expires_at ? Carbon::parse($key->expires_at)->format('d/m/Y') : null
+                    ];
+                });
+            
+            return response()->json([
+                'success' => true,
+                'items' => $serialKeys
+            ]);
+        } catch (\Exception $e) {
+            Log::error('Erreur lors de la récupération des clés de série', [
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            
+            return response()->json([
+                'success' => false,
+                'message' => 'Erreur : ' . $e->getMessage()
+            ], 500);
+        }
+    }
+    
+    /**
+     * Récupère les détails des projets
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getProjects(Request $request)
+    {
+        try {
+            $projects = Project::withCount('serialKeys')
+                ->orderBy('created_at', 'desc')
+                ->take(30)
+                ->get()
+                ->map(function($project) {
+                    return [
+                        'name' => $project->name,
+                        'status' => $project->status ? 'Actif' : 'Inactif',
+                        'status_class' => $project->status ? 'success' : 'danger',
+                        'serial_keys_count' => $project->serial_keys_count,
+                        'created_at' => Carbon::parse($project->created_at)->format('d/m/Y')
+                    ];
+                });
+            
+            return response()->json([
+                'success' => true,
+                'items' => $projects
+            ]);
+        } catch (\Exception $e) {
+            Log::error('Erreur lors de la récupération des projets', [
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            
+            return response()->json([
+                'success' => false,
+                'message' => 'Erreur : ' . $e->getMessage()
+            ], 500);
+        }
+    }
+    
+    /**
+     * Récupère les détails des administrateurs
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getAdmins(Request $request)
+    {
+        try {
+            $admins = Admin::orderBy('name', 'asc')
+                ->get()
+                ->map(function($admin) {
+                    return [
+                        'name' => $admin->name,
+                        'email' => $admin->email,
+                        'last_login' => $admin->last_login_at ? Carbon::parse($admin->last_login_at)->format('d/m/Y H:i') : null
+                    ];
+                });
+            
+            return response()->json([
+                'success' => true,
+                'items' => $admins
+            ]);
+        } catch (\Exception $e) {
+            Log::error('Erreur lors de la récupération des administrateurs', [
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            
+            return response()->json([
+                'success' => false,
+                'message' => 'Erreur : ' . $e->getMessage()
+            ], 500);
+        }
+    }
+    
+    /**
+     * Récupère les détails des clés actives
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getActiveKeys(Request $request)
+    {
+        try {
+            $activeKeys = SerialKey::with('project')
+                ->where('status', 'active')
+                ->orderBy('created_at', 'desc')
+                ->take(30)
+                ->get()
+                ->map(function($key) {
+                    return [
+                        'serial_key' => $key->serial_key,
+                        'project_name' => $key->project ? $key->project->name : null,
+                        'domain' => $key->domain,
+                        'expires_at' => $key->expires_at ? Carbon::parse($key->expires_at)->format('d/m/Y') : null
+                    ];
+                });
+            
+            return response()->json([
+                'success' => true,
+                'items' => $activeKeys
+            ]);
+        } catch (\Exception $e) {
+            Log::error('Erreur lors de la récupération des clés actives', [
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            
+            return response()->json([
+                'success' => false,
+                'message' => 'Erreur : ' . $e->getMessage()
+            ], 500);
+        }
+    }
+    
+    /**
+     * Récupère les détails des clés API
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getApiKeys(Request $request)
+    {
+        try {
+            $apiKeys = DB::table('api_keys')
+                ->leftJoin('projects', 'api_keys.project_id', '=', 'projects.id')
+                ->select('api_keys.*', 'projects.name as project_name')
+                ->orderBy('api_keys.created_at', 'desc')
+                ->take(30)
+                ->get()
+                ->map(function($key) {
+                    return [
+                        'key' => $key->key,
+                        'project_name' => $key->project_name,
+                        'status' => $key->is_active ? 'Active' : 'Inactive',
+                        'status_class' => $key->is_active ? 'success' : 'danger',
+                        'last_used_at' => $key->last_used_at ? Carbon::parse($key->last_used_at)->format('d/m/Y H:i') : null
+                    ];
+                });
+            
+            return response()->json([
+                'success' => true,
+                'items' => $apiKeys
+            ]);
+        } catch (\Exception $e) {
+            Log::error('Erreur lors de la récupération des clés API', [
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            
+            return response()->json([
+                'success' => false,
+                'message' => 'Erreur : ' . $e->getMessage()
+            ], 500);
+        }
+    }
+    
+    /**
+     * Obtient la classe de couleur de badge en fonction du statut
+     *
+     * @param string $status
+     * @return string
+     */
+    protected function getStatusClass($status)
+    {
+        switch (strtolower($status)) {
+            case 'active':
+                return 'success';
+            case 'pending':
+                return 'warning';
+            case 'suspended':
+                return 'info';
+            case 'revoked':
+            case 'expired':
+                return 'danger';
+            default:
+                return 'secondary';
+        }
     }
 }

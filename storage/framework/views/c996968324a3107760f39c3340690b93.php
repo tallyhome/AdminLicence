@@ -1,27 +1,27 @@
-@extends('admin.layouts.app')
+<?php $__env->startSection('title', 'Diagnostic API'); ?>
 
-@section('title', 'Diagnostic API')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="container-fluid px-4">
     <h1 class="mt-4">Diagnostic API</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Tableau de bord</a></li>
-        <li class="breadcrumb-item"><a href="{{ route('admin.settings.index') }}">Paramètres</a></li>
+        <li class="breadcrumb-item"><a href="<?php echo e(route('admin.dashboard')); ?>">Tableau de bord</a></li>
+        <li class="breadcrumb-item"><a href="<?php echo e(route('admin.settings.index')); ?>">Paramètres</a></li>
         <li class="breadcrumb-item active">Diagnostic API</li>
     </ol>
     
-    @if(session('success'))
+    <?php if(session('success')): ?>
     <div class="alert alert-success">
-        {{ session('success') }}
+        <?php echo e(session('success')); ?>
+
     </div>
-    @endif
+    <?php endif; ?>
     
-    @if(session('error'))
+    <?php if(session('error')): ?>
     <div class="alert alert-danger">
-        {{ session('error') }}
+        <?php echo e(session('error')); ?>
+
     </div>
-    @endif
+    <?php endif; ?>
     
     <div class="row">
         <div class="col-xl-12 mb-4">
@@ -31,14 +31,14 @@
                         <i class="fas fa-tools me-1"></i>
                         Outil de diagnostic API
                     </div>
-                    <a href="{{ $apiDiagnosticUrl }}" target="_blank" class="btn btn-sm btn-primary">
+                    <a href="<?php echo e($apiDiagnosticUrl); ?>" target="_blank" class="btn btn-sm btn-primary">
                         <i class="fas fa-external-link-alt me-1"></i> Ouvrir dans une nouvelle fenêtre
                     </a>
                 </div>
                 <div class="card-body">
                     <div class="alert alert-info">
                         <h5><i class="fas fa-info-circle me-2"></i>Informations d'accès</h5>
-                        <p>L'outil de diagnostic API est accessible à l'URL suivante : <code>{{ $apiDiagnosticUrl }}</code></p>
+                        <p>L'outil de diagnostic API est accessible à l'URL suivante : <code><?php echo e($apiDiagnosticUrl); ?></code></p>
                         <p><strong>Identifiants par défaut :</strong> <code>admin</code> / <code>AdminLicence2025</code></p>
                     </div>
                     
@@ -92,7 +92,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="embed-responsive" style="height: 500px; border: 1px solid #ddd; border-radius: 4px;">
-                                <iframe src="{{ $apiDiagnosticUrl }}" style="width: 100%; height: 100%; border: none;"></iframe>
+                                <iframe src="<?php echo e($apiDiagnosticUrl); ?>" style="width: 100%; height: 100%; border: none;"></iframe>
                             </div>
                         </div>
                     </div>
@@ -115,9 +115,9 @@
                             <label for="serialKey" class="form-label">Clé de série</label>
                             <select class="form-select" id="serialKey" name="serial_key">
                                 <option value="">-- Sélectionnez une clé --</option>
-                                @foreach($serialKeys as $key)
-                                <option value="{{ $key->serial_key }}">{{ $key->serial_key }} ({{ $key->project->name ?? 'Aucun projet' }})</option>
-                                @endforeach
+                                <?php $__currentLoopData = $serialKeys; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($key->serial_key); ?>"><?php echo e($key->serial_key); ?> (<?php echo e($key->project->name ?? 'Aucun projet'); ?>)</option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 <option value="custom">Saisir une clé personnalisée</option>
                             </select>
                         </div>
@@ -158,74 +158,76 @@
                         <tbody>
                             <tr>
                                 <th>Version PHP</th>
-                                <td>{{ $serverInfo['php_version'] }}</td>
+                                <td><?php echo e($serverInfo['php_version']); ?></td>
                             </tr>
                             <tr>
                                 <th>Version Laravel</th>
-                                <td>{{ $serverInfo['laravel_version'] }}</td>
+                                <td><?php echo e($serverInfo['laravel_version']); ?></td>
                             </tr>
                             <tr>
                                 <th>Serveur Web</th>
-                                <td>{{ $serverInfo['server_software'] }}</td>
+                                <td><?php echo e($serverInfo['server_software']); ?></td>
                             </tr>
                             <tr>
                                 <th>Système d'exploitation</th>
-                                <td>{{ $serverInfo['os'] }}</td>
+                                <td><?php echo e($serverInfo['os']); ?></td>
                             </tr>
                             <tr>
                                 <th>Base de données</th>
-                                <td>{{ $serverInfo['database'] }}</td>
+                                <td><?php echo e($serverInfo['database']); ?></td>
                             </tr>
                             <tr>
                                 <th>Fuseau horaire</th>
-                                <td>{{ $serverInfo['timezone'] }}</td>
+                                <td><?php echo e($serverInfo['timezone']); ?></td>
                             </tr>
                         </tbody>
                     </table>
                     
                     <h5 class="mt-4">Extensions PHP</h5>
                     <div class="row">
-                        @foreach($serverInfo['extensions'] as $extension => $loaded)
+                        <?php $__currentLoopData = $serverInfo['extensions']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $extension => $loaded): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="col-md-4 mb-2">
-                            <span class="badge {{ $loaded ? 'bg-success' : 'bg-danger' }}">
-                                <i class="fas {{ $loaded ? 'fa-check' : 'fa-times' }} me-1"></i>
-                                {{ $extension }}
+                            <span class="badge <?php echo e($loaded ? 'bg-success' : 'bg-danger'); ?>">
+                                <i class="fas <?php echo e($loaded ? 'fa-check' : 'fa-times'); ?> me-1"></i>
+                                <?php echo e($extension); ?>
+
                             </span>
                         </div>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                     
                     <div class="mt-4">
-                        <form action="{{ route('admin.settings.api-diagnostic.test-api-connection') }}" method="POST" class="d-inline">
-                            @csrf
+                        <form action="<?php echo e(route('admin.settings.api-diagnostic.test-api-connection')); ?>" method="POST" class="d-inline">
+                            <?php echo csrf_field(); ?>
                             <button type="submit" class="btn btn-outline-primary me-2">
                                 <i class="fas fa-network-wired me-1"></i> Tester la connexion API
                             </button>
                         </form>
                         
-                        <form action="{{ route('admin.settings.api-diagnostic.test-database') }}" method="POST" class="d-inline">
-                            @csrf
+                        <form action="<?php echo e(route('admin.settings.api-diagnostic.test-database')); ?>" method="POST" class="d-inline">
+                            <?php echo csrf_field(); ?>
                             <button type="submit" class="btn btn-outline-primary me-2">
                                 <i class="fas fa-database me-1"></i> Tester la base de données
                             </button>
                         </form>
                         
-                        <form action="{{ route('admin.settings.api-diagnostic.check-permissions') }}" method="POST" class="d-inline">
-                            @csrf
+                        <form action="<?php echo e(route('admin.settings.api-diagnostic.check-permissions')); ?>" method="POST" class="d-inline">
+                            <?php echo csrf_field(); ?>
                             <button type="submit" class="btn btn-outline-primary">
                                 <i class="fas fa-lock me-1"></i> Vérifier les permissions
                             </button>
                         </form>
                     </div>
                     
-                    @if(session('test_result'))
+                    <?php if(session('test_result')): ?>
                     <div class="mt-4">
-                        <h5>{{ session('test_result_title') }}</h5>
+                        <h5><?php echo e(session('test_result_title')); ?></h5>
                         <div class="p-3 border rounded">
-                            {!! session('test_result') !!}
+                            <?php echo session('test_result'); ?>
+
                         </div>
                     </div>
-                    @endif
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -247,7 +249,7 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="me-3">
                                             <div class="text-white-75 small">Clés de série</div>
-                                            <div class="text-lg fw-bold">{{ $dbStats['serial_keys'] }}</div>
+                                            <div class="text-lg fw-bold"><?php echo e($dbStats['serial_keys']); ?></div>
                                         </div>
                                         <i class="fas fa-key fa-2x text-white-50"></i>
                                     </div>
@@ -260,7 +262,7 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="me-3">
                                             <div class="text-white-75 small">Projets</div>
-                                            <div class="text-lg fw-bold">{{ $dbStats['projects'] }}</div>
+                                            <div class="text-lg fw-bold"><?php echo e($dbStats['projects']); ?></div>
                                         </div>
                                         <i class="fas fa-project-diagram fa-2x text-white-50"></i>
                                     </div>
@@ -273,7 +275,7 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="me-3">
                                             <div class="text-white-75 small">Administrateurs</div>
-                                            <div class="text-lg fw-bold">{{ $dbStats['admins'] }}</div>
+                                            <div class="text-lg fw-bold"><?php echo e($dbStats['admins']); ?></div>
                                         </div>
                                         <i class="fas fa-users-cog fa-2x text-white-50"></i>
                                     </div>
@@ -286,7 +288,7 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="me-3">
                                             <div class="text-white-75 small">Clés actives</div>
-                                            <div class="text-lg fw-bold">{{ $dbStats['active_keys'] }}</div>
+                                            <div class="text-lg fw-bold"><?php echo e($dbStats['active_keys']); ?></div>
                                         </div>
                                         <i class="fas fa-check-circle fa-2x text-white-50"></i>
                                     </div>
@@ -306,8 +308,8 @@
                         <i class="fas fa-file-alt me-1"></i>
                         Derniers logs
                     </div>
-                    <form action="{{ route('admin.settings.api-diagnostic.get-logs') }}" method="POST" class="d-inline">
-                        @csrf
+                    <form action="<?php echo e(route('admin.settings.api-diagnostic.get-logs')); ?>" method="POST" class="d-inline">
+                        <?php echo csrf_field(); ?>
                         <button type="submit" class="btn btn-sm btn-outline-primary">
                             <i class="fas fa-sync-alt me-1"></i> Rafraîchir
                         </button>
@@ -316,16 +318,16 @@
                 <div class="card-body">
                     <div class="bg-light p-3 rounded" style="max-height: 300px; overflow-y: auto;">
                         <div id="logsContent">
-                            @if(count($logEntries) > 0)
-                                @foreach($logEntries as $entry)
+                            <?php if(count($logEntries) > 0): ?>
+                                <?php $__currentLoopData = $logEntries; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $entry): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="log-entry mb-2">
-                                    <span class="text-muted small">[{{ $entry['timestamp'] }}]</span>
-                                    <pre class="mb-0 mt-1" style="white-space: pre-wrap; font-size: 0.8rem;">{{ $entry['content'] }}</pre>
+                                    <span class="text-muted small">[<?php echo e($entry['timestamp']); ?>]</span>
+                                    <pre class="mb-0 mt-1" style="white-space: pre-wrap; font-size: 0.8rem;"><?php echo e($entry['content']); ?></pre>
                                 </div>
-                                @endforeach
-                            @else
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php else: ?>
                                 <p class="text-muted">Aucune entrée de log disponible</p>
-                            @endif
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -333,9 +335,9 @@
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('scripts')
+<?php $__env->startSection('scripts'); ?>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Gestion du champ de clé personnalisée
@@ -373,7 +375,7 @@
             serialKeyResultContent.innerHTML = '<div class="text-center"><div class="spinner-border text-primary" role="status"></div><p class="mt-2">Vérification en cours...</p></div>';
             
             // Envoyer la requête AJAX
-            fetch('{{ route('admin.settings.api-diagnostic.test-serial-key') }}', {
+            fetch('<?php echo e(route('admin.settings.api-diagnostic.test-serial-key')); ?>', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -457,7 +459,7 @@
             testResultContent.innerHTML = '<div class="text-center"><div class="spinner-border text-primary" role="status"></div><p class="mt-2">Test en cours...</p></div>';
             
             // Envoyer la requête AJAX
-            fetch('{{ route('admin.settings.api-diagnostic.test-api-connection') }}', {
+            fetch('<?php echo e(route('admin.settings.api-diagnostic.test-api-connection')); ?>', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -510,7 +512,7 @@
             testResultContent.innerHTML = '<div class="text-center"><div class="spinner-border text-primary" role="status"></div><p class="mt-2">Test en cours...</p></div>';
             
             // Envoyer la requête AJAX
-            fetch('{{ route('admin.settings.api-diagnostic.test-database') }}', {
+            fetch('<?php echo e(route('admin.settings.api-diagnostic.test-database')); ?>', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -578,7 +580,7 @@
             testResultContent.innerHTML = '<div class="text-center"><div class="spinner-border text-primary" role="status"></div><p class="mt-2">Vérification en cours...</p></div>';
             
             // Envoyer la requête AJAX
-            fetch('{{ route('admin.settings.api-diagnostic.check-permissions') }}', {
+            fetch('<?php echo e(route('admin.settings.api-diagnostic.check-permissions')); ?>', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -658,7 +660,7 @@
             logsContent.innerHTML = '<div class="text-center"><div class="spinner-border text-primary" role="status"></div><p class="mt-2">Chargement des logs...</p></div>';
             
             // Envoyer la requête AJAX
-            fetch('{{ route('admin.settings.api-diagnostic.get-logs') }}', {
+            fetch('<?php echo e(route('admin.settings.api-diagnostic.get-logs')); ?>', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -693,4 +695,6 @@
         });
     });
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH R:\Adev\200  -  test\adminlicence\resources\views/admin/settings/api-diagnostic.blade.php ENDPATH**/ ?>

@@ -604,7 +604,7 @@
         "available_endpoints": "Endpoints Disponibles",
         "integration_approaches": "Enfoques de Integración",
         "integration_examples": "Ejemplos de integración",
-        "best_practices": "Mejores prácticas",
+        "best_practices_label": "Mejores prácticas",
         "support": {
             "title": "Soporte",
             "description": "Si encuentras problemas al integrar la API o tienes preguntas, no dudes en contactar a nuestro equipo de soporte técnico."
@@ -676,7 +676,7 @@
                 "description": "Este enfoque permite integrar el sistema de licencias en aplicaciones móviles desarrolladas con Flutter."
             }
         },
-        "best_practices_api": {
+        "best_practices_section": {
             "title": "Mejores Prácticas",
             "items": [
                 "Almacena los tokens JWT de forma segura",
@@ -687,7 +687,7 @@
                 "Implementa un mecanismo de caché para limitar las llamadas a la API"
             ]
         },
-        "support": {
+        "support_section": {
             "title": "Soporte",
             "description": "Si encuentra algún problema al integrar la API o tiene preguntas, no dude en contactar a nuestro equipo de soporte técnico."
         }
@@ -753,6 +753,62 @@
             "verification_error": "Se produjo un error al verificar la licencia: :error"
         }
     },
+    "optimization": {
+        "title": "Herramientas de Optimización",
+        "operation_result": "Resultado de la Operación",
+        "example_code": "Código de Ejemplo",
+        "copy_code": "Copie este código y úselo en sus vistas Blade:",
+        "logs_cleaning": "Limpieza de Logs",
+        "current_logs_size": "Tamaño total de logs",
+        "logs_cleaning_description": "Esta operación limpiará los archivos de registro innecesarios. Los registros importantes se archivarán, los demás se eliminarán.",
+        "all_logs": "Todos los logs",
+        "installation_logs": "Logs de instalación",
+        "laravel_logs": "Logs de Laravel",
+        "clean_all_logs": "Limpiar todos los logs",
+        "delete_all_logs": "Eliminar todos los logs",
+        "delete_all_logs_confirm": "Advertencia: Esta acción eliminará todos los archivos de registro. ¿Está seguro de que desea continuar?",
+        "clean_installation_logs": "Limpiar logs de instalación",
+        "delete_installation_logs": "Eliminar logs de instalación",
+        "delete_installation_logs_confirm": "Advertencia: Esta acción eliminará todos los archivos de registro de instalación. ¿Está seguro de que desea continuar?",
+        "clean_laravel_logs": "Limpiar logs de Laravel",
+        "delete_laravel_logs": "Eliminar logs de Laravel",
+        "delete_laravel_logs_confirm": "Advertencia: Esta acción eliminará todos los archivos de registro de Laravel. ¿Está seguro de que desea continuar?",
+        "filename": "Nombre de archivo",
+        "size": "Tamaño",
+        "modification_date": "Fecha de modificación",
+        "view": "Ver",
+        "no_installation_logs_found": "No se encontraron archivos de registro de instalación",
+        "no_laravel_logs_found": "No se encontraron archivos de registro de Laravel",
+        "image_optimization": "Optimización de Imágenes",
+        "current_images_size": "Tamaño actual de imágenes",
+        "images_optimization_description": "Esta operación optimizará las imágenes en la carpeta public/images/ para reducir su tamaño manteniendo una calidad aceptable.",
+        "quality": "Calidad (0-100)",
+        "high_compression": "Alta compresión",
+        "high_quality": "Alta calidad",
+        "force_optimization": "Forzar optimización (incluso si ya están optimizadas)",
+        "optimize_images": "Optimizar imágenes",
+        "api_diagnostic_tool": "Herramienta de Diagnóstico API",
+        "api_diagnostic_description": "Esta herramienta le permite diagnosticar y resolver problemas relacionados con la API de validación de licencias.",
+        "api_general_info": "Información general de la API",
+        "api_serial_key_test": "Prueba de validación de claves de serie",
+        "api_connection_test": "Prueba de conexión a la API externa",
+        "api_database_test": "Prueba de conexión a la base de datos",
+        "api_file_permissions": "Verificación de permisos de archivos",
+        "api_log_entries": "Mostrar últimas entradas de registro",
+        "api_default_credentials": "Credenciales predeterminadas",
+        "open_api_diagnostic": "Abrir herramienta de diagnóstico API",
+        "asset_versioning": "Versionado de Assets",
+        "asset_versioning_description": "El sistema de versionado de assets optimiza el almacenamiento en caché de archivos CSS, JavaScript e imágenes. Agrega automáticamente un parámetro de versión basado en la fecha de modificación del archivo.",
+        "asset_type": "Tipo de asset",
+        "css_file": "Archivo CSS",
+        "js_file": "Archivo JavaScript",
+        "image": "Imagen",
+        "image_path": "Ruta de la imagen",
+        "generate_example": "Generar ejemplo",
+        "how_to_use": "Cómo usar",
+        "blade_directives_description": "En sus archivos Blade, use las siguientes directivas:"
+    },
+    
     "licence_documentation": {
         "title": "Documentación de Licencias",
         "integration_guide": {

@@ -1,14 +1,14 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Outils d\'optimisation')
+@section('title', t('optimization.title'))
 
 @section('content')
 <div class="container-fluid px-4">
-    <h1 class="mt-4">Outils d'optimisation</h1>
+    <h1 class="mt-4">{{ t('optimization.title') }}</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Tableau de bord</a></li>
-        <li class="breadcrumb-item"><a href="{{ route('admin.settings') }}">Paramètres</a></li>
-        <li class="breadcrumb-item active">Outils d'optimisation</li>
+        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">{{ t('common.dashboard') }}</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('admin.settings') }}">{{ t('common.settings') }}</a></li>
+        <li class="breadcrumb-item active">{{ t('optimization.title') }}</li>
     </ol>
     
     @if(session('success'))
@@ -27,7 +27,7 @@
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-terminal me-1"></i>
-            Résultat de l'opération
+            {{ t('optimization.operation_result') }}
         </div>
         <div class="card-body">
             <pre class="bg-dark text-light p-3" style="max-height: 300px; overflow-y: auto;">{{ session('output') }}</pre>
@@ -39,11 +39,11 @@
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-code me-1"></i>
-            Exemple de code
+            {{ t('optimization.example_code') }}
         </div>
         <div class="card-body">
             <div class="alert alert-info">
-                <p>Copiez ce code et utilisez-le dans vos vues Blade :</p>
+                <p>{{ t('optimization.copy_code') }}</p>
                 <code>{{ session('example') }}</code>
             </div>
         </div>
@@ -56,26 +56,26 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-trash me-1"></i>
-                    Nettoyage des logs
+                    {{ t('optimization.logs_cleaning') }}
                 </div>
                 <div class="card-body">
-                    <p>Taille totale des logs : <strong>{{ $logsSize }}</strong></p>
-                    <p>Cette opération va nettoyer les fichiers de logs inutiles. Les logs importants seront archivés, les autres seront supprimés.</p>
+                    <p>{{ t('optimization.current_logs_size') }} : <strong>{{ $logsSize }}</strong></p>
+                    <p>{{ t('optimization.logs_cleaning_description') }}</p>
                     
                     <ul class="nav nav-tabs mb-3" id="logsTabs" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="all-logs-tab" data-bs-toggle="tab" data-bs-target="#all-logs" type="button" role="tab" aria-controls="all-logs" aria-selected="true">
-                                Tous les logs
+                                {{ t('optimization.all_logs') }}
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="install-logs-tab" data-bs-toggle="tab" data-bs-target="#install-logs" type="button" role="tab" aria-controls="install-logs" aria-selected="false">
-                                Logs d'installation <span class="badge bg-secondary">{{ $installLogsSize }}</span>
+                                {{ t('optimization.installation_logs') }} <span class="badge bg-secondary">{{ $installLogsSize }}</span>
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="laravel-logs-tab" data-bs-toggle="tab" data-bs-target="#laravel-logs" type="button" role="tab" aria-controls="laravel-logs" aria-selected="false">
-                                Logs Laravel <span class="badge bg-secondary">{{ $laravelLogsSize }}</span>
+                                {{ t('optimization.laravel_logs') }} <span class="badge bg-secondary">{{ $laravelLogsSize }}</span>
                             </button>
                         </li>
                     </ul>
@@ -88,7 +88,7 @@
                                     @csrf
                                     <input type="hidden" name="log_type" value="all">
                                     <button type="submit" class="btn btn-primary">
-                                        <i class="fas fa-broom me-1"></i> Nettoyer tous les logs
+                                        <i class="fas fa-broom me-1"></i> {{ t('optimization.clean_all_logs') }}
                                     </button>
                                 </form>
                                 
@@ -96,8 +96,8 @@
                                     @csrf
                                     <input type="hidden" name="log_type" value="all">
                                     <input type="hidden" name="delete_all" value="1">
-                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Attention : Cette action va supprimer tous les fichiers de logs. Êtes-vous sûr de vouloir continuer ?');">
-                                        <i class="fas fa-trash-alt me-1"></i> Supprimer tous les logs
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('{{ t("optimization.delete_all_logs_confirm") }}');">
+                                        <i class="fas fa-trash-alt me-1"></i> {{ t('optimization.delete_all_logs') }}
                                     </button>
                                 </form>
                             </div>
@@ -110,7 +110,7 @@
                                     @csrf
                                     <input type="hidden" name="log_type" value="install">
                                     <button type="submit" class="btn btn-primary">
-                                        <i class="fas fa-broom me-1"></i> Nettoyer les logs d'installation
+                                        <i class="fas fa-broom me-1"></i> {{ t('optimization.clean_installation_logs') }}
                                     </button>
                                 </form>
                                 
@@ -118,8 +118,8 @@
                                     @csrf
                                     <input type="hidden" name="log_type" value="install">
                                     <input type="hidden" name="delete_all" value="1">
-                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Attention : Cette action va supprimer tous les fichiers de logs d\'installation. Êtes-vous sûr de vouloir continuer ?');">
-                                        <i class="fas fa-trash-alt me-1"></i> Supprimer les logs d'installation
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('{{ t("optimization.delete_installation_logs_confirm") }}');">
+                                        <i class="fas fa-trash-alt me-1"></i> {{ t('optimization.delete_installation_logs') }}
                                     </button>
                                 </form>
                             </div>
@@ -148,7 +148,7 @@
                                         </tr>
                                         @empty
                                         <tr>
-                                            <td colspan="4" class="text-center">Aucun fichier de log d'installation trouvé</td>
+                                            <td colspan="4" class="text-center">{{ t('optimization.no_installation_logs_found') }}</td>
                                         </tr>
                                         @endforelse
                                     </tbody>
@@ -163,7 +163,7 @@
                                     @csrf
                                     <input type="hidden" name="log_type" value="laravel">
                                     <button type="submit" class="btn btn-primary">
-                                        <i class="fas fa-broom me-1"></i> Nettoyer les logs Laravel
+                                        <i class="fas fa-broom me-1"></i> {{ t('optimization.clean_laravel_logs') }}
                                     </button>
                                 </form>
                                 
@@ -171,8 +171,8 @@
                                     @csrf
                                     <input type="hidden" name="log_type" value="laravel">
                                     <input type="hidden" name="delete_all" value="1">
-                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Attention : Cette action va supprimer tous les fichiers de logs Laravel. Êtes-vous sûr de vouloir continuer ?');">
-                                        <i class="fas fa-trash-alt me-1"></i> Supprimer les logs Laravel
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('{{ t("optimization.delete_laravel_logs_confirm") }}');">
+                                        <i class="fas fa-trash-alt me-1"></i> {{ t('optimization.delete_laravel_logs') }}
                                     </button>
                                 </form>
                             </div>
@@ -201,7 +201,7 @@
                                         </tr>
                                         @empty
                                         <tr>
-                                            <td colspan="4" class="text-center">Aucun fichier de log Laravel trouvé</td>
+                                            <td colspan="4" class="text-center">{{ t('optimization.no_laravel_logs_found') }}</td>
                                         </tr>
                                         @endforelse
                                     </tbody>
@@ -218,28 +218,28 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-images me-1"></i>
-                    Optimisation des images
+                    {{ t('optimization.image_optimization') }}
                 </div>
                 <div class="card-body">
-                    <p>Taille actuelle des images : <strong>{{ $imagesSize }}</strong></p>
-                    <p>Cette opération va optimiser les images dans le dossier <code>public/images/</code> pour réduire leur taille tout en maintenant une qualité acceptable.</p>
+                    <p>{{ t('optimization.current_images_size') }} : <strong>{{ $imagesSize }}</strong></p>
+                    <p>{{ t('optimization.images_optimization_description') }}</p>
                     <form action="{{ route('admin.settings.optimization.optimize-images') }}" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="quality" class="form-label">Qualité (0-100)</label>
+                            <label for="quality" class="form-label">{{ t('optimization.quality') }}</label>
                             <input type="range" class="form-range" min="60" max="95" step="5" id="quality" name="quality" value="80">
                             <div class="d-flex justify-content-between">
-                                <span>Compression élevée</span>
+                                <span>{{ t('optimization.high_compression') }}</span>
                                 <span id="qualityValue">80%</span>
-                                <span>Haute qualité</span>
+                                <span>{{ t('optimization.high_quality') }}</span>
                             </div>
                         </div>
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="force" name="force">
-                            <label class="form-check-label" for="force">Forcer l'optimisation (même si déjà optimisées)</label>
+                            <label class="form-check-label" for="force">{{ t('optimization.force_optimization') }}</label>
                         </div>
                         <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-compress me-1"></i> Optimiser les images
+                            <i class="fas fa-compress me-1"></i> {{ t('optimization.optimize_images') }}
                         </button>
                     </form>
                 </div>
@@ -253,21 +253,21 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-tools me-1"></i>
-                    Outil de diagnostic API
+                    {{ t('optimization.api_diagnostic_tool') }}
                 </div>
                 <div class="card-body">
-                    <p>L'outil de diagnostic API permet de tester toutes les fonctionnalités API en un seul endroit. Il offre les fonctionnalités suivantes :</p>
+                    <p>{{ t('optimization.api_diagnostic_description') }}</p>
                     <ul>
-                        <li>Informations générales sur l'API</li>
-                        <li>Test de validation des clés de série</li>
-                        <li>Test de connexion à l'API externe</li>
-                        <li>Test de connexion à la base de données</li>
-                        <li>Vérification des permissions des fichiers</li>
-                        <li>Affichage des dernières entrées de log</li>
+                        <li>{{ t('optimization.api_general_info') }}</li>
+                        <li>{{ t('optimization.api_serial_key_test') }}</li>
+                        <li>{{ t('optimization.api_connection_test') }}</li>
+                        <li>{{ t('optimization.api_database_test') }}</li>
+                        <li>{{ t('optimization.api_file_permissions') }}</li>
+                        <li>{{ t('optimization.api_log_entries') }}</li>
                     </ul>
-                    <p><strong>Identifiants par défaut :</strong> admin / AdminLicence2025</p>
+                    <p><strong>{{ t('optimization.api_default_credentials') }} :</strong> admin / AdminLicence2025</p>
                     <a href="{{ url('/api-diagnostic.php') }}" target="_blank" class="btn btn-primary">
-                        <i class="fas fa-external-link-alt me-1"></i> Ouvrir l'outil de diagnostic API
+                        <i class="fas fa-external-link-alt me-1"></i> {{ t('optimization.open_api_diagnostic') }}
                     </a>
                 </div>
             </div>
@@ -278,22 +278,22 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-code me-1"></i>
-                    Versioning des assets
+                    {{ t('optimization.asset_versioning') }}
                 </div>
                 <div class="card-body">
-                    <p>Le système de versioning des assets permet d'optimiser la mise en cache des fichiers CSS, JavaScript et images. Il ajoute automatiquement un paramètre de version basé sur la date de modification du fichier.</p>
+                    <p>{{ t('optimization.asset_versioning_description') }}</p>
                     
                     <div class="mb-3">
-                        <label for="assetType" class="form-label">Type d'asset</label>
+                        <label for="assetType" class="form-label">{{ t('optimization.asset_type') }}</label>
                         <select class="form-select" id="assetType">
-                            <option value="css">CSS</option>
-                            <option value="js">JavaScript</option>
-                            <option value="image">Image</option>
+                            <option value="css">{{ t('optimization.css_file') }}</option>
+                            <option value="js">{{ t('optimization.js_file') }}</option>
+                            <option value="image">{{ t('optimization.image') }}</option>
                         </select>
                     </div>
                     
                     <div class="mb-3" id="cssAssets">
-                        <label for="cssPath" class="form-label">Fichier CSS</label>
+                        <label for="cssPath" class="form-label">{{ t('optimization.css_file') }}</label>
                         <select class="form-select" id="cssPath">
                             @foreach($cssFiles as $file)
                             <option value="{{ $file }}">{{ $file }}</option>
@@ -302,7 +302,7 @@
                     </div>
                     
                     <div class="mb-3" id="jsAssets" style="display: none;">
-                        <label for="jsPath" class="form-label">Fichier JavaScript</label>
+                        <label for="jsPath" class="form-label">{{ t('optimization.js_file') }}</label>
                         <select class="form-select" id="jsPath">
                             @foreach($jsFiles as $file)
                             <option value="{{ $file }}">{{ $file }}</option>
@@ -311,7 +311,7 @@
                     </div>
                     
                     <div class="mb-3" id="imagePath" style="display: none;">
-                        <label for="imagePathInput" class="form-label">Chemin de l'image</label>
+                        <label for="imagePathInput" class="form-label">{{ t('optimization.image_path') }}</label>
                         <input type="text" class="form-control" id="imagePathInput" placeholder="images/logo.png">
                     </div>
                     
@@ -319,13 +319,13 @@
                         @csrf
                         <input type="hidden" name="asset_path" id="assetPathHidden">
                         <button type="submit" class="btn btn-primary" id="generateExampleBtn">
-                            <i class="fas fa-code me-1"></i> Générer un exemple
+                            <i class="fas fa-code me-1"></i> {{ t('optimization.generate_example') }}
                         </button>
                     </form>
                     
                     <div class="mt-4">
-                        <h5>Comment utiliser</h5>
-                        <p>Dans vos fichiers Blade, utilisez les directives suivantes :</p>
+                        <h5>{{ t('optimization.how_to_use') }}</h5>
+                        <p>{{ t('optimization.blade_directives_description') }}</p>
                         <ul>
                             <li><code>@versionedCss('css/app.css')</code> - Pour les fichiers CSS</li>
                             <li><code>@versionedJs('js/app.js')</code> - Pour les fichiers JavaScript</li>

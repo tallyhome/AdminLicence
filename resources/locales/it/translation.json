@@ -584,7 +584,7 @@
         "available_endpoints": "Endpoint Disponibili",
         "integration_approaches": "Approcci di Integrazione",
         "integration_examples": "Esempi di Integrazione",
-        "best_practices": "Migliori Pratiche",
+        "best_practices_label": "Migliori Pratiche",
         "support": {
             "title": "Supporto",
             "description": "Se incontri problemi durante l'integrazione dell'API o hai domande, non esitare a contattare il nostro team di supporto tecnico."
@@ -667,7 +667,7 @@
                 "description": "Questo approccio permette di integrare il sistema di licenze nelle applicazioni mobili sviluppate con Flutter."
             }
         },
-        "support": {
+        "support_section": {
             "title": "Supporto",
             "description": "Se riscontri problemi durante l'integrazione dell'API o hai domande, non esitare a contattare il nostro team di supporto tecnico."
         }
@@ -733,8 +733,64 @@
             "verification_error": "Si è verificato un errore durante la verifica della licenza: :error"
         }
     },
+    "optimization": {
+        "title": "Strumenti di Ottimizzazione",
+        "operation_result": "Risultato dell'Operazione",
+        "example_code": "Codice di Esempio",
+        "copy_code": "Copia questo codice e usalo nelle tue viste Blade:",
+        "logs_cleaning": "Pulizia dei Log",
+        "current_logs_size": "Dimensione totale dei log",
+        "logs_cleaning_description": "Questa operazione pulirà i file di log non necessari. I log importanti saranno archiviati, gli altri saranno eliminati.",
+        "all_logs": "Tutti i log",
+        "installation_logs": "Log di installazione",
+        "laravel_logs": "Log di Laravel",
+        "clean_all_logs": "Pulisci tutti i log",
+        "delete_all_logs": "Elimina tutti i log",
+        "delete_all_logs_confirm": "Attenzione: questa azione eliminerà tutti i file di log. Sei sicuro di voler continuare?",
+        "clean_installation_logs": "Pulisci i log di installazione",
+        "delete_installation_logs": "Elimina i log di installazione",
+        "delete_installation_logs_confirm": "Attenzione: questa azione eliminerà tutti i file di log di installazione. Sei sicuro di voler continuare?",
+        "clean_laravel_logs": "Pulisci i log di Laravel",
+        "delete_laravel_logs": "Elimina i log di Laravel",
+        "delete_laravel_logs_confirm": "Attenzione: questa azione eliminerà tutti i file di log di Laravel. Sei sicuro di voler continuare?",
+        "filename": "Nome file",
+        "size": "Dimensione",
+        "modification_date": "Data di modifica",
+        "view": "Visualizza",
+        "no_installation_logs_found": "Nessun file di log di installazione trovato",
+        "no_laravel_logs_found": "Nessun file di log di Laravel trovato",
+        "image_optimization": "Ottimizzazione Immagini",
+        "current_images_size": "Dimensione attuale delle immagini",
+        "images_optimization_description": "Questa operazione ottimizzerà le immagini nella cartella public/images/ per ridurne le dimensioni mantenendo una qualità accettabile.",
+        "quality": "Qualità (0-100)",
+        "high_compression": "Alta compressione",
+        "high_quality": "Alta qualità",
+        "force_optimization": "Forza ottimizzazione (anche se già ottimizzate)",
+        "optimize_images": "Ottimizza immagini",
+        "api_diagnostic_tool": "Strumento di Diagnostica API",
+        "api_diagnostic_description": "Questo strumento ti permette di diagnosticare e risolvere problemi relativi all'API di convalida delle licenze.",
+        "api_general_info": "Informazioni generali sull'API",
+        "api_serial_key_test": "Test di convalida delle chiavi seriali",
+        "api_connection_test": "Test di connessione all'API esterna",
+        "api_database_test": "Test di connessione al database",
+        "api_file_permissions": "Verifica dei permessi dei file",
+        "api_log_entries": "Visualizzazione delle ultime voci di log",
+        "api_default_credentials": "Credenziali predefinite",
+        "open_api_diagnostic": "Apri strumento di diagnostica API",
+        "asset_versioning": "Versionamento degli Asset",
+        "asset_versioning_description": "Il sistema di versionamento degli asset ottimizza la memorizzazione nella cache di file CSS, JavaScript e immagini. Aggiunge automaticamente un parametro di versione basato sulla data di modifica del file.",
+        "asset_type": "Tipo di asset",
+        "css_file": "File CSS",
+        "js_file": "File JavaScript",
+        "image": "Immagine",
+        "image_path": "Percorso immagine",
+        "generate_example": "Genera esempio",
+        "how_to_use": "Come usare",
+        "blade_directives_description": "Nei tuoi file Blade, usa le seguenti direttive:"
+    },
+    
     "licence_documentation": {
-        "title": "Documentazione delle Licenze",
+        "title": "Documentazione Licenze",
         "integration_guide": {
             "title": "Guida all'Integrazione delle Licenze",
             "description": "Questa documentazione ti guiderà attraverso il processo di integrazione del sistema di licenze nella tua applicazione."

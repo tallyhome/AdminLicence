@@ -18,6 +18,7 @@ class Admin extends Authenticatable implements CanResetPassword
         'email',
         'password',
         'is_super_admin',
+        'role',
         'two_factor_secret',
         'two_factor_recovery_codes',
         'two_factor_enabled',

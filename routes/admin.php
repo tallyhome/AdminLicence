@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ApiKeyController;
 use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EmailProviderController;
 use App\Http\Controllers\Admin\EmailTemplateController;
@@ -256,6 +257,17 @@ Route::middleware(['auth:admin', \App\Http\Middleware\CheckLicenseMiddleware::cl
     // Routes supprimées
     // Routes super admin supprimées
     
+    // Routes pour la gestion des administrateurs
+    Route::resource('admins', AdminController::class)
+        ->names([
+            'index' => 'admin.admins.index',
+            'create' => 'admin.admins.create',
+            'store' => 'admin.admins.store',
+            'edit' => 'admin.admins.edit',
+            'update' => 'admin.admins.update',
+            'destroy' => 'admin.admins.destroy'
+        ]);
+
     // Routes pour les notifications
     Route::prefix('notifications')->group(function () {
         Route::get('/', [\App\Http\Controllers\NotificationController::class, 'index'])->name('admin.notifications.index');

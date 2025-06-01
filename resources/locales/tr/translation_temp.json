@@ -306,39 +306,40 @@
         "manage": "Yöneticileri Yönet",
         "list": "Yönetici Listesi",
         "add": "Yönetici Ekle",
-        "new_admin": "Yeni Yönetici",
         "edit": "Yöneticiyi Düzenle",
         "delete": "Yöneticiyi Sil",
         "id": "ID",
         "name": "İsim",
         "email": "E-posta",
         "role": "Rol",
-        "created_at": "Oluşturulma Tarihi",
         "creation_date": "Oluşturulma Tarihi",
         "actions": "İşlemler",
         "super_admin": "Süper Yönetici",
         "admin": "Yönetici",
+        "new_admin": "Yeni Yönetici",
+        "delete_confirmation": "Silme Onayı",
+        "delete_confirm_message": "Bu yöneticiyi (:name) silmek istediğinizden emin misiniz?",
         "create": {
             "title": "Yönetici Oluştur",
             "form_title": "Yönetici Oluşturma Formu",
-            "name": "İsim",
-            "email": "E-posta",
-            "password": "Şifre",
-            "password_confirmation": "Şifre Onayı",
-            "role": "Rol",
-            "submit": "Oluştur",
+            "name_label": "İsim",
+            "email_label": "E-posta",
+            "password_label": "Şifre",
+            "password_confirmation_label": "Şifre Onayı",
+            "role_label": "Rol",
+            "submit_button": "Oluştur",
             "success": "Yönetici başarıyla oluşturuldu",
             "error": "Yönetici oluşturulurken bir hata oluştu"
         },
         "edit": {
             "title": "Yöneticiyi Düzenle",
             "form_title": "Yönetici Düzenleme Formu",
-            "name": "İsim",
-            "email": "E-posta",
-            "password": "Şifre (boş bırakılırsa değiştirilmez)",
-            "password_confirmation": "Şifre Onayı",
-            "role": "Rol",
-            "submit": "Güncelle",
+            "name_label": "İsim",
+            "email_label": "E-posta",
+            "password_label": "Şifre (boş bırakılırsa değiştirilmez)",
+            "password_confirmation_label": "Şifre Onayı",
+            "role_label": "Rol",
+            "submit_button": "Güncelle",
             "success": "Yönetici başarıyla güncellendi",
             "error": "Yönetici güncellenirken bir hata oluştu"
         },
@@ -349,6 +350,12 @@
             "cancel": "İptal",
             "success": "Yönetici başarıyla silindi",
             "error": "Yönetici silinirken bir hata oluştu"
+        },
+        "messages": {
+            "created": "Yönetici başarıyla oluşturuldu.",
+            "updated": "Yönetici başarıyla güncellendi.",
+            "deleted": "Yönetici başarıyla silindi.",
+            "cannot_delete_self": "Kendi hesabınızı silemezsiniz."
         }
     },
     "detected_value": "Algılanan değer",
@@ -365,11 +372,5 @@
                 "disabled": "Devre dışı"
             }
         }
-    },
-    "language": {
-        "change": "Dil Değiştir",
-        "current": "Mevcut Dil",
-        "select": "Dil Seçin",
-        "changed_successfully": "Dil başarıyla değiştirildi"
     }
 }

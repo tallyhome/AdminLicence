@@ -159,6 +159,10 @@
         }
     },
     "common": {
+        "dashboard": "ダッシュボード",
+        "name": "名前",
+        "email": "メール",
+        "actions": "アクション",
         "fields": {
             "name": "名前",
             "description": "説明",
@@ -513,5 +517,50 @@
             "message": "メッセージ",
             "details": "詳細"
         }
+    },
+    "admins": {
+        "title": "管理者管理",
+        "administrators": "管理者",
+        "list": "管理者リスト",
+        "new_admin": "新規管理者",
+        "id": "ID",
+        "role": "役割",
+        "creation_date": "作成日",
+        "super_admin": "スーパー管理者",
+        "admin": "管理者",
+        "delete_confirmation": "削除確認",
+        "delete_confirm_message": "管理者<strong>:name</strong>を削除してもよろしいですか？",
+        "create": {
+            "title": "管理者作成",
+            "form_title": "作成フォーム",
+            "name_label": "名前",
+            "email_label": "メール",
+            "password_label": "パスワード",
+            "password_confirmation_label": "パスワード確認",
+            "role_label": "役割",
+            "submit_button": "管理者を作成"
+        },
+        "edit": {
+            "title": "管理者編集",
+            "form_title": "編集フォーム",
+            "name_label": "名前",
+            "email_label": "メール",
+            "password_label": "パスワード（現在のパスワードを維持する場合は空白）",
+            "password_confirmation_label": "パスワード確認",
+            "role_label": "役割",
+            "submit_button": "管理者を更新"
+        },
+        "messages": {
+            "created": "管理者が正常に作成されました。",
+            "updated": "管理者が正常に更新されました。",
+            "deleted": "管理者が正常に削除されました。",
+            "cannot_delete_self": "自分のアカウントを削除することはできません。"
+        }
+    },
+    "language": {
+        "change": "言語を変更",
+        "current": "現在の言語",
+        "select": "言語を選択",
+        "changed_successfully": "言語が正常に変更されました"
     }
 }

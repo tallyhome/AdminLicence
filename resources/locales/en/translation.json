@@ -995,5 +995,44 @@
             "link_text": "For detailed API documentation, please refer to the",
             "link_title": "API Documentation"
         }
+    },
+    "admins": {
+        "title": "Administrators Management",
+        "administrators": "Administrators",
+        "list": "Administrators List",
+        "new_admin": "New Administrator",
+        "id": "ID",
+        "role": "Role",
+        "creation_date": "Creation Date",
+        "super_admin": "Super Admin",
+        "admin": "Admin",
+        "delete_confirmation": "Delete Confirmation",
+        "delete_confirm_message": "Are you sure you want to delete administrator <strong>:name</strong>?",
+        "create": {
+            "title": "Create Administrator",
+            "form_title": "Creation Form",
+            "name_label": "Name",
+            "email_label": "Email",
+            "password_label": "Password",
+            "password_confirmation_label": "Password Confirmation",
+            "role_label": "Role",
+            "submit_button": "Create Administrator"
+        },
+        "edit": {
+            "title": "Edit Administrator",
+            "form_title": "Edit Form",
+            "name_label": "Name",
+            "email_label": "Email",
+            "password_label": "Password (leave empty to keep current)",
+            "password_confirmation_label": "Password Confirmation",
+            "role_label": "Role",
+            "submit_button": "Update Administrator"
+        },
+        "messages": {
+            "created": "Administrator created successfully.",
+            "updated": "Administrator updated successfully.",
+            "deleted": "Administrator deleted successfully.",
+            "cannot_delete_self": "You cannot delete your own account."
+        }
     }
 }

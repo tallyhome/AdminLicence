@@ -988,5 +988,44 @@
             "message": "Messaggio",
             "details": "Dettagli"
         }
+    },
+    "admins": {
+        "title": "Gestione Amministratori",
+        "administrators": "Amministratori",
+        "list": "Lista Amministratori",
+        "new_admin": "Nuovo Amministratore",
+        "id": "ID",
+        "role": "Ruolo",
+        "creation_date": "Data di Creazione",
+        "super_admin": "Super Amministratore",
+        "admin": "Amministratore",
+        "delete_confirmation": "Conferma Eliminazione",
+        "delete_confirm_message": "Sei sicuro di voler eliminare l'amministratore <strong>:name</strong>?",
+        "create": {
+            "title": "Crea Amministratore",
+            "form_title": "Modulo di Creazione",
+            "name_label": "Nome",
+            "email_label": "Email",
+            "password_label": "Password",
+            "password_confirmation_label": "Conferma Password",
+            "role_label": "Ruolo",
+            "submit_button": "Crea Amministratore"
+        },
+        "edit": {
+            "title": "Modifica Amministratore",
+            "form_title": "Modulo di Modifica",
+            "name_label": "Nome",
+            "email_label": "Email",
+            "password_label": "Password (lascia vuoto per mantenere la password attuale)",
+            "password_confirmation_label": "Conferma Password",
+            "role_label": "Ruolo",
+            "submit_button": "Aggiorna Amministratore"
+        },
+        "messages": {
+            "created": "Amministratore creato con successo.",
+            "updated": "Amministratore aggiornato con successo.",
+            "deleted": "Amministratore eliminato con successo.",
+            "cannot_delete_self": "Non puoi eliminare il tuo account."
+        }
     }
 }

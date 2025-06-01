@@ -1008,5 +1008,44 @@
             "message": "Mensaje",
             "details": "Detalles"
         }
+    },
+    "admins": {
+        "title": "Gestión de Administradores",
+        "administrators": "Administradores",
+        "list": "Lista de Administradores",
+        "new_admin": "Nuevo Administrador",
+        "id": "ID",
+        "role": "Rol",
+        "creation_date": "Fecha de Creación",
+        "super_admin": "Super Admin",
+        "admin": "Admin",
+        "delete_confirmation": "Confirmación de Eliminación",
+        "delete_confirm_message": "¿Está seguro de que desea eliminar al administrador <strong>:name</strong>?",
+        "create": {
+            "title": "Crear Administrador",
+            "form_title": "Formulario de Creación",
+            "name_label": "Nombre",
+            "email_label": "Email",
+            "password_label": "Contraseña",
+            "password_confirmation_label": "Confirmación de Contraseña",
+            "role_label": "Rol",
+            "submit_button": "Crear Administrador"
+        },
+        "edit": {
+            "title": "Editar Administrador",
+            "form_title": "Formulario de Edición",
+            "name_label": "Nombre",
+            "email_label": "Email",
+            "password_label": "Contraseña (dejar en blanco para mantener la actual)",
+            "password_confirmation_label": "Confirmación de Contraseña",
+            "role_label": "Rol",
+            "submit_button": "Actualizar Administrador"
+        },
+        "messages": {
+            "created": "Administrador creado con éxito.",
+            "updated": "Administrador actualizado con éxito.",
+            "deleted": "Administrador eliminado con éxito.",
+            "cannot_delete_self": "No puede eliminar su propia cuenta."
+        }
     }
 }

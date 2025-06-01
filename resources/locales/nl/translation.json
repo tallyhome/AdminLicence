@@ -955,5 +955,44 @@
             "message": "Bericht",
             "details": "Details"
         }
+    },
+    "admins": {
+        "title": "Beheerdersbeheer",
+        "administrators": "Beheerders",
+        "list": "Beheerderslijst",
+        "new_admin": "Nieuwe Beheerder",
+        "id": "ID",
+        "role": "Rol",
+        "creation_date": "Aanmaakdatum",
+        "super_admin": "Superbeheerder",
+        "admin": "Beheerder",
+        "delete_confirmation": "Verwijderingsbevestiging",
+        "delete_confirm_message": "Weet u zeker dat u beheerder <strong>:name</strong> wilt verwijderen?",
+        "create": {
+            "title": "Beheerder Aanmaken",
+            "form_title": "Aanmaakformulier",
+            "name_label": "Naam",
+            "email_label": "E-mail",
+            "password_label": "Wachtwoord",
+            "password_confirmation_label": "Wachtwoord Bevestigen",
+            "role_label": "Rol",
+            "submit_button": "Beheerder Aanmaken"
+        },
+        "edit": {
+            "title": "Beheerder Bewerken",
+            "form_title": "Bewerkingsformulier",
+            "name_label": "Naam",
+            "email_label": "E-mail",
+            "password_label": "Wachtwoord (laat leeg om het huidige wachtwoord te behouden)",
+            "password_confirmation_label": "Wachtwoord Bevestigen",
+            "role_label": "Rol",
+            "submit_button": "Beheerder Bijwerken"
+        },
+        "messages": {
+            "created": "Beheerder succesvol aangemaakt.",
+            "updated": "Beheerder succesvol bijgewerkt.",
+            "deleted": "Beheerder succesvol verwijderd.",
+            "cannot_delete_self": "U kunt uw eigen account niet verwijderen."
+        }
     }
 }

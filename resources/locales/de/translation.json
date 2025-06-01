@@ -987,5 +987,44 @@
             "message": "Nachricht",
             "details": "Details"
         }
+    },
+    "admins": {
+        "title": "Administratorenverwaltung",
+        "administrators": "Administratoren",
+        "list": "Liste der Administratoren",
+        "new_admin": "Neuer Administrator",
+        "id": "ID",
+        "role": "Rolle",
+        "creation_date": "Erstellungsdatum",
+        "super_admin": "Super Admin",
+        "admin": "Admin",
+        "delete_confirmation": "Löschbestätigung",
+        "delete_confirm_message": "Sind Sie sicher, dass Sie den Administrator <strong>:name</strong> löschen möchten?",
+        "create": {
+            "title": "Administrator erstellen",
+            "form_title": "Erstellungsformular",
+            "name_label": "Name",
+            "email_label": "E-Mail",
+            "password_label": "Passwort",
+            "password_confirmation_label": "Passwortbestätigung",
+            "role_label": "Rolle",
+            "submit_button": "Administrator erstellen"
+        },
+        "edit": {
+            "title": "Administrator bearbeiten",
+            "form_title": "Bearbeitungsformular",
+            "name_label": "Name",
+            "email_label": "E-Mail",
+            "password_label": "Passwort (leer lassen, um aktuelles beizubehalten)",
+            "password_confirmation_label": "Passwortbestätigung",
+            "role_label": "Rolle",
+            "submit_button": "Administrator aktualisieren"
+        },
+        "messages": {
+            "created": "Administrator erfolgreich erstellt.",
+            "updated": "Administrator erfolgreich aktualisiert.",
+            "deleted": "Administrator erfolgreich gelöscht.",
+            "cannot_delete_self": "Sie können Ihr eigenes Konto nicht löschen."
+        }
     }
 }

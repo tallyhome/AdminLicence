@@ -1120,5 +1120,44 @@
         "3_3": "Suppression sur demande",
         "4_title": "Contact",
         "4_text": "Pour toute question, contactez notre DPO à privacy@adminlicence.fr."
+    },
+    "admins": {
+        "title": "Gestion des administrateurs",
+        "administrators": "Administrateurs",
+        "list": "Liste des administrateurs",
+        "new_admin": "Nouvel administrateur",
+        "id": "ID",
+        "role": "Rôle",
+        "creation_date": "Date de création",
+        "super_admin": "Super Admin",
+        "admin": "Admin",
+        "delete_confirmation": "Confirmation de suppression",
+        "delete_confirm_message": "Êtes-vous sûr de vouloir supprimer l'administrateur <strong>:name</strong> ?",
+        "create": {
+            "title": "Créer un administrateur",
+            "form_title": "Formulaire de création",
+            "name_label": "Nom",
+            "email_label": "Email",
+            "password_label": "Mot de passe",
+            "password_confirmation_label": "Confirmation du mot de passe",
+            "role_label": "Rôle",
+            "submit_button": "Créer l'administrateur"
+        },
+        "edit": {
+            "title": "Modifier l'administrateur",
+            "form_title": "Formulaire de modification",
+            "name_label": "Nom",
+            "email_label": "Email",
+            "password_label": "Mot de passe (laisser vide pour ne pas changer)",
+            "password_confirmation_label": "Confirmation du mot de passe",
+            "role_label": "Rôle",
+            "submit_button": "Mettre à jour l'administrateur"
+        },
+        "messages": {
+            "created": "Administrateur créé avec succès.",
+            "updated": "Administrateur mis à jour avec succès.",
+            "deleted": "Administrateur supprimé avec succès.",
+            "cannot_delete_self": "Vous ne pouvez pas supprimer votre propre compte."
+        }
     }
 }

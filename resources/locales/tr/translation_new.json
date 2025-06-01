@@ -302,11 +302,9 @@
     },
     "admins": {
         "title": "Yönetici Yönetimi",
-        "administrators": "Yöneticiler",
         "manage": "Yöneticileri Yönet",
         "list": "Yönetici Listesi",
         "add": "Yönetici Ekle",
-        "new_admin": "Yeni Yönetici",
         "edit": "Yöneticiyi Düzenle",
         "delete": "Yöneticiyi Sil",
         "id": "ID",
@@ -314,7 +312,6 @@
         "email": "E-posta",
         "role": "Rol",
         "created_at": "Oluşturulma Tarihi",
-        "creation_date": "Oluşturulma Tarihi",
         "actions": "İşlemler",
         "super_admin": "Süper Yönetici",
         "admin": "Yönetici",
@@ -365,11 +362,5 @@
                 "disabled": "Devre dışı"
             }
         }
-    },
-    "language": {
-        "change": "Dil Değiştir",
-        "current": "Mevcut Dil",
-        "select": "Dil Seçin",
-        "changed_successfully": "Dil başarıyla değiştirildi"
     }
 }

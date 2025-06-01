@@ -814,5 +814,44 @@
             "message": "Mensagem",
             "details": "Detalhes"
         }
+    },
+    "admins": {
+        "title": "Gerenciamento de Administradores",
+        "administrators": "Administradores",
+        "list": "Lista de Administradores",
+        "new_admin": "Novo Administrador",
+        "id": "ID",
+        "role": "Função",
+        "creation_date": "Data de Criação",
+        "super_admin": "Super Administrador",
+        "admin": "Administrador",
+        "delete_confirmation": "Confirmação de Exclusão",
+        "delete_confirm_message": "Tem certeza de que deseja excluir o administrador <strong>:name</strong>?",
+        "create": {
+            "title": "Criar Administrador",
+            "form_title": "Formulário de Criação",
+            "name_label": "Nome",
+            "email_label": "E-mail",
+            "password_label": "Senha",
+            "password_confirmation_label": "Confirmação de Senha",
+            "role_label": "Função",
+            "submit_button": "Criar Administrador"
+        },
+        "edit": {
+            "title": "Editar Administrador",
+            "form_title": "Formulário de Edição",
+            "name_label": "Nome",
+            "email_label": "E-mail",
+            "password_label": "Senha (deixe em branco para manter a senha atual)",
+            "password_confirmation_label": "Confirmação de Senha",
+            "role_label": "Função",
+            "submit_button": "Atualizar Administrador"
+        },
+        "messages": {
+            "created": "Administrador criado com sucesso.",
+            "updated": "Administrador atualizado com sucesso.",
+            "deleted": "Administrador excluído com sucesso.",
+            "cannot_delete_self": "Você não pode excluir sua própria conta."
+        }
     }
 }

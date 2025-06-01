@@ -6,6 +6,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Stringable;
+use Illuminate\Support\Uri;
 use League\CommonMark\Environment\EnvironmentBuilderInterface;
 use League\CommonMark\Extension\ExtensionInterface;
 use PHPUnit\Framework\TestCase;
@@ -1397,6 +1398,17 @@ class SupportStringableTest extends TestCase
         $this->stringable('not a date')->toDate();
     }
 
+    public function testToUri()
+    {
+        $sentence = 'Laravel is a PHP framework. You can access the docs in: {https://laravel.com/docs}';
+
+        $uri = $this->stringable($sentence)->between('{', '}')->toUri();
+
+        $this->assertInstanceOf(Uri::class, $uri);
+        $this->assertSame('https://laravel.com/docs', (string) $uri);
+        $this->assertSame('https://laravel.com/docs', $uri->toHtml());
+    }
+
     public function testArrayAccess()
     {
         $str = $this->stringable('my string');
@@ -1418,5 +1430,12 @@ class SupportStringableTest extends TestCase
         $this->assertSame('foo', (string) $this->stringable(base64_encode('foo'))->fromBase64());
         $this->assertSame('foobar', (string) $this->stringable(base64_encode('foobar'))->fromBase64(true));
         $this->assertSame('foobarbaz', (string) $this->stringable(base64_encode('foobarbaz'))->fromBase64());
+    }
+
+    public function testHash()
+    {
+        $this->assertSame(hash('xxh3', 'foo'), (string) $this->stringable('foo')->hash('xxh3'));
+        $this->assertSame(hash('xxh3', 'foobar'), (string) $this->stringable('foobar')->hash('xxh3'));
+        $this->assertSame(hash('sha256', 'foobarbaz'), (string) $this->stringable('foobarbaz')->hash('sha256'));
     }
 }

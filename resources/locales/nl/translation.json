@@ -552,7 +552,7 @@
         "integration_approaches": "Integratiebenaderingen",
         "integration_examples": "Integratievoorbeelden",
         "best_practices": "Beste praktijken",
-        "support": {
+        "api_support": {
             "title": "Ondersteuning",
             "description": "Als u problemen ondervindt bij het integreren van de API of als u vragen heeft, aarzel dan niet om contact op te nemen met ons technisch ondersteuningsteam."
         },
@@ -634,7 +634,7 @@
                 "description": "Deze benadering maakt het mogelijk om het licentiesysteem te integreren in mobiele applicaties ontwikkeld met Flutter."
             }
         },
-        "support": {
+        "documentation_support": {
             "title": "Ondersteuning",
             "description": "Als u problemen ondervindt bij het integreren van de API of vragen heeft, aarzel dan niet om contact op te nemen met ons technisch ondersteuningsteam."
         }
@@ -808,6 +808,152 @@
             "description": "Volledige documentatie van de licentiebeheer API.",
             "link_text": "Voor gedetailleerde API-documentatie, raadpleeg de",
             "link_title": "API-documentatie"
+        }
+    },
+    "api_diagnostic": {
+        "title": "API-diagnostiek",
+        "tool_title": "API-diagnostisch hulpmiddel",
+        "open_new_window": "Open in nieuw venster",
+        "access_info": "Toegangsinformatie",
+        "tool_url": "Het API-diagnostisch hulpmiddel is beschikbaar op de volgende URL",
+        "default_credentials": "Standaard inloggegevens",
+        "available_features": "Beschikbare functies",
+        "features": {
+            "general_info": {
+                "title": "Algemene informatie",
+                "description": "Overzicht van API en serverconfiguratie"
+            },
+            "serial_key_test": {
+                "title": "Serienummertest",
+                "description": "Controleer de geldigheid van een licentiesleutel"
+            },
+            "connection_test": {
+                "title": "Verbindingstest",
+                "description": "Controleer de verbinding met externe API"
+            },
+            "database_test": {
+                "title": "Databasetest",
+                "description": "Controleer de databaseverbinding"
+            },
+            "permissions_check": {
+                "title": "Rechtencontrole",
+                "description": "Controleer de rechten van kritieke bestanden"
+            },
+            "logs_display": {
+                "title": "Logboekweergave",
+                "description": "Bekijk de meest recente logboekitems"
+            }
+        },
+        "serial_key_test": {
+            "section": "Serienummertest",
+            "title": "Serienummertest",
+            "key_label": "Serienummer",
+            "select_key": "Selecteer sleutel",
+            "custom_key": "Voer aangepaste sleutel in",
+            "custom_key_label": "Aangepaste sleutel",
+            "domain_label": "Domein (optioneel)",
+            "ip_label": "IP-adres (optioneel)",
+            "test_button": "Sleutel testen",
+            "result_title": "Resultaat"
+        },
+        "server_info": {
+            "section": "Serverinformatie",
+            "title": "Serverinformatie",
+            "php_version": "PHP-versie",
+            "laravel_version": "Laravel-versie",
+            "web_server": "Webserver",
+            "os": "Besturingssysteem",
+            "database": "Database",
+            "timezone": "Tijdzone",
+            "php_extensions": "PHP-extensies"
+        },
+        "buttons": {
+            "test_api_connection": "API-verbinding testen",
+            "test_database": "Database testen",
+            "check_permissions": "Rechten controleren",
+            "close": "Sluiten"
+        },
+        "database_stats": {
+            "section": "Databasestatistieken",
+            "title": "Databasestatistieken",
+            "serial_keys": "Serienummers",
+            "view_all_serial_keys": "Alle serienummers bekijken",
+            "view_all_keys": "Alle sleutels bekijken",
+            "projects": "Projecten",
+            "view_all_projects": "Alle projecten bekijken",
+            "admins": "Beheerders",
+            "view_all_admins": "Alle beheerders bekijken",
+            "active_keys": "Actieve sleutels",
+            "view_active_keys": "Actieve sleutels bekijken",
+            "api_keys": "API-sleutels",
+            "view_all_api_keys": "Alle API-sleutels bekijken"
+        },
+        "logs": {
+            "section": "Recente logboekitems",
+            "title": "Recente logboekitems",
+            "refresh": "Vernieuwen",
+            "no_entries": "Geen logboekitems beschikbaar"
+        },
+        "modals": {
+            "serial_keys_title": "Serienummers",
+            "test_result_title": "Testresultaat"
+        },
+        "js": {
+            "please_select_key": "Selecteer of voer een serienummer in.",
+            "verification_in_progress": "Verificatie wordt uitgevoerd...",
+            "valid": "Geldig",
+            "invalid": "Ongeldig",
+            "status": "Status",
+            "serial_key": "Serienummer",
+            "project": "Project",
+            "expiration_date": "Vervaldatum",
+            "domain": "Domein",
+            "ip_address": "IP-adres",
+            "token": "Token",
+            "not_specified": "Niet gespecificeerd",
+            "not_generated": "Niet gegenereerd",
+            "error": "Fout",
+            "server_error": "Er is een fout opgetreden bij het communiceren met de server.",
+            "loading_serial_keys": "Serienummers laden...",
+            "active": "Actief",
+            "revoked": "Ingetrokken",
+            "suspended": "Opgeschort",
+            "expired": "Verlopen",
+            "no_serial_keys_found": "Geen serienummers gevonden.",
+            "error_loading_serial_keys": "Fout bij het laden van serienummers.",
+            "test_in_progress": "Test wordt uitgevoerd...",
+            "success": "Succes",
+            "failure": "Mislukt",
+            "test_result": "Testresultaat",
+            "yes": "Ja",
+            "no": "Nee",
+            "not_available": "Niet beschikbaar",
+            "loading_projects": "Projecten laden...",
+            "project_name": "Projectnaam",
+            "serial_keys": "Serienummers",
+            "created_at": "Aanmaakdatum",
+            "no_projects_found": "Geen projecten gevonden.",
+            "error_loading_projects": "Fout bij het laden van projecten.",
+            "loading_admins": "Beheerders laden...",
+            "name": "Naam",
+            "email": "E-mail",
+            "last_login": "Laatste login",
+            "never": "Nooit",
+            "no_admins_found": "Geen beheerders gevonden.",
+            "error_loading_admins": "Fout bij het laden van beheerders.",
+            "loading_active_keys": "Actieve sleutels laden...",
+            "expires_at": "Verloopt op",
+            "all": "Alle",
+            "none": "Geen",
+            "no_active_keys_found": "Geen actieve sleutels gevonden.",
+            "error_loading_active_keys": "Fout bij het laden van actieve sleutels.",
+            "loading_api_keys": "API-sleutels laden...",
+            "key": "Sleutel",
+            "last_used_at": "Laatst gebruikt op",
+            "no_api_keys_found": "Geen API-sleutels gevonden.",
+            "error_loading_api_keys": "Fout bij het laden van API-sleutels.",
+            "message": "Bericht",
+            "details": "Details"
         }
     }
 }

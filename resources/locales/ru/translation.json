@@ -358,7 +358,7 @@
         "billing_history": "Billing history",
         "invoice": "Invoice"
     },
-    "language": {
+    "language_selector": {
         "select": "Выбрать язык",
         "en": "Английский",
         "fr": "Французский",
@@ -488,7 +488,7 @@
         "user_delete": "Удаление пользователей",
         "stats_read": "Чтение статистики"
     },
-    "settings": {
+    "settings_general": {
         "title": "Общие настройки",
         "general": {
             "title": "Общая информация",
@@ -785,7 +785,7 @@
             "copied": "Скопировано!"
         }
     },
-    "settings": {
+    "settings_security": {
         "two_factor": {
             "status": {
                 "disabled": "Отключено",
@@ -795,5 +795,151 @@
     },
     "language": {
         "changed_successfully": "Язык успешно изменен"
+    },
+    "api_diagnostic": {
+        "title": "Диагностика API",
+        "tool_title": "Инструмент диагностики API",
+        "open_new_window": "Открыть в новом окне",
+        "access_info": "Информация о доступе",
+        "tool_url": "Инструмент диагностики API доступен по следующему URL",
+        "default_credentials": "Учетные данные по умолчанию",
+        "available_features": "Доступные функции",
+        "features": {
+            "general_info": {
+                "title": "Общая информация",
+                "description": "Обзор API и конфигурации сервера"
+            },
+            "serial_key_test": {
+                "title": "Тест серийного ключа",
+                "description": "Проверьте действительность лицензионного ключа"
+            },
+            "connection_test": {
+                "title": "Тест соединения",
+                "description": "Проверьте подключение к внешнему API"
+            },
+            "database_test": {
+                "title": "Тест базы данных",
+                "description": "Проверьте подключение к базе данных"
+            },
+            "permissions_check": {
+                "title": "Проверка разрешений",
+                "description": "Проверьте разрешения критических файлов"
+            },
+            "logs_display": {
+                "title": "Отображение логов",
+                "description": "Просмотр последних записей журнала"
+            }
+        },
+        "serial_key_test": {
+            "section": "Тест серийного ключа",
+            "title": "Тест серийного ключа",
+            "key_label": "Серийный ключ",
+            "select_key": "Выберите ключ",
+            "custom_key": "Введите пользовательский ключ",
+            "custom_key_label": "Пользовательский ключ",
+            "domain_label": "Домен (опционально)",
+            "ip_label": "IP-адрес (опционально)",
+            "test_button": "Проверить ключ",
+            "result_title": "Результат"
+        },
+        "server_info": {
+            "section": "Информация о сервере",
+            "title": "Информация о сервере",
+            "php_version": "Версия PHP",
+            "laravel_version": "Версия Laravel",
+            "web_server": "Веб-сервер",
+            "os": "Операционная система",
+            "database": "База данных",
+            "timezone": "Часовой пояс",
+            "php_extensions": "Расширения PHP"
+        },
+        "buttons": {
+            "test_api_connection": "Проверить соединение API",
+            "test_database": "Проверить базу данных",
+            "check_permissions": "Проверить разрешения",
+            "close": "Закрыть"
+        },
+        "database_stats": {
+            "section": "Статистика базы данных",
+            "title": "Статистика базы данных",
+            "serial_keys": "Серийные ключи",
+            "view_all_serial_keys": "Просмотреть все серийные ключи",
+            "view_all_keys": "Просмотреть все ключи",
+            "projects": "Проекты",
+            "view_all_projects": "Просмотреть все проекты",
+            "admins": "Администраторы",
+            "view_all_admins": "Просмотреть всех администраторов",
+            "active_keys": "Активные ключи",
+            "view_active_keys": "Просмотреть активные ключи",
+            "api_keys": "API ключи",
+            "view_all_api_keys": "Просмотреть все API ключи"
+        },
+        "logs": {
+            "section": "Последние логи",
+            "title": "Последние логи",
+            "refresh": "Обновить",
+            "no_entries": "Нет доступных записей журнала"
+        },
+        "modals": {
+            "serial_keys_title": "Серийные ключи",
+            "test_result_title": "Результат теста"
+        },
+        "js": {
+            "please_select_key": "Пожалуйста, выберите или введите серийный ключ.",
+            "verification_in_progress": "Проверка выполняется...",
+            "valid": "Действительный",
+            "invalid": "Недействительный",
+            "status": "Статус",
+            "serial_key": "Серийный ключ",
+            "project": "Проект",
+            "expiration_date": "Срок действия",
+            "domain": "Домен",
+            "ip_address": "IP-адрес",
+            "token": "Токен",
+            "not_specified": "Не указано",
+            "not_generated": "Не сгенерировано",
+            "error": "Ошибка",
+            "server_error": "Произошла ошибка при связи с сервером.",
+            "loading_serial_keys": "Загрузка серийных ключей...",
+            "active": "Активный",
+            "revoked": "Отозванный",
+            "suspended": "Приостановленный",
+            "expired": "Истекший",
+            "no_serial_keys_found": "Серийные ключи не найдены.",
+            "error_loading_serial_keys": "Ошибка при загрузке серийных ключей.",
+            "test_in_progress": "Тест выполняется...",
+            "success": "Успех",
+            "failure": "Неудача",
+            "test_result": "Результат теста",
+            "yes": "Да",
+            "no": "Нет",
+            "not_available": "Недоступно",
+            "loading_projects": "Загрузка проектов...",
+            "project_name": "Название проекта",
+            "serial_keys": "Серийные ключи",
+            "created_at": "Дата создания",
+            "no_projects_found": "Проекты не найдены.",
+            "error_loading_projects": "Ошибка при загрузке проектов.",
+            "loading_admins": "Загрузка администраторов...",
+            "name": "Имя",
+            "email": "Электронная почта",
+            "last_login": "Последний вход",
+            "never": "Никогда",
+            "no_admins_found": "Администраторы не найдены.",
+            "error_loading_admins": "Ошибка при загрузке администраторов.",
+            "loading_active_keys": "Загрузка активных ключей...",
+            "expires_at": "Срок действия истекает",
+            "all": "Все",
+            "none": "Нет",
+            "no_active_keys_found": "Активные ключи не найдены.",
+            "error_loading_active_keys": "Ошибка при загрузке активных ключей.",
+            "loading_api_keys": "Загрузка API ключей...",
+            "key": "Ключ",
+            "last_used_at": "Последнее использование",
+            "no_api_keys_found": "API ключи не найдены.",
+            "error_loading_api_keys": "Ошибка при загрузке API ключей.",
+            "message": "Сообщение",
+            "details": "Детали"
+        }
     }
 }

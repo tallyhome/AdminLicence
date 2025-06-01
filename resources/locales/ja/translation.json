@@ -367,5 +367,151 @@
     },
     "language": {
         "changed_successfully": "言語が正常に変更されました"
+    },
+    "api_diagnostic": {
+        "title": "API診断",
+        "tool_title": "API診断ツール",
+        "open_new_window": "新しいウィンドウで開く",
+        "access_info": "アクセス情報",
+        "tool_url": "API診断ツールは次のURLで利用可能です",
+        "default_credentials": "デフォルト認証情報",
+        "available_features": "利用可能な機能",
+        "features": {
+            "general_info": {
+                "title": "一般情報",
+                "description": "APIとサーバー設定の概要"
+            },
+            "serial_key_test": {
+                "title": "シリアルキーテスト",
+                "description": "ライセンスキーの有効性を確認"
+            },
+            "connection_test": {
+                "title": "接続テスト",
+                "description": "外部APIとの接続を確認"
+            },
+            "database_test": {
+                "title": "データベーステスト",
+                "description": "データベース接続を確認"
+            },
+            "permissions_check": {
+                "title": "権限チェック",
+                "description": "重要なファイルの権限を確認"
+            },
+            "logs_display": {
+                "title": "ログ表示",
+                "description": "最新のログエントリを表示"
+            }
+        },
+        "serial_key_test": {
+            "section": "シリアルキーテスト",
+            "title": "シリアルキーテスト",
+            "key_label": "シリアルキー",
+            "select_key": "キーを選択",
+            "custom_key": "カスタムキーを入力",
+            "custom_key_label": "カスタムキー",
+            "domain_label": "ドメイン（オプション）",
+            "ip_label": "IPアドレス（オプション）",
+            "test_button": "キーをテスト",
+            "result_title": "結果"
+        },
+        "server_info": {
+            "section": "サーバー情報",
+            "title": "サーバー情報",
+            "php_version": "PHPバージョン",
+            "laravel_version": "Laravelバージョン",
+            "web_server": "Webサーバー",
+            "os": "オペレーティングシステム",
+            "database": "データベース",
+            "timezone": "タイムゾーン",
+            "php_extensions": "PHP拡張機能"
+        },
+        "buttons": {
+            "test_api_connection": "API接続をテスト",
+            "test_database": "データベースをテスト",
+            "check_permissions": "権限を確認",
+            "close": "閉じる"
+        },
+        "database_stats": {
+            "section": "データベース統計",
+            "title": "データベース統計",
+            "serial_keys": "シリアルキー",
+            "view_all_serial_keys": "すべてのシリアルキーを表示",
+            "view_all_keys": "すべてのキーを表示",
+            "projects": "プロジェクト",
+            "view_all_projects": "すべてのプロジェクトを表示",
+            "admins": "管理者",
+            "view_all_admins": "すべての管理者を表示",
+            "active_keys": "アクティブなキー",
+            "view_active_keys": "アクティブなキーを表示",
+            "api_keys": "APIキー",
+            "view_all_api_keys": "すべてのAPIキーを表示"
+        },
+        "logs": {
+            "section": "最近のログ",
+            "title": "最近のログ",
+            "refresh": "更新",
+            "no_entries": "利用可能なログエントリはありません"
+        },
+        "modals": {
+            "serial_keys_title": "シリアルキー",
+            "test_result_title": "テスト結果"
+        },
+        "js": {
+            "please_select_key": "シリアルキーを選択または入力してください。",
+            "verification_in_progress": "検証中...",
+            "valid": "有効",
+            "invalid": "無効",
+            "status": "ステータス",
+            "serial_key": "シリアルキー",
+            "project": "プロジェクト",
+            "expiration_date": "有効期限",
+            "domain": "ドメイン",
+            "ip_address": "IPアドレス",
+            "token": "トークン",
+            "not_specified": "指定なし",
+            "not_generated": "生成されていません",
+            "error": "エラー",
+            "server_error": "サーバーとの通信中にエラーが発生しました。",
+            "loading_serial_keys": "シリアルキーを読み込み中...",
+            "active": "アクティブ",
+            "revoked": "取り消し済み",
+            "suspended": "一時停止",
+            "expired": "期限切れ",
+            "no_serial_keys_found": "シリアルキーが見つかりません。",
+            "error_loading_serial_keys": "シリアルキーの読み込み中にエラーが発生しました。",
+            "test_in_progress": "テスト実行中...",
+            "success": "成功",
+            "failure": "失敗",
+            "test_result": "テスト結果",
+            "yes": "はい",
+            "no": "いいえ",
+            "not_available": "利用不可",
+            "loading_projects": "プロジェクトを読み込み中...",
+            "project_name": "プロジェクト名",
+            "serial_keys": "シリアルキー",
+            "created_at": "作成日",
+            "no_projects_found": "プロジェクトが見つかりません。",
+            "error_loading_projects": "プロジェクトの読み込み中にエラーが発生しました。",
+            "loading_admins": "管理者を読み込み中...",
+            "name": "名前",
+            "email": "メール",
+            "last_login": "最終ログイン",
+            "never": "なし",
+            "no_admins_found": "管理者が見つかりません。",
+            "error_loading_admins": "管理者の読み込み中にエラーが発生しました。",
+            "loading_active_keys": "アクティブなキーを読み込み中...",
+            "expires_at": "有効期限",
+            "all": "すべて",
+            "none": "なし",
+            "no_active_keys_found": "アクティブなキーが見つかりません。",
+            "error_loading_active_keys": "アクティブなキーの読み込み中にエラーが発生しました。",
+            "loading_api_keys": "APIキーを読み込み中...",
+            "key": "キー",
+            "last_used_at": "最終使用日",
+            "no_api_keys_found": "APIキーが見つかりません。",
+            "error_loading_api_keys": "APIキーの読み込み中にエラーが発生しました。",
+            "message": "メッセージ",
+            "details": "詳細"
+        }
     }
 }

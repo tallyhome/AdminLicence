@@ -842,5 +842,151 @@
             "link_text": "Per una documentazione dettagliata dell'API, consulta la",
             "link_title": "Documentazione API"
         }
+    },
+    "api_diagnostic": {
+        "title": "Diagnostica API",
+        "tool_title": "Strumento di Diagnostica API",
+        "open_new_window": "Apri in una nuova finestra",
+        "access_info": "Informazioni di accesso",
+        "tool_url": "Lo strumento di diagnostica API è disponibile al seguente URL",
+        "default_credentials": "Credenziali predefinite",
+        "available_features": "Funzionalità disponibili",
+        "features": {
+            "general_info": {
+                "title": "Informazioni generali",
+                "description": "Panoramica dell'API e della configurazione del server"
+            },
+            "serial_key_test": {
+                "title": "Test chiave seriale",
+                "description": "Verifica la validità di una chiave di licenza"
+            },
+            "connection_test": {
+                "title": "Test di connessione",
+                "description": "Verifica la connessione all'API esterna"
+            },
+            "database_test": {
+                "title": "Test del database",
+                "description": "Verifica la connessione al database"
+            },
+            "permissions_check": {
+                "title": "Controllo permessi",
+                "description": "Verifica i permessi dei file critici"
+            },
+            "logs_display": {
+                "title": "Visualizzazione log",
+                "description": "Visualizza le ultime voci di log"
+            }
+        },
+        "serial_key_test": {
+            "section": "Test chiave seriale",
+            "title": "Test chiave seriale",
+            "key_label": "Chiave seriale",
+            "select_key": "Seleziona chiave",
+            "custom_key": "Inserisci chiave personalizzata",
+            "custom_key_label": "Chiave personalizzata",
+            "domain_label": "Dominio (opzionale)",
+            "ip_label": "Indirizzo IP (opzionale)",
+            "test_button": "Verifica chiave",
+            "result_title": "Risultato"
+        },
+        "server_info": {
+            "section": "Informazioni server",
+            "title": "Informazioni server",
+            "php_version": "Versione PHP",
+            "laravel_version": "Versione Laravel",
+            "web_server": "Server web",
+            "os": "Sistema operativo",
+            "database": "Database",
+            "timezone": "Fuso orario",
+            "php_extensions": "Estensioni PHP"
+        },
+        "buttons": {
+            "test_api_connection": "Verifica connessione API",
+            "test_database": "Verifica database",
+            "check_permissions": "Controlla permessi",
+            "close": "Chiudi"
+        },
+        "database_stats": {
+            "section": "Statistiche database",
+            "title": "Statistiche database",
+            "serial_keys": "Chiavi seriali",
+            "view_all_serial_keys": "Visualizza tutte le chiavi seriali",
+            "view_all_keys": "Visualizza tutte le chiavi",
+            "projects": "Progetti",
+            "view_all_projects": "Visualizza tutti i progetti",
+            "admins": "Amministratori",
+            "view_all_admins": "Visualizza tutti gli amministratori",
+            "active_keys": "Chiavi attive",
+            "view_active_keys": "Visualizza chiavi attive",
+            "api_keys": "Chiavi API",
+            "view_all_api_keys": "Visualizza tutte le chiavi API"
+        },
+        "logs": {
+            "section": "Ultimi log",
+            "title": "Ultimi log",
+            "refresh": "Aggiorna",
+            "no_entries": "Nessuna voce di log disponibile"
+        },
+        "modals": {
+            "serial_keys_title": "Chiavi seriali",
+            "test_result_title": "Risultato del test"
+        },
+        "js": {
+            "please_select_key": "Seleziona o inserisci una chiave seriale.",
+            "verification_in_progress": "Verifica in corso...",
+            "valid": "Valida",
+            "invalid": "Non valida",
+            "status": "Stato",
+            "serial_key": "Chiave seriale",
+            "project": "Progetto",
+            "expiration_date": "Data di scadenza",
+            "domain": "Dominio",
+            "ip_address": "Indirizzo IP",
+            "token": "Token",
+            "not_specified": "Non specificato",
+            "not_generated": "Non generato",
+            "error": "Errore",
+            "server_error": "Si è verificato un errore durante la comunicazione con il server.",
+            "loading_serial_keys": "Caricamento chiavi seriali...",
+            "active": "Attiva",
+            "revoked": "Revocata",
+            "suspended": "Sospesa",
+            "expired": "Scaduta",
+            "no_serial_keys_found": "Nessuna chiave seriale trovata.",
+            "error_loading_serial_keys": "Errore durante il caricamento delle chiavi seriali.",
+            "test_in_progress": "Test in corso...",
+            "success": "Successo",
+            "failure": "Fallimento",
+            "test_result": "Risultato del test",
+            "yes": "Sì",
+            "no": "No",
+            "not_available": "Non disponibile",
+            "loading_projects": "Caricamento progetti...",
+            "project_name": "Nome progetto",
+            "serial_keys": "Chiavi seriali",
+            "created_at": "Data di creazione",
+            "no_projects_found": "Nessun progetto trovato.",
+            "error_loading_projects": "Errore durante il caricamento dei progetti.",
+            "loading_admins": "Caricamento amministratori...",
+            "name": "Nome",
+            "email": "Email",
+            "last_login": "Ultimo accesso",
+            "never": "Mai",
+            "no_admins_found": "Nessun amministratore trovato.",
+            "error_loading_admins": "Errore durante il caricamento degli amministratori.",
+            "loading_active_keys": "Caricamento chiavi attive...",
+            "expires_at": "Scade il",
+            "all": "Tutte",
+            "none": "Nessuna",
+            "no_active_keys_found": "Nessuna chiave attiva trovata.",
+            "error_loading_active_keys": "Errore durante il caricamento delle chiavi attive.",
+            "loading_api_keys": "Caricamento chiavi API...",
+            "key": "Chiave",
+            "last_used_at": "Ultimo utilizzo",
+            "no_api_keys_found": "Nessuna chiave API trovata.",
+            "error_loading_api_keys": "Errore durante il caricamento delle chiavi API.",
+            "message": "Messaggio",
+            "details": "Dettagli"
+        }
     }
 }

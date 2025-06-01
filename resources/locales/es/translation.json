@@ -862,5 +862,151 @@
             "link_text": "Para una documentación detallada de la API, consulte la",
             "link_title": "Documentación de la API"
         }
+    },
+    "api_diagnostic": {
+        "title": "Diagnóstico API",
+        "tool_title": "Herramienta de diagnóstico API",
+        "open_new_window": "Abrir en una nueva ventana",
+        "access_info": "Información de acceso",
+        "tool_url": "La herramienta de diagnóstico API está accesible en la siguiente URL",
+        "default_credentials": "Credenciales predeterminadas",
+        "available_features": "Características disponibles",
+        "features": {
+            "general_info": {
+                "title": "Información general",
+                "description": "Visión general de la API y configuración del servidor"
+            },
+            "serial_key_test": {
+                "title": "Prueba de clave de serie",
+                "description": "Verifique la validez de una clave de licencia"
+            },
+            "connection_test": {
+                "title": "Prueba de conexión",
+                "description": "Verifique la conectividad con la API externa"
+            },
+            "database_test": {
+                "title": "Prueba de base de datos",
+                "description": "Verifique la conexión a la base de datos"
+            },
+            "permissions_check": {
+                "title": "Verificación de permisos",
+                "description": "Compruebe los permisos de archivos críticos"
+            },
+            "logs_display": {
+                "title": "Visualización de logs",
+                "description": "Consulte las últimas entradas de log"
+            }
+        },
+        "serial_key_test": {
+            "section": "Prueba de clave de serie",
+            "title": "Prueba de clave de serie",
+            "key_label": "Clave de serie",
+            "select_key": "Seleccione una clave",
+            "custom_key": "Introducir una clave personalizada",
+            "custom_key_label": "Clave personalizada",
+            "domain_label": "Dominio (opcional)",
+            "ip_label": "Dirección IP (opcional)",
+            "test_button": "Probar clave",
+            "result_title": "Resultado"
+        },
+        "server_info": {
+            "section": "Información del servidor",
+            "title": "Información del servidor",
+            "php_version": "Versión PHP",
+            "laravel_version": "Versión Laravel",
+            "web_server": "Servidor Web",
+            "os": "Sistema operativo",
+            "database": "Base de datos",
+            "timezone": "Zona horaria",
+            "php_extensions": "Extensiones PHP"
+        },
+        "buttons": {
+            "test_api_connection": "Probar conexión API",
+            "test_database": "Probar base de datos",
+            "check_permissions": "Verificar permisos",
+            "close": "Cerrar"
+        },
+        "database_stats": {
+            "section": "Estadísticas de la base de datos",
+            "title": "Estadísticas de la base de datos",
+            "serial_keys": "Claves de serie",
+            "view_all_serial_keys": "Ver todas las claves de serie",
+            "view_all_keys": "Ver todas las claves",
+            "projects": "Proyectos",
+            "view_all_projects": "Ver todos los proyectos",
+            "admins": "Administradores",
+            "view_all_admins": "Ver todos los administradores",
+            "active_keys": "Claves activas",
+            "view_active_keys": "Ver claves activas",
+            "api_keys": "Claves API",
+            "view_all_api_keys": "Ver todas las claves API"
+        },
+        "logs": {
+            "section": "Últimos logs",
+            "title": "Últimos logs",
+            "refresh": "Actualizar",
+            "no_entries": "No hay entradas de log disponibles"
+        },
+        "modals": {
+            "serial_keys_title": "Claves de serie",
+            "test_result_title": "Resultado de la prueba"
+        },
+        "js": {
+            "please_select_key": "Por favor, seleccione o introduzca una clave de serie.",
+            "verification_in_progress": "Verificación en curso...",
+            "valid": "Válida",
+            "invalid": "Inválida",
+            "status": "Estado",
+            "serial_key": "Clave de serie",
+            "project": "Proyecto",
+            "expiration_date": "Fecha de expiración",
+            "domain": "Dominio",
+            "ip_address": "Dirección IP",
+            "token": "Token",
+            "not_specified": "No especificado",
+            "not_generated": "No generado",
+            "error": "Error",
+            "server_error": "Se ha producido un error al comunicarse con el servidor.",
+            "loading_serial_keys": "Cargando claves de serie...",
+            "active": "Activa",
+            "revoked": "Revocada",
+            "suspended": "Suspendida",
+            "expired": "Expirada",
+            "no_serial_keys_found": "No se encontraron claves de serie.",
+            "error_loading_serial_keys": "Error al cargar las claves de serie.",
+            "test_in_progress": "Prueba en curso...",
+            "success": "Éxito",
+            "failure": "Fallo",
+            "test_result": "Resultado de la prueba",
+            "yes": "Sí",
+            "no": "No",
+            "not_available": "No disponible",
+            "loading_projects": "Cargando proyectos...",
+            "project_name": "Nombre del proyecto",
+            "serial_keys": "Claves de serie",
+            "created_at": "Fecha de creación",
+            "no_projects_found": "No se encontraron proyectos.",
+            "error_loading_projects": "Error al cargar los proyectos.",
+            "loading_admins": "Cargando administradores...",
+            "name": "Nombre",
+            "email": "Email",
+            "last_login": "Último acceso",
+            "never": "Nunca",
+            "no_admins_found": "No se encontraron administradores.",
+            "error_loading_admins": "Error al cargar los administradores.",
+            "loading_active_keys": "Cargando claves activas...",
+            "expires_at": "Fecha de expiración",
+            "all": "Todas",
+            "none": "Ninguna",
+            "no_active_keys_found": "No se encontraron claves activas.",
+            "error_loading_active_keys": "Error al cargar las claves activas.",
+            "loading_api_keys": "Cargando claves API...",
+            "key": "Clave",
+            "last_used_at": "Último uso",
+            "no_api_keys_found": "No se encontraron claves API.",
+            "error_loading_api_keys": "Error al cargar las claves API.",
+            "message": "Mensaje",
+            "details": "Detalles"
+        }
     }
 }

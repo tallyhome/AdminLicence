@@ -487,6 +487,152 @@
         "user_delete": "User delete",
         "stats_read": "Statistics read"
     },
+    "api_diagnostic": {
+        "title": "API Diagnostic",
+        "tool_title": "API Diagnostic Tool",
+        "open_new_window": "Open in new window",
+        "access_info": "Access Information",
+        "tool_url": "The API diagnostic tool is accessible at the following URL",
+        "default_credentials": "Default credentials",
+        "available_features": "Available Features",
+        "features": {
+            "general_info": {
+                "title": "General Information",
+                "description": "Overview of the API and server configuration"
+            },
+            "serial_key_test": {
+                "title": "Serial Key Test",
+                "description": "Verify the validity of a license key"
+            },
+            "connection_test": {
+                "title": "Connection Test",
+                "description": "Check connectivity with the external API"
+            },
+            "database_test": {
+                "title": "Database Test",
+                "description": "Verify database connection"
+            },
+            "permissions_check": {
+                "title": "Permissions Check",
+                "description": "Check permissions of critical files"
+            },
+            "logs_display": {
+                "title": "Logs Display",
+                "description": "View the latest log entries"
+            }
+        },
+        "serial_key_test": {
+            "section": "Serial Key Test",
+            "title": "Serial Key Test",
+            "key_label": "Serial Key",
+            "select_key": "Select a key",
+            "custom_key": "Enter a custom key",
+            "custom_key_label": "Custom Key",
+            "domain_label": "Domain (optional)",
+            "ip_label": "IP Address (optional)",
+            "test_button": "Test Key",
+            "result_title": "Result"
+        },
+        "server_info": {
+            "section": "Server Information",
+            "title": "Server Information",
+            "php_version": "PHP Version",
+            "laravel_version": "Laravel Version",
+            "web_server": "Web Server",
+            "os": "Operating System",
+            "database": "Database",
+            "timezone": "Timezone",
+            "php_extensions": "PHP Extensions"
+        },
+        "buttons": {
+            "test_api_connection": "Test API Connection",
+            "test_database": "Test Database",
+            "check_permissions": "Check Permissions",
+            "close": "Close"
+        },
+        "database_stats": {
+            "section": "Database Statistics",
+            "title": "Database Statistics",
+            "serial_keys": "Serial Keys",
+            "view_all_serial_keys": "View all serial keys",
+            "view_all_keys": "View all keys",
+            "projects": "Projects",
+            "view_all_projects": "View all projects",
+            "admins": "Administrators",
+            "view_all_admins": "View all administrators",
+            "active_keys": "Active Keys",
+            "view_active_keys": "View active keys",
+            "api_keys": "API Keys",
+            "view_all_api_keys": "View all API keys"
+        },
+        "logs": {
+            "section": "Latest Logs",
+            "title": "Latest Logs",
+            "refresh": "Refresh",
+            "no_entries": "No log entries available"
+        },
+        "modals": {
+            "serial_keys_title": "Serial Keys",
+            "test_result_title": "Test Result"
+        },
+        "js": {
+            "please_select_key": "Please select or enter a serial key.",
+            "verification_in_progress": "Verification in progress...",
+            "valid": "Valid",
+            "invalid": "Invalid",
+            "status": "Status",
+            "serial_key": "Serial Key",
+            "project": "Project",
+            "expiration_date": "Expiration Date",
+            "domain": "Domain",
+            "ip_address": "IP Address",
+            "token": "Token",
+            "not_specified": "Not specified",
+            "not_generated": "Not generated",
+            "error": "Error",
+            "server_error": "An error occurred while communicating with the server.",
+            "loading_serial_keys": "Loading serial keys...",
+            "active": "Active",
+            "revoked": "Revoked",
+            "suspended": "Suspended",
+            "expired": "Expired",
+            "no_serial_keys_found": "No serial keys found.",
+            "error_loading_serial_keys": "Error loading serial keys.",
+            "test_in_progress": "Test in progress...",
+            "success": "Success",
+            "failure": "Failure",
+            "test_result": "Test Result",
+            "yes": "Yes",
+            "no": "No",
+            "not_available": "Not available",
+            "loading_projects": "Loading projects...",
+            "project_name": "Project Name",
+            "serial_keys": "Serial Keys",
+            "created_at": "Created At",
+            "no_projects_found": "No projects found.",
+            "error_loading_projects": "Error loading projects.",
+            "loading_admins": "Loading administrators...",
+            "name": "Name",
+            "email": "Email",
+            "last_login": "Last Login",
+            "never": "Never",
+            "no_admins_found": "No administrators found.",
+            "error_loading_admins": "Error loading administrators.",
+            "loading_active_keys": "Loading active keys...",
+            "expires_at": "Expires At",
+            "all": "All",
+            "none": "None",
+            "no_active_keys_found": "No active keys found.",
+            "error_loading_active_keys": "Error loading active keys.",
+            "loading_api_keys": "Loading API keys...",
+            "key": "Key",
+            "last_used_at": "Last Used At",
+            "no_api_keys_found": "No API keys found.",
+            "error_loading_api_keys": "Error loading API keys.",
+            "message": "Message",
+            "details": "Details"
+        }
+    },
     "settings": {
         "title": "General Settings",
         "general": {

@@ -841,5 +841,151 @@
             "link_text": "Für eine detaillierte API-Dokumentation, beziehen Sie sich bitte auf die",
             "link_title": "API-Dokumentation"
         }
+    },
+    "api_diagnostic": {
+        "title": "API-Diagnose",
+        "tool_title": "API-Diagnose-Tool",
+        "open_new_window": "In neuem Fenster öffnen",
+        "access_info": "Zugriffsinformationen",
+        "tool_url": "Das API-Diagnose-Tool ist unter folgender URL zugänglich",
+        "default_credentials": "Standardanmeldedaten",
+        "available_features": "Verfügbare Funktionen",
+        "features": {
+            "general_info": {
+                "title": "Allgemeine Informationen",
+                "description": "Überblick über die API und Serverkonfiguration"
+            },
+            "serial_key_test": {
+                "title": "Seriennummerntest",
+                "description": "Überprüfen Sie die Gültigkeit eines Lizenzschlüssels"
+            },
+            "connection_test": {
+                "title": "Verbindungstest",
+                "description": "Überprüfen Sie die Konnektivität mit der externen API"
+            },
+            "database_test": {
+                "title": "Datenbanktest",
+                "description": "Überprüfen Sie die Datenbankverbindung"
+            },
+            "permissions_check": {
+                "title": "Berechtigungsprüfung",
+                "description": "Überprüfen Sie die Berechtigungen kritischer Dateien"
+            },
+            "logs_display": {
+                "title": "Log-Anzeige",
+                "description": "Sehen Sie die neuesten Log-Einträge"
+            }
+        },
+        "serial_key_test": {
+            "section": "Seriennummerntest",
+            "title": "Seriennummerntest",
+            "key_label": "Seriennummer",
+            "select_key": "Schlüssel auswählen",
+            "custom_key": "Benutzerdefinierten Schlüssel eingeben",
+            "custom_key_label": "Benutzerdefinierter Schlüssel",
+            "domain_label": "Domain (optional)",
+            "ip_label": "IP-Adresse (optional)",
+            "test_button": "Schlüssel testen",
+            "result_title": "Ergebnis"
+        },
+        "server_info": {
+            "section": "Serverinformationen",
+            "title": "Serverinformationen",
+            "php_version": "PHP-Version",
+            "laravel_version": "Laravel-Version",
+            "web_server": "Webserver",
+            "os": "Betriebssystem",
+            "database": "Datenbank",
+            "timezone": "Zeitzone",
+            "php_extensions": "PHP-Erweiterungen"
+        },
+        "buttons": {
+            "test_api_connection": "API-Verbindung testen",
+            "test_database": "Datenbank testen",
+            "check_permissions": "Berechtigungen prüfen",
+            "close": "Schließen"
+        },
+        "database_stats": {
+            "section": "Datenbankstatistiken",
+            "title": "Datenbankstatistiken",
+            "serial_keys": "Seriennummern",
+            "view_all_serial_keys": "Alle Seriennummern anzeigen",
+            "view_all_keys": "Alle Schlüssel anzeigen",
+            "projects": "Projekte",
+            "view_all_projects": "Alle Projekte anzeigen",
+            "admins": "Administratoren",
+            "view_all_admins": "Alle Administratoren anzeigen",
+            "active_keys": "Aktive Schlüssel",
+            "view_active_keys": "Aktive Schlüssel anzeigen",
+            "api_keys": "API-Schlüssel",
+            "view_all_api_keys": "Alle API-Schlüssel anzeigen"
+        },
+        "logs": {
+            "section": "Neueste Logs",
+            "title": "Neueste Logs",
+            "refresh": "Aktualisieren",
+            "no_entries": "Keine Log-Einträge verfügbar"
+        },
+        "modals": {
+            "serial_keys_title": "Seriennummern",
+            "test_result_title": "Testergebnis"
+        },
+        "js": {
+            "please_select_key": "Bitte wählen oder geben Sie eine Seriennummer ein.",
+            "verification_in_progress": "Überprüfung läuft...",
+            "valid": "Gültig",
+            "invalid": "Ungültig",
+            "status": "Status",
+            "serial_key": "Seriennummer",
+            "project": "Projekt",
+            "expiration_date": "Ablaufdatum",
+            "domain": "Domain",
+            "ip_address": "IP-Adresse",
+            "token": "Token",
+            "not_specified": "Nicht angegeben",
+            "not_generated": "Nicht generiert",
+            "error": "Fehler",
+            "server_error": "Bei der Kommunikation mit dem Server ist ein Fehler aufgetreten.",
+            "loading_serial_keys": "Seriennummern werden geladen...",
+            "active": "Aktiv",
+            "revoked": "Widerrufen",
+            "suspended": "Ausgesetzt",
+            "expired": "Abgelaufen",
+            "no_serial_keys_found": "Keine Seriennummern gefunden.",
+            "error_loading_serial_keys": "Fehler beim Laden der Seriennummern.",
+            "test_in_progress": "Test läuft...",
+            "success": "Erfolg",
+            "failure": "Fehler",
+            "test_result": "Testergebnis",
+            "yes": "Ja",
+            "no": "Nein",
+            "not_available": "Nicht verfügbar",
+            "loading_projects": "Projekte werden geladen...",
+            "project_name": "Projektname",
+            "serial_keys": "Seriennummern",
+            "created_at": "Erstellt am",
+            "no_projects_found": "Keine Projekte gefunden.",
+            "error_loading_projects": "Fehler beim Laden der Projekte.",
+            "loading_admins": "Administratoren werden geladen...",
+            "name": "Name",
+            "email": "E-Mail",
+            "last_login": "Letzte Anmeldung",
+            "never": "Nie",
+            "no_admins_found": "Keine Administratoren gefunden.",
+            "error_loading_admins": "Fehler beim Laden der Administratoren.",
+            "loading_active_keys": "Aktive Schlüssel werden geladen...",
+            "expires_at": "Läuft ab am",
+            "all": "Alle",
+            "none": "Keine",
+            "no_active_keys_found": "Keine aktiven Schlüssel gefunden.",
+            "error_loading_active_keys": "Fehler beim Laden der aktiven Schlüssel.",
+            "loading_api_keys": "API-Schlüssel werden geladen...",
+            "key": "Schlüssel",
+            "last_used_at": "Zuletzt verwendet am",
+            "no_api_keys_found": "Keine API-Schlüssel gefunden.",
+            "error_loading_api_keys": "Fehler beim Laden der API-Schlüssel.",
+            "message": "Nachricht",
+            "details": "Details"
+        }
     }
 }

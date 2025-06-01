@@ -779,5 +779,151 @@
             "license_details_header": "许可证详情：",
             "verification_error": "验证许可证时发生错误：:error"
         }
+    },
+    "api_diagnostic": {
+        "title": "API诊断",
+        "tool_title": "API诊断工具",
+        "open_new_window": "在新窗口中打开",
+        "access_info": "访问信息",
+        "tool_url": "API诊断工具可在以下网址使用",
+        "default_credentials": "默认凭证",
+        "available_features": "可用功能",
+        "features": {
+            "general_info": {
+                "title": "一般信息",
+                "description": "API和服务器配置概述"
+            },
+            "serial_key_test": {
+                "title": "序列密钥测试",
+                "description": "验证许可证密钥的有效性"
+            },
+            "connection_test": {
+                "title": "连接测试",
+                "description": "验证与外部API的连接"
+            },
+            "database_test": {
+                "title": "数据库测试",
+                "description": "验证数据库连接"
+            },
+            "permissions_check": {
+                "title": "权限检查",
+                "description": "检查重要文件的权限"
+            },
+            "logs_display": {
+                "title": "日志显示",
+                "description": "查看最新的日志条目"
+            }
+        },
+        "serial_key_test": {
+            "section": "序列密钥测试",
+            "title": "序列密钥测试",
+            "key_label": "序列密钥",
+            "select_key": "选择密钥",
+            "custom_key": "输入自定义密钥",
+            "custom_key_label": "自定义密钥",
+            "domain_label": "域名（可选）",
+            "ip_label": "IP地址（可选）",
+            "test_button": "测试密钥",
+            "result_title": "结果"
+        },
+        "server_info": {
+            "section": "服务器信息",
+            "title": "服务器信息",
+            "php_version": "PHP版本",
+            "laravel_version": "Laravel版本",
+            "web_server": "Web服务器",
+            "os": "操作系统",
+            "database": "数据库",
+            "timezone": "时区",
+            "php_extensions": "PHP扩展"
+        },
+        "buttons": {
+            "test_api_connection": "测试API连接",
+            "test_database": "测试数据库",
+            "check_permissions": "检查权限",
+            "close": "关闭"
+        },
+        "database_stats": {
+            "section": "数据库统计",
+            "title": "数据库统计",
+            "serial_keys": "序列密钥",
+            "view_all_serial_keys": "查看所有序列密钥",
+            "view_all_keys": "查看所有密钥",
+            "projects": "项目",
+            "view_all_projects": "查看所有项目",
+            "admins": "管理员",
+            "view_all_admins": "查看所有管理员",
+            "active_keys": "活跃密钥",
+            "view_active_keys": "查看活跃密钥",
+            "api_keys": "API密钥",
+            "view_all_api_keys": "查看所有API密钥"
+        },
+        "logs": {
+            "section": "最近日志",
+            "title": "最近日志",
+            "refresh": "刷新",
+            "no_entries": "没有可用的日志条目"
+        },
+        "modals": {
+            "serial_keys_title": "序列密钥",
+            "test_result_title": "测试结果"
+        },
+        "js": {
+            "please_select_key": "请选择或输入序列密钥。",
+            "verification_in_progress": "正在验证...",
+            "valid": "有效",
+            "invalid": "无效",
+            "status": "状态",
+            "serial_key": "序列密钥",
+            "project": "项目",
+            "expiration_date": "到期日期",
+            "domain": "域名",
+            "ip_address": "IP地址",
+            "token": "令牌",
+            "not_specified": "未指定",
+            "not_generated": "未生成",
+            "error": "错误",
+            "server_error": "与服务器通信时出错。",
+            "loading_serial_keys": "正在加载序列密钥...",
+            "active": "活跃",
+            "revoked": "已撤销",
+            "suspended": "已暂停",
+            "expired": "已过期",
+            "no_serial_keys_found": "未找到序列密钥。",
+            "error_loading_serial_keys": "加载序列密钥时出错。",
+            "test_in_progress": "测试进行中...",
+            "success": "成功",
+            "failure": "失败",
+            "test_result": "测试结果",
+            "yes": "是",
+            "no": "否",
+            "not_available": "不可用",
+            "loading_projects": "正在加载项目...",
+            "project_name": "项目名称",
+            "serial_keys": "序列密钥",
+            "created_at": "创建时间",
+            "no_projects_found": "未找到项目。",
+            "error_loading_projects": "加载项目时出错。",
+            "loading_admins": "正在加载管理员...",
+            "name": "名称",
+            "email": "电子邮件",
+            "last_login": "上次登录",
+            "never": "从未",
+            "no_admins_found": "未找到管理员。",
+            "error_loading_admins": "加载管理员时出错。",
+            "loading_active_keys": "正在加载活跃密钥...",
+            "expires_at": "到期时间",
+            "all": "全部",
+            "none": "无",
+            "no_active_keys_found": "未找到活跃密钥。",
+            "error_loading_active_keys": "加载活跃密钥时出错。",
+            "loading_api_keys": "正在加载API密钥...",
+            "key": "密钥",
+            "last_used_at": "上次使用时间",
+            "no_api_keys_found": "未找到API密钥。",
+            "error_loading_api_keys": "加载API密钥时出错。",
+            "message": "消息",
+            "details": "详情"
+        }
     }
 }

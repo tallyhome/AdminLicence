@@ -239,7 +239,7 @@
         "link_text": "Para documentação detalhada da API, consulte a",
         "link_title": "Documentação da API"
     },
-    "api_documentation": {
+    "api_docs": {
         "title": "Documentação da API",
         "description": "Esta documentação irá ajudá-lo a integrar a API de validação de licenças em suas aplicações.",
         "table_of_contents": "Sumário",
@@ -404,7 +404,7 @@
             }
         }
     },
-    "api_documentation": {
+    "api_documentation_full": {
         "title": "Documentação da API",
         "description": "Esta documentação irá ajudá-lo a integrar a API de validação de licenças em suas aplicações.",
         "table_of_contents": "Sumário",
@@ -668,5 +668,151 @@
     },
     "language": {
         "changed_successfully": "Idioma alterado com sucesso"
+    },
+    "api_diagnostic": {
+        "title": "Diagnóstico da API",
+        "tool_title": "Ferramenta de Diagnóstico da API",
+        "open_new_window": "Abrir em nova janela",
+        "access_info": "Informações de acesso",
+        "tool_url": "A ferramenta de diagnóstico da API está disponível na seguinte URL",
+        "default_credentials": "Credenciais padrão",
+        "available_features": "Funcionalidades disponíveis",
+        "features": {
+            "general_info": {
+                "title": "Informações gerais",
+                "description": "Visão geral da API e configuração do servidor"
+            },
+            "serial_key_test": {
+                "title": "Teste de chave serial",
+                "description": "Verifique a validade de uma chave de licença"
+            },
+            "connection_test": {
+                "title": "Teste de conexão",
+                "description": "Verifique a conexão com a API externa"
+            },
+            "database_test": {
+                "title": "Teste de banco de dados",
+                "description": "Verifique a conexão com o banco de dados"
+            },
+            "permissions_check": {
+                "title": "Verificação de permissões",
+                "description": "Verifique as permissões de arquivos críticos"
+            },
+            "logs_display": {
+                "title": "Exibição de logs",
+                "description": "Visualize as entradas recentes do log"
+            }
+        },
+        "serial_key_test": {
+            "section": "Teste de chave serial",
+            "title": "Teste de chave serial",
+            "key_label": "Chave serial",
+            "select_key": "Selecione a chave",
+            "custom_key": "Inserir chave personalizada",
+            "custom_key_label": "Chave personalizada",
+            "domain_label": "Domínio (opcional)",
+            "ip_label": "Endereço IP (opcional)",
+            "test_button": "Testar chave",
+            "result_title": "Resultado"
+        },
+        "server_info": {
+            "section": "Informações do servidor",
+            "title": "Informações do servidor",
+            "php_version": "Versão do PHP",
+            "laravel_version": "Versão do Laravel",
+            "web_server": "Servidor web",
+            "os": "Sistema operacional",
+            "database": "Banco de dados",
+            "timezone": "Fuso horário",
+            "php_extensions": "Extensões PHP"
+        },
+        "buttons": {
+            "test_api_connection": "Testar conexão da API",
+            "test_database": "Testar banco de dados",
+            "check_permissions": "Verificar permissões",
+            "close": "Fechar"
+        },
+        "database_stats": {
+            "section": "Estatísticas do banco de dados",
+            "title": "Estatísticas do banco de dados",
+            "serial_keys": "Chaves seriais",
+            "view_all_serial_keys": "Ver todas as chaves seriais",
+            "view_all_keys": "Ver todas as chaves",
+            "projects": "Projetos",
+            "view_all_projects": "Ver todos os projetos",
+            "admins": "Administradores",
+            "view_all_admins": "Ver todos os administradores",
+            "active_keys": "Chaves ativas",
+            "view_active_keys": "Ver chaves ativas",
+            "api_keys": "Chaves da API",
+            "view_all_api_keys": "Ver todas as chaves da API"
+        },
+        "logs": {
+            "section": "Logs recentes",
+            "title": "Logs recentes",
+            "refresh": "Atualizar",
+            "no_entries": "Nenhuma entrada de log disponível"
+        },
+        "modals": {
+            "serial_keys_title": "Chaves seriais",
+            "test_result_title": "Resultado do teste"
+        },
+        "js": {
+            "please_select_key": "Por favor, selecione ou insira uma chave serial.",
+            "verification_in_progress": "Verificação em andamento...",
+            "valid": "Válida",
+            "invalid": "Inválida",
+            "status": "Status",
+            "serial_key": "Chave serial",
+            "project": "Projeto",
+            "expiration_date": "Data de expiração",
+            "domain": "Domínio",
+            "ip_address": "Endereço IP",
+            "token": "Token",
+            "not_specified": "Não especificado",
+            "not_generated": "Não gerado",
+            "error": "Erro",
+            "server_error": "Ocorreu um erro ao comunicar com o servidor.",
+            "loading_serial_keys": "Carregando chaves seriais...",
+            "active": "Ativa",
+            "revoked": "Revogada",
+            "suspended": "Suspensa",
+            "expired": "Expirada",
+            "no_serial_keys_found": "Nenhuma chave serial encontrada.",
+            "error_loading_serial_keys": "Erro ao carregar chaves seriais.",
+            "test_in_progress": "Teste em andamento...",
+            "success": "Sucesso",
+            "failure": "Falha",
+            "test_result": "Resultado do teste",
+            "yes": "Sim",
+            "no": "Não",
+            "not_available": "Não disponível",
+            "loading_projects": "Carregando projetos...",
+            "project_name": "Nome do projeto",
+            "serial_keys": "Chaves seriais",
+            "created_at": "Data de criação",
+            "no_projects_found": "Nenhum projeto encontrado.",
+            "error_loading_projects": "Erro ao carregar projetos.",
+            "loading_admins": "Carregando administradores...",
+            "name": "Nome",
+            "email": "E-mail",
+            "last_login": "Último login",
+            "never": "Nunca",
+            "no_admins_found": "Nenhum administrador encontrado.",
+            "error_loading_admins": "Erro ao carregar administradores.",
+            "loading_active_keys": "Carregando chaves ativas...",
+            "expires_at": "Expira em",
+            "all": "Todas",
+            "none": "Nenhuma",
+            "no_active_keys_found": "Nenhuma chave ativa encontrada.",
+            "error_loading_active_keys": "Erro ao carregar chaves ativas.",
+            "loading_api_keys": "Carregando chaves da API...",
+            "key": "Chave",
+            "last_used_at": "Último uso em",
+            "no_api_keys_found": "Nenhuma chave da API encontrada.",
+            "error_loading_api_keys": "Erro ao carregar chaves da API.",
+            "message": "Mensagem",
+            "details": "Detalhes"
+        }
     }
 }

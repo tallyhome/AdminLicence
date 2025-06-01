@@ -523,15 +523,6 @@ class UrlGenerator implements UrlGeneratorContract
             return $url;
         }
 
-        // Intercepter spécifiquement la route 'login' manquante
-        if ($name === 'login') {
-            $adminLoginRoute = $this->routes->getByName('admin.login');
-            if ($adminLoginRoute) {
-                return $this->toRoute($adminLoginRoute, $parameters, $absolute);
-            }
-            return '/admin/login';
-        }
-
         throw new RouteNotFoundException("Route [{$name}] not defined.");
     }
 

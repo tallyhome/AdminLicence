@@ -1,3 +1,16 @@
+<?php
+
+// Fichier à corriger
+$filePath = __DIR__ . '/resources/locales/tr/translation_corrected.json';
+
+// Créer une copie de sauvegarde
+copy($filePath, $filePath . '.bak');
+
+// Lire le contenu du fichier
+$content = file_get_contents($filePath);
+
+// Remplacer le contenu par une version corrigée
+$correctedContent = <<<'JSON'
 {
     "translations": {
         "title": "Çeviri Yönetimi",
@@ -210,3 +223,17 @@
         "search_by_key": "Anahtara göre ara"
     }
 }
+JSON;
+
+// Écrire le contenu corrigé
+file_put_contents($filePath, $correctedContent);
+
+// Vérifier si le JSON est maintenant valide
+$decoded = json_decode($correctedContent);
+if (json_last_error() !== JSON_ERROR_NONE) {
+    echo "Erreur JSON après correction: " . json_last_error_msg() . "\n";
+} else {
+    echo "Le fichier JSON est maintenant valide\n";
+}
+
+echo "Correction du fichier $filePath terminée.\n";

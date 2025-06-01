@@ -1,0 +1,566 @@
+{
+    "layout": {
+        "header": {
+            "title": "AdminLicence",
+            "subtitle": "ライセンス管理システム"
+        },
+        "footer": {
+            "copyright": "© 2025 AdminLicence. All rights reserved."
+        },
+        "menu": {
+            "home": "ホーム",
+            "settings": "設定",
+            "profile": "プロフィール"
+        }
+    },
+    "auth": {
+        "login": {
+            "title": "ログイン",
+            "submit": "ログイン",
+            "remember_me": "ログイン情報を保存"
+        },
+        "register": {
+            "title": "登録",
+            "submit": "登録"
+        },
+        "logout": "ログアウト",
+        "password": {
+            "forgot": "パスワードをお忘れですか？",
+            "reset": "パスワードをリセット"
+        }
+    },
+    "dashboard": {
+        "title": "ダッシュボード",
+        "welcome": "AdminLicenceへようこそ",
+        "stats": {
+            "total_licenses": "総ライセンス数",
+            "active_licenses": "アクティブなライセンス",
+            "expired_licenses": "期限切れのライセンス"
+        },
+        "total_projects": "プロジェクト総数",
+        "total_keys": "キー総数",
+        "active_keys": "有効なキー",
+        "recent_activity": "最近のアクティビティ",
+        "used_keys": "使用済みキー",
+        "suspended_keys": "一時停止キー",
+        "revoked_keys": "取り消しキー",
+        "keys_usage_by_project": "プロジェクト別キー使用状況",
+        "available_keys": "利用可能なキー",
+        "keys_usage_last_30_days": "キー使用状況（過去30日間）",
+        "distribution_by_project": "プロジェクト別分布",
+        "used": "使用済み",
+        "available": "利用可能",
+        "low_stock": "在庫少",
+        "sufficient_stock": "在庫十分",
+        "no_keys": "キーなし",
+        "activations": "有効化",
+        "deactivations": "無効化",
+        "statistics": "統計",
+        "quick_actions": "クイックアクション",
+        "system_status": "システム状態",
+        "last_login": "最終ログイン",
+        "recent_keys": "最近のキー",
+        "projects_count": "プロジェクト数"
+    },
+    "api": {
+        "title": "APIドキュメント",
+        "description": "APIの使用方法",
+        "endpoints": {
+            "check_serial": {
+                "title": "シリアルキーの確認",
+                "description": "シリアルキーの有効性を確認します"
+            }
+        },
+        "authentication": {
+            "title": "認証",
+            "description": "APIキーを使用した認証"
+        },
+        "best_practices": "ベストプラクティス"
+    },
+    "serial_keys": {
+        "title": "シリアルキー",
+        "list": {
+            "title": "シリアルキー一覧",
+            "empty": "シリアルキーがありません"
+        },
+        "create": {
+            "title": "新規シリアルキーの作成",
+            "success": "シリアルキーが作成されました"
+        },
+        "search_by_key": "キーで検索"
+    },
+    "projects": {
+        "title": "プロジェクト",
+        "list": {
+            "title": "プロジェクト一覧",
+            "empty": "プロジェクトがありません"
+        },
+        "create": {
+            "title": "新規プロジェクトの作成",
+            "success": "プロジェクトが作成されました"
+        },
+        "sections": {
+            "details": "プロジェクト詳細",
+            "settings": "プロジェクト設定",
+            "keys": "プロジェクトキー",
+            "activity": "プロジェクト活動",
+            "information": "プロジェクト情報",
+            "management": "プロジェクト管理"
+        },
+        "fields": {
+            "name": "プロジェクト名",
+            "description": "説明",
+            "status": "ステータス",
+            "website_url": "ウェブサイトURL",
+            "creation_date": "作成日"
+        },
+        "actions": {
+            "create": "プロジェクトを作成",
+            "edit": "プロジェクトを編集",
+            "delete": "プロジェクトを削除"
+        },
+        "status": {
+            "active": "有効",
+            "inactive": "無効"
+        },
+        "messages": {
+            "empty": "プロジェクトが見つかりません",
+            "created": "プロジェクトが作成されました",
+            "updated": "プロジェクトが更新されました",
+            "deleted": "プロジェクトが削除されました"
+        }
+    },
+    "settings_page": {
+        "title": "設定",
+        "general": {
+            "title": "一般設定",
+            "language": "言語",
+            "theme": "テーマ"
+        },
+        "security": {
+            "title": "セキュリティ",
+            "two_factor": "2要素認証"
+        },
+        "sections": {
+            "general": "一般設定",
+            "profile": "プロフィール",
+            "notifications": "通知"
+        },
+        "password": {
+            "title": "パスワードの変更",
+            "current_password": "現在のパスワード",
+            "new_password": "新しいパスワード",
+            "confirm_password": "パスワードの確認",
+            "update_button": "パスワードを更新"
+        },
+        "favicon": {
+            "title": "ファビコン",
+            "current": "現在のファビコン"
+        }
+    },
+    "common": {
+        "dashboard": "ダッシュボード",
+        "name": "名前",
+        "email": "メール",
+        "actions": "アクション",
+        "fields": {
+            "name": "名前",
+            "description": "説明",
+            "status": "ステータス",
+            "actions": "アクション",
+            "date": "日付",
+            "email": "メール",
+            "version": "バージョン",
+            "title": "タイトル",
+            "key": "キー",
+            "file": "ファイル"
+        },
+        "actions": {
+            "save": "保存",
+            "cancel": "キャンセル",
+            "delete": "削除",
+            "edit": "編集",
+            "create": "作成",
+            "back": "戻る",
+            "submit": "送信",
+            "manage": "管理"
+        },
+        "navigation": {
+            "dashboard": "ダッシュボード",
+            "projects": "プロジェクト",
+            "serial_keys": "シリアルキー",
+            "api_keys": "APIキー",
+            "api_documentation": "APIドキュメント",
+            "logout": "ログアウト"
+        },
+        "status": {
+            "success": "成功",
+            "error": "エラー",
+            "warning": "警告",
+            "info": "情報",
+            "active": "アクティブ",
+            "inactive": "非アクティブ"
+        }
+    },
+    "translations": {
+        "sections": {
+            "title": "翻訳管理",
+            "available": {
+                "translations": "利用可能な翻訳",
+                "languages": "利用可能な言語"
+            }
+        },
+        "actions": {
+            "manage": "翻訳を管理",
+            "edit": "翻訳を編集",
+            "add": "翻訳を追加",
+            "delete": "翻訳を削除",
+            "save": "翻訳を保存"
+        },
+        "messages": {
+            "saved": "翻訳が保存されました",
+            "deleted": "翻訳が削除されました",
+            "error": "翻訳の処理中にエラーが発生しました"
+        }
+    },
+    "pagination": {
+        "next": "次のページ",
+        "previous": "前のページ",
+        "first": "最初",
+        "last": "最後",
+        "actions": {
+            "search": "検索",
+            "filter": "フィルター",
+            "sort": "並び替え",
+            "view": "表示"
+        },
+        "info": {
+            "total": "合計",
+            "showing": ":total 件中 :first から :last を表示",
+            "of": "の",
+            "per_page": "1ページあたり:number件",
+            "to": "から",
+            "results": "件"
+        }
+    },
+    "ui": {
+        "messages": {
+            "loading": "読み込み中...",
+            "information": "情報"
+        }
+    },
+    "settings_license": {
+        "license": {
+            "no_license_key_configured": ".envファイルにライセンスキーが設定されていません。",
+            "api_verification_error": "API直接検証中のエラー",
+            "valid_via_direct_api": "直接APIを介して有効なライセンス",
+            "invalid_via_direct_api": "直接APIを介して無効なライセンス",
+            "status_detail": "ステータス: :status",
+            "expired_on": ":dateに期限切れ",
+            "expires_on_date": ":dateに期限切れ",
+            "expiry_detail": "有効期限: :expiry",
+            "registered_domain": "登録ドメイン: :domain",
+            "registered_ip": "登録IPアドレス: :ip",
+            "license_valid": "ライセンスは有効です。",
+            "api_valid_service_invalid": "APIはライセンスが有効であることを示していますが、ライセンスサービスはそれを無効と見なしています。潜在的な構成の問題。",
+            "license_invalid_with_api_message": "APIとサービスによると、ライセンスは有効ではありません。APIメッセージ: :message",
+            "license_details_header": "ライセンスの詳細:",
+            "verification_error": "ライセンスの検証中にエラーが発生しました: :error",
+
+    "title": "ライセンス管理",
+    "info_title": "ライセンス情報",
+    "installation_key": "インストールライセンスキー",
+    "copy_key": "キーをコピー",
+    "status": "ライセンスステータス",
+    "status_label": "ステータス",
+    "valid": "有効",
+    "invalid": "無効",
+    "expiry_date": "有効期限",
+    "expiry_date_label": "有効期限",
+    "expires_on": "有効期限日",
+    "last_check": "最終確認",
+    "never": "確認なし",
+    "check_now": "今すぐ確認",
+    "details": "ライセンス詳細",
+    "domain": "ドメイン",
+    "ip_address": "IPアドレス",
+    "not_defined": "未定義",
+    "status_active": "アクティブ",
+    "status_suspended": "一時停止",
+    "status_revoked": "取り消し済み",
+    "no_details": "このライセンスキーの詳細情報はありません。",
+    "configuration": "ライセンス設定",
+    "key_saved_in_env": "このキーはアプリケーションの.envファイルに保存されます。",
+    "env_not_exists": ".envファイルはまだ存在しません。自動的に作成されます。",
+    "save_settings": "設定を保存",
+    "manual_verification": "手動検証",
+    "manual_verification_desc": "インストールライセンスの即時検証を強制できます。これにより、有効性ステータスと関連情報が更新されます。",
+    "debug_info": "デバッグ情報",
+    "detected_value": "検出値",
+    "not_found": "見つかりません",
+    "http_code": "HTTPコード",
+    "raw_api_response": "生のAPI応答",
+    "no_response": "応答なし",
+    "unviewable_format": "表示不可能な形式",
+    "auto_dismiss_alerts": "5秒後にアラートを自動的に閉じる",
+    "copied": "コピーしました！"
+        }
+    },
+    "optimization": {
+        "title": "最適化ツール",
+        "operation_result": "操作結果",
+        "example_code": "サンプルコード",
+        "copy_code": "このコードをコピーして、Bladeビューで使用してください：",
+        "logs_cleaning": "ログのクリーニング",
+        "current_logs_size": "現在のログサイズ",
+        "logs_cleaning_description": "この操作は不要なログファイルをクリーンアップします。重要なログはアーカイブされ、残りは削除されます。",
+        "all_logs": "すべてのログ",
+        "installation_logs": "インストールログ",
+        "laravel_logs": "Laravelログ",
+        "clean_all_logs": "すべてのログをクリーンアップ",
+        "delete_all_logs": "すべてのログを削除",
+        "delete_all_logs_confirm": "注意：この操作はすべてのログファイルを削除します。続行してよろしいですか？",
+        "clean_installation_logs": "インストールログをクリーンアップ",
+        "delete_installation_logs": "インストールログを削除",
+        "delete_installation_logs_confirm": "注意：この操作はすべてのインストールログファイルを削除します。続行してよろしいですか？",
+        "clean_laravel_logs": "Laravelログをクリーンアップ",
+        "delete_laravel_logs": "Laravelログを削除",
+        "delete_laravel_logs_confirm": "注意：この操作はすべてのLaravelログファイルを削除します。続行してよろしいですか？",
+        "filename": "ファイル名",
+        "size": "サイズ",
+        "modification_date": "変更日",
+        "view": "表示",
+        "no_installation_logs_found": "インストールログファイルが見つかりません",
+        "no_laravel_logs_found": "Laravelログファイルが見つかりません",
+        "image_optimization": "画像最適化",
+        "current_images_size": "現在の画像サイズ",
+        "images_optimization_description": "この操作はpublic/images/フォルダ内の画像を最適化し、許容可能な品質を維持しながらそのサイズを削減します。",
+        "quality": "品質 (0-100)",
+        "high_compression": "高圧縮",
+        "high_quality": "高品質",
+        "force_optimization": "強制最適化（既に最適化されている場合でも）",
+        "optimize_images": "画像を最適化",
+        "api_diagnostic_tool": "API診断ツール",
+        "api_diagnostic_description": "このツールは、ライセンス確認APIに関連する問題を診断し、解決するのに役立ちます。",
+        "api_general_info": "API一般情報",
+        "api_serial_key_test": "シリアルキーテスト",
+        "api_connection_test": "外部API接続テスト",
+        "api_database_test": "データベース接続テスト",
+        "api_file_permissions": "ファイル権限チェック",
+        "api_log_entries": "最近のログエントリを表示",
+        "api_default_credentials": "デフォルト認証情報",
+        "open_api_diagnostic": "API診断ツールを開く",
+        "asset_versioning": "アセットバージョニング",
+        "asset_versioning_description": "アセットバージョニングシステムは、CSS、JavaScript、および画像のキャッシュを最適化します。ファイルの変更日に基づいてバージョンパラメータを自動的に追加します。",
+        "asset_type": "アセットタイプ",
+        "css_file": "CSSファイル",
+        "js_file": "JavaScriptファイル",
+        "image": "画像",
+        "image_path": "画像パス",
+        "generate_example": "例を生成",
+        "how_to_use": "使用方法",
+        "blade_directives_description": "Bladeファイルでは、次のディレクティブを使用します："
+    },
+    "settings": {
+        "two_factor": {
+            "status": {
+                "disabled": "無効",
+                "enabled": "有効"
+            }
+        }
+    },
+    "language": {
+        "changed_successfully": "言語が正常に変更されました"
+    },
+    "api_diagnostic": {
+        "title": "API診断",
+        "tool_title": "API診断ツール",
+        "open_new_window": "新しいウィンドウで開く",
+        "access_info": "アクセス情報",
+        "tool_url": "API診断ツールは次のURLで利用可能です",
+        "default_credentials": "デフォルト認証情報",
+        "available_features": "利用可能な機能",
+        "features": {
+            "general_info": {
+                "title": "一般情報",
+                "description": "APIとサーバー設定の概要"
+            },
+            "serial_key_test": {
+                "title": "シリアルキーテスト",
+                "description": "ライセンスキーの有効性を確認"
+            },
+            "connection_test": {
+                "title": "接続テスト",
+                "description": "外部APIとの接続を確認"
+            },
+            "database_test": {
+                "title": "データベーステスト",
+                "description": "データベース接続を確認"
+            },
+            "permissions_check": {
+                "title": "権限チェック",
+                "description": "重要なファイルの権限を確認"
+            },
+            "logs_display": {
+                "title": "ログ表示",
+                "description": "最新のログエントリを表示"
+            }
+        },
+        "serial_key_test": {
+            "section": "シリアルキーテスト",
+            "title": "シリアルキーテスト",
+            "key_label": "シリアルキー",
+            "select_key": "キーを選択",
+            "custom_key": "カスタムキーを入力",
+            "custom_key_label": "カスタムキー",
+            "domain_label": "ドメイン（オプション）",
+            "ip_label": "IPアドレス（オプション）",
+            "test_button": "キーをテスト",
+            "result_title": "結果"
+        },
+        "server_info": {
+            "section": "サーバー情報",
+            "title": "サーバー情報",
+            "php_version": "PHPバージョン",
+            "laravel_version": "Laravelバージョン",
+            "web_server": "Webサーバー",
+            "os": "オペレーティングシステム",
+            "database": "データベース",
+            "timezone": "タイムゾーン",
+            "php_extensions": "PHP拡張機能"
+        },
+        "buttons": {
+            "test_api_connection": "API接続をテスト",
+            "test_database": "データベースをテスト",
+            "check_permissions": "権限を確認",
+            "close": "閉じる"
+        },
+        "database_stats": {
+            "section": "データベース統計",
+            "title": "データベース統計",
+            "serial_keys": "シリアルキー",
+            "view_all_serial_keys": "すべてのシリアルキーを表示",
+            "view_all_keys": "すべてのキーを表示",
+            "projects": "プロジェクト",
+            "view_all_projects": "すべてのプロジェクトを表示",
+            "admins": "管理者",
+            "view_all_admins": "すべての管理者を表示",
+            "active_keys": "アクティブなキー",
+            "view_active_keys": "アクティブなキーを表示",
+            "api_keys": "APIキー",
+            "view_all_api_keys": "すべてのAPIキーを表示"
+        },
+        "logs": {
+            "section": "最近のログ",
+            "title": "最近のログ",
+            "refresh": "更新",
+            "no_entries": "利用可能なログエントリはありません"
+        },
+        "modals": {
+            "serial_keys_title": "シリアルキー",
+            "test_result_title": "テスト結果"
+        },
+        "js": {
+            "please_select_key": "シリアルキーを選択または入力してください。",
+            "verification_in_progress": "検証中...",
+            "valid": "有効",
+            "invalid": "無効",
+            "status": "ステータス",
+            "serial_key": "シリアルキー",
+            "project": "プロジェクト",
+            "expiration_date": "有効期限",
+            "domain": "ドメイン",
+            "ip_address": "IPアドレス",
+            "token": "トークン",
+            "not_specified": "指定なし",
+            "not_generated": "生成されていません",
+            "error": "エラー",
+            "server_error": "サーバーとの通信中にエラーが発生しました。",
+            "loading_serial_keys": "シリアルキーを読み込み中...",
+            "active": "アクティブ",
+            "revoked": "取り消し済み",
+            "suspended": "一時停止",
+            "expired": "期限切れ",
+            "no_serial_keys_found": "シリアルキーが見つかりません。",
+            "error_loading_serial_keys": "シリアルキーの読み込み中にエラーが発生しました。",
+            "test_in_progress": "テスト実行中...",
+            "success": "成功",
+            "failure": "失敗",
+            "test_result": "テスト結果",
+            "yes": "はい",
+            "no": "いいえ",
+            "not_available": "利用不可",
+            "loading_projects": "プロジェクトを読み込み中...",
+            "project_name": "プロジェクト名",
+            "serial_keys": "シリアルキー",
+            "created_at": "作成日",
+            "no_projects_found": "プロジェクトが見つかりません。",
+            "error_loading_projects": "プロジェクトの読み込み中にエラーが発生しました。",
+            "loading_admins": "管理者を読み込み中...",
+            "name": "名前",
+            "email": "メール",
+            "last_login": "最終ログイン",
+            "never": "なし",
+            "no_admins_found": "管理者が見つかりません。",
+            "error_loading_admins": "管理者の読み込み中にエラーが発生しました。",
+            "loading_active_keys": "アクティブなキーを読み込み中...",
+            "expires_at": "有効期限",
+            "all": "すべて",
+            "none": "なし",
+            "no_active_keys_found": "アクティブなキーが見つかりません。",
+            "error_loading_active_keys": "アクティブなキーの読み込み中にエラーが発生しました。",
+            "loading_api_keys": "APIキーを読み込み中...",
+            "key": "キー",
+            "last_used_at": "最終使用日",
+            "no_api_keys_found": "APIキーが見つかりません。",
+            "error_loading_api_keys": "APIキーの読み込み中にエラーが発生しました。",
+            "message": "メッセージ",
+            "details": "詳細"
+        }
+    },
+    "admins": {
+        "title": "管理者管理",
+        "administrators": "管理者",
+        "list": "管理者リスト",
+        "new_admin": "新規管理者",
+        "id": "ID",
+        "role": "役割",
+        "creation_date": "作成日",
+        "super_admin": "スーパー管理者",
+        "admin": "管理者",
+        "delete_confirmation": "削除確認",
+        "delete_confirm_message": "管理者<strong>:name</strong>を削除してもよろしいですか？",
+        "create": {
+            "title": "管理者作成",
+            "form_title": "作成フォーム",
+            "name_label": "名前",
+            "email_label": "メール",
+            "password_label": "パスワード",
+            "password_confirmation_label": "パスワード確認",
+            "role_label": "役割",
+            "submit_button": "管理者を作成"
+        },
+        "edit": {
+            "title": "管理者編集",
+            "form_title": "編集フォーム",
+            "name_label": "名前",
+            "email_label": "メール",
+            "password_label": "パスワード（現在のパスワードを維持する場合は空白）",
+            "password_confirmation_label": "パスワード確認",
+            "role_label": "役割",
+            "submit_button": "管理者を更新"
+        },
+        "messages": {
+            "created": "管理者が正常に作成されました。",
+            "updated": "管理者が正常に更新されました。",
+            "deleted": "管理者が正常に削除されました。",
+            "cannot_delete_self": "自分のアカウントを削除することはできません。"
+        }
+    },
+    "language": {
+        "change": "言語を変更",
+        "current": "現在の言語",
+        "select": "言語を選択",
+        "changed_successfully": "言語が正常に変更されました"
+    }
+}

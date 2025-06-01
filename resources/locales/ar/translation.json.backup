@@ -1,0 +1,602 @@
+{
+    "layout": {
+        "header": {
+            "title": "AdminLicence",
+            "subtitle": "نظام إدارة التراخيص"
+        },
+        "footer": {
+            "copyright": "© 2025 AdminLicence. جميع الحقوق محفوظة."
+        },
+        "menu": {
+            "home": "الرئيسية",
+            "settings": "الإعدادات",
+            "profile": "الملف الشخصي"
+        }
+    },
+    "auth": {
+        "login": {
+            "title": "تسجيل الدخول",
+            "submit": "تسجيل الدخول",
+            "remember_me": "تذكرني"
+        },
+        "register": {
+            "title": "التسجيل",
+            "submit": "تسجيل"
+        },
+        "logout": "تسجيل الخروج",
+        "password": {
+            "forgot": "نسيت كلمة المرور؟",
+            "reset": "إعادة تعيين كلمة المرور"
+        }
+    },
+    "dashboard": {
+        "title": "لوحة التحكم",
+        "welcome": "مرحبًا بك في AdminLicence",
+        "stats": {
+            "total_licenses": "إجمالي التراخيص",
+            "active_licenses": "التراخيص النشطة",
+            "expired_licenses": "التراخيص المنتهية"
+        },
+        "total_projects": "إجمالي المشاريع",
+        "total_keys": "إجمالي المفاتيح",
+        "active_keys": "المفاتيح النشطة",
+        "recent_activity": "النشاط الأخير",
+        "used_keys": "المفاتيح المستخدمة",
+        "suspended_keys": "المفاتيح المعلقة",
+        "revoked_keys": "المفاتيح الملغاة",
+        "keys_usage_by_project": "استخدام المفاتيح حسب المشروع",
+        "available_keys": "المفاتيح المتاحة",
+        "keys_usage_last_30_days": "استخدام المفاتيح (آخر 30 يومًا)",
+        "distribution_by_project": "التوزيع حسب المشروع",
+        "used": "مستخدم",
+        "available": "متاح",
+        "low_stock": "مخزون منخفض",
+        "sufficient_stock": "مخزون كافٍ",
+        "no_keys": "لا توجد مفاتيح",
+        "activations": "التفعيلات",
+        "deactivations": "إلغاء التفعيلات",
+        "statistics": "الإحصائيات",
+        "quick_actions": "إجراءات سريعة",
+        "system_status": "حالة النظام",
+        "last_login": "آخر تسجيل دخول",
+        "recent_keys": "المفاتيح الأخيرة",
+        "projects_count": "عدد المشاريع"
+    },
+    "api": {
+        "title": "توثيق API",
+        "description": "كيفية استخدام API",
+        "endpoints": {
+            "check_serial": {
+                "title": "التحقق من المفتاح التسلسلي",
+                "description": "التحقق من صحة المفتاح التسلسلي"
+            }
+        },
+        "authentication": {
+            "title": "المصادقة",
+            "description": "المصادقة باستخدام مفتاح API"
+        },
+        "best_practices": "أفضل الممارسات"
+    },
+    "serial_keys": {
+        "title": "المفاتيح التسلسلية",
+        "list": {
+            "title": "قائمة المفاتيح التسلسلية",
+            "empty": "لا توجد مفاتيح تسلسلية"
+        },
+        "create": {
+            "title": "إنشاء مفتاح تسلسلي جديد",
+            "success": "تم إنشاء المفتاح التسلسلي بنجاح"
+        },
+        "search_by_key": "البحث بواسطة المفتاح"
+    },
+    "projects": {
+        "title": "المشاريع",
+        "list": {
+            "title": "قائمة المشاريع",
+            "empty": "لا توجد مشاريع"
+        },
+        "create": {
+            "title": "إنشاء مشروع جديد",
+            "success": "تم إنشاء المشروع بنجاح"
+        },
+        "sections": {
+            "details": "تفاصيل المشروع",
+            "settings": "إعدادات المشروع",
+            "keys": "مفاتيح المشروع",
+            "activity": "نشاط المشروع",
+            "information": "معلومات المشروع",
+            "management": "إدارة المشروع"
+        },
+        "fields": {
+            "name": "اسم المشروع",
+            "description": "الوصف",
+            "status": "الحالة",
+            "created_at": "تاريخ الإنشاء",
+            "updated_at": "تاريخ التحديث",
+            "website_url": "عنوان الموقع"
+        },
+        "actions": {
+            "edit": "تعديل المشروع",
+            "delete": "حذف المشروع"
+        },
+        "status": {
+            "active": "نشط",
+            "inactive": "غير نشط"
+        },
+        "messages": {
+            "empty": "لا توجد مشاريع",
+            "created": "تم إنشاء المشروع",
+            "updated": "تم تحديث المشروع",
+            "deleted": "تم حذف المشروع"
+        }
+    },
+    "settings_page": {
+        "title": "الإعدادات",
+        "general": {
+            "title": "الإعدادات العامة",
+            "language": "اللغة",
+            "theme": "السمة"
+        },
+        "security": {
+            "title": "الأمان",
+            "two_factor": "المصادقة الثنائية",
+            "api_keys": "مفاتيح API"
+        },
+        "password": {
+            "title": "تغيير كلمة المرور",
+            "current_password": "كلمة المرور الحالية",
+            "new_password": "كلمة المرور الجديدة",
+            "confirm_password": "تأكيد كلمة المرور",
+            "update_button": "تحديث كلمة المرور"
+        },
+        "favicon": {
+            "title": "أيقونة الموقع",
+            "current": "أيقونة الموقع الحالية"
+        }
+    },
+    "common": {
+        "dashboard": "لوحة التحكم",
+        "projects": "المشاريع",
+        "serial_keys": "المفاتيح التسلسلية",
+        "api_keys": "مفاتيح API",
+        "api_documentation": "توثيق API",
+        "email": "البريد الإلكتروني",
+        "logout": "تسجيل الخروج",
+        "version": "الإصدار",
+        "save": "حفظ",
+        "cancel": "إلغاء",
+        "delete": "حذف",
+        "edit": "تعديل",
+        "create": "إنشاء",
+        "back": "عودة",
+        "actions": "إجراءات",
+        "status": "الحالة",
+        "name": "الاسم",
+        "description": "الوصف",
+        "date": "التاريخ",
+        "success": "نجاح",
+        "error": "خطأ",
+        "warning": "تحذير",
+        "info": "معلومات",
+        "total": "المجموع",
+        "next": "التالي",
+        "previous": "السابق",
+        "search": "بحث",
+        "filter": "تصفية",
+        "sort": "ترتيب",
+        "view": "عرض",
+        "settings": "الإعدادات",
+        "profile": "الملف الشخصي",
+        "notifications": "الإشعارات",
+        "login": "تسجيل الدخول",
+        "submit": "إرسال",
+        "loading": "جاري التحميل...",
+        "manage": "إدارة",
+        "information": "معلومات",
+        "showing": "عرض من :first إلى :last من أصل :total نتيجة",
+        "of": "من",
+        "all": "الكل",
+        "used": "مستخدم",
+        "unused": "غير مستخدم",
+        "fields": {
+            "name": "الاسم",
+            "description": "الوصف",
+            "status": "الحالة",
+            "actions": "الإجراءات",
+            "date": "التاريخ",
+            "email": "البريد الإلكتروني",
+            "password": "كلمة المرور",
+            "confirm_password": "تأكيد كلمة المرور",
+            "remember_me": "تذكرني",
+            "role": "الدور",
+            "permissions": "الصلاحيات",
+            "created_at": "تاريخ الإنشاء",
+            "updated_at": "تاريخ التحديث",
+            "deleted_at": "تاريخ الحذف",
+            "website": "الموقع الإلكتروني"
+        },
+        "buttons": {
+            "create": "إنشاء",
+            "update": "تحديث",
+            "delete": "حذف",
+            "cancel": "إلغاء",
+            "save": "حفظ",
+            "edit": "تعديل",
+            "view": "عرض",
+            "back": "رجوع",
+            "next": "التالي",
+            "previous": "السابق",
+            "submit": "إرسال",
+            "login": "تسجيل الدخول",
+            "logout": "تسجيل الخروج",
+            "register": "تسجيل",
+            "reset": "إعادة تعيين",
+            "search": "بحث",
+            "filter": "تصفية",
+            "clear": "مسح",
+            "close": "إغلاق",
+            "yes": "نعم",
+            "no": "لا",
+            "ok": "موافق",
+            "confirm": "تأكيد",
+            "apply": "تطبيق",
+            "download": "تنزيل",
+            "upload": "رفع"
+        },
+        "status": {
+            "success": "نجاح",
+            "error": "خطأ",
+            "warning": "تحذير",
+            "info": "معلومات",
+            "active": "نشط",
+            "inactive": "غير نشط"
+        }
+    },
+    "translations": {
+        "sections": {
+            "title": "إدارة الترجمات",
+            "available": {
+                "translations": "الترجمات المتاحة",
+                "languages": "اللغات المتاحة"
+            }
+        },
+        "actions": {
+            "add": "إضافة ترجمة",
+            "edit": "تعديل ترجمة",
+            "delete": "حذف ترجمة",
+            "search": "بحث في الترجمات"
+        },
+        "fields": {
+            "key": "المفتاح",
+            "value": "القيمة",
+            "language": "اللغة"
+        },
+        "messages": {
+            "created": "تم إنشاء الترجمة بنجاح",
+            "updated": "تم تحديث الترجمة بنجاح",
+            "deleted": "تم حذف الترجمة بنجاح",
+            "error": "حدث خطأ أثناء معالجة الترجمة"
+        },
+        "pagination": {
+            "showing": "عرض :first إلى :last من :total نتيجة",
+            "to": "إلى",
+            "results": "نتائج"
+        }
+    },
+    "ui": {
+        "messages": {
+            "loading": "جاري التحميل...",
+            "information": "معلومات"
+        }
+    },
+    "settings_license": {
+        "license": {
+            "no_license_key_configured": "لا يوجد مفتاح ترخيص مكون في ملف .env.",
+            "api_verification_error": "خطأ أثناء التحقق المباشر من API",
+            "valid_via_direct_api": "ترخيص صالح عبر API المباشر",
+            "invalid_via_direct_api": "ترخيص غير صالح عبر API المباشر",
+            "status_detail": "الحالة: :status",
+            "expired_on": "انتهى في :date",
+            "expires_on_date": "ينتهي في :date",
+            "expiry_detail": "انتهاء الصلاحية: :expiry",
+            "registered_domain": "النطاق المسجل: :domain",
+            "registered_ip": "عنوان IP المسجل: :ip",
+            "license_valid": "الترخيص صالح.",
+            "api_valid_service_invalid": "يشير API إلى أن الترخيص صالح، لكن خدمة الترخيص تعتبره غير صالح. مشكلة تكوين محتملة.",
+            "license_invalid_with_api_message": "الترخيص غير صالح وفقًا لـ API والخدمة. رسالة API: :message",
+            "license_details_header": "تفاصيل الترخيص:",
+            "verification_error": "حدث خطأ أثناء التحقق من الترخيص: :error"
+        }
+    },
+    "optimization": {
+        "title": "أدوات التحسين",
+        "operation_result": "نتيجة العملية",
+        "example_code": "مثال على الكود",
+        "copy_code": "انسخ هذا الكود لاستخدامه في عرض Blade:",
+        "logs_cleaning": "تنظيف السجلات",
+        "current_logs_size": "حجم السجلات الحالي",
+        "logs_cleaning_description": "تقوم هذه العملية بتنظيف ملفات السجل غير الضرورية. سيتم أرشفة السجلات المهمة وحذف الباقي.",
+        "all_logs": "جميع السجلات",
+        "installation_logs": "سجلات التثبيت",
+        "laravel_logs": "سجلات Laravel",
+        "clean_all_logs": "تنظيف جميع السجلات",
+        "delete_all_logs": "حذف جميع السجلات",
+        "delete_all_logs_confirm": "تحذير: ستحذف هذه العملية جميع ملفات السجل. هل تريد المتابعة؟",
+        "clean_installation_logs": "تنظيف سجلات التثبيت",
+        "delete_installation_logs": "حذف سجلات التثبيت",
+        "delete_installation_logs_confirm": "تحذير: ستحذف هذه العملية جميع ملفات سجل التثبيت. هل تريد المتابعة؟",
+        "clean_laravel_logs": "تنظيف سجلات Laravel",
+        "delete_laravel_logs": "حذف سجلات Laravel",
+        "delete_laravel_logs_confirm": "تحذير: ستحذف هذه العملية جميع ملفات سجل Laravel. هل تريد المتابعة؟",
+        "filename": "اسم الملف",
+        "size": "الحجم",
+        "modification_date": "تاريخ التعديل",
+        "view": "عرض",
+        "no_installation_logs_found": "لم يتم العثور على ملفات سجل التثبيت",
+        "no_laravel_logs_found": "لم يتم العثور على ملفات سجل Laravel",
+        "image_optimization": "تحسين الصور",
+        "current_images_size": "حجم الصور الحالي",
+        "images_optimization_description": "تقوم هذه العملية بتحسين الصور في مجلد public/images/ وتقليل حجمها مع الحفاظ على جودة مقبولة.",
+        "quality": "الجودة (0-100)",
+        "high_compression": "ضغط عالي",
+        "high_quality": "جودة عالية",
+        "force_optimization": "فرض التحسين (حتى إذا كانت محسنة بالفعل)",
+        "optimize_images": "تحسين الصور",
+        "api_diagnostic_tool": "أداة تشخيص API",
+        "api_diagnostic_description": "تساعد هذه الأداة في تشخيص وحل المشكلات المتعلقة بـ API للتحقق من الترخيص.",
+        "api_general_info": "معلومات عامة عن API",
+        "api_serial_key_test": "اختبار المفتاح التسلسلي",
+        "api_connection_test": "اختبار اتصال API الخارجي",
+        "api_database_test": "اختبار اتصال قاعدة البيانات",
+        "api_file_permissions": "فحص أذونات الملفات",
+        "api_log_entries": "عرض أحدث إدخالات السجل",
+        "api_default_credentials": "بيانات الاعتماد الافتراضية",
+        "open_api_diagnostic": "فتح أداة تشخيص API",
+        "asset_versioning": "إصدار الأصول",
+        "asset_versioning_description": "يقوم نظام إصدار الأصول بتحسين التخزين المؤقت لملفات CSS وJavaScript والصور. يضيف تلقائيًا معلمة الإصدار بناءً على تاريخ تعديل الملف.",
+        "asset_type": "نوع الأصل",
+        "css_file": "ملف CSS",
+        "js_file": "ملف JavaScript",
+        "image": "صورة",
+        "image_path": "مسار الصورة",
+        "generate_example": "إنشاء مثال",
+        "how_to_use": "كيفية الاستخدام",
+        "blade_directives_description": "في ملفات Blade، استخدم التوجيهات التالية:"
+    },
+    "api_diagnostic": {
+        "title": "تشخيص API",
+        "tool_title": "أداة تشخيص API",
+        "open_new_window": "فتح في نافذة جديدة",
+        "access_info": "معلومات الوصول",
+        "tool_url": "أداة تشخيص API متاحة على الرابط التالي",
+        "default_credentials": "بيانات الاعتماد الافتراضية",
+        "available_features": "الميزات المتاحة",
+        "features": {
+            "general_info": {
+                "title": "معلومات عامة",
+                "description": "نظرة عامة على إعدادات API والخادم"
+            },
+            "serial_key_test": {
+                "title": "اختبار المفتاح التسلسلي",
+                "description": "التحقق من صلاحية مفاتيح الترخيص"
+            },
+            "connection_test": {
+                "title": "اختبار الاتصال",
+                "description": "التحقق من الاتصال بـ API الخارجي"
+            },
+            "database_test": {
+                "title": "اختبار قاعدة البيانات",
+                "description": "التحقق من اتصال قاعدة البيانات"
+            },
+            "permissions_check": {
+                "title": "فحص الأذونات",
+                "description": "التحقق من أذونات الملفات المهمة"
+            },
+            "logs_display": {
+                "title": "عرض السجلات",
+                "description": "عرض أحدث إدخالات السجل"
+            }
+        },
+        "serial_key_test": {
+            "section": "اختبار المفتاح التسلسلي",
+            "title": "اختبار المفتاح التسلسلي",
+            "key_label": "المفتاح التسلسلي",
+            "select_key": "اختر مفتاحًا",
+            "custom_key": "أدخل مفتاحًا مخصصًا",
+            "custom_key_label": "مفتاح مخصص",
+            "domain_label": "النطاق (اختياري)",
+            "ip_label": "عنوان IP (اختياري)",
+            "test_button": "اختبار المفتاح",
+            "result_title": "النتيجة"
+        },
+        "server_info": {
+            "section": "معلومات الخادم",
+            "title": "معلومات الخادم",
+            "php_version": "إصدار PHP",
+            "laravel_version": "إصدار Laravel",
+            "web_server": "خادم الويب",
+            "os": "نظام التشغيل",
+            "database": "قاعدة البيانات",
+            "timezone": "المنطقة الزمنية",
+            "php_extensions": "إضافات PHP"
+        },
+        "buttons": {
+            "test_api_connection": "اختبار اتصال API",
+            "test_database": "اختبار قاعدة البيانات",
+            "check_permissions": "فحص الأذونات",
+            "close": "إغلاق"
+        },
+        "database_stats": {
+            "section": "إحصائيات قاعدة البيانات",
+            "title": "إحصائيات قاعدة البيانات",
+            "serial_keys": "المفاتيح التسلسلية",
+            "view_all_serial_keys": "عرض جميع المفاتيح التسلسلية",
+            "view_all_keys": "عرض جميع المفاتيح",
+            "projects": "المشاريع",
+            "view_all_projects": "عرض جميع المشاريع",
+            "admins": "المسؤولون",
+            "view_all_admins": "عرض جميع المسؤولين",
+            "active_keys": "المفاتيح النشطة",
+            "view_active_keys": "عرض المفاتيح النشطة",
+            "api_keys": "مفاتيح API",
+            "view_all_api_keys": "عرض جميع مفاتيح API"
+        },
+        "logs": {
+            "section": "السجلات الأخيرة",
+            "title": "السجلات الأخيرة",
+            "refresh": "تحديث",
+            "no_entries": "لا توجد إدخالات سجل متاحة"
+        },
+        "modals": {
+            "serial_keys_title": "المفاتيح التسلسلية",
+            "test_result_title": "نتيجة الاختبار"
+        },
+        "js": {
+            "please_select_key": "الرجاء اختيار أو إدخال مفتاح تسلسلي.",
+            "verification_in_progress": "جاري التحقق...",
+            "valid": "صالح",
+            "invalid": "غير صالح",
+            "status": "الحالة",
+            "serial_key": "المفتاح التسلسلي",
+            "project": "المشروع",
+            "expiration_date": "تاريخ انتهاء الصلاحية",
+            "domain": "النطاق",
+            "ip_address": "عنوان IP",
+            "token": "الرمز",
+            "not_specified": "غير محدد",
+            "not_generated": "لم يتم إنشاؤه",
+            "error": "خطأ",
+            "server_error": "حدث خطأ أثناء الاتصال بالخادم.",
+            "loading_serial_keys": "جاري تحميل المفاتيح التسلسلية...",
+            "active": "نشط",
+            "revoked": "ملغى",
+            "suspended": "معلق",
+            "expired": "منتهي الصلاحية",
+            "no_serial_keys_found": "لم يتم العثور على مفاتيح تسلسلية.",
+            "error_loading_serial_keys": "حدث خطأ أثناء تحميل المفاتيح التسلسلية.",
+            "test_in_progress": "الاختبار قيد التنفيذ...",
+            "success": "نجاح",
+            "failure": "فشل",
+            "test_result": "نتيجة الاختبار",
+            "yes": "نعم",
+            "no": "لا",
+            "not_available": "غير متاح",
+            "loading_projects": "جاري تحميل المشاريع...",
+            "project_name": "اسم المشروع",
+            "serial_keys": "المفاتيح التسلسلية",
+            "created_at": "تاريخ الإنشاء",
+            "no_projects_found": "لم يتم العثور على مشاريع.",
+            "error_loading_projects": "حدث خطأ أثناء تحميل المشاريع.",
+            "loading_admins": "جاري تحميل المسؤولين...",
+            "name": "الاسم",
+            "email": "البريد الإلكتروني",
+            "last_login": "آخر تسجيل دخول",
+            "never": "أبدًا",
+            "no_admins_found": "لم يتم العثور على مسؤولين.",
+            "error_loading_admins": "حدث خطأ أثناء تحميل المسؤولين.",
+            "loading_active_keys": "جاري تحميل المفاتيح النشطة...",
+            "expires_at": "تاريخ انتهاء الصلاحية",
+            "all": "الكل",
+            "none": "لا شيء",
+            "no_active_keys_found": "لم يتم العثور على مفاتيح نشطة.",
+            "error_loading_active_keys": "حدث خطأ أثناء تحميل المفاتيح النشطة.",
+            "loading_api_keys": "جاري تحميل مفاتيح واجهة برمجة التطبيقات...",
+            "key": "المفتاح",
+            "last_used_at": "آخر استخدام في",
+            "no_api_keys_found": "لم يتم العثور على مفاتيح واجهة برمجة التطبيقات.",
+            "error_loading_api_keys": "حدث خطأ في تحميل مفاتيح واجهة برمجة التطبيقات.",
+            "message": "الرسالة",
+            "details": "التفاصيل"
+        }
+    },
+    "admins": {
+        "title": "إدارة المسؤولين",
+        "administrators": "المسؤولون",
+        "list": "قائمة المسؤولين",
+        "new_admin": "مسؤول جديد",
+        "id": "المعرف",
+        "role": "الدور",
+        "creation_date": "تاريخ الإنشاء",
+        "super_admin": "مسؤول أعلى",
+        "admin": "مسؤول",
+        "delete_confirmation": "تأكيد الحذف",
+        "delete_confirm_message": "هل أنت متأكد من رغبتك في حذف المسؤول <strong>:name</strong>؟",
+        "create": {
+            "title": "إنشاء مسؤول",
+            "form_title": "نموذج الإنشاء",
+            "name_label": "الاسم",
+            "email_label": "البريد الإلكتروني",
+            "password_label": "كلمة المرور",
+            "password_confirmation_label": "تأكيد كلمة المرور",
+            "role_label": "الدور",
+            "submit_button": "إنشاء مسؤول"
+        },
+        "edit": {
+            "title": "تعديل المسؤول",
+            "form_title": "نموذج التعديل",
+            "name_label": "الاسم",
+            "email_label": "البريد الإلكتروني",
+            "password_label": "كلمة المرور (اتركها فارغة للاحتفاظ بكلمة المرور الحالية)",
+            "password_confirmation_label": "تأكيد كلمة المرور",
+            "role_label": "الدور",
+            "submit_button": "تحديث المسؤول"
+        },
+        "messages": {
+            "created": "تم إنشاء المسؤول بنجاح.",
+            "updated": "تم تحديث المسؤول بنجاح.",
+            "deleted": "تم حذف المسؤول بنجاح.",
+            "cannot_delete_self": "لا يمكنك حذف حسابك الخاص."
+        }
+    },
+    "common": {
+        "dashboard": "لوحة التحكم",
+        "projects": "المشاريع",
+        "serial_keys": "المفاتيح التسلسلية",
+        "api_keys": "مفاتيح API",
+        "api_documentation": "توثيق API",
+        "email": "البريد الإلكتروني",
+        "logout": "تسجيل الخروج",
+        "version": "الإصدار",
+        "save": "حفظ",
+        "cancel": "إلغاء",
+        "delete": "حذف",
+        "edit": "تعديل",
+        "create": "إنشاء",
+        "back": "عودة",
+        "actions": "إجراءات",
+        "status": "الحالة",
+        "name": "الاسم",
+        "description": "الوصف",
+        "date": "التاريخ",
+        "success": "نجاح",
+        "error": "خطأ",
+        "warning": "تحذير",
+        "info": "معلومات",
+        "total": "المجموع",
+        "next": "التالي",
+        "previous": "السابق",
+        "search": "بحث",
+        "filter": "تصفية",
+        "sort": "ترتيب",
+        "view": "عرض",
+        "settings": "الإعدادات",
+        "profile": "الملف الشخصي",
+        "notifications": "الإشعارات",
+        "login": "تسجيل الدخول",
+        "submit": "إرسال",
+        "loading": "جاري التحميل...",
+        "manage": "إدارة",
+        "information": "معلومات",
+        "showing": "عرض من :first إلى :last من أصل :total نتيجة",
+        "of": "من",
+        "all": "الكل",
+        "used": "مستخدم",
+        "unused": "غير مستخدم"
+    },
+    "language": {
+        "change": "تغيير اللغة",
+        "current": "اللغة الحالية",
+        "select": "اختر لغة",
+        "changed_successfully": "تم تغيير اللغة بنجاح"
+    }
+}

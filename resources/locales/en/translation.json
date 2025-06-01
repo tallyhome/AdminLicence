@@ -41,7 +41,13 @@
         "no_description": "No description",
         "all": "All",
         "used": "Used",
-        "unused": "Unused"
+        "unused": "Unused",
+        "active": "Active",
+        "inactive": "Inactive",
+        "suspended": "Suspended",
+        "revoked": "Revoked",
+        "expired": "Expired",
+        "pending": "Pending"
     },
     "translations": {
         "title": "Translation Management",

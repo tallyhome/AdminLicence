@@ -14,3 +14,96 @@
         max-width: 12.5%;
     }
 }
+
+/* Styles pour les badges de statut */
+.badge-status {
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+}
+
+/* Styles pour les badges de statut en mode clair */
+.badge-status {
+    color: #fff !important;
+    font-weight: 600;
+    padding: 0.35em 0.65em;
+    border-radius: 0.25rem;
+}
+
+.badge-active {
+    background-color: #28a745 !important;
+    color: #fff !important;
+}
+
+.badge-inactive {
+    background-color: #6c757d !important;
+    color: #fff !important;
+}
+
+.badge-suspended {
+    background-color: #ffc107 !important;
+    color: #212529 !important;
+}
+
+.badge-revoked {
+    background-color: #dc3545 !important;
+    color: #fff !important;
+}
+
+.badge-expired {
+    background-color: #6610f2 !important;
+    color: #fff !important;
+}
+
+.badge-pending {
+    background-color: #17a2b8 !important;
+    color: #fff !important;
+}
+
+/* Styles pour les cartes statistiques du tableau de bord */
+.dashboard-stat-card {
+    background-color: #fff;
+}
+
+body.dark-mode .dashboard-stat-card {
+    background-color: #1e1e1e !important;
+}
+
+body.dark-mode .dashboard-stat-card * {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .dashboard-stat-card .text-gray-300 {
+    color: #aaa !important;
+}
+
+body.dark-mode .dashboard-stat-card .text-gray-800 {
+    color: #fff !important;
+}
+
+body.dark-mode .dashboard-stat-card .text-primary {
+    color: #4e73df !important;
+}
+
+body.dark-mode .dashboard-stat-card .text-success {
+    color: #1cc88a !important;
+}
+
+body.dark-mode .dashboard-stat-card .text-info {
+    color: #36b9cc !important;
+}
+
+body.dark-mode .dashboard-stat-card .text-warning {
+    color: #f6c23e !important;
+}
+
+body.dark-mode .dashboard-stat-card .text-danger {
+    color: #e74a3b !important;
+}

@@ -4,6 +4,272 @@ body.dark-mode {
     color: #e0e0e0;
 }
 
+/* Styles pour le pied de page en mode sombre */
+body.dark-mode .admin-footer,
+body.dark-mode footer.admin-footer,
+body.dark-mode footer.bg-white.admin-footer,
+body.dark-mode footer.admin-footer.bg-white,
+body.dark-mode footer[class*="bg-white"],
+body.dark-mode footer {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    border-color: #333 !important;
+}
+
+/* Styles spécifiques pour surcharger les classes Tailwind */
+body.dark-mode .bg-white,
+body.dark-mode footer.bg-white,
+body.dark-mode div.bg-white,
+body.dark-mode main + footer {
+    background-color: #1e1e1e !important;
+}
+
+body.dark-mode .border-gray-100,
+body.dark-mode footer .border-gray-100,
+body.dark-mode footer .border-t {
+    border-color: #333 !important;
+}
+
+/* Style spécifique pour le texte dans le pied de page */
+body.dark-mode footer *,
+body.dark-mode footer div,
+body.dark-mode footer span {
+    color: #e0e0e0 !important;
+}
+
+/* Styles pour les éléments de l'en-tête en mode sombre */
+body.dark-mode nav button span.text-gray-700,
+body.dark-mode nav .text-gray-700 {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode nav svg {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode nav .bg-white {
+    background-color: #1e1e1e !important;
+}
+
+body.dark-mode nav .border-gray-100 {
+    border-color: #333 !important;
+}
+
+body.dark-mode nav .text-gray-500,
+body.dark-mode nav .text-gray-600,
+body.dark-mode nav .text-gray-700,
+body.dark-mode nav .text-gray-800,
+body.dark-mode nav .text-gray-900 {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode footer a,
+body.dark-mode footer a.text-gray-600 {
+    color: #4e73df !important;
+}
+
+body.dark-mode footer a:hover,
+body.dark-mode footer a.text-gray-600:hover {
+    color: #6c8ae4 !important;
+}
+
+body.dark-mode footer a {
+    color: #4e73df !important;
+}
+
+body.dark-mode footer a:hover {
+    color: #6c8ae4 !important;
+}
+
+/* Styles spécifiques pour le tableau de bord en mode sombre */
+body.dark-mode .card {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    border-color: #333 !important;
+}
+
+body.dark-mode .card-header {
+    background-color: #252525 !important;
+    color: #e0e0e0 !important;
+    border-color: #333 !important;
+}
+
+body.dark-mode .card-body {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .text-gray-800 {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .text-gray-300 {
+    color: #aaa !important;
+}
+
+/* Cartes statistiques du tableau de bord */
+body.dark-mode .border-left-primary,
+body.dark-mode .border-left-success,
+body.dark-mode .border-left-info,
+body.dark-mode .border-left-warning,
+body.dark-mode .border-left-danger {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    border: 1px solid #333 !important;
+}
+
+/* Correction pour les cartes statistiques avec bordure colorée */
+body.dark-mode .border-left-primary {
+    border-left: 0.25rem solid #4e73df !important;
+}
+
+body.dark-mode .border-left-success {
+    border-left: 0.25rem solid #1cc88a !important;
+}
+
+body.dark-mode .border-left-info {
+    border-left: 0.25rem solid #36b9cc !important;
+}
+
+body.dark-mode .border-left-warning {
+    border-left: 0.25rem solid #f6c23e !important;
+}
+
+body.dark-mode .border-left-danger {
+    border-left: 0.25rem solid #e74a3b !important;
+}
+
+body.dark-mode .border-left-primary .card-body,
+body.dark-mode .border-left-success .card-body,
+body.dark-mode .border-left-info .card-body,
+body.dark-mode .border-left-warning .card-body,
+body.dark-mode .border-left-danger .card-body {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+}
+
+/* Styles directs pour les cartes statistiques */
+body.dark-mode .card.border-left-primary,
+body.dark-mode .card.border-left-success,
+body.dark-mode .card.border-left-info,
+body.dark-mode .card.border-left-warning,
+body.dark-mode .card.border-left-danger,
+body.dark-mode a.card-link .card,
+body.dark-mode a.text-decoration-none .card,
+body.dark-mode .py-2,
+body.dark-mode .card.shadow,
+body.dark-mode .card.h-100,
+body.dark-mode .dashboard-stat-card {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    border: 1px solid #333 !important;
+}
+
+/* Force le fond sombre sur tous les éléments des cartes statistiques */
+body.dark-mode .dashboard-stat-card,
+body.dark-mode .dashboard-stat-card *,
+body.dark-mode .dashboard-stat-card .card-body {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+}
+
+/* Style spécifique pour le texte dans les cartes */
+body.dark-mode .text-gray-800 {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .text-gray-300 {
+    color: #aaa !important;
+}
+
+/* Styles spécifiques pour les barres de progression dans les cartes */
+body.dark-mode .card .progress {
+    background-color: #333 !important;
+}
+
+body.dark-mode .card .progress-bar {
+    background-color: #4e73df !important;
+}
+
+/* Styles pour les barres de progression dans les cartes */
+body.dark-mode .progress {
+    background-color: #333 !important;
+}
+
+body.dark-mode .progress-bar {
+    color: #fff !important;
+}
+
+body.dark-mode .progress-bar-primary {
+    background-color: #4e73df !important;
+}
+
+body.dark-mode .progress-bar-success {
+    background-color: #1cc88a !important;
+}
+
+body.dark-mode .progress-bar-info {
+    background-color: #36b9cc !important;
+}
+
+body.dark-mode .progress-bar-warning {
+    background-color: #f6c23e !important;
+}
+
+body.dark-mode .progress-bar-danger {
+    background-color: #e74a3b !important;
+}
+
+body.dark-mode .shadow {
+    box-shadow: 0 .15rem 1.75rem 0 rgba(0, 0, 0, .5) !important;
+}
+
+body.dark-mode .text-primary,
+body.dark-mode .text-success,
+body.dark-mode .text-info,
+body.dark-mode .text-warning,
+body.dark-mode .text-danger {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .text-uppercase {
+    color: #aaa !important;
+}
+
+/* Styles généraux pour assurer la lisibilité du texte */
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6,
+body.dark-mode p, body.dark-mode span, body.dark-mode div, body.dark-mode a, body.dark-mode label {
+    color: #e0e0e0;
+}
+
+body.dark-mode .text-gray-900, body.dark-mode .text-gray-800, body.dark-mode .text-gray-700 {
+    color: #e0e0e0 !important;
+}
+
+/* Sélecteur de langue */
+body.dark-mode .dropdown-toggle span {
+    color: #ffffff !important;
+}
+
+body.dark-mode .dropdown-menu {
+    background-color: #2d2d2d !important;
+    border-color: #444 !important;
+}
+
+body.dark-mode .dropdown-menu button {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .dropdown-menu button:hover {
+    background-color: #3a3a3a !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .dropdown-menu button.active {
+    background-color: #444 !important;
+    color: #ffffff !important;
+}
+
 /* Navbar */
 body.dark-mode .navbar {
     background-color: #1e1e1e !important;
@@ -13,6 +279,47 @@ body.dark-mode .navbar {
 body.dark-mode .navbar .nav-link,
 body.dark-mode .navbar .dropdown-toggle {
     color: #e0e0e0;
+}
+
+/* Badges */
+body.dark-mode .badge {
+    background-color: #444;
+    color: #ffffff;
+}
+
+body.dark-mode .badge-success,
+body.dark-mode .bg-green-100,
+body.dark-mode .text-green-800 {
+    background-color: #0d503c !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .badge-danger,
+body.dark-mode .bg-red-100,
+body.dark-mode .text-red-800 {
+    background-color: #7f1d1d !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .badge-warning,
+body.dark-mode .bg-yellow-100,
+body.dark-mode .text-yellow-800 {
+    background-color: #854d0e !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .badge-info,
+body.dark-mode .bg-blue-100,
+body.dark-mode .text-blue-800 {
+    background-color: #1e40af !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .badge-secondary,
+body.dark-mode .bg-gray-100,
+body.dark-mode .text-gray-800 {
+    background-color: #4b5563 !important;
+    color: #ffffff !important;
 }
 
 /* Sidebar */
@@ -34,32 +341,177 @@ body.dark-mode .sidebar .nav-link.active {
 }
 
 /* Cards */
-body.dark-mode .card {
-    background-color: #2d2d2d;
-    border-color: #444;
+body.dark-mode .card,
+body.dark-mode .bg-white,
+body.dark-mode .shadow,
+body.dark-mode .rounded-lg,
+body.dark-mode .p-6 {
+    background-color: #2d2d2d !important;
+    border-color: #444 !important;
 }
 
-body.dark-mode .card-header {
-    background-color: #252525;
-    border-bottom-color: #444;
+body.dark-mode .card-header,
+body.dark-mode .border-b,
+body.dark-mode .pb-4 {
+    background-color: #1e1e1e !important;
+    border-color: #444 !important;
+}
+
+body.dark-mode .card-footer,
+body.dark-mode .border-t,
+body.dark-mode .pt-4 {
+    background-color: #1e1e1e !important;
+    border-color: #444 !important;
+}
+
+/* Panneaux */
+body.dark-mode .panel,
+body.dark-mode .shadow-sm,
+body.dark-mode .rounded-md {
+    background-color: #2d2d2d !important;
+    border-color: #444 !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .panel-header,
+body.dark-mode .panel-heading {
+    background-color: #1e1e1e !important;
+    border-color: #444 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .panel-body {
+    background-color: #2d2d2d !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .panel-footer {
+    background-color: #1e1e1e !important;
+    border-color: #444 !important;
 }
 
 /* Tables */
-body.dark-mode .table {
-    color: #e0e0e0;
+body.dark-mode .table,
+body.dark-mode table,
+body.dark-mode .w-full,
+body.dark-mode .bg-white {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    border-color: #333 !important;
 }
 
 body.dark-mode .table th,
-body.dark-mode .table td {
-    border-color: #444;
+body.dark-mode table th,
+body.dark-mode thead th,
+body.dark-mode .bg-gray-50 {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .table thead th {
+    background-color: #252525 !important;
+    border-color: #333 !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .table td,
+body.dark-mode table td {
+    background-color: #1e1e1e !important;
+    border-color: #333 !important;
+    color: #e0e0e0 !important;
 }
 
 body.dark-mode .table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: #252525 !important;
+}
+
+body.dark-mode .table-striped tbody tr:nth-of-type(even) {
+    background-color: #1e1e1e !important;
+}
+
+body.dark-mode tbody tr {
+    background-color: #1e1e1e !important;
 }
 
 body.dark-mode .table-hover tbody tr:hover {
-    background-color: rgba(255, 255, 255, 0.075);
+    background-color: #2c2c2c !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .table-bordered {
+    border-color: #333 !important;
+}
+
+body.dark-mode .table-bordered th,
+body.dark-mode .table-bordered td {
+    border-color: #333 !important;
+}
+
+/* Styles pour les tableaux responsifs */
+body.dark-mode .table-responsive {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+}
+
+/* Styles spécifiques pour les titres des sections du tableau de bord */
+body.dark-mode .font-weight-bold.text-primary {
+    color: #4e73df !important;
+}
+
+body.dark-mode .font-weight-bold.text-success {
+    color: #1cc88a !important;
+}
+
+body.dark-mode .font-weight-bold.text-info {
+    color: #36b9cc !important;
+}
+
+body.dark-mode .font-weight-bold.text-warning {
+    color: #f6c23e !important;
+}
+
+body.dark-mode .font-weight-bold.text-danger {
+    color: #e74a3b !important;
+}
+
+/* Formulaires */
+body.dark-mode input, 
+body.dark-mode select, 
+body.dark-mode textarea,
+body.dark-mode .form-control,
+body.dark-mode .form-input {
+    background-color: #2d2d2d !important;
+    color: #e0e0e0 !important;
+    border-color: #444 !important;
+}
+
+body.dark-mode input:focus, 
+body.dark-mode select:focus, 
+body.dark-mode textarea:focus,
+body.dark-mode .form-control:focus,
+body.dark-mode .form-input:focus {
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.25) !important;
+    background-color: #333 !important;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #888 !important;
+}
+
+body.dark-mode input[type="checkbox"],
+body.dark-mode input[type="radio"] {
+    background-color: #444 !important;
+}
+
+body.dark-mode input[type="checkbox"]:checked,
+body.dark-mode input[type="radio"]:checked {
+    background-color: #6366f1 !important;
+}
+
+body.dark-mode .form-control::placeholder {
+    color: #aaa;
 }
 
 /* Forms */
@@ -75,10 +527,6 @@ body.dark-mode .form-select:focus {
     background-color: #3a3a3a;
     border-color: #666;
     color: #fff;
-}
-
-body.dark-mode .form-control::placeholder {
-    color: #aaa;
 }
 
 /* Buttons */
@@ -133,6 +581,89 @@ body.dark-mode .dropdown-item:focus {
     color: #fff;
 }
 
+body.dark-mode .dropdown-item:focus {
+    background-color: #3a3a3a;
+    color: #fff;
+}
+
+/* Tailwind specific classes */
+body.dark-mode .bg-white {
+    background-color: #2d2d2d !important;
+}
+
+body.dark-mode .bg-gray-50, body.dark-mode .bg-gray-100 {
+    background-color: #333333 !important;
+}
+
+body.dark-mode .text-gray-500 {
+    color: #aaaaaa !important;
+}
+
+body.dark-mode .text-gray-600 {
+    color: #bbbbbb !important;
+}
+
+body.dark-mode .text-gray-700 {
+    color: #cccccc !important;
+}
+
+body.dark-mode .text-gray-800, body.dark-mode .text-gray-900 {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .border, body.dark-mode .border-gray-200, body.dark-mode .border-gray-300 {
+    border-color: #444 !important;
+}
+
+body.dark-mode .hover\:bg-gray-50:hover, body.dark-mode .hover\:bg-gray-100:hover {
+    background-color: #3a3a3a !important;
+}
+
+/* Autres classes Tailwind */
+body.dark-mode .shadow-md,
+body.dark-mode .shadow-lg,
+body.dark-mode .shadow-xl {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+body.dark-mode .divide-y > * {
+    border-color: #444 !important;
+}
+
+body.dark-mode .ring-1,
+body.dark-mode .ring-2 {
+    --tw-ring-color: rgba(75, 85, 99, 0.5) !important;
+}
+
+body.dark-mode .focus\:ring-indigo-500:focus {
+    --tw-ring-color: rgba(99, 102, 241, 0.5) !important;
+}
+
+/* Statuts et badges */
+body.dark-mode .status-active,
+body.dark-mode .status-success {
+    background-color: #065f46 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .status-inactive,
+body.dark-mode .status-disabled {
+    background-color: #4b5563 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .status-suspended,
+body.dark-mode .status-warning {
+    background-color: #92400e !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .status-revoked,
+body.dark-mode .status-danger {
+    background-color: #991b1b !important;
+    color: #ffffff !important;
+}
+
 /* Modal */
 body.dark-mode .modal-content {
     background-color: #2d2d2d;
@@ -147,4 +678,32 @@ body.dark-mode .modal-footer {
 /* Badges */
 body.dark-mode .badge.bg-secondary {
     background-color: #555 !important;
+}
+
+/* Corrections spécifiques pour les éléments TailwindCSS */
+body.dark-mode .bg-gray-100 {
+    background-color: #1a1a1a !important;
+}
+
+body.dark-mode .border-gray-100,
+body.dark-mode .border-gray-200,
+body.dark-mode .border-gray-300 {
+    border-color: #333 !important;
+}
+
+body.dark-mode .hover\:text-gray-700:hover {
+    color: #fff !important;
+}
+
+body.dark-mode .hover\:border-gray-300:hover {
+    border-color: #555 !important;
+}
+
+/* Correction pour les liens de navigation */
+body.dark-mode nav a {
+    color: #e0e0e0;
+}
+
+body.dark-mode .border-indigo-400 {
+    border-color: #6366f1 !important;
 }

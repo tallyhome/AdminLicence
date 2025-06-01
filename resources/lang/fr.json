@@ -243,5 +243,13 @@
         "unviewable_format": "Format non affichable",
         "auto_dismiss_alerts": "Auto-dismiss des alertes après 5 secondes",
         "copied": "Copié !"
+    },
+    "common": {
+        "active": "Actif",
+        "inactive": "Inactif",
+        "suspended": "Suspendu",
+        "revoked": "Révoqué",
+        "expired": "Expiré",
+        "pending": "En attente"
     }
 }

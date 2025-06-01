@@ -25,8 +25,11 @@ use Illuminate\Support\Facades\Auth;
     
     <!-- Custom Styles -->
     <link rel="stylesheet" href="{{ asset('css/custom-pagination.css') }}">
+    
+    <!-- Dark Mode CSS -->
+    <link rel="stylesheet" href="{{ asset('css/dark-mode.css') }}">
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased {{ session('dark_mode', false) ? 'dark-mode' : '' }}">
     <div class="min-h-screen bg-gray-100">
         <!-- Navigation -->
         <nav class="bg-white border-b border-gray-100">
@@ -178,14 +181,14 @@ use Illuminate\Support\Facades\Auth;
         </main>
         
         <!-- Footer -->
-        <footer class="bg-white border-t border-gray-100 py-4 mt-auto">
+        <footer class="py-4 mt-auto admin-footer {{ request()->cookie('dark_mode') ? 'bg-gray-800 border-t border-gray-700 text-white' : 'bg-white border-t border-gray-100' }}">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center">
                     <div>
                         &copy; {{ date('Y') }} {{ config('app.name') }}
                     </div>
                     <div>
-                        <a href="{{ route('admin.version') }}" class="text-gray-600 hover:text-gray-900">
+                        <a href="{{ route('admin.version') }}" class="{{ request()->cookie('dark_mode') ? 'text-blue-400 hover:text-blue-300' : 'text-gray-600 hover:text-gray-900' }}">
                             Version {{ config('version.full')() }}
                         </a>
                     </div>
@@ -193,5 +196,7 @@ use Illuminate\Support\Facades\Auth;
             </div>
         </footer>
     </div>
+    <!-- Dark Mode Script -->
+    <script src="{{ asset('js/dark-mode.js') }}"></script>
 </body>
 </html>

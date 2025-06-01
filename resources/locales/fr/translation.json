@@ -42,7 +42,13 @@
         "no_description": "Aucune description",
         "all": "Tous",
         "used": "Utilisé",
-        "unused": "Non utilisé"
+        "unused": "Non utilisé",
+        "active": "Actif",
+        "inactive": "Inactif",
+        "suspended": "Suspendu",
+        "revoked": "Révoqué",
+        "expired": "Expiré",
+        "pending": "En attente"
     },
     "translations": {
         "title": "Gestion des traductions",

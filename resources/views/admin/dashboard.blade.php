@@ -35,7 +35,7 @@
     <div class="row">
         <div class="col-xl col-lg-4 col-md-6 mb-4">
             <a href="{{ route('admin.serial-keys.index') }}" class="text-decoration-none card-link">
-                <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card border-left-primary shadow h-100 py-2 dashboard-stat-card">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
@@ -54,7 +54,7 @@
 
         <div class="col-xl col-lg-4 col-md-6 mb-4">
             <a href="{{ route('admin.serial-keys.index', ['status' => 'active']) }}" class="text-decoration-none card-link">
-                <div class="card border-left-success shadow h-100 py-2">
+                <div class="card border-left-success shadow h-100 py-2 dashboard-stat-card">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
@@ -73,7 +73,7 @@
 
         <div class="col-xl col-lg-4 col-md-6 mb-4">
             <a href="{{ route('admin.serial-keys.index', ['used' => 'true']) }}" class="text-decoration-none card-link">
-                <div class="card border-left-info shadow h-100 py-2">
+                <div class="card border-left-info shadow h-100 py-2 dashboard-stat-card">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
@@ -92,7 +92,7 @@
 
         <div class="col-xl col-lg-6 col-md-6 mb-4">
             <a href="{{ route('admin.serial-keys.index', ['status' => 'suspended']) }}" class="text-decoration-none card-link">
-                <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card border-left-warning shadow h-100 py-2 dashboard-stat-card">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
@@ -111,7 +111,7 @@
 
         <div class="col-xl col-lg-6 col-md-6 mb-4">
             <a href="{{ route('admin.serial-keys.index', ['status' => 'revoked']) }}" class="text-decoration-none card-link">
-                <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card border-left-danger shadow h-100 py-2 dashboard-stat-card">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
@@ -253,7 +253,7 @@
                             <td>{{ $key->serial_key }}</td>
                             <td>{{ $key->project->name }}</td>
                             <td>
-                                <span class="badge badge-{{ $key->status == 'active' ? 'success' : ($key->status == 'suspended' ? 'warning' : 'danger') }}">
+                                <span class="badge-status badge-{{ $key->status }}">
                                     {{ t('common.' . $key->status) }}
                                 </span>
                             </td>

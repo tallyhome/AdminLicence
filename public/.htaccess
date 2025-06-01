@@ -36,11 +36,34 @@
     RewriteRule ^ index.php [L]
 </IfModule>
 
-# Protection XSS
+# En-têtes de sécurité HTTP
 <IfModule mod_headers.c>
+    # Protection XSS
     Header set X-XSS-Protection "1; mode=block"
+    
+    # Empêcher le MIME-sniffing
     Header set X-Content-Type-Options "nosniff"
+    
+    # Protection contre le clickjacking
     Header set X-Frame-Options "SAMEORIGIN"
+    
+    # Politique de sécurité du contenu (CSP)
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self';"
+    
+    # Strict Transport Security (HSTS)
+    Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    
+    # Référent Policy
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Permissions Policy
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# Désactiver l'affichage des informations du serveur
+<IfModule mod_headers.c>
+    Header unset Server
+    Header unset X-Powered-By
 </IfModule>
 
 # Permettre l'accès au dossier d'installation

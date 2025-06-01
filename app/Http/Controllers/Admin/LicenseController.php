@@ -156,11 +156,11 @@ class LicenseController extends Controller
             $cacheKey = 'license_verification_' . md5($licenseKey);
             \Illuminate\Support\Facades\Cache::forget($cacheKey);
             
-            // Test direct de l'API sans passer par le service
-            $apiUrl = 'https://licence.myvcard.fr';
-            $apiKey = 'sk_wuRFNJ7fI6CaMzJptdfYhzAGW3DieKwC';
-            $apiSecret = 'sk_3ewgI2dP0zPyLXlHyDT1qYbzQny6H2hb';
-            $endpoint = '/api/check-serial.php';
+            // Utiliser les variables d'environnement pour l'API
+            $apiUrl = env('LICENCE_API_URL', 'https://licence.myvcard.fr');
+            $apiKey = env('LICENCE_API_KEY', 'sk_wuRFNJ7fI6CaMzJptdfYhzAGW3DieKwC');
+            $apiSecret = env('LICENCE_API_SECRET', 'sk_3ewgI2dP0zPyLXlHyDT1qYbzQny6H2hb');
+            $endpoint = env('LICENCE_API_ENDPOINT', '/api/check-serial.php');
             
             // Préparer les données à envoyer
             $data = [
@@ -190,6 +190,7 @@ class LicenseController extends Controller
                 ],
                 CURLOPT_TIMEOUT => 30,
                 CURLOPT_CONNECTTIMEOUT => 10,
+                // Désactiver complètement la vérification SSL pour assurer la compatibilité
                 CURLOPT_SSL_VERIFYPEER => false,
                 CURLOPT_SSL_VERIFYHOST => 0,
                 CURLOPT_FOLLOWLOCATION => true,

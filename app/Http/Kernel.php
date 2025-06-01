@@ -19,6 +19,8 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        \App\Http\Middleware\SecurityHeaders::class,
+        \App\Http\Middleware\ForceHttps::class,
     ];
 
     /**
@@ -52,6 +54,11 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+        
+        'licence-api' => [
+            \App\Http\Middleware\ApiRateLimiter::class.':10,1',
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ],
     ];
 
     /**
@@ -75,5 +82,9 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\AdminMiddleware::class,
         'locale' => \App\Http\Middleware\LocaleMiddleware::class,
         'check.license' => \App\Http\Middleware\CheckLicenseMiddleware::class,
+        'api.ratelimit' => \App\Http\Middleware\ApiRateLimiter::class,
+        'jwt.auth' => \App\Http\Middleware\JwtAuthenticate::class,
+        'security.headers' => \App\Http\Middleware\SecurityHeaders::class,
+        'force.https' => \App\Http\Middleware\ForceHttps::class,
     ];
 }

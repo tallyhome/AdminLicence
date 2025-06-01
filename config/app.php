@@ -171,6 +171,7 @@ return [
         \App\Providers\LoginRedirectServiceProvider::class,
         \App\Providers\TranslationServiceProvider::class,
         \App\Providers\AssetServiceProvider::class,
+        \App\Providers\LoggingServiceProvider::class,
 
         /*
          * Laravel Framework Service Providers...

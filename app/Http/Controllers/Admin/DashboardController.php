@@ -163,23 +163,16 @@ class DashboardController extends Controller
     }
     
     /**
-     * Vérifie périodiquement la licence d'installation
+     * Vérifie périodiquement la validité de la licence
      *
      * @return \Illuminate\Http\RedirectResponse|null
      */
     protected function checkLicensePeriodically()
     {
-        // Utiliser le cache de session pour éviter les vérifications répétées lors des rafraîchissements
-        $sessionKey = 'license_check_session_' . session()->getId();
-        if (session()->has($sessionKey)) {
-            // Si déjà vérifié dans cette session, vérifier si la licence est valide
-            if (session()->has('license_check_result') && !session('license_check_result')) {
-                // Si la licence n'est pas valide et que nous ne sommes pas déjà sur la page de licence
-                if (!request()->is('admin/settings/license')) {
-                    return redirect()->route('admin.settings.license')
-                        ->with('error', 'Votre licence d\'installation n\'est pas valide ou n\'est pas configurée. Veuillez configurer une licence valide pour continuer à utiliser le système.');
-                }
-            }
+        // En environnement local, ignorer la vérification si APP_DEBUG est true
+        if (env('APP_ENV') === 'local' && env('APP_DEBUG') === true) {
+            // Stocker un résultat valide en session pour éviter les redirections
+            session(['license_check_result' => true]);
             return null;
         }
         
@@ -193,7 +186,7 @@ class DashboardController extends Controller
         session(['dashboard_visit_count' => $visitCount]);
         
         // Récupérer la fréquence de vérification (par défaut: 1 fois sur 5)
-        $checkFrequency = \App\Models\Setting::get('license_check_frequency', 5);
+        $checkFrequency = Setting::get('license_check_frequency', 5);
         
         // Déterminer si une vérification est nécessaire
         $shouldCheck = ($visitCount % $checkFrequency === 0);
@@ -202,20 +195,26 @@ class DashboardController extends Controller
         if (session()->has('license_check_result') && !$shouldCheck) {
             $licenseValid = session('license_check_result');
         } else {
-            // Effectuer la vérification de licence
-            $licenseValid = $this->licenceService->verifyInstallationLicense();
-            
-            // Stocker le résultat en session
-            session(['license_check_result' => $licenseValid]);
-            
-            // Mettre à jour le paramètre de dernière vérification
-            if (class_exists('\App\Models\Setting')) {
-                \App\Models\Setting::set('last_license_check', now()->toDateTimeString());
-                \App\Models\Setting::set('license_valid', $licenseValid);
+            try {
+                // Effectuer la vérification de licence
+                $licenseValid = $this->licenceService->verifyInstallationLicense();
+                
+                // Stocker le résultat en session
+                session(['license_check_result' => $licenseValid]);
+                
+                // Mettre à jour le paramètre de dernière vérification
+                Setting::set('last_license_check', now()->toDateTimeString());
+                Setting::set('license_valid', $licenseValid);
+            } catch (\Exception $e) {
+                // En cas d'erreur, logger et considérer comme valide en environnement local
+                Log::error('Erreur lors de la vérification de licence: ' . $e->getMessage());
+                $licenseValid = env('APP_ENV') === 'local';
+                session(['license_check_result' => $licenseValid]);
             }
         }
         
-        // Marquer comme vérifié pour cette session (valable pour la durée de la session)
+        // Marquer comme vérifié pour cette session
+        $sessionKey = 'license_check_session_' . session()->getId();
         session()->put($sessionKey, true);
         
         // Ajouter le résultat à la vue

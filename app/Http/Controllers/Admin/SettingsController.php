@@ -103,8 +103,9 @@ class SettingsController extends Controller
      */
     public function updateFavicon(Request $request)
     {
+        // Modifier la validation pour accepter les fichiers .ico sans utiliser la règle 'image'
         $request->validate([
-            'favicon' => 'required|image|mimes:ico,png,jpg,jpeg,svg|max:2048',
+            'favicon' => 'required|file|mimes:ico,png,jpg,jpeg,svg|max:2048',
         ]);
 
         if ($request->hasFile('favicon')) {
@@ -115,7 +116,25 @@ class SettingsController extends Controller
 
             // Enregistrer le nouveau favicon
             $favicon = $request->file('favicon');
-            $favicon->move(public_path(), 'favicon.ico');
+            
+            try {
+                // Essayer d'abord avec la méthode move
+                $favicon->move(public_path(), 'favicon.ico');
+                
+                // Vérifier que le fichier a bien été créé et n'est pas vide
+                if (!file_exists(public_path('favicon.ico')) || filesize(public_path('favicon.ico')) === 0) {
+                    throw new \Exception('Le fichier favicon.ico est vide ou n\'a pas été créé correctement');
+                }
+            } catch (\Exception $e) {
+                // Méthode alternative si la première méthode échoue
+                copy($favicon->getRealPath(), public_path('favicon.ico'));
+                
+                // Vérifier à nouveau
+                if (!file_exists(public_path('favicon.ico')) || filesize(public_path('favicon.ico')) === 0) {
+                    return redirect()->route('admin.settings.index')
+                        ->with('error', 'Impossible de télécharger le favicon. Veuillez réessayer avec un autre fichier.');
+                }
+            }
         }
 
         return redirect()->route('admin.settings.index')

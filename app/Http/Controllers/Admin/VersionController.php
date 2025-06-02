@@ -16,15 +16,101 @@ class VersionController extends Controller
     {
         $version = [
             'major' => 4,
-            'minor' => 2,
+            'minor' => 6,
             'patch' => 0,
             'release' => null,
             'full' => config('version.full')(),
-            'last_update' => '27/05/2025',
+            'last_update' => '02/06/2025',
         ];
         
         // Historique des versions
         $history = [
+            [
+                'version' => '4.6.0',
+                'date' => '02/06/2025',
+                'description' => 'Amélioration de l\'interface utilisateur du panneau d\'administration',
+                'categories' => [
+                    'Ajouts' => [
+                        'Intégration complète de la page des notifications dans le template du dashboard',
+                        'Ajout de nouvelles traductions pour les notifications',
+                    ],
+                    'Améliorations' => [
+                        'Correction du comportement des menus déroulants dans le header (langue, notifications, profil)',
+                        'Amélioration du comportement des sous-menus dans le menu latéral',
+                        'Fermeture automatique des menus déroulants lors de l\'ouverture d\'un autre menu',
+                        'Disparition automatique des alertes de notification après 5 secondes',
+                        'Adaptation du style des notifications au design du dashboard',
+                    ],
+                    'Corrections de bugs' => [
+                        'Correction des problèmes d\'affichage dans le menu de notifications',
+                        'Correction du lien vers la page de profil administrateur',
+                        'Correction des conflits JavaScript entre les différents menus déroulants',
+                    ],
+                ],
+            ],
+            [
+                'version' => '4.5.0',
+                'date' => '25/05/2025',
+                'description' => 'Amélioration du système de notifications et de l\'interface utilisateur',
+                'categories' => [
+                    'Ajouts' => [
+                        'Nouveau système de notifications en temps réel',
+                        'Ajout d\'un centre de notifications avec historique',
+                        'Support des notifications pour les événements de licence',
+                    ],
+                    'Améliorations' => [
+                        'Refonte de l\'interface des notifications pour une meilleure lisibilité',
+                        'Optimisation des performances du système de notifications',
+                        'Amélioration de l\'ergonomie générale du panneau d\'administration',
+                    ],
+                    'Corrections de bugs' => [
+                        'Correction des problèmes d\'affichage sur certains navigateurs',
+                        'Résolution des problèmes de compatibilité avec les écrans de petite taille',
+                    ],
+                ],
+            ],
+            [
+                'version' => '4.4.0',
+                'date' => '15/05/2025',
+                'description' => 'Amélioration de la gestion des profils administrateurs',
+                'categories' => [
+                    'Ajouts' => [
+                        'Nouvelle page de profil administrateur avec plus d\'options',
+                        'Ajout de la possibilité de personnaliser les préférences d\'interface',
+                        'Support des avatars personnalisés pour les administrateurs',
+                    ],
+                    'Améliorations' => [
+                        'Refonte de l\'interface de gestion des profils',
+                        'Amélioration de la sécurité des comptes administrateurs',
+                        'Optimisation du processus de modification des informations personnelles',
+                    ],
+                    'Corrections de bugs' => [
+                        'Correction des problèmes lors de la mise à jour des informations de profil',
+                        'Résolution des conflits avec certains plugins de sécurité',
+                    ],
+                ],
+            ],
+            [
+                'version' => '4.3.0',
+                'date' => '05/05/2025',
+                'description' => 'Amélioration de l\'interface multilingue',
+                'categories' => [
+                    'Ajouts' => [
+                        'Support complet pour de nouvelles langues (espagnol, italien, allemand)',
+                        'Ajout d\'un sélecteur de langue amélioré dans l\'interface',
+                        'Nouvelles traductions pour les fonctionnalités récentes',
+                    ],
+                    'Améliorations' => [
+                        'Optimisation du système de traduction pour de meilleures performances',
+                        'Amélioration de la cohérence des traductions dans toute l\'application',
+                        'Interface de gestion des traductions plus intuitive',
+                    ],
+                    'Corrections de bugs' => [
+                        'Correction des problèmes d\'affichage avec certains caractères spéciaux',
+                        'Résolution des problèmes de traduction manquante dans certaines sections',
+                    ],
+                ],
+            ],
             [
                 'version' => '4.2.0',
                 'date' => '27/05/2025',

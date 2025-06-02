@@ -7,7 +7,7 @@
             </div>
             <div>
                 <a href="<?php echo e(route('admin.version')); ?>" class="text-decoration-none">
-                    Version 4.2.0
+                    Version 4.6.0
                 </a>
             </div>
         </div>

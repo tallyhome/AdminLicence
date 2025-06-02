@@ -1,18 +1,33 @@
+/* Import Font Awesome */
 @import '@fortawesome/fontawesome-free/css/all.css';
+@import '@fortawesome/fontawesome-free/css/fontawesome.css';
+@import '@fortawesome/fontawesome-free/css/solid.css';
+@import '@fortawesome/fontawesome-free/css/regular.css';
+@import '@fortawesome/fontawesome-free/css/brands.css';
+@import 'bootstrap/dist/css/bootstrap.min.css';
+/* @import './flags.css'; -- Désactivé car nous utilisons flag-icons.min.css */
+@import 'interface-fixes.css';
+@import './fonts.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind directives */
+/* @tailwind base; */
+/* @tailwind components; */
+/* @tailwind utilities; */
 
-@layer base {
-    :root {
-        --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-            'Segoe UI Symbol', 'Noto Color Emoji';
-    }
+/* Base styles */
+:root {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source "../**/*.blade.php";
-@source "../**/*.js";
-@source "../**/*.vue";
+/* Source directives supprimées pour éviter les erreurs */
+
+/* Styles spécifiques pour les icônes */
+.fas, .far, .fab {
+    display: inline-block;
+}
+
+/* Styles pour les boutons de menu */
+.nav-link[data-bs-toggle=collapse] {
+    cursor: pointer;
+}

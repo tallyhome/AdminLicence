@@ -162,6 +162,11 @@
     "dashboard": "ダッシュボード",
     "name": "名前",
     "email": "メール",
+    "change_password": "パスワードを変更",
+    "leave_blank_if_no_change": "パスワードを変更しない場合は空白のままにしてください",
+    "current_password": "現在のパスワード",
+    "new_password": "新しいパスワード",
+    "confirm_password": "パスワードの確認",
     "actions": {
       "save": "保存",
       "cancel": "キャンセル",

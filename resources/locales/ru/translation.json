@@ -42,7 +42,18 @@
         "of": "из",
         "all": "Все",
         "used": "Использовано",
-        "unused": "Не использовано"
+        "unused": "Не использовано",
+        "active": "Активный",
+        "inactive": "Неактивный",
+        "suspended": "Приостановлен",
+        "revoked": "Отозван",
+        "expired": "Истек",
+        "pending": "В ожидании",
+        "change_password": "Изменить пароль",
+        "leave_blank_if_no_change": "Оставьте пустым, если не хотите менять пароль",
+        "current_password": "Текущий пароль",
+        "new_password": "Новый пароль",
+        "confirm_password": "Подтвердите пароль"
     },
     "translations": {
         "title": "Управление переводами",

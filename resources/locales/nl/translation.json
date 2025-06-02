@@ -42,7 +42,18 @@
         "of": "van",
         "all": "Allemaal",
         "used": "Gebruikt",
-        "unused": "Niet gebruikt"
+        "unused": "Niet gebruikt",
+        "active": "Actief",
+        "inactive": "Inactief",
+        "suspended": "Opgeschort",
+        "revoked": "Ingetrokken",
+        "expired": "Verlopen",
+        "pending": "In behandeling",
+        "change_password": "Wachtwoord wijzigen",
+        "leave_blank_if_no_change": "Laat leeg als u uw wachtwoord niet wilt wijzigen",
+        "current_password": "Huidig wachtwoord",
+        "new_password": "Nieuw wachtwoord",
+        "confirm_password": "Bevestig wachtwoord"
     },
     "layout": {
         "support": "Support",

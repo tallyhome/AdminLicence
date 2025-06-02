@@ -42,7 +42,18 @@
         "of": "di",
         "all": "Tutti",
         "used": "Utilizzata",
-        "unused": "Non utilizzata"
+        "unused": "Non utilizzata",
+        "active": "Attivo",
+        "inactive": "Inattivo",
+        "suspended": "Sospeso",
+        "revoked": "Revocato",
+        "expired": "Scaduto",
+        "pending": "In attesa",
+        "change_password": "Cambia password",
+        "leave_blank_if_no_change": "Lascia vuoto se non vuoi cambiare la password",
+        "current_password": "Password attuale",
+        "new_password": "Nuova password",
+        "confirm_password": "Conferma password"
     },
     "translations": {
         "title": "Gestione traduzioni",

@@ -158,7 +158,7 @@ use Illuminate\Support\Facades\Auth;
                             </li>
                             <!-- User Menu -->
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
                                     <i class="fas fa-user-circle me-1"></i> {{ Auth::guard('admin')->user()->name ?? 'Admin' }}
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">

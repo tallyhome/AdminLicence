@@ -16,12 +16,19 @@ use Illuminate\Support\Facades\Auth;
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link href="{{ asset('vendor/fonts/figtree/figtree.css') }}" rel="stylesheet" />
 
-    <!-- Scripts -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Flag Icons -->
+    <link href="{{ asset('vendor/flag-icon-css/flag-icons.min.css') }}" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Vite Assets -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     
     <!-- Custom Styles -->
     <link rel="stylesheet" href="{{ asset('css/custom-pagination.css') }}">
@@ -72,7 +79,17 @@ use Illuminate\Support\Facades\Auth;
                         <div class="mr-4 relative" x-data="{ open: false }">
                             <div>
                                 <button @click="open = !open" class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
-                                    <span class="text-gray-700">{{ strtoupper(app()->getLocale()) }}</span>
+                                    @php
+                                    $currentLocale = app()->getLocale();
+                                    $countryCode = $currentLocale;
+                                    // Mappings spécifiques pour certaines langues
+                                    if ($currentLocale === 'en') $countryCode = 'gb';
+                                    if ($currentLocale === 'zh') $countryCode = 'cn';
+                                    if ($currentLocale === 'ja') $countryCode = 'jp';
+                                    if ($currentLocale === 'ar') $countryCode = 'sa';
+                                    @endphp
+                                    <span class="flag-icon flag-icon-{{ $countryCode }} mr-2"></span>
+                                    <span class="text-gray-700">{{ strtoupper($currentLocale) }}</span>
                                     <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                     </svg>
@@ -85,7 +102,16 @@ use Illuminate\Support\Facades\Auth;
                                     <form action="{{ route('admin.set.language') }}" method="POST" class="block">
                                         @csrf
                                         <input type="hidden" name="locale" value="{{ $locale }}">
+                                        @php
+                                        $countryCode = $locale;
+                                        // Mappings spécifiques pour certaines langues
+                                        if ($locale === 'en') $countryCode = 'gb';
+                                        if ($locale === 'zh') $countryCode = 'cn';
+                                        if ($locale === 'ja') $countryCode = 'jp';
+                                        if ($locale === 'ar') $countryCode = 'sa';
+                                        @endphp
                                         <button type="submit" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out {{ app()->getLocale() == $locale ? 'bg-gray-100' : '' }}">
+                                            <span class="flag-icon flag-icon-{{ $countryCode }} mr-2"></span>
                                             {{ t('language.'.$locale) }}
                                         </button>
                                     </form>
@@ -198,5 +224,92 @@ use Illuminate\Support\Facades\Auth;
     </div>
     <!-- Dark Mode Script -->
     <script src="{{ asset('js/dark-mode.js') }}"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.0/dist/cdn.min.js"></script>
+    
+    <!-- ClipboardJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM chargé, initialisation des menus...');
+            
+            // S'assurer que tous les boutons dropdown sont cliquables
+            document.querySelectorAll('.dropdown-toggle').forEach(function(el) {
+                el.style.cursor = 'pointer';
+            });
+            
+            // Assurer que le menu des notifications a la bonne taille
+            var notificationList = document.getElementById('notification-list');
+            if (notificationList) {
+                notificationList.style.width = '400px';
+                notificationList.style.maxHeight = '600px';
+                notificationList.style.overflowY = 'auto';
+            }
+            
+            // Log pour débogage
+            console.log('Menus dropdown initialisés');
+            
+            // Assurer que les collapsibles sont correctement cliquables
+            document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(function(collapseToggle) {
+                // S'assurer que l'élément est cliquable
+                collapseToggle.style.cursor = 'pointer';
+                
+                // Identifier la cible du collapse
+                var targetId = collapseToggle.getAttribute('data-bs-target') || collapseToggle.getAttribute('href');
+                if (targetId) {
+                    var targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        // Créer une instance de collapse Bootstrap
+                        var collapse = new bootstrap.Collapse(targetEl, {
+                            toggle: false
+                        });
+                        
+                        // Ajouter un gestionnaire d'événements pour permettre de fermer le collapse en cliquant à nouveau
+                        collapseToggle.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            // Toggle le collapse manuellement
+                            if (targetEl.classList.contains('show')) {
+                                collapse.hide();
+                            } else {
+                                collapse.show();
+                            }
+                        });
+                    }
+                }
+            });
+            
+            // Initialiser ClipboardJS
+            var clipboard = new ClipboardJS('.copy-btn');
+            clipboard.on('success', function(e) {
+                var tooltip = bootstrap.Tooltip.getInstance(e.trigger);
+                if (tooltip) {
+                    tooltip.dispose();
+                }
+                
+                var newTooltip = new bootstrap.Tooltip(e.trigger, {
+                    title: 'Copié !',
+                    placement: 'top',
+                    trigger: 'manual'
+                });
+                
+                newTooltip.show();
+                
+                setTimeout(function() {
+                    newTooltip.dispose();
+                }, 1000);
+                
+                e.clearSelection();
+            });
+            
+            // Initialiser les tooltips
+            document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function(tooltipTriggerEl) {
+                new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        });
+    </script>
 </body>
 </html>

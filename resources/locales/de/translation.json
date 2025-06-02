@@ -42,7 +42,18 @@
         "of": "von",
         "all": "Alle",
         "used": "Verwendet",
-        "unused": "Nicht verwendet"
+        "unused": "Nicht verwendet",
+        "active": "Aktiv",
+        "inactive": "Inaktiv",
+        "suspended": "Suspendiert",
+        "revoked": "Widerrufen",
+        "expired": "Abgelaufen",
+        "pending": "Ausstehend",
+        "change_password": "Passwort ändern",
+        "leave_blank_if_no_change": "Leer lassen, wenn Sie Ihr Passwort nicht ändern möchten",
+        "current_password": "Aktuelles Passwort",
+        "new_password": "Neues Passwort",
+        "confirm_password": "Passwort bestätigen"
     },
     "translations": {
         "title": "Übersetzungsverwaltung",

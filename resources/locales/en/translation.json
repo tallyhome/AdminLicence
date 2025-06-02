@@ -47,7 +47,12 @@
         "suspended": "Suspended",
         "revoked": "Revoked",
         "expired": "Expired",
-        "pending": "Pending"
+        "pending": "Pending",
+        "change_password": "Change Password",
+        "leave_blank_if_no_change": "Leave blank if you don't want to change your password",
+        "current_password": "Current Password",
+        "new_password": "New Password",
+        "confirm_password": "Confirm Password"
     },
     "translations": {
         "title": "Translation Management",

@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\TranslationController;
 use App\Http\Controllers\Admin\EmailVariableController;
 use App\Http\Controllers\Admin\LicenseController;
 use App\Http\Controllers\Admin\OptimizationController;
+use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 // Routes d'authentification
@@ -277,4 +278,8 @@ Route::middleware(['auth:admin', \App\Http\Middleware\CheckLicenseMiddleware::cl
         Route::delete('/{id}', [\App\Http\Controllers\NotificationController::class, 'destroy'])->name('admin.notifications.destroy');
         Route::put('/preferences', [\App\Http\Controllers\NotificationController::class, 'updatePreferences'])->name('admin.notifications.update-preferences');
     });
+    
+    // Routes pour la gestion du profil administrateur
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('admin.profile.edit');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('admin.profile.update');
 });

@@ -65,7 +65,18 @@
     "information": "Bilgi",
     "showing": ":total sonuçtan :first ile :last arası gösteriliyor",
     "of": "-den",
-    "no_description": "Açıklama yok"
+    "no_description": "Açıklama yok",
+    "active": "Aktif",
+    "inactive": "Pasif",
+    "suspended": "Askıya Alınmış",
+    "revoked": "İptal Edilmiş",
+    "expired": "Süresi Dolmuş",
+    "pending": "Beklemede",
+    "change_password": "Şifre Değiştir",
+    "leave_blank_if_no_change": "Şifrenizi değiştirmek istemiyorsanız boş bırakın",
+    "current_password": "Mevcut Şifre",
+    "new_password": "Yeni Şifre",
+    "confirm_password": "Şifre Onayı"
   },
   "layout": {
     "support": "Destek",

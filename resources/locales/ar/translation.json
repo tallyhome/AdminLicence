@@ -197,7 +197,18 @@
     "of": "من",
     "all": "الكل",
     "used": "مستخدم",
-    "unused": "غير مستخدم"
+    "unused": "غير مستخدم",
+    "active": "نشط",
+    "inactive": "غير نشط",
+    "suspended": "معلق",
+    "revoked": "ملغي",
+    "expired": "منتهي الصلاحية",
+    "pending": "قيد الانتظار",
+    "change_password": "تغيير كلمة المرور",
+    "leave_blank_if_no_change": "اترك فارغًا إذا كنت لا ترغب في تغيير كلمة المرور",
+    "current_password": "كلمة المرور الحالية",
+    "new_password": "كلمة المرور الجديدة",
+    "confirm_password": "تأكيد كلمة المرور"
   },
   "translations": {
     "sections": {

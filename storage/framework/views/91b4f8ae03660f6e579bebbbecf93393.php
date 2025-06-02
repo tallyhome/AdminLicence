@@ -13,15 +13,19 @@
     <link rel="icon" href="<?php echo e(asset('favicon.ico')); ?>">
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link href="<?php echo e(asset('vendor/fonts/figtree/figtree.css')); ?>" rel="stylesheet" />
 
     <!-- Flag Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css" rel="stylesheet">
+    <link href="<?php echo e(asset('vendor/flag-icon-css/flag-icons.min.css')); ?>" rel="stylesheet">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Vite Assets -->
+    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
     <link rel="stylesheet" href="<?php echo e(asset('css/dark-mode.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('css/custom.css')); ?>">
 
@@ -98,30 +102,7 @@
             background-color: #e9ecef;
         }
         /* Styles pour les drapeaux */
-        .flag-icon {
-            display: inline-block;
-            width: 1.2em;
-            height: 0.9em;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            margin-right: 0.5em;
-            vertical-align: middle;
-            box-shadow: 0 0 1px rgba(0,0,0,0.2);
-            border-radius: 2px;
-        }
-        .flag-icon-fr { background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/flags/4x3/fr.svg); }
-        .flag-icon-gb { background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/flags/4x3/gb.svg); }
-        .flag-icon-es { background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/flags/4x3/es.svg); }
-        .flag-icon-de { background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/flags/4x3/de.svg); }
-        .flag-icon-it { background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/flags/4x3/it.svg); }
-        .flag-icon-pt { background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/flags/4x3/pt.svg); }
-        .flag-icon-nl { background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/flags/4x3/nl.svg); }
-        .flag-icon-ru { background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/flags/4x3/ru.svg); }
-        .flag-icon-cn { background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/flags/4x3/cn.svg); }
-        .flag-icon-jp { background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/flags/4x3/jp.svg); }
-        .flag-icon-tr { background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/flags/4x3/tr.svg); }
-        .flag-icon-sa { background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/flags/4x3/sa.svg); }
+        /* Les styles des drapeaux sont maintenant gérés via Vite */
         /* Styles spécifiques pour le sélecteur de langue */
         .navbar .language-selector.dropdown .nav-link {
             color: #333 !important;
@@ -313,13 +294,19 @@
                                 <?php echo $__env->make('admin.layouts.partials.notifications', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-                                    <?php echo e(Auth::guard('admin')->user()->name); ?>
-
+                                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                                    <i class="fas fa-user-circle me-1"></i>
+                                    <span><?php echo e(Auth::guard('admin')->user()->name); ?></span>
                                 </a>
-                                <ul class="dropdown-menu dropdown-menu-end">
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                                     <li>
-                                        <form method="POST" action="<?php echo e(route('admin.logout')); ?>">
+                                        <a href="<?php echo e(route('admin.profile.edit')); ?>" class="dropdown-item">
+                                            <i class="fas fa-user-cog me-2"></i> Profil
+                                        </a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <form method="POST" action="<?php echo e(route('admin.logout')); ?>" id="logout-form">
                                             <?php echo csrf_field(); ?>
                                             <button type="submit" class="dropdown-item">
                                                 <i class="fas fa-sign-out-alt me-2"></i> Déconnexion
@@ -360,9 +347,223 @@
     </div>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
     <script src="<?php echo e(asset('js/dark-mode.js')); ?>"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- ClipboardJS -->
+    <script src="<?php echo e(asset('vendor/clipboardjs/clipboard.min.js')); ?>"></script>
+    
+    <!-- Alpine.js (chargé après Bootstrap pour éviter les conflits) -->
+    <script defer src="<?php echo e(asset('vendor/alpinejs/alpine.min.js')); ?>"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialiser tous les tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+            
+            // Initialiser tous les dropdowns manuellement
+            document.querySelectorAll('[data-bs-toggle="dropdown"]').forEach(function(dropdownToggle) {
+                // Créer une instance de dropdown Bootstrap avec autoClose: 'outside'
+                // Cela fermera automatiquement le dropdown quand on clique sur un autre dropdown
+                var dropdown = new bootstrap.Dropdown(dropdownToggle, {
+                    autoClose: 'outside'
+                });
+                
+                // Ajouter un gestionnaire d'événements pour le clic
+                dropdownToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dropdown.toggle();
+                });
+            });
+            
+            // S'assurer que tous les boutons dropdown sont cliquables
+            document.querySelectorAll('.dropdown-toggle').forEach(function(el) {
+                el.style.cursor = 'pointer';
+            });
+            
+            // Assurer que le menu des notifications a la bonne taille
+            var notificationList = document.getElementById('notification-list');
+            if (notificationList) {
+                notificationList.style.width = '400px';
+                notificationList.style.maxHeight = '600px';
+                notificationList.style.overflowY = 'auto';
+            }
+            
+            // Log pour débogage
+            console.log('Menus dropdown initialisés');
+            
+            // Assurer que les collapsibles sont correctement cliquables
+            document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(function(collapseToggle) {
+                // S'assurer que l'élément est cliquable
+                collapseToggle.style.cursor = 'pointer';
+                
+                // Identifier la cible du collapse
+                var targetId = collapseToggle.getAttribute('data-bs-target') || collapseToggle.getAttribute('href');
+                if (targetId) {
+                    var targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        // Supprimer les gestionnaires d'événements existants pour éviter les doublons
+                        collapseToggle.removeEventListener('click', toggleCollapse);
+                        
+                        // Fonction pour basculer l'état du collapse
+                        function toggleCollapse(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            
+                            // Utiliser l'API Bootstrap pour basculer l'état du collapse
+                            var collapseInstance = bootstrap.Collapse.getInstance(targetEl);
+                            if (collapseInstance) {
+                                collapseInstance.toggle();
+                            } else {
+                                new bootstrap.Collapse(targetEl);
+                            }
+                        }
+                        
+                        // Ajouter le gestionnaire d'événements
+                        collapseToggle.addEventListener('click', toggleCollapse);
+                    }
+                }
+            });
+            
+            // Initialiser ClipboardJS
+            var clipboard = new ClipboardJS('.copy-btn');
+            clipboard.on('success', function(e) {
+                var tooltip = bootstrap.Tooltip.getInstance(e.trigger);
+                if (tooltip) {
+                    tooltip.dispose();
+                }
+                
+                var newTooltip = new bootstrap.Tooltip(e.trigger, {
+                    title: 'Copié !',
+                    placement: 'top',
+                    trigger: 'manual'
+                });
+                
+                newTooltip.show();
+                
+                setTimeout(function() {
+                    newTooltip.dispose();
+                }, 1000);
+                
+                e.clearSelection();
+            });
+            
+            // Initialiser les tooltips
+            document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function(tooltipTriggerEl) {
+                new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        });
+    </script>
+
     <?php echo $__env->yieldPushContent('scripts'); ?>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Gestion des clics en dehors des menus
+            document.addEventListener('click', function(event) {
+                const target = event.target;
+                // Si on clique en dehors d'un menu ou sous-menu
+                if (!target.closest('.nav-link') && !target.closest('.collapse')) {
+                    // Fermer tous les sous-menus
+                    document.querySelectorAll('.collapse').forEach(collapse => {
+                        if (collapse.classList.contains('show')) {
+                            bootstrap.Collapse.getInstance(collapse).hide();
+                        }
+                    });
+                }
+            });
+
+            // 2. Gestion des sous-menus
+            document.querySelectorAll('.nav-link[data-bs-toggle="collapse"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Empêcher le comportement par défaut
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('data-bs-target') || this.getAttribute('href');
+                    const targetCollapse = document.querySelector(targetId);
+                    
+                    // Fermer tous les autres sous-menus sauf celui qu'on veut ouvrir
+                    document.querySelectorAll('.collapse.show').forEach(collapse => {
+                        if (collapse !== targetCollapse) {
+                            bootstrap.Collapse.getInstance(collapse).hide();
+                        }
+                    });
+                });
+            });
+            
+            // Gestion des menus déroulants du header (utilisateur, notifications)
+            // Le menu de langue est géré dans son propre fichier
+            
+            // S'assurer que le menu utilisateur fonctionne correctement
+            const userDropdown = document.getElementById('navbarDropdown');
+            if (userDropdown) {
+                const userDropdownInstance = new bootstrap.Dropdown(userDropdown, {
+                    autoClose: true
+                });
+                
+                userDropdown.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    userDropdownInstance.toggle();
+                });
+            }
+            
+            // Gestion du menu de notifications
+            const notificationDropdown = document.getElementById('notificationDropdown');
+            if (notificationDropdown) {
+                const notificationDropdownInstance = new bootstrap.Dropdown(notificationDropdown, {
+                    autoClose: true
+                });
+                
+                notificationDropdown.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    notificationDropdownInstance.toggle();
+                });
+            }
+            
+            // Fermer les autres menus lorsqu'un menu est ouvert
+            document.querySelectorAll('[data-bs-toggle="dropdown"]').forEach(function(dropdownToggle) {
+                dropdownToggle.addEventListener('show.bs.dropdown', function() {
+                    // Fermer tous les autres menus déroulants
+                    document.querySelectorAll('.dropdown-menu.show').forEach(function(openMenu) {
+                        if (!openMenu.previousElementSibling.isSameNode(dropdownToggle)) {
+                            const dropdown = bootstrap.Dropdown.getInstance(openMenu.previousElementSibling);
+                            if (dropdown) {
+                                dropdown.hide();
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // S'assurer que le formulaire de déconnexion fonctionne correctement
+            const logoutForm = document.getElementById('logout-form');
+            if (logoutForm) {
+                logoutForm.addEventListener('submit', function(e) {
+                    console.log('Formulaire de déconnexion soumis');
+                });
+            }
+
+            // Faire disparaître automatiquement les alertes après 5 secondes
+            document.querySelectorAll('.alert').forEach(function(alert) {
+                if (!alert.classList.contains('alert-persistent')) {
+                    setTimeout(function() {
+                        alert.style.transition = 'opacity 0.5s ease-out';
+                        alert.style.opacity = '0';
+                        setTimeout(function() {
+                            alert.remove();
+                        }, 500);
+                    }, 5000);
+                }
+            });
+        });
+    </script>
 </body>
 </html><?php /**PATH R:\Adev\200  -  test\adminlicence\resources\views/admin/layouts/app.blade.php ENDPATH**/ ?>

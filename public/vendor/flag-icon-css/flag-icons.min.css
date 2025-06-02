@@ -1,0 +1,28 @@
+.flag-icon {
+  display: inline-block;
+  width: 1.2em;
+  height: 0.9em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 0.5em;
+  vertical-align: middle;
+  box-shadow: 0 0 1px rgba(0,0,0,0.2);
+  border-radius: 2px;
+}
+
+.flag-icon-ar { background-image: url('/vendor/flag-icon-css/flags/4x3/sa.svg'); } /* Utilisation du drapeau saoudien pour l'arabe */
+.flag-icon-fr { background-image: url('/vendor/flag-icon-css/flags/4x3/fr.svg'); }
+.flag-icon-gb { background-image: url('/vendor/flag-icon-css/flags/4x3/gb.svg'); }
+.flag-icon-es { background-image: url('/vendor/flag-icon-css/flags/4x3/es.svg'); }
+.flag-icon-de { background-image: url('/vendor/flag-icon-css/flags/4x3/de.svg'); }
+.flag-icon-it { background-image: url('/vendor/flag-icon-css/flags/4x3/it.svg'); }
+.flag-icon-pt { background-image: url('/vendor/flag-icon-css/flags/4x3/pt.svg'); }
+.flag-icon-nl { background-image: url('/vendor/flag-icon-css/flags/4x3/nl.svg'); }
+.flag-icon-ru { background-image: url('/vendor/flag-icon-css/flags/4x3/ru.svg'); }
+.flag-icon-cn { background-image: url('/vendor/flag-icon-css/flags/4x3/cn.svg'); }
+.flag-icon-zh { background-image: url('/vendor/flag-icon-css/flags/4x3/cn.svg'); } /* Ajout du drapeau chinois pour ZH */
+.flag-icon-ja { background-image: url('/vendor/flag-icon-css/flags/4x3/jp.svg'); }
+.flag-icon-en { background-image: url('/vendor/flag-icon-css/flags/4x3/en.svg'); }
+.flag-icon-sa { background-image: url('/vendor/flag-icon-css/flags/4x3/sa.svg'); }
+.flag-icon-tr { background-image: url('/vendor/flag-icon-css/flags/4x3/tr.svg'); }

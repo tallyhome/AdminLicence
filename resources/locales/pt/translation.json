@@ -42,7 +42,18 @@
         "of": "de",
         "all": "Todos",
         "used": "Usada",
-        "unused": "Não usada"
+        "unused": "Não usada",
+        "active": "Ativo",
+        "inactive": "Inativo",
+        "suspended": "Suspenso",
+        "revoked": "Revogado",
+        "expired": "Expirado",
+        "pending": "Pendente",
+        "change_password": "Alterar senha",
+        "leave_blank_if_no_change": "Deixe em branco se não quiser alterar a senha",
+        "current_password": "Senha atual",
+        "new_password": "Nova senha",
+        "confirm_password": "Confirmar senha"
     },
     "translations": {
         "title": "Gerenciamento de Traduções",

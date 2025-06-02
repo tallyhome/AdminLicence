@@ -61,7 +61,18 @@
         "manage": "Manage",
         "information": "Information",
         "showing": "显示 :first 到 :last，共 :total 条结果",
-        "of": "的"
+        "of": "的",
+        "active": "活跃",
+        "inactive": "非活跃",
+        "suspended": "已暂停",
+        "revoked": "已撤销",
+        "expired": "已过期",
+        "pending": "待处理",
+        "change_password": "修改密码",
+        "leave_blank_if_no_change": "如果不想更改密码，请留空",
+        "current_password": "当前密码",
+        "new_password": "新密码",
+        "confirm_password": "确认密码"
     },
     "auth": {
         "login": "登录",

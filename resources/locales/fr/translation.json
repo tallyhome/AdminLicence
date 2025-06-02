@@ -191,7 +191,7 @@
             "name_label": "Nom du projet",
             "description_label": "Description",
             "website_url_label": "URL du site",
-            "website_url_placeholder": "https://exemple.com",
+            "website_url_placeholder": "https:\/\/exemple.com",
             "status_label": "Statut",
             "status_active": "Actif",
             "status_inactive": "Inactif",
@@ -203,7 +203,7 @@
             "name_label": "Nom du projet",
             "description_label": "Description",
             "website_url_label": "URL du site",
-            "website_url_placeholder": "https://exemple.com",
+            "website_url_placeholder": "https:\/\/exemple.com",
             "status_label": "Statut",
             "status_active": "Actif",
             "status_inactive": "Inactif",
@@ -789,7 +789,7 @@
         "token_description": "Le token JWT obtenu lors de la vérification de la clé",
         "laravel": "Laravel",
         "javascript": "JavaScript",
-        "flutter": "Flutter/Dart",
+        "flutter": "Flutter\/Dart",
         "laravel_advantages": [
             "Intégration native avec le framework Laravel",
             "Utilisation des fonctionnalités de sécurité de Laravel",
@@ -799,7 +799,7 @@
         "javascript_advantages": [
             "Compatible avec tous les navigateurs modernes",
             "Facile à intégrer dans les applications frontend",
-            "Support des promesses et async/await"
+            "Support des promesses et async\/await"
         ],
         "javascript_use_case": "Applications web frontend, applications Node.js",
         "flutter_advantages": [
@@ -819,7 +819,7 @@
                 "description": "Cette approche utilise le client HTTP de Laravel pour une intégration plus simple et élégante dans les projets Laravel."
             },
             "flutter": {
-                "title": "Flutter/Dart (Applications mobiles)",
+                "title": "Flutter\/Dart (Applications mobiles)",
                 "description": "Cette approche permet d'intégrer le système de licence dans des applications mobiles développées avec Flutter."
             }
         },
@@ -857,7 +857,7 @@
                 "step1": "1. Créez un Service Provider",
                 "step2": "2. Créez un Service de Licence",
                 "step3": "3. Créez un fichier de configuration",
-                "step4": "4. Ajoutez le Service Provider dans config/app.php"
+                "step4": "4. Ajoutez le Service Provider dans config\/app.php"
             },
             "flutter": {
                 "title": "Installation pour Flutter",
@@ -951,7 +951,7 @@
         "updates": "Gestion des mises à jour",
         "updates_desc": "Déployez et contrôlez les mises à jour de vos logiciels.",
         "security": "Sécurité avancée",
-        "security_desc": "Chiffrement, restrictions IP/domaine, logs détaillés.",
+        "security_desc": "Chiffrement, restrictions IP\/domaine, logs détaillés.",
         "integrations": "Intégrations",
         "integrations_desc": "Compatibilité avec PHP, Python, Node, et plus.",
         "support": "Support dédié",
@@ -1073,7 +1073,7 @@
         "no_laravel_logs_found": "Aucun fichier de log Laravel trouvé",
         "image_optimization": "Optimisation des images",
         "current_images_size": "Taille actuelle des images",
-        "images_optimization_description": "Cette opération va optimiser les images dans le dossier public/images/ pour réduire leur taille tout en maintenant une qualité acceptable.",
+        "images_optimization_description": "Cette opération va optimiser les images dans le dossier public\/images\/ pour réduire leur taille tout en maintenant une qualité acceptable.",
         "quality": "Qualité (0-100)",
         "high_compression": "Compression élevée",
         "high_quality": "Haute qualité",
@@ -1138,7 +1138,7 @@
         "super_admin": "Super Admin",
         "admin": "Admin",
         "delete_confirmation": "Confirmation de suppression",
-        "delete_confirm_message": "Êtes-vous sûr de vouloir supprimer l'administrateur <strong>:name</strong> ?",
+        "delete_confirm_message": "Êtes-vous sûr de vouloir supprimer l'administrateur <strong>:name<\/strong> ?",
         "create": {
             "title": "Créer un administrateur",
             "form_title": "Formulaire de création",

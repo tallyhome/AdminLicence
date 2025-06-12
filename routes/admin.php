@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\ClientExampleController;
 use App\Http\Controllers\Admin\TranslationController;
 use App\Http\Controllers\Admin\EmailVariableController;
 use App\Http\Controllers\Admin\LicenseController;
+use App\Http\Controllers\Admin\LicenceModeController;
 use App\Http\Controllers\Admin\OptimizationController;
 use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -64,6 +65,16 @@ Route::middleware(['auth:admin', \App\Http\Middleware\CheckLicenseMiddleware::cl
     // Tableau de bord
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
     
+    // Routes pour le système de licence adaptative (mono-compte vs SaaS)
+    Route::prefix('licence-mode')->name('admin.licence-mode.')->group(function () {
+        Route::get('/', [LicenceModeController::class, 'dashboard'])->name('dashboard');
+        Route::get('/info', [LicenceModeController::class, 'getModeInfo'])->name('info');
+        Route::post('/refresh', [LicenceModeController::class, 'refreshMode'])->name('refresh');
+        Route::post('/simulate', [LicenceModeController::class, 'simulateMode'])->name('simulate');
+        Route::get('/limits', [LicenceModeController::class, 'checkLimits'])->name('limits');
+        Route::get('/recommendations', [LicenceModeController::class, 'getRecommendations'])->name('recommendations');
+    });
+    
     // Informations de version
     Route::get('/version', [VersionController::class, 'index'])->name('admin.version');
 
@@ -90,6 +101,17 @@ Route::middleware(['auth:admin', \App\Http\Middleware\CheckLicenseMiddleware::cl
     // Exemples d'intégration client
     Route::get('/client-example', [ClientExampleController::class, 'index'])->name('admin.client-example');
 
+    // Gestion des tenants (SaaS uniquement)
+    Route::middleware('check.licence.mode:saas')->prefix('tenants')->name('admin.tenants.')->group(function () {
+        Route::get('/', [\App\Http\Controllers\TenantController::class, 'index'])->name('index');
+        Route::middleware('check.limits:tenants')->get('/create', [\App\Http\Controllers\TenantController::class, 'create'])->name('create');
+        Route::middleware('check.limits:tenants')->post('/', [\App\Http\Controllers\TenantController::class, 'store'])->name('store');
+        Route::get('/{tenant}', [\App\Http\Controllers\TenantController::class, 'show'])->name('show');
+        Route::get('/{tenant}/edit', [\App\Http\Controllers\TenantController::class, 'edit'])->name('edit');
+        Route::put('/{tenant}', [\App\Http\Controllers\TenantController::class, 'update'])->name('update');
+        Route::delete('/{tenant}', [\App\Http\Controllers\TenantController::class, 'destroy'])->name('destroy');
+    });
+    
     // Gestion des projets
     Route::resource('projects', ProjectController::class)
         ->names([
@@ -101,6 +123,11 @@ Route::middleware(['auth:admin', \App\Http\Middleware\CheckLicenseMiddleware::cl
             'update' => 'admin.projects.update',
             'destroy' => 'admin.projects.destroy'
         ]);
+    // Routes avec vérification de limites pour la création de projets
+    Route::middleware('check.limits:projects')->group(function () {
+        Route::get('projects/create', [ProjectController::class, 'create'])->name('admin.projects.create');
+        Route::post('projects', [ProjectController::class, 'store'])->name('admin.projects.store');
+    });
     Route::get('projects/{project}/serial-keys', [ProjectController::class, 'serialKeys'])->name('admin.projects.serial-keys');
     Route::get('projects/{project}/api-keys', [ProjectController::class, 'apiKeys'])->name('admin.projects.api-keys');
 
@@ -115,9 +142,14 @@ Route::middleware(['auth:admin', \App\Http\Middleware\CheckLicenseMiddleware::cl
             'update' => 'admin.serial-keys.update',
             'destroy' => 'admin.serial-keys.destroy'
         ]);
-    Route::patch('serial-keys/{serialKey}/revoke', [SerialKeyController::class, 'revoke'])->name('admin.serial-keys.revoke');
-    Route::patch('serial-keys/{serialKey}/suspend', [SerialKeyController::class, 'suspend'])->name('admin.serial-keys.suspend');
-    Route::patch('serial-keys/{serialKey}/reactivate', [SerialKeyController::class, 'reactivate'])->name('admin.serial-keys.reactivate');
+    // Routes avec vérification de limites pour la création de clés
+    Route::middleware('check.limits:serial_keys')->group(function () {
+        Route::get('serial-keys/create', [SerialKeyController::class, 'create'])->name('admin.serial-keys.create');
+        Route::post('serial-keys', [SerialKeyController::class, 'store'])->name('admin.serial-keys.store');
+    });
+    Route::post('serial-keys/{serialKey}/revoke', [SerialKeyController::class, 'revoke'])->name('admin.serial-keys.revoke');
+    Route::post('serial-keys/{serialKey}/suspend', [SerialKeyController::class, 'suspend'])->name('admin.serial-keys.suspend');
+    Route::post('serial-keys/{serialKey}/reactivate', [SerialKeyController::class, 'reactivate'])->name('admin.serial-keys.reactivate');
 
     // Gestion des clés API
     Route::resource('api-keys', ApiKeyController::class)

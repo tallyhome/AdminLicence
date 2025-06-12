@@ -92,9 +92,16 @@ class LocaleMiddleware
         view()->share('currentLocale', App::getLocale());
         view()->share('availableLocales', $availableLocales);
         
-        // Force le chargement des traductions JSON
-        $locale = App::getLocale();
-        $this->translationService->loadJsonTranslations($locale);
+        // Force le chargement des traductions JSON avec gestion d'erreur
+        try {
+            $locale = App::getLocale();
+            if ($this->translationService && method_exists($this->translationService, 'loadJsonTranslations')) {
+                $this->translationService->loadJsonTranslations($locale);
+            }
+        } catch (\Exception $e) {
+            Log::error('Erreur dans LocaleMiddleware lors du chargement des traductions: ' . $e->getMessage());
+            // Continuer sans bloquer la requête
+        }
         
         // Si c'est une requête AJAX, ne pas interférer avec la réponse
         if ($request->ajax()) {

@@ -203,8 +203,8 @@ class LicenceService
             // Initialiser cURL
             $ch = curl_init($apiUrl . $endpoint);
             
-            // Configurer cURL
-            curl_setopt_array($ch, [
+            // Configurer cURL avec vérification SSL conditionnelle selon l'environnement
+            $curlOptions = [
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_POST => true,
                 CURLOPT_POSTFIELDS => json_encode($data),
@@ -214,11 +214,27 @@ class LicenceService
                 ],
                 CURLOPT_TIMEOUT => 30,
                 CURLOPT_CONNECTTIMEOUT => 10,
-                CURLOPT_SSL_VERIFYPEER => false, // Désactiver complètement la vérification SSL
-                CURLOPT_SSL_VERIFYHOST => 0, // Désactiver complètement la vérification SSL
                 CURLOPT_FOLLOWLOCATION => true,
                 CURLOPT_MAXREDIRS => 5
-            ]);
+            ];
+            
+            // Désactiver la vérification SSL uniquement en environnement local/dev
+            if (env('APP_ENV') === 'local' || env('APP_ENV') === 'development') {
+                $curlOptions[CURLOPT_SSL_VERIFYPEER] = false;
+                $curlOptions[CURLOPT_SSL_VERIFYHOST] = 0;
+                Log::info('Vérification SSL désactivée en environnement local/dev');
+            } else {
+                // En production, activer la vérification SSL
+                $curlOptions[CURLOPT_SSL_VERIFYPEER] = true;
+                $curlOptions[CURLOPT_SSL_VERIFYHOST] = 2;
+                
+                // Spécifier un fichier CA si nécessaire
+                if (file_exists(base_path('resources/certs/cacert.pem'))) {
+                    $curlOptions[CURLOPT_CAINFO] = base_path('resources/certs/cacert.pem');
+                }
+            }
+            
+            curl_setopt_array($ch, $curlOptions);
             
             // Exécuter la requête
             $response = curl_exec($ch);

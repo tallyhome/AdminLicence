@@ -19,7 +19,7 @@
     <link href="{{ asset('vendor/flag-icon-css/flag-icons.min.css') }}" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -146,6 +146,15 @@
         <div class="sidebar p-3" style="width: 250px;">
             <div class="mb-4">
                 <h4>{{ config('app.name', 'Laravel') }}</h4>
+                <!-- Badge du mode de licence -->
+                @if(isset($licenceMode))
+                <div class="mt-2">
+                    <span class="badge {{ $licenceMode['badge_class'] }} d-flex align-items-center">
+                        <i class="{{ $licenceMode['icon'] }} me-1"></i>
+                        {{ $licenceMode['display_name'] }}
+                    </span>
+                </div>
+                @endif
             </div>
             <ul class="nav flex-column">
                 <li class="nav-item">
@@ -158,18 +167,39 @@
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('admin.projects.*') ? 'active' : '' }}" href="{{ route('admin.projects.index') }}">
                         <i class="fas fa-project-diagram me-2"></i> {{ t('common.projects') }}
+                        @if(isset($licenceMode['limits']['projects']) && $licenceMode['limits']['projects'] !== 'unlimited')
+                            <small class="text-muted">({{ $licenceMode['limits']['projects'] }} max)</small>
+                        @endif
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('admin.serial-keys.*') ? 'active' : '' }}" href="{{ route('admin.serial-keys.index') }}">
                         <i class="fas fa-key me-2"></i> {{ t('common.serial_keys') }}
+                        @if(isset($licenceMode['limits']['serial_keys']) && $licenceMode['limits']['serial_keys'] !== 'unlimited')
+                            <small class="text-muted">({{ $licenceMode['limits']['serial_keys'] }} max)</small>
+                        @endif
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->routeIs('admin.api-keys.*') ? 'active' : '' }}" href="{{ route('admin.api-keys.index') }}">
                         <i class="fas fa-code me-2"></i> {{ t('common.api_keys') }}
+                        @if(isset($licenceMode['limits']['api_keys']) && $licenceMode['limits']['api_keys'] !== 'unlimited')
+                            <small class="text-muted">({{ $licenceMode['limits']['api_keys'] }} max)</small>
+                        @endif
                     </a>
                 </li>
+
+                <!-- Gestion des tenants (SaaS uniquement) -->
+                @if(isset($licenceMode) && $licenceMode['is_saas'])
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('admin.tenants.*') ? 'active' : '' }}" href="{{ route('admin.tenants.index') }}">
+                        <i class="fas fa-users me-2"></i> Tenants
+                        @if(isset($licenceMode['limits']['tenants']) && $licenceMode['limits']['tenants'] !== 'unlimited')
+                            <small class="text-muted">({{ $licenceMode['limits']['tenants'] }} max)</small>
+                        @endif
+                    </a>
+                </li>
+                @endif
 
                 <!-- Gestion des emails -->
                 <li class="nav-item">
@@ -406,11 +436,13 @@
                             e.stopPropagation();
                             
                             // Utiliser l'API Bootstrap pour basculer l'état du collapse
-                            var collapseInstance = bootstrap.Collapse.getInstance(targetEl);
-                            if (collapseInstance) {
-                                collapseInstance.toggle();
-                            } else {
-                                new bootstrap.Collapse(targetEl);
+                            if (targetEl) {
+                                var collapseInstance = bootstrap.Collapse.getInstance(targetEl);
+                                if (collapseInstance) {
+                                    collapseInstance.toggle();
+                                } else {
+                                    new bootstrap.Collapse(targetEl);
+                                }
                             }
                         }
                         
@@ -462,7 +494,10 @@
                     // Fermer tous les sous-menus
                     document.querySelectorAll('.collapse').forEach(collapse => {
                         if (collapse.classList.contains('show')) {
-                            bootstrap.Collapse.getInstance(collapse).hide();
+                            const collapseInstance = bootstrap.Collapse.getInstance(collapse);
+                            if (collapseInstance) {
+                                collapseInstance.hide();
+                            }
                         }
                     });
                 }
@@ -480,7 +515,10 @@
                     // Fermer tous les autres sous-menus sauf celui qu'on veut ouvrir
                     document.querySelectorAll('.collapse.show').forEach(collapse => {
                         if (collapse !== targetCollapse) {
-                            bootstrap.Collapse.getInstance(collapse).hide();
+                            const collapseInstance = bootstrap.Collapse.getInstance(collapse);
+                            if (collapseInstance) {
+                                collapseInstance.hide();
+                            }
                         }
                     });
                 });

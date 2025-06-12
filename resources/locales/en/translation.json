@@ -295,7 +295,14 @@
         "delete_success": "License key deleted successfully",
         "suspend_success": "License key suspended successfully",
         "revoke_success": "License key revoked successfully",
-        "reactivate_success": "License key reactivated successfully"
+        "reactivate_success": "License key reactivated successfully",
+        "licence_type": "License Type",
+        "max_accounts": "Maximum Accounts",
+        "single_account_licence": "Single Account License",
+        "multi_account_licence": "Multi Account License",
+        "cannot_switch_to_single_account": "Cannot switch to single account licence because multiple accounts are active (:count).",
+        "choose_multi_account_licence": "Choose the multi-account licence to associate with this subscription.",
+        "no_multi_account_licence_available": "You have no multi-account licence available. Please contact the administrator."
     },
     "api": {
         "title": "API Documentation",

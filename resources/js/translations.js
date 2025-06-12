@@ -6,10 +6,59 @@ window.translations = {};
 // Fonction pour charger les traductions depuis le serveur
 async function loadTranslations(locale) {
     try {
-        // Récupérer les traductions de la langue actuelle
-        const response = await fetch(`/api/translations?locale=${locale}`);
-        if (!response.ok) {
-            throw new Error(`Erreur HTTP: ${response.status}`);
+        // Vérifier d'abord si nous avons des traductions statiques disponibles
+        if (window.staticTranslations && window.staticTranslations[locale]) {
+            console.log(`Utilisation des traductions statiques pour: ${locale}`);
+            window.translations = window.staticTranslations[locale];
+            translatePage();
+            return;
+        }
+        
+        // Si pas de traductions statiques, essayer les routes dynamiques
+        const routes = [
+            `/web-translations?locale=${locale}`,     // Route web standard (utilise TranslationController) - FONCTIONNE
+            `/api/translations.php?locale=${locale}`, // Route API directe PHP - FONCTIONNE
+            `/test-direct-translations.php?locale=${locale}`, // Route de test directe - FONCTIONNE
+            `/direct-translations?locale=${locale}`,  // Route alternative (utilise TranslationController)
+            `/translations.php`,                      // Point d'entrée direct PHP (fallback)
+        ];
+        
+        let response = null;
+        let success = false;
+        
+        // Essayer chaque route jusqu'à ce qu'une fonctionne
+        for (const route of routes) {
+            try {
+                console.log(`Tentative de chargement des traductions depuis: ${route}`);
+                response = await fetch(route);
+                
+                if (response.ok) {
+                    console.log(`Succès avec la route: ${route}`);
+                    success = true;
+                    break;
+                } else {
+                    console.log(`Échec avec la route: ${route} (${response.status})`);
+                }
+            } catch (routeError) {
+                console.log(`Erreur avec la route: ${route}`, routeError);
+            }
+        }
+        
+        if (!success) {
+            console.error(`Toutes les routes de traduction ont échoué, utilisation des traductions par défaut`);
+            // Utiliser des traductions par défaut minimales en cas d'échec total
+            window.translations = {
+                common: {
+                    add: "Add",
+                    dashboard: "Dashboard",
+                    save: "Save",
+                    cancel: "Cancel",
+                    delete: "Delete",
+                    edit: "Edit"
+                }
+            };
+            translatePage();
+            return;
         }
         
         const data = await response.json();

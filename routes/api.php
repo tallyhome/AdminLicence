@@ -16,6 +16,15 @@ use App\Http\Controllers\Api\TranslationApiController;
 |
 */
 
+// Route de base de l'API
+Route::get('/', function () {
+    return response()->json(['message' => 'API AdminLicence']);
+});
+
+// Route de traductions accessible sans middleware
+Route::get('/translations', [\App\Http\Controllers\Api\TranslationApiController::class, 'getTranslations'])->name('api.translations');
+
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -24,10 +33,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware('api.ratelimit:20,1')->get('/test', [LicenceApiController::class, 'test']);
 
 // Routes pour la validation des licences - Version directe (pour compatibilité)
-Route::middleware('api.ratelimit:10,1')->post('/check-serial', [LicenceApiController::class, 'checkSerial']);
-
-// Route pour récupérer les traductions (avec rate limiting)
-Route::middleware('api.ratelimit:30,1')->get('/translations', [TranslationApiController::class, 'getTranslations']);
+Route::middleware('license.ratelimit:5,1')->post('/check-serial', [LicenceApiController::class, 'checkSerial']);
 
 // Routes pour la validation des licences - Version avec préfixe v1
 Route::prefix('v1')->middleware('licence-api')->group(function () {

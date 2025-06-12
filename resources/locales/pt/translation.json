@@ -228,7 +228,14 @@
         "suspend_success": "Chave de licença suspensa com sucesso",
         "revoke_success": "Chave de licença revogada com sucesso",
         "reactivate_success": "Chave de licença reativada com sucesso",
-        "search_by_key": "Pesquisa por chave"
+        "search_by_key": "Pesquisa por chave",
+        "licence_type": "Tipo de licença",
+        "max_accounts": "Número máximo de contas",
+        "single_account_licence": "Licença de conta única",
+        "multi_account_licence": "Licença de múltiplas contas",
+        "cannot_switch_to_single_account": "Não é possível mudar para licença de conta única porque múltiplas contas estão ativas (:count).",
+        "choose_multi_account_licence": "Escolha a licença de múltiplas contas para associar a esta assinatura.",
+        "no_multi_account_licence_available": "Você não tem nenhuma licença de múltiplas contas disponível. Entre em contato com o administrador."
     },
     "api": {
         "title": "Documentação da API",

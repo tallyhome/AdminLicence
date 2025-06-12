@@ -12,6 +12,7 @@
     "version": "2.0.0",
     "require": {
         "php": "^8.2",
+        "bacon/bacon-qr-code": "^3.0",
         "erusev/parsedown": "^1.7",
         "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.0",
@@ -19,8 +20,10 @@
         "laravel/ui": "^4.3",
         "pragmarx/google2fa": "^8.0",
         "pragmarx/google2fa-laravel": "^2.0",
+        "pusher/pusher-php-server": "^7.2",
         "spatie/laravel-ignition": "^2.0",
-        "bacon/bacon-qr-code": "^3.0"
+        "srmklive/paypal": "^3.0",
+        "stripe/stripe-php": "10.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23.0",

@@ -87,7 +87,14 @@
       "title": "新規シリアルキーの作成",
       "success": "シリアルキーが作成されました"
     },
-    "search_by_key": "キーで検索"
+    "search_by_key": "キーで検索",
+    "licence_type": "ライセンスタイプ",
+    "max_accounts": "最大アカウント数",
+    "single_account_licence": "シングルアカウントライセンス",
+        "multi_account_licence": "マルチアカウントライセンス",
+        "cannot_switch_to_single_account": "複数のアカウントがアクティブなため、シングルアカウントライセンスに切り替えることができません (:count)。",
+        "choose_multi_account_licence": "このサブスクリプションに関連付けるマルチアカウントライセンスを選択してください。",
+        "no_multi_account_licence_available": "利用可能なマルチアカウントライセンスがありません。管理者にお問い合わせください。"
   },
   "projects": {
     "title": "プロジェクト",

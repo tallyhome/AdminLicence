@@ -264,7 +264,14 @@
         "suspend_success": "许可证密钥暂停成功",
         "revoke_success": "许可证密钥吊销成功",
         "reactivate_success": "许可证密钥重新激活成功",
-        "search_by_key": "按键搜索"
+        "search_by_key": "按键搜索",
+        "licence_type": "许可证类型",
+        "max_accounts": "最大账户数",
+        "single_account_licence": "单账户许可证",
+        "multi_account_licence": "多账户许可证",
+        "cannot_switch_to_single_account": "无法切换到单账户许可证，因为有多个账户处于活动状态 (:count)。",
+        "choose_multi_account_licence": "选择要与此订阅关联的多账户许可证。",
+        "no_multi_account_licence_available": "您没有可用的多账户许可证。请联系管理员。"
     },
     "api": {
         "title": "API文档",

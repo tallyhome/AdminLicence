@@ -81,6 +81,34 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Type de licence -->
+                        <div class="mb-3">
+                            <label for="licence_type" class="form-label">{{ t('serial_keys.licence_type') }}</label>
+                            <select id="licence_type" name="licence_type" class="form-select @error('licence_type') is-invalid @enderror" required>
+                                @foreach($licenceTypes as $value => $label)
+                                    <option value="{{ $value }}" {{ old('licence_type', 'single') === $value ? 'selected' : '' }}>{{ $label }}</option>
+                                @endforeach
+                            </select>
+                            @error('licence_type')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <!-- Nombre maximum de comptes (pour licence multi) -->
+                        <div class="mb-3" id="max_accounts_field" style="{{ old('licence_type', 'single') === 'multi' ? '' : 'display: none;' }}">
+                            <label for="max_accounts" class="form-label">{{ t('serial_keys.max_accounts') }}</label>
+                            <input type="number" class="form-control @error('max_accounts') is-invalid @enderror" id="max_accounts" name="max_accounts" value="{{ old('max_accounts') }}" min="1" max="1000">
+                            @error('max_accounts')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+
                 <div class="text-end">
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-save"></i> {{ t('serial_keys.create_keys') }}
@@ -90,4 +118,26 @@
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const licenceTypeSelect = document.getElementById('licence_type');
+    const maxAccountsField = document.getElementById('max_accounts_field');
+    const maxAccountsInput = document.getElementById('max_accounts');
+    
+    function toggleMaxAccountsField() {
+        if (licenceTypeSelect.value === 'multi') {
+            maxAccountsField.style.display = '';
+            maxAccountsInput.required = true;
+        } else {
+            maxAccountsField.style.display = 'none';
+            maxAccountsInput.required = false;
+            maxAccountsInput.value = '';
+        }
+    }
+    
+    licenceTypeSelect.addEventListener('change', toggleMaxAccountsField);
+    toggleMaxAccountsField(); // Initialiser l'état au chargement
+});
+</script>
 @endsection

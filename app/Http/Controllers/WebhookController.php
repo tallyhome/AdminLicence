@@ -6,7 +6,8 @@ use App\Models\Subscription;
 use App\Models\Invoice;
 use App\Events\NewPayment;
 use App\Services\StripeService;
-use App\Services\PayPalService;
+use App\Services\PaypalService;
+use App\Services\BillingService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
@@ -15,11 +16,110 @@ class WebhookController extends Controller
 {
     protected $stripeService;
     protected $paypalService;
+    protected $billingService;
 
-    public function __construct(StripeService $stripeService, PayPalService $paypalService)
-    {
+    public function __construct(
+        StripeService $stripeService, 
+        PaypalService $paypalService,
+        BillingService $billingService
+    ) {
         $this->stripeService = $stripeService;
         $this->paypalService = $paypalService;
+        $this->billingService = $billingService;
+    }
+
+    /**
+     * Gérer les webhooks Stripe (alias pour compatibilité avec les routes)
+     */
+    public function stripe(Request $request): Response
+    {
+        return $this->handleStripeWebhook($request);
+    }
+
+    /**
+     * Gérer les webhooks PayPal (alias pour compatibilité avec les routes)
+     */
+    public function paypal(Request $request): Response
+    {
+        return $this->handlePayPalWebhook($request);
+    }
+
+    /**
+     * Gérer les IPN PayPal
+     */
+    public function paypalIpn(Request $request): Response
+    {
+        // Les IPN PayPal utilisent un format différent
+        try {
+            $data = $request->all();
+            Log::info('PayPal IPN reçu', $data);
+            
+            // Vérifier l'IPN avec PayPal
+            if ($this->paypalService->verifyIpn($data)) {
+                // Traiter l'IPN selon le type de transaction
+                if (isset($data['txn_type'])) {
+                    switch ($data['txn_type']) {
+                        case 'subscr_payment':
+                            return $this->handleSuccessfulPayment($data, 'paypal');
+                        case 'subscr_cancel':
+                        case 'subscr_eot':
+                            return $this->handleSubscriptionCanceled($data, 'paypal');
+                        case 'subscr_modify':
+                            return $this->handleSubscriptionUpdated($data, 'paypal');
+                    }
+                }
+            }
+            
+            return response('IPN traité', 200);
+        } catch (\Exception $e) {
+            Log::error('Erreur IPN PayPal: ' . $e->getMessage());
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Page de succès PayPal
+     */
+    public function paypalSuccess(Request $request)
+    {
+        $token = $request->get('token');
+        $payerId = $request->get('PayerID');
+        
+        Log::info('Retour PayPal succès', ['token' => $token, 'payer_id' => $payerId]);
+        
+        return redirect()->route('admin.billing.index')
+            ->with('success', 'Paiement PayPal traité avec succès');
+    }
+
+    /**
+     * Page d\'annulation PayPal
+     */
+    public function paypalCancel(Request $request)
+    {
+        $token = $request->get('token');
+        
+        Log::info('Retour PayPal annulation', ['token' => $token]);
+        
+        return redirect()->route('admin.billing.index')
+            ->with('warning', 'Paiement PayPal annulé');
+    }
+
+    /**
+     * Endpoint de test pour les webhooks
+     */
+    public function test(Request $request)
+    {
+        Log::info('Test webhook reçu', [
+            'method' => $request->method(),
+            'headers' => $request->headers->all(),
+            'body' => $request->getContent()
+        ]);
+        
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Test webhook reçu',
+            'timestamp' => now()->toISOString()
+        ]);
     }
 
     /**

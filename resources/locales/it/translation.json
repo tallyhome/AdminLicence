@@ -284,7 +284,14 @@
         "suspend_success": "Chiave di licenza sospesa con successo",
         "revoke_success": "Chiave di licenza revocata con successo",
         "reactivate_success": "Chiave di licenza riattivata con successo",
-        "search_by_key": "Ricerca per chiave"
+        "search_by_key": "Ricerca per chiave",
+        "licence_type": "Tipo di licenza",
+        "max_accounts": "Numero massimo di account",
+        "single_account_licence": "Licenza mono-account",
+        "multi_account_licence": "Licenza multi-account",
+        "cannot_switch_to_single_account": "Impossibile passare alla licenza mono-account perché più account sono attivi (:count).",
+        "choose_multi_account_licence": "Scegli la licenza multi-account da associare a questo abbonamento.",
+        "no_multi_account_licence_available": "Non hai nessuna licenza multi-account disponibile. Contatta l'amministratore."
     },
     "api": {
         "title": "Documentazione API",

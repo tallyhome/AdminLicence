@@ -37,6 +37,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\RedirectIfNotInstalled::class,
+            \App\Http\Middleware\InjectLicenceModeToViews::class,
         ],
 
         'frontend' => [
@@ -83,8 +84,14 @@ class Kernel extends HttpKernel
         'locale' => \App\Http\Middleware\LocaleMiddleware::class,
         'check.license' => \App\Http\Middleware\CheckLicenseMiddleware::class,
         'api.ratelimit' => \App\Http\Middleware\ApiRateLimiter::class,
+        'license.ratelimit' => \App\Http\Middleware\LicenseVerificationRateLimiter::class,
         'jwt.auth' => \App\Http\Middleware\JwtAuthenticate::class,
         'security.headers' => \App\Http\Middleware\SecurityHeaders::class,
         'force.https' => \App\Http\Middleware\ForceHttps::class,
+        'tenant' => \App\Http\Middleware\TenantMiddleware::class,
+        'licence.mode' => \App\Http\Middleware\LicenceModeMiddleware::class,
+        'check.licence.mode' => \App\Http\Middleware\CheckLicenceMode::class,
+        'check.limits' => \App\Http\Middleware\CheckLimits::class,
+        'inject.licence.mode' => \App\Http\Middleware\InjectLicenceModeToViews::class,
     ];
 }

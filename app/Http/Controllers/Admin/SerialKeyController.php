@@ -39,8 +39,13 @@ class SerialKeyController extends Controller
         $statusFilter = $request->input('status');
         $usedFilter = $request->input('used');
         
-        // Construire la requête
-        $query = SerialKey::with(['project']);
+        // Construire la requête avec eager loading optimisé
+        $query = SerialKey::with([
+            'project', 
+            'history' => function($query) {
+                $query->latest()->limit(3); // Charger uniquement les 3 derniers événements d'historique
+            }
+        ]);
         
         // Appliquer les filtres
         if ($projectFilter) {
@@ -90,8 +95,10 @@ class SerialKeyController extends Controller
         // Récupérer les résultats
         $serialKeys = $query->latest()->paginate($validPerPage)->appends(request()->query());
         
-        // Récupérer la liste des projets pour le filtre
-        $projects = Project::all();
+        // Récupérer la liste des projets pour le filtre avec mise en cache (5 minutes)
+        $projects = cache()->remember('projects_list', 300, function() {
+            return Project::select('id', 'name', 'description')->orderBy('name')->get();
+        });
         
         // Liste des statuts pour le filtre
         $statuses = [
@@ -110,8 +117,18 @@ class SerialKeyController extends Controller
      */
     public function create()
     {
-        $projects = Project::all();
-        return view('admin.serial-keys.create', compact('projects'));
+        // Récupérer la liste des projets avec mise en cache
+        $projects = cache()->remember('projects_list', 300, function() {
+            return Project::select('id', 'name', 'description')->orderBy('name')->get();
+        });
+        
+        // Types de licence disponibles
+        $licenceTypes = [
+            SerialKey::LICENCE_TYPE_SINGLE => t('serial_keys.single_account_licence'),
+            SerialKey::LICENCE_TYPE_MULTI => t('serial_keys.multi_account_licence')
+        ];
+        
+        return view('admin.serial-keys.create', compact('projects', 'licenceTypes'));
     }
 
     /**
@@ -125,6 +142,8 @@ class SerialKeyController extends Controller
             'domain' => 'nullable|string|max:255',
             'ip_address' => 'nullable|ip',
             'expires_at' => 'nullable|date|after:today',
+            'licence_type' => 'required|in:' . SerialKey::LICENCE_TYPE_SINGLE . ',' . SerialKey::LICENCE_TYPE_MULTI,
+            'max_accounts' => 'nullable|required_if:licence_type,' . SerialKey::LICENCE_TYPE_MULTI . '|integer|min:1|max:1000',
         ]);
 
         $project = Project::findOrFail($validated['project_id']);
@@ -139,6 +158,8 @@ class SerialKeyController extends Controller
                     'ip_address' => $validated['ip_address'],
                     'expires_at' => $validated['expires_at'],
                     'status' => 'active',
+                    'licence_type' => $validated['licence_type'],
+                    'max_accounts' => $validated['licence_type'] === SerialKey::LICENCE_TYPE_MULTI ? $validated['max_accounts'] : null,
                 ]);
 
                 $key->save();
@@ -171,8 +192,18 @@ class SerialKeyController extends Controller
      */
     public function edit(SerialKey $serialKey)
     {
-        $projects = Project::all();
-        return view('admin.serial-keys.edit', compact('serialKey', 'projects'));
+        // Récupérer la liste des projets avec mise en cache
+        $projects = cache()->remember('projects_list', 300, function() {
+            return Project::select('id', 'name', 'description')->orderBy('name')->get();
+        });
+        
+        // Types de licence disponibles
+        $licenceTypes = [
+            SerialKey::LICENCE_TYPE_SINGLE => t('serial_keys.single_account_licence'),
+            SerialKey::LICENCE_TYPE_MULTI => t('serial_keys.multi_account_licence')
+        ];
+        
+        return view('admin.serial-keys.edit', compact('serialKey', 'projects', 'licenceTypes'));
     }
 
     /**
@@ -186,7 +217,20 @@ class SerialKeyController extends Controller
             'domain' => 'nullable|string|max:255',
             'ip_address' => 'nullable|ip',
             'expires_at' => 'nullable|date|after:today',
+            'licence_type' => 'required|in:' . SerialKey::LICENCE_TYPE_SINGLE . ',' . SerialKey::LICENCE_TYPE_MULTI,
+            'max_accounts' => 'nullable|required_if:licence_type,' . SerialKey::LICENCE_TYPE_MULTI . '|integer|min:1|max:1000',
         ]);
+        
+        // Vérifier si on peut changer le type de licence
+        if ($serialKey->licence_type !== $validated['licence_type']) {
+            // Si on passe de multi à single, vérifier qu'il n'y a pas plusieurs tenants actifs
+            if ($validated['licence_type'] === SerialKey::LICENCE_TYPE_SINGLE && $serialKey->activeTenantsCount() > 1) {
+                return redirect()
+                    ->back()
+                    ->withInput()
+                    ->with('error', t('serial_keys.cannot_switch_to_single_account', ['count' => $serialKey->activeTenantsCount()]));
+            }
+        }
 
         $oldStatus = $serialKey->status;
         $serialKey->update($validated);
@@ -227,23 +271,47 @@ class SerialKeyController extends Controller
      */
     public function revoke(SerialKey $serialKey)
     {
-        if ($serialKey->status === 'active') {
-            $serialKey->update(['status' => 'revoked']);
-
-            $this->historyService->logAction(
-                $serialKey,
-                'revoke',
-                'Révocation de la clé de licence'
-            );
-
-            return redirect()
-                ->route('admin.serial-keys.show', $serialKey)
-                ->with('success', 'Clé de licence révoquée avec succès.');
+        // Débogage - Enregistrer l'ID et le statut avant modification
+        \Log::info('Tentative de révocation de la clé #' . $serialKey->id . ' avec statut actuel: ' . $serialKey->status);
+        
+        if ($serialKey->status === 'active' || $serialKey->status === 'suspended') {
+            try {
+                // Utiliser DB::transaction pour s'assurer que la modification est bien enregistrée
+                DB::transaction(function() use ($serialKey) {
+                    // Modification directe via requête SQL pour éviter tout problème de cache ou de modèle
+                    DB::table('serial_keys')
+                        ->where('id', $serialKey->id)
+                        ->update(['status' => 'revoked']);
+                    
+                    // Forcer le rechargement du modèle depuis la base de données
+                    $serialKey->refresh();
+                    
+                    // Vérifier que le statut a bien été mis à jour
+                    \Log::info('Après mise à jour, statut de la clé #' . $serialKey->id . ': ' . $serialKey->status);
+                });
+                
+                // Enregistrer l'action dans l'historique
+                $this->historyService->logAction(
+                    $serialKey,
+                    'revoke',
+                    'Révocation de la clé de licence'
+                );
+                
+                return redirect()
+                    ->route('admin.serial-keys.show', $serialKey)
+                    ->with('success', 'Clé de licence révoquée avec succès. Nouveau statut: ' . $serialKey->status);
+            } catch (\Exception $e) {
+                \Log::error('Erreur lors de la révocation de la clé #' . $serialKey->id . ': ' . $e->getMessage());
+                
+                return redirect()
+                    ->route('admin.serial-keys.show', $serialKey)
+                    ->with('error', 'Erreur lors de la révocation de la clé: ' . $e->getMessage());
+            }
         }
 
         return redirect()
             ->route('admin.serial-keys.show', $serialKey)
-            ->with('error', 'Impossible de révoquer une clé non active.');
+            ->with('error', 'Impossible de révoquer une clé non active ou suspendue. Statut actuel: ' . $serialKey->status);
     }
 
     /**
@@ -251,23 +319,47 @@ class SerialKeyController extends Controller
      */
     public function suspend(SerialKey $serialKey)
     {
+        // Débogage - Enregistrer l'ID et le statut avant modification
+        \Log::info('Tentative de suspension de la clé #' . $serialKey->id . ' avec statut actuel: ' . $serialKey->status);
+        
         if ($serialKey->status === 'active') {
-            $serialKey->update(['status' => 'suspended']);
-
-            $this->historyService->logAction(
-                $serialKey,
-                'suspend',
-                'Suspension de la clé de licence'
-            );
-
-            return redirect()
-                ->route('admin.serial-keys.show', $serialKey)
-                ->with('success', 'Clé de licence suspendue avec succès.');
+            try {
+                // Utiliser DB::transaction pour s'assurer que la modification est bien enregistrée
+                DB::transaction(function() use ($serialKey) {
+                    // Modification directe via requête SQL pour éviter tout problème de cache ou de modèle
+                    DB::table('serial_keys')
+                        ->where('id', $serialKey->id)
+                        ->update(['status' => 'suspended']);
+                    
+                    // Forcer le rechargement du modèle depuis la base de données
+                    $serialKey->refresh();
+                    
+                    // Vérifier que le statut a bien été mis à jour
+                    \Log::info('Après mise à jour, statut de la clé #' . $serialKey->id . ': ' . $serialKey->status);
+                });
+                
+                // Enregistrer l'action dans l'historique
+                $this->historyService->logAction(
+                    $serialKey,
+                    'suspend',
+                    'Suspension de la clé de licence'
+                );
+                
+                return redirect()
+                    ->route('admin.serial-keys.show', $serialKey)
+                    ->with('success', 'Clé de licence suspendue avec succès. Nouveau statut: ' . $serialKey->status);
+            } catch (\Exception $e) {
+                \Log::error('Erreur lors de la suspension de la clé #' . $serialKey->id . ': ' . $e->getMessage());
+                
+                return redirect()
+                    ->route('admin.serial-keys.show', $serialKey)
+                    ->with('error', 'Erreur lors de la suspension de la clé: ' . $e->getMessage());
+            }
         }
 
         return redirect()
             ->route('admin.serial-keys.show', $serialKey)
-            ->with('error', 'Impossible de suspendre une clé non active.');
+            ->with('error', 'Impossible de suspendre une clé non active. Statut actuel: ' . $serialKey->status);
     }
 
     /**
@@ -275,22 +367,46 @@ class SerialKeyController extends Controller
      */
     public function reactivate(SerialKey $serialKey)
     {
+        // Débogage - Enregistrer l'ID et le statut avant modification
+        \Log::info('Tentative de réactivation de la clé #' . $serialKey->id . ' avec statut actuel: ' . $serialKey->status);
+        
         if ($serialKey->status === 'suspended') {
-            $serialKey->update(['status' => 'active']);
-
-            $this->historyService->logAction(
-                $serialKey,
-                'reactivate',
-                'Réactivation de la clé de licence'
-            );
-
-            return redirect()
-                ->route('admin.serial-keys.show', $serialKey)
-                ->with('success', 'Clé de licence réactivée avec succès.');
+            try {
+                // Utiliser DB::transaction pour s'assurer que la modification est bien enregistrée
+                DB::transaction(function() use ($serialKey) {
+                    // Modification directe via requête SQL pour éviter tout problème de cache ou de modèle
+                    DB::table('serial_keys')
+                        ->where('id', $serialKey->id)
+                        ->update(['status' => 'active']);
+                    
+                    // Forcer le rechargement du modèle depuis la base de données
+                    $serialKey->refresh();
+                    
+                    // Vérifier que le statut a bien été mis à jour
+                    \Log::info('Après mise à jour, statut de la clé #' . $serialKey->id . ': ' . $serialKey->status);
+                });
+                
+                // Enregistrer l'action dans l'historique
+                $this->historyService->logAction(
+                    $serialKey,
+                    'reactivate',
+                    'Réactivation de la clé de licence'
+                );
+                
+                return redirect()
+                    ->route('admin.serial-keys.show', $serialKey)
+                    ->with('success', 'Clé de licence réactivée avec succès. Nouveau statut: ' . $serialKey->status);
+            } catch (\Exception $e) {
+                \Log::error('Erreur lors de la réactivation de la clé #' . $serialKey->id . ': ' . $e->getMessage());
+                
+                return redirect()
+                    ->route('admin.serial-keys.show', $serialKey)
+                    ->with('error', 'Erreur lors de la réactivation de la clé: ' . $e->getMessage());
+            }
         }
 
         return redirect()
             ->route('admin.serial-keys.show', $serialKey)
-            ->with('error', 'Impossible de réactiver une clé non suspendue.');
+            ->with('error', 'Impossible de réactiver une clé non suspendue. Statut actuel: ' . $serialKey->status);
     }
 }

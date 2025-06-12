@@ -251,7 +251,14 @@
         "suspend_success": "Licentiesleutel succesvol opgeschort",
         "revoke_success": "Licentiesleutel succesvol ingetrokken",
         "reactivate_success": "Licentiesleutel succesvol geheractiveerd",
-        "search_by_key": "Zoeken op sleutel"
+        "search_by_key": "Zoeken op sleutel",
+        "licence_type": "Licentietype",
+        "max_accounts": "Maximum aantal accounts",
+        "single_account_licence": "Enkele account licentie",
+        "multi_account_licence": "Meerdere accounts licentie",
+        "cannot_switch_to_single_account": "Kan niet overschakelen naar enkele account licentie omdat meerdere accounts actief zijn (:count).",
+        "choose_multi_account_licence": "Kies de meerdere accounts licentie om te koppelen aan dit abonnement.",
+        "no_multi_account_licence_available": "U heeft geen meerdere accounts licentie beschikbaar. Neem contact op met de beheerder."
     },
     "api": {
         "title": "API-documentatie",

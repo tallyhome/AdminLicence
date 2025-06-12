@@ -172,6 +172,7 @@ return [
         \App\Providers\TranslationServiceProvider::class,
         \App\Providers\AssetServiceProvider::class,
         \App\Providers\LoggingServiceProvider::class,
+        \App\Providers\LicenceModeServiceProvider::class,
 
         /*
          * Laravel Framework Service Providers...

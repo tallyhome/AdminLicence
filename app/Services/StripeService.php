@@ -22,7 +22,10 @@ class StripeService
      */
     public function __construct(WebSocketService $webSocketService)
     {
-        $this->stripe = new StripeClient(config('services.stripe.secret'));
+        // Initialiser Stripe seulement si la classe existe
+        if (class_exists('\Stripe\StripeClient')) {
+            $this->stripe = new StripeClient(config('services.stripe.secret'));
+        }
         $this->webSocketService = $webSocketService;
     }
     

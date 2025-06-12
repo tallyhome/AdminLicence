@@ -87,7 +87,14 @@
       "title": "إنشاء مفتاح تسلسلي جديد",
       "success": "تم إنشاء المفتاح التسلسلي بنجاح"
     },
-    "search_by_key": "البحث بواسطة المفتاح"
+    "search_by_key": "البحث بواسطة المفتاح",
+    "licence_type": "نوع الترخيص",
+    "max_accounts": "الحد الأقصى للحسابات",
+    "single_account_licence": "ترخيص حساب واحد",
+        "multi_account_licence": "ترخيص متعدد الحسابات",
+        "cannot_switch_to_single_account": "لا يمكن التبديل إلى ترخيص حساب واحد لأن عدة حسابات نشطة (:count).",
+        "choose_multi_account_licence": "اختر ترخيص متعدد الحسابات لربطه بهذا الاشتراك.",
+        "no_multi_account_licence_available": "ليس لديك ترخيص متعدد الحسابات متاح. يرجى الاتصال بالمدير."
   },
   "projects": {
     "title": "المشاريع",

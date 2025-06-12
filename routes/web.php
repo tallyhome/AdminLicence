@@ -9,10 +9,13 @@ use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\LanguageSwitchController;
+use App\Http\Controllers\TenantController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\BillingController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +42,10 @@ use Illuminate\Support\Facades\Cookie;
 // NOTE: Les routes frontend principales ont été déplacées dans le fichier frontend.php
 // Ce fichier ne contient plus que les routes qui ne sont pas directement liées au frontend
 
+// Routes de traduction sans middleware pour éviter les conflits
+Route::get('/web-translations', [\App\Http\Controllers\TranslationController::class, 'getTranslations'])->name('web.translations');
+Route::get('/direct-translations', [\App\Http\Controllers\TranslationController::class, 'getTranslations'])->name('direct.translations');
+
 Route::middleware(['web', 'locale'])->group(function () {
 
     // Route pour l'installation
@@ -57,6 +64,37 @@ Route::middleware(['web', 'locale'])->group(function () {
     Route::get('/documentation', [DocumentationController::class, 'index'])->name('documentation.index');
     Route::get('/documentation/api', [DocumentationController::class, 'apiIntegration'])->name('documentation.api');
 
+    // Routes pour la gestion des tenants
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/tenant/select', [TenantController::class, 'select'])->name('tenant.select');
+        Route::get('/tenant/switch/{tenant}', [TenantController::class, 'switch'])->name('tenant.switch');
+        Route::get('/tenant/create', [TenantController::class, 'create'])->name('tenant.create');
+        Route::post('/tenant', [TenantController::class, 'store'])->name('tenant.store');
+        
+        // Routes pour la facturation (accessibles sans tenant actif)
+        Route::get('/billing/plans', [BillingController::class, 'plans'])->name('billing.plans');
+        Route::get('/billing/checkout/{planId}', [BillingController::class, 'checkout'])->name('billing.checkout');
+        Route::post('/billing/process-payment', [BillingController::class, 'processPayment'])->name('billing.process-payment');
+    });
+    
+    // Routes protégées par le middleware tenant
+    Route::middleware(['auth', 'tenant'])->group(function () {
+        // Dashboard et routes principales nécessitant un contexte tenant
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        
+        // Routes pour la facturation protégées par le middleware tenant
+        Route::prefix('billing')->name('billing.')->group(function () {
+            Route::get('/invoices', [BillingController::class, 'invoices'])->name('invoices');
+            Route::get('/invoice/{id}', [BillingController::class, 'showInvoice'])->name('invoice');
+            Route::get('/invoice/{id}/download', [BillingController::class, 'downloadInvoice'])->name('download-invoice');
+            Route::get('/payment-methods', [BillingController::class, 'paymentMethods'])->name('payment-methods');
+            Route::get('/payment-methods/add', [BillingController::class, 'addPaymentMethod'])->name('add-payment-method');
+            Route::post('/payment-methods', [BillingController::class, 'storePaymentMethod'])->name('store-payment-method');
+            Route::delete('/payment-methods/{id}', [BillingController::class, 'deletePaymentMethod'])->name('delete-payment-method');
+            Route::get('/success', [BillingController::class, 'success'])->name('success');
+        });
+    });
+    
     // Subscription routes (auth required)
     Route::middleware(['auth'])->group(function () {
         // Subscription plans
@@ -92,7 +130,7 @@ Route::middleware(['web', 'locale'])->group(function () {
 require __DIR__.'/admin.php';
 
 // Routes de redirection de l'ancien dashboard vers le nouveau
-Route::middleware(['web'])->group(function () {
+Route::middleware(['web', 'locale'])->group(function () {
     // Redirection générale de l'ancien dashboard
     Route::get('/dashboard', [\App\Http\Controllers\OldDashboardController::class, 'redirect'])->name('old.dashboard');
     

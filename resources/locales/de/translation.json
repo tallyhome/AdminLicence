@@ -284,7 +284,14 @@
         "suspend_success": "Lizenzschlüssel erfolgreich suspendiert",
         "revoke_success": "Lizenzschlüssel erfolgreich widerrufen",
         "reactivate_success": "Lizenzschlüssel erfolgreich reaktiviert",
-        "search_by_key": "Suche nach Schlüssel"
+        "search_by_key": "Suche nach Schlüssel",
+        "licence_type": "Lizenztyp",
+        "max_accounts": "Maximale Konten",
+        "single_account_licence": "Einzelkonto-Lizenz",
+        "multi_account_licence": "Mehrkonto-Lizenz",
+        "cannot_switch_to_single_account": "Kann nicht zu Einzelkonto-Lizenz wechseln, da mehrere Konten aktiv sind (:count).",
+        "choose_multi_account_licence": "Wählen Sie die Mehrkonto-Lizenz aus, die mit diesem Abonnement verknüpft werden soll.",
+        "no_multi_account_licence_available": "Sie haben keine Mehrkonto-Lizenz verfügbar. Bitte kontaktieren Sie den Administrator."
     },
     "api": {
         "title": "API-Dokumentation",

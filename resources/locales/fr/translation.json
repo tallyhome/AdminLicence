@@ -293,7 +293,14 @@
         "create_keys": "Créer les clés",
         "search_by_key": "Recherche par clé",
         "key_used": "Clé utilisée",
-        "search_placeholder": "Rechercher par clé, domaine, IP, etc..."
+        "search_placeholder": "Rechercher par clé, domaine, IP, etc...",
+        "licence_type": "Type de licence",
+        "max_accounts": "Nombre maximum de comptes",
+        "single_account_licence": "Licence mono-compte",
+        "multi_account_licence": "Licence multi-compte",
+        "cannot_switch_to_single_account": "Impossible de passer à une licence mono-compte car plusieurs comptes sont actifs (:count).",
+        "choose_multi_account_licence": "Choisissez la licence multi-comptes à laquelle associer cet abonnement.",
+        "no_multi_account_licence_available": "Vous n'avez aucune licence multi-comptes disponible. Veuillez contacter l'administrateur."
     },
     "api": {
         "title": "Documentation API",

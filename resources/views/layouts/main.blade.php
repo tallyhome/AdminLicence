@@ -37,7 +37,9 @@
         .hover\:text-blue-600:hover { color: #2563eb; }
         .min-h-screen { min-height: 100vh; }
     </style>
-    <!-- Utiliser les assets compilés via Vite -->
+    <!-- Les traductions sont maintenant chargées dynamiquement via les routes Laravel -->
+    
+    <!-- Vite Assets -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col">

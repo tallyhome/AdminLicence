@@ -232,7 +232,14 @@
     "suspend_success": "Lisans anahtarı başarıyla askıya alındı",
     "revoke_success": "Lisans anahtarı başarıyla iptal edildi",
     "reactivate_success": "Lisans anahtarı başarıyla yeniden etkinleştirildi",
-    "search_by_key": "Anahtara göre ara"
+    "search_by_key": "Anahtara göre ara",
+    "licence_type": "Lisans Türü",
+    "max_accounts": "Maksimum Hesap Sayısı",
+    "single_account_licence": "Tek Hesap Lisansı",
+        "multi_account_licence": "Çoklu Hesap Lisansı",
+        "cannot_switch_to_single_account": "Birden fazla hesap aktif olduğu için tek hesap lisansına geçilemez (:count).",
+        "choose_multi_account_licence": "Bu abonelikle ilişkilendirilecek çoklu hesap lisansını seçin.",
+        "no_multi_account_licence_available": "Kullanılabilir çoklu hesap lisansınız yok. Lütfen yöneticiyle iletişime geçin."
   },
   "email_providers": {
     "page_title": "E-posta Sağlayıcıları Dokümantasyonu",

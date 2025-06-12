@@ -28,11 +28,14 @@ class PayPalService
      */
     public function __construct()
     {
-        $environment = config('services.paypal.sandbox') 
-            ? new SandboxEnvironment(config('services.paypal.client_id'), config('services.paypal.secret')) 
-            : new ProductionEnvironment(config('services.paypal.client_id'), config('services.paypal.secret'));
-        
-        $this->client = new PayPalHttpClient($environment);
+        // Initialiser PayPal seulement si les classes existent
+        if (class_exists('\PayPalCheckoutSdk\Core\PayPalHttpClient')) {
+            $environment = config('services.paypal.sandbox') 
+                ? new SandboxEnvironment(config('services.paypal.client_id'), config('services.paypal.secret')) 
+                : new ProductionEnvironment(config('services.paypal.client_id'), config('services.paypal.secret'));
+            
+            $this->client = new PayPalHttpClient($environment);
+        }
     }
     
     /**

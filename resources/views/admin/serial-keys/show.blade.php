@@ -13,15 +13,20 @@
             @if($serialKey->status === 'active')
                 <form action="{{ route('admin.serial-keys.suspend', $serialKey) }}" method="POST" class="d-inline">
                     @csrf
-                    @method('PATCH')
+                    {{-- Nous utilisons maintenant POST directement --}}
                     <button type="submit" class="btn btn-warning" onclick="return confirm('{{ t('serial_keys.confirm_suspend') }}')">
                         <i class="fas fa-pause"></i> {{ t('serial_keys.suspend') }}
                     </button>
                 </form>
             @elseif($serialKey->status === 'suspended')
+                <form action="{{ route('admin.serial-keys.reactivate', $serialKey) }}" method="POST" class="d-inline me-2">
+                    @csrf
+                    <button type="submit" class="btn btn-success" onclick="return confirm('{{ t('serial_keys.confirm_reactivate') }}')">
+                        <i class="fas fa-play"></i> {{ t('serial_keys.reactivate') }}
+                    </button>
+                </form>
                 <form action="{{ route('admin.serial-keys.revoke', $serialKey) }}" method="POST" class="d-inline">
                     @csrf
-                    @method('PATCH')
                     <button type="submit" class="btn btn-danger" onclick="return confirm('{{ t('serial_keys.confirm_revoke') }}')">
                         <i class="fas fa-ban"></i> {{ t('serial_keys.revoke') }}
                     </button>

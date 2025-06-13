@@ -7,6 +7,8 @@ use App\Models\SerialKey;
 use App\Models\Setting;
 use App\Services\LicenceService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\File;
@@ -38,8 +40,9 @@ class LicenseController extends Controller
      */
     public function index()
     {
-        // Récupérer la clé de licence actuelle depuis le fichier .env
-        $licenseKey = env('INSTALLATION_LICENSE_KEY');
+        // Récupérer la clé de licence actuelle directement depuis le fichier .env
+        // pour éviter les problèmes de cache
+        $licenseKey = $this->getLicenseKeyFromEnv();
         
         // Récupérer la fréquence de vérification
         $checkFrequency = Setting::get('license_check_frequency', 5);
@@ -86,29 +89,54 @@ class LicenseController extends Controller
             'license_key' => 'nullable|string|max:255'
         ]);
         
-        // Définir une valeur fixe pour la fréquence de vérification (non modifiable par l'utilisateur)
-        Setting::set('license_check_frequency', 5, 'Fréquence de vérification de licence');
-        
-        // Mettre à jour la clé de licence dans le fichier .env si fournie
+        // Traiter la clé de licence
         $licenseKey = $request->input('license_key');
         if (!empty($licenseKey)) {
-            $this->updateEnvFile('INSTALLATION_LICENSE_KEY', $licenseKey);
-            
-            // Réinitialiser le cache de session pour forcer une nouvelle vérification
-            session()->forget('license_check_session_' . session()->getId());
-            session()->forget('license_check_result');
-            
-            // Forcer une vérification immédiate
-            $isValid = $this->licenceService->verifyInstallationLicense();
-            Setting::set('license_valid', $isValid);
-            Setting::set('last_license_check', now()->toDateTimeString());
-            
-            return redirect()->route('admin.settings.license')
-                ->with('success', 'La clé de licence et les paramètres de vérification ont été mis à jour avec succès.');
+            try {
+                // Mettre à jour le fichier .env
+                $this->updateEnvFile('INSTALLATION_LICENSE_KEY', $licenseKey);
+                
+                Log::info('Clé de licence mise à jour', [
+                    'new_key_length' => strlen($licenseKey)
+                ]);
+                
+                // Optimisation : Vider seulement les caches essentiels
+                // Éviter config:clear qui est coûteux, utiliser des oublis ciblés
+                Cache::forget('license_verification_' . md5($licenseKey));
+                Cache::forget('last_license_check_' . md5($licenseKey));
+                
+                // Vider les sessions liées à la licence
+                session()->forget('license_check_session_' . session()->getId());
+                session()->forget('license_check_result');
+                
+                // Recharger la configuration env sans vider tout le cache
+                config(['app.installation_license_key' => $licenseKey]);
+                
+                Log::info('Licence sauvegardée avec succès');
+                
+                // Vérifier immédiatement la nouvelle licence
+                $isValid = $this->licenceService->verifyInstallationLicense();
+                
+                if ($isValid) {
+                    return redirect()->route('admin.settings.license')
+                        ->with('success', t('settings_license.license.license_updated_successfully'));
+                } else {
+                    return redirect()->route('admin.settings.license')
+                        ->with('warning', 'Licence sauvegardée mais non valide. Veuillez vérifier votre clé.');
+                }
+                    
+            } catch (\Exception $e) {
+                Log::error('Erreur lors de la mise à jour de la licence', [
+                    'error' => $e->getMessage()
+                ]);
+                
+                return redirect()->route('admin.settings.license')
+                    ->with('error', 'Erreur lors de la sauvegarde: ' . $e->getMessage());
+            }
         }
         
         return redirect()->route('admin.settings.license')
-            ->with('success', 'La clé de licence a été mise à jour avec succès.');
+            ->with('info', t('settings_license.license.no_changes_made'));
     }
     
     /**
@@ -119,8 +147,8 @@ class LicenseController extends Controller
     public function forceCheck()
     {
         try {
-            // Récupérer la clé de licence actuelle
-            $licenseKey = env('INSTALLATION_LICENSE_KEY');
+            // Récupérer la clé de licence actuelle directement depuis le fichier .env
+            $licenseKey = $this->getLicenseKeyFromEnv();
             
             // Initialiser les variables pour les détails de licence
             $licenseStatus = 'inconnu';
@@ -154,7 +182,7 @@ class LicenseController extends Controller
             
             // Vider tous les caches relatifs à la licence
             $cacheKey = 'license_verification_' . md5($licenseKey);
-            \Illuminate\Support\Facades\Cache::forget($cacheKey);
+            Cache::forget($cacheKey);
             
             // Utiliser les variables d'environnement pour l'API
             $apiUrl = env('LICENCE_API_URL', 'https://licence.myvcard.fr');
@@ -396,8 +424,8 @@ class LicenseController extends Controller
                 $expired = $expiry < $now;
                 
                 $expiryText = $expired ? 
-                    t('settings_license.license.expired_on', ['date' => $expiry->format('d/m/Y')]) : 
-                    t('settings_license.license.expires_on_date', ['date' => $expiry->format('d/m/Y')]);
+                    t('settings_license.license.expired_on', ['date' => $expiry->format('d/m/Y')]) :
+                t('settings_license.license.expires_on_date', ['date' => $expiry->format('d/m/Y')]);
                     
                 $details[] = t('settings_license.license.expiry_detail', ['expiry' => $expiryText]);
             }
@@ -410,17 +438,13 @@ class LicenseController extends Controller
                 $details[] = t('settings_license.license.registered_ip', ['ip' => $registeredIP]);
             }
             
-            // Message principal
+            // Message principal simplifié
             $message = '';
             
             if ($isValid) {
                 $message = t('settings_license.license.license_valid');
             } else {
-                if ($directApiValid) {
-                    $message = t('settings_license.license.api_valid_service_invalid');
-                } else {
-                    $message = t('settings_license.license.license_invalid_with_api_message', ['message' => $apiMessage]);
-                }
+                $message = t('settings_license.license.license_invalid');
             }
             
             // Ajouter les détails si disponibles
@@ -469,23 +493,57 @@ class LicenseController extends Controller
         // Lire le contenu du fichier
         $content = File::get($path);
 
+        // Échapper les caractères spéciaux dans la valeur
+        $escapedValue = addslashes($value);
+
         // Remplacer la valeur si elle existe déjà
         if (preg_match("/^{$key}=.*/m", $content)) {
-            $content = preg_replace("/^{$key}=.*/m", "{$key}={$value}", $content);
+            $content = preg_replace("/^{$key}=.*/m", "{$key}={$escapedValue}", $content);
         } else {
             // Ajouter la clé si elle n'existe pas
-            $content .= "\n{$key}={$value}\n";
+            $content .= "\n{$key}={$escapedValue}\n";
         }
 
         // Écrire le contenu mis à jour dans le fichier
-        File::put($path, $content);
+        $result = File::put($path, $content);
         
-        // Vider le cache de configuration
-        if (function_exists('config:clear')) {
-            \Artisan::call('config:clear');
+        // Log pour débogage
+        Log::info('Fichier .env mis à jour', [
+            'key' => $key,
+            'value_length' => strlen($value),
+            'file_updated' => $result !== false
+        ]);
+        
+        return $result !== false;
+    }
+    
+    /**
+     * Récupérer la clé de licence directement depuis le fichier .env
+     * pour éviter les problèmes de cache
+     *
+     * @return string|null
+     */
+    private function getLicenseKeyFromEnv()
+    {
+        $path = base_path('.env');
+        
+        if (!File::exists($path)) {
+            return null;
         }
         
-        return true;
+        $content = File::get($path);
+        
+        // Chercher la ligne INSTALLATION_LICENSE_KEY
+        if (preg_match('/^INSTALLATION_LICENSE_KEY=(.*)$/m', $content, $matches)) {
+            $value = trim($matches[1]);
+            // Supprimer les guillemets si présents
+            $value = trim($value, '"\'\'');
+            // Supprimer l'échappement des caractères
+            $value = stripslashes($value);
+            return !empty($value) ? $value : null;
+        }
+        
+        return null;
     }
     
     /**

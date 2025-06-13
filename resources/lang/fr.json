@@ -242,7 +242,22 @@
         "no_response": "Aucune réponse",
         "unviewable_format": "Format non affichable",
         "auto_dismiss_alerts": "Auto-dismiss des alertes après 5 secondes",
-        "copied": "Copié !"
+        "copied": "Copié !",
+        "license_updated_successfully": "Licence mise à jour avec succès",
+        "license_valid": "La licence est valide",
+        "license_invalid": "La licence n'est pas valide",
+        "api_valid_service_invalid": "API valide mais service invalide",
+        "license_invalid_with_api_message": "Licence invalide : :message",
+        "status_detail": "Statut: :status",
+        "expiry_detail": "Expiration: :expiry",
+        "expired_on": "Expirée le :date",
+        "expires_on_date": "Expire le :date",
+        "registered_domain": "Domaine enregistré: :domain",
+        "registered_ip": "IP enregistrée: :ip",
+        "license_details_header": "Détails de la licence :",
+        "valid_via_direct_api": "Valide via l'API directe",
+        "invalid_via_direct_api": "Invalide via l'API directe",
+        "verification_error": "Erreur lors de la vérification: :error"
     },
     "common": {
         "active": "Actif",

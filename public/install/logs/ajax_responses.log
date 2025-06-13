@@ -54,3 +54,107 @@
     }
 }
 
+{
+    "time": "2025-06-13 05:40:49",
+    "license_key": "H6ZF-TRER-FXOZ-DLHQ",
+    "result": {
+        "status": false,
+        "message": "Domaine non autoris\u00e9 pour cette cl\u00e9",
+        "data": null,
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-06-13 05:40:49",
+            "Cl\u00e9 de licence: H6ZF-TRER-FXOZ-DLHQ",
+            "Domaine: 0.0.0.0",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 119 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"error\",\"message\":\"Domaine non autoris\\u00e9 pour cette cl\\u00e9\"}",
+            "Licence invalide: Domaine non autoris\u00e9 pour cette cl\u00e9"
+        ]
+    }
+}
+
+{
+    "time": "2025-06-13 05:41:00",
+    "license_key": "TNBH-DRDK-K9JG-H4RR",
+    "result": {
+        "status": false,
+        "message": "Domaine non autoris\u00e9 pour cette cl\u00e9",
+        "data": null,
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-06-13 05:41:00",
+            "Cl\u00e9 de licence: TNBH-DRDK-K9JG-H4RR",
+            "Domaine: 0.0.0.0",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 114 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"error\",\"message\":\"Domaine non autoris\\u00e9 pour cette cl\\u00e9\"}",
+            "Licence invalide: Domaine non autoris\u00e9 pour cette cl\u00e9"
+        ]
+    }
+}
+
+{
+    "time": "2025-06-13 05:41:26",
+    "license_key": "LSSF-WESF-TCHO-OO3F",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "8b1fccc8a12da677d624506e2c36791e",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-06-13 05:41:26",
+            "Cl\u00e9 de licence: LSSF-WESF-TCHO-OO3F",
+            "Domaine: 0.0.0.0",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 130 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"8b1fccc8a12da677d624506e2c36791e\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+
+{
+    "time": "2025-06-13 05:46:57",
+    "license_key": "LSSF-WESF-TCHO-OO3F",
+    "result": {
+        "status": true,
+        "message": "Cl\u00e9 de s\u00e9rie valide",
+        "data": {
+            "token": "1aa14c672849558081cf87a17e810d6e",
+            "project": "",
+            "expires_at": null
+        },
+        "debug_info": [
+            "D\u00e9but de la v\u00e9rification de licence: 2025-06-13 05:46:57",
+            "Cl\u00e9 de licence: LSSF-WESF-TCHO-OO3F",
+            "Domaine: 0.0.0.0",
+            "IP: 127.0.0.1",
+            "Base URL API: https:\/\/licence.myvcard.fr",
+            "Essai du point d'entr\u00e9e: https:\/\/licence.myvcard.fr\/api\/check-serial.php",
+            "Utilisation de cURL pour la requ\u00eate",
+            "Code HTTP: 200",
+            "Temps de r\u00e9ponse: 109 ms",
+            "R\u00e9ponse JSON valide re\u00e7ue",
+            "Contenu de la r\u00e9ponse: {\"status\":\"success\",\"message\":\"Cl\\u00e9 de s\\u00e9rie valide\",\"data\":{\"token\":\"1aa14c672849558081cf87a17e810d6e\",\"project\":\"\",\"expires_at\":null}}",
+            "Licence valide!"
+        ]
+    }
+}
+

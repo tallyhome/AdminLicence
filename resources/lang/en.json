@@ -244,6 +244,21 @@
         "no_response": "No response",
         "unviewable_format": "Unviewable format",
         "auto_dismiss_alerts": "Auto-dismiss alerts after 5 seconds",
-        "copied": "Copied!"
+        "copied": "Copied!",
+        "license_updated_successfully": "License updated successfully",
+        "license_valid": "The license is valid",
+        "license_invalid": "The license is not valid",
+        "api_valid_service_invalid": "API valid but service invalid",
+        "license_invalid_with_api_message": "License invalid: :message",
+        "status_detail": "Status: :status",
+        "expiry_detail": "Expiry: :expiry",
+        "expired_on": "Expired on :date",
+        "expires_on_date": "Expires on :date",
+        "registered_domain": "Registered domain: :domain",
+        "registered_ip": "Registered IP: :ip",
+        "license_details_header": "License details:",
+        "valid_via_direct_api": "Valid via direct API",
+        "invalid_via_direct_api": "Invalid via direct API",
+        "verification_error": "Verification error: :error"
     }
 }

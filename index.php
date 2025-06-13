@@ -15,8 +15,8 @@ if (file_exists(__DIR__ . '/.env')) {
 
 // Rediriger vers l'installation ou l'application
 if (!$isInstalled) {
-    header('Location: /install/install.php');
+    header('Location: /install/index.php?step=1');
 } else {
     header('Location: /public');
 }
-exit; 
+exit;

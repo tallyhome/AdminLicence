@@ -609,3 +609,144 @@
     "vendor_exists": "oui"
 }
 
+{
+    "time": "2025-06-13 05:41:32",
+    "function": "detectProjectType",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence\\public"
+}
+
+{
+    "time": "2025-06-13 05:41:32",
+    "function": "detectProjectType",
+    "message": "Detection d'un projet Laravel dans le repertoire parent",
+    "adjusted_project_root": "R:\\Adev\\200  -  test\\adminlicence"
+}
+
+{
+    "time": "2025-06-13 05:41:32",
+    "function": "detectProjectType",
+    "message": "Projet Laravel d\u00e9tect\u00e9",
+    "has_env": true,
+    "has_vendor": true
+}
+
+{
+    "time": "2025-06-13 05:41:32",
+    "function": "detectProjectType",
+    "result": {
+        "type": "laravel",
+        "has_env": true,
+        "has_vendor": true,
+        "project_root": "R:\\Adev\\200  -  test\\adminlicence",
+        "ready_for_next": true
+    }
+}
+
+{
+    "time": "2025-06-13 05:41:32",
+    "function": "detect_project",
+    "project_info": {
+        "type": "laravel",
+        "has_env": true,
+        "has_vendor": true,
+        "project_root": "R:\\Adev\\200  -  test\\adminlicence",
+        "ready_for_next": true
+    },
+    "env_exists": "oui",
+    "vendor_exists": "oui"
+}
+
+{
+    "time": "2025-06-13 05:46:49",
+    "function": "detectProjectType",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence\\public"
+}
+
+{
+    "time": "2025-06-13 05:46:49",
+    "function": "detectProjectType",
+    "message": "Detection d'un projet Laravel dans le repertoire parent",
+    "adjusted_project_root": "R:\\Adev\\200  -  test\\adminlicence"
+}
+
+{
+    "time": "2025-06-13 05:46:49",
+    "function": "detectProjectType",
+    "message": "Projet Laravel d\u00e9tect\u00e9",
+    "has_env": true,
+    "has_vendor": true
+}
+
+{
+    "time": "2025-06-13 05:46:49",
+    "function": "detectProjectType",
+    "result": {
+        "type": "laravel",
+        "has_env": true,
+        "has_vendor": true,
+        "project_root": "R:\\Adev\\200  -  test\\adminlicence",
+        "ready_for_next": true
+    }
+}
+
+{
+    "time": "2025-06-13 05:46:49",
+    "function": "detect_project",
+    "project_info": {
+        "type": "laravel",
+        "has_env": true,
+        "has_vendor": true,
+        "project_root": "R:\\Adev\\200  -  test\\adminlicence",
+        "ready_for_next": true
+    },
+    "env_exists": "oui",
+    "vendor_exists": "oui"
+}
+
+{
+    "time": "2025-06-13 05:46:59",
+    "function": "detectProjectType",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence\\public"
+}
+
+{
+    "time": "2025-06-13 05:46:59",
+    "function": "detectProjectType",
+    "message": "Detection d'un projet Laravel dans le repertoire parent",
+    "adjusted_project_root": "R:\\Adev\\200  -  test\\adminlicence"
+}
+
+{
+    "time": "2025-06-13 05:46:59",
+    "function": "detectProjectType",
+    "message": "Projet Laravel d\u00e9tect\u00e9",
+    "has_env": true,
+    "has_vendor": true
+}
+
+{
+    "time": "2025-06-13 05:46:59",
+    "function": "detectProjectType",
+    "result": {
+        "type": "laravel",
+        "has_env": true,
+        "has_vendor": true,
+        "project_root": "R:\\Adev\\200  -  test\\adminlicence",
+        "ready_for_next": true
+    }
+}
+
+{
+    "time": "2025-06-13 05:46:59",
+    "function": "detect_project",
+    "project_info": {
+        "type": "laravel",
+        "has_env": true,
+        "has_vendor": true,
+        "project_root": "R:\\Adev\\200  -  test\\adminlicence",
+        "ready_for_next": true
+    },
+    "env_exists": "oui",
+    "vendor_exists": "oui"
+}
+

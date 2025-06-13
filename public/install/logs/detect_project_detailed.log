@@ -206,3 +206,51 @@
     }
 }
 
+{
+    "time": "2025-06-13 05:41:32",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-06-13 05:46:49",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence\/vendor",
+            "exists": true
+        }
+    }
+}
+
+{
+    "time": "2025-06-13 05:46:59",
+    "function": "detect_project_detailed",
+    "initial_project_root": "R:\\Adev\\200  -  test\\adminlicence",
+    "paths_checked": {
+        "env_file": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence\/.env",
+            "exists": true
+        },
+        "vendor_dir": {
+            "path": "R:\\Adev\\200  -  test\\adminlicence\/vendor",
+            "exists": true
+        }
+    }
+}
+

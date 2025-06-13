@@ -50,7 +50,7 @@ Route::middleware(['web', 'locale'])->group(function () {
 
     // Route pour l'installation
     Route::get('/install', function () {
-        return redirect('/install.php');
+        return redirect('/install/index.php?step=1');
     })->name('install');
 
     // Route publique pour la page de version

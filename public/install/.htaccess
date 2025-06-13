@@ -33,7 +33,7 @@
     </IfModule>
 </FilesMatch>
 
-# Autoriser uniquement index.php, install.php et languages.php
+# Autoriser uniquement index.php et les fichiers nécessaires
 <Files ~ "^(index\.php|install\.php|languages\.php)$">
     <IfModule mod_authz_core.c>
         Require all granted

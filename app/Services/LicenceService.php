@@ -432,105 +432,112 @@ class LicenceService
     public function verifyInstallationLicense(): bool
     {
         try {
-            // En environnement local, autoriser sans vérification si APP_DEBUG est true
-            if (env('APP_ENV') === 'local' && env('APP_DEBUG') === true) {
-                Log::info('Vérification de licence ignorée en environnement local avec APP_DEBUG=true');
-                return true;
-            }
+            // Récupérer la clé de licence directement depuis le fichier .env
+            $licenseKey = $this->getLicenseKeyFromEnv();
             
-            // Récupérer la clé de licence d'installation depuis les paramètres
-            $licenseKey = env('INSTALLATION_LICENSE_KEY');
-            
-            // Journaliser le début de la vérification (uniquement en debug)
-            if (env('APP_ENV') === 'local' || env('APP_DEBUG') === true) {
-                Log::debug('Début de vérification de licence', [
-                    'license_key' => $licenseKey ? 'CONFIGURÉE' : 'NON CONFIGURÉE',
-                    'app_env' => env('APP_ENV', 'production')
-                ]);
-            }
-            
-            // Vérifier si une clé de licence est configurée
             if (empty($licenseKey)) {
-                Log::warning('Clé de licence d\'installation non configurée');
-                return false; // Bloquer l'accès si aucune licence n'est configurée
+                Log::warning('Aucune clé de licence configurée');
+                return false;
             }
             
-            // Forcer le rafraîchissement du cache si demandé
-            $forceRefresh = request()->has('force_license_check');
+            // Commenté : Ne plus autoriser l'accès automatique en environnement local
+            // La licence doit être valide dans tous les environnements
+            // if (env('APP_ENV') === 'local' && env('APP_DEBUG') === true) {
+            //     Log::info('Environnement local avec debug activé, licence considérée comme valide');
+            //     return true;
+            // }
             
-            // Vérifier si le résultat est en cache et qu'on ne force pas le rafraîchissement
+            // Vérifier si nous avons un résultat en cache récent
             $cacheKey = 'license_verification_' . md5($licenseKey);
-            if (!$forceRefresh && Cache::has($cacheKey)) {
-                $cachedResult = Cache::get($cacheKey);
-                // Log uniquement en environnement de développement
-                if (env('APP_ENV') === 'local' || env('APP_DEBUG') === true) {
-                    Log::debug('Résultat de vérification de licence récupéré du cache', [
-                        'valid' => $cachedResult
-                    ]);
-                }
+            $lastCheckKey = 'last_license_check_' . md5($licenseKey);
+            
+            $cachedResult = Cache::get($cacheKey);
+            $lastCheck = Cache::get($lastCheckKey, 0);
+            $currentTime = time();
+            
+            // Utiliser le cache si disponible et récent (moins de 4 heures)
+            $fourHoursInSeconds = 4 * 60 * 60;
+            if ($cachedResult !== null && ($currentTime - $lastCheck) < $fourHoursInSeconds) {
+                Log::info('Utilisation du cache pour la vérification de licence', ['result' => $cachedResult]);
                 return $cachedResult;
             }
             
-            // Récupérer le domaine actuel
-            $domain = request()->getHost();
+            // Récupérer le domaine et l'adresse IP
+            $domain = request()->getHost() ?? 'localhost';
+            $ipAddress = $_SERVER['SERVER_ADDR'] ?? gethostbyname(gethostname());
             
-            // Récupérer l'adresse IP du serveur
-            $ipAddress = $_SERVER['SERVER_ADDR'] ?? $_SERVER['REMOTE_ADDR'] ?? gethostbyname(gethostname());
+            Log::info('Vérification de licence en cours', [
+                'domain' => $domain,
+                'ip' => $ipAddress
+            ]);
             
-            // Log uniquement en environnement de développement
-            if (env('APP_ENV') === 'local' || env('APP_DEBUG') === true) {
-                Log::debug('Paramètres de vérification d\'API', [
-                    'domain' => $domain,
-                    'ip_address' => $ipAddress
-                ]);
-            }
-            
-            // Vérifier la validité de la licence via l'API externe
+            // Appeler la méthode de validation avec timeout réduit
             $result = $this->validateSerialKey($licenseKey, $domain, $ipAddress);
-            
-            // Si nous sommes en développement local, accepter la licence même si l'API échoue
-            if (env('APP_ENV') === 'local' && isset($result['api_error'])) {
-                Log::warning('Erreur API en environnement local, licence considérée comme valide', [
-                    'error' => $result['api_error']
-                ]);
-                return true;
-            }
             
             $isValid = $result['valid'] === true;
             
-            // Log uniquement en environnement de développement ou en cas d'erreur
-            if ($isValid) {
-                if (env('APP_ENV') === 'local' || env('APP_DEBUG') === true) {
-                    Log::info('Licence valide!', [
-                        'response' => $result
-                    ]);
-                }
-            } else {
-                // Toujours logger les erreurs de licence
-                Log::warning('Licence invalide!', [
-                    'message' => $result['message'] ?? 'Aucun message'
-                ]);
-            }
+            // Mettre en cache le résultat et le timestamp
+            Cache::put($cacheKey, $isValid, 60 * 24); // 24 heures
+            Cache::put($lastCheckKey, $currentTime, 60 * 24 * 7); // 7 jours
             
-            // Mettre en cache le résultat pendant 24 heures
-            Cache::put($cacheKey, $isValid, 60 * 24);
+            if ($isValid) {
+                Log::info('Licence validée avec succès');
+            } else {
+                Log::warning('Licence invalide', ['message' => $result['message'] ?? 'Aucun détail']);
+            }
             
             return $isValid;
+            
         } catch (\Exception $e) {
-            // En cas d'erreur (serveur indisponible, etc.), logger l'erreur
             Log::error('Erreur lors de la vérification de licence', [
-                'message' => $e->getMessage(),
-                'trace' => $e->getTraceAsString()
+                'message' => $e->getMessage()
             ]);
             
-            // En environnement local, autoriser malgré l'erreur
-            if (env('APP_ENV') === 'local') {
-                Log::warning('Erreur de vérification en environnement local, accès autorisé');
-                return true;
+            // Commenté : Ne plus autoriser l'accès automatique en cas d'erreur en environnement local
+            // La licence doit être valide dans tous les environnements
+            // if (env('APP_ENV') === 'local') {
+            //     Log::warning('Erreur de vérification en environnement local, licence considérée comme valide');
+            //     return true;
+            // }
+            
+            // En cas d'erreur, utiliser le dernier résultat en cache si disponible
+            $cacheKey = 'license_verification_' . md5($this->getLicenseKeyFromEnv() ?? '');
+            $cachedResult = Cache::get($cacheKey);
+            if ($cachedResult !== null) {
+                Log::warning('Utilisation du cache en cas d\'erreur', ['cached_result' => $cachedResult]);
+                return $cachedResult;
             }
             
-            // Bloquer l'accès en cas d'erreur pour des raisons de sécurité
             return false;
         }
+    }
+    
+    /**
+     * Récupérer la clé de licence directement depuis le fichier .env
+     * pour éviter les problèmes de cache
+     *
+     * @return string|null
+     */
+    private function getLicenseKeyFromEnv()
+    {
+        $path = base_path('.env');
+        
+        if (!\Illuminate\Support\Facades\File::exists($path)) {
+            return null;
+        }
+        
+        $content = \Illuminate\Support\Facades\File::get($path);
+        
+        // Chercher la ligne INSTALLATION_LICENSE_KEY
+        if (preg_match('/^INSTALLATION_LICENSE_KEY=(.*)$/m', $content, $matches)) {
+            $value = trim($matches[1]);
+            // Supprimer les guillemets si présents
+            $value = trim($value, '"\'\'');
+            // Supprimer l'échappement des caractères
+            $value = stripslashes($value);
+            return !empty($value) ? $value : null;
+        }
+        
+        return null;
     }
 }

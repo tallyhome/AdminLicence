@@ -14,7 +14,7 @@ error_reporting(E_ALL);
 date_default_timezone_set('UTC');
 
 // Déterminer le chemin d'installation
-$installPath = __DIR__ . '/install/install.php';
+$installPath = __DIR__ . '/install/index.php?step=1';
 
 // Vérifier si le fichier d'installation existe
 if (!file_exists(__DIR__ . '/' . $installPath)) {

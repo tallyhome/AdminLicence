@@ -1,14 +1,12 @@
 # Guide d'installation optimisé pour AdminLicence
 
-Ce dossier contient un système d'installation optimisé pour AdminLicence. La structure a été réorganisée pour être plus modulaire, plus facile à maintenir et plus performante.
+Ce dossier contient le système d'installation pour AdminLicence. Le système a été simplifié et optimisé pour être plus facile à utiliser et à maintenir.
 
 ## Structure des fichiers
 
 ```
 /install/
-├── index.php                 # Point d'entrée (redirection vers install.php)
-├── install.php               # Ancien script d'installation
-├── install_new.php           # Nouveau script d'installation optimisé
+├── index.php                 # Script d'installation principal
 ├── install_log.txt           # Fichier de log pour le débogage
 ├── config.php                # Configuration de base
 ├── README.md                 # Ce guide d'utilisation
@@ -24,12 +22,12 @@ Ce dossier contient un système d'installation optimisé pour AdminLicence. La s
     └── ...                   # Autres langues
 ```
 
-## Comment utiliser le nouveau système d'installation
+## Comment utiliser le système d'installation
 
-Pour utiliser le nouveau système d'installation optimisé, accédez simplement à :
+Pour utiliser le système d'installation, accédez simplement à :
 
 ```
-http://votre-domaine/install/install_new.php
+http://votre-domaine/install/index.php?step=1
 ```
 
 Le système d'installation vous guidera à travers les étapes suivantes :
@@ -38,7 +36,7 @@ Le système d'installation vous guidera à travers les étapes suivantes :
 3. Configuration du compte administrateur
 4. Installation finale
 
-## Avantages du nouveau système
+## Avantages du système
 
 - **Modularité** : Le code est organisé en modules fonctionnels, ce qui facilite la maintenance et les mises à jour.
 - **Performance** : Le code a été optimisé pour être plus rapide et consommer moins de ressources.
@@ -67,13 +65,9 @@ define('AVAILABLE_LANGUAGES', [
 ]);
 ```
 
-## Migration depuis l'ancien système
+## Installation propre
 
-Si vous utilisez déjà l'ancien système d'installation, vous pouvez facilement migrer vers le nouveau système en suivant ces étapes :
-
-1. Sauvegardez tous vos fichiers actuels.
-2. Remplacez le fichier `index.php` par une redirection vers `install_new.php` au lieu de `install.php`.
-3. Utilisez le nouveau système pour les futures installations.
+Le système d'installation a été simplifié. Il n'y a plus qu'un seul point d'entrée (`index.php`) qui gère automatiquement toutes les étapes d'installation.
 
 ## Dépannage
 
@@ -82,7 +76,7 @@ Si vous rencontrez des problèmes lors de l'installation, consultez le fichier `
 Pour forcer une réinstallation même si le système considère qu'AdminLicence est déjà installé, ajoutez le paramètre `force=1` à l'URL :
 
 ```
-http://votre-domaine/install/install_new.php?force=1
+http://votre-domaine/install/index.php?step=1&force=1
 ```
 
 ## Support

@@ -24,10 +24,18 @@ class RedirectIfNotInstalled
                 return $next($request);
             }
 
+            // Permettre l'accès aux routes de licence même si l'app n'est pas installée
+            // Cela permet de configurer la licence avant de marquer l'app comme installée
+            if ($request->is('admin/settings/license*') || 
+                $request->is('admin/login') || 
+                $request->is('admin/logout')) {
+                return $next($request);
+            }
+
             // Vérifier si la requête n'est pas déjà pour une route d'installation
-            if (!$request->is('install*') && !$request->is('install.php') && !$request->is('public/install*')) {
-                // Déterminer le chemin d'installation
-                $installPath = '/install/install.php';
+            if (!$request->is('install*') && !$request->is('public/install*')) {
+                // Rediriger vers la page d'installation
+                $installPath = '/install/index.php?step=1';
                 
                 // Rediriger vers l'installation avec code 302 (temporaire) au lieu de 301 (permanent)
                 return redirect($installPath, 302);

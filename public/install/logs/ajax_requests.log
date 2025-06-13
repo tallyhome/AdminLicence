@@ -88,3 +88,175 @@
     }
 }
 
+{
+    "time": "2025-06-13 05:40:49",
+    "request": {
+        "license_key": "H6ZF-TRER-FXOZ-DLHQ"
+    },
+    "server": {
+        "DOCUMENT_ROOT": "R:\\Adev\\200  -  test\\adminlicence\\public",
+        "REMOTE_ADDR": "127.0.0.1",
+        "REMOTE_PORT": "49947",
+        "SERVER_SOFTWARE": "PHP 8.2.12 Development Server",
+        "SERVER_PROTOCOL": "HTTP\/1.1",
+        "SERVER_NAME": "0.0.0.0",
+        "SERVER_PORT": "8000",
+        "REQUEST_URI": "\/install\/ajax\/verify_license.php",
+        "REQUEST_METHOD": "POST",
+        "SCRIPT_NAME": "\/install\/ajax\/verify_license.php",
+        "SCRIPT_FILENAME": "R:\\Adev\\200  -  test\\adminlicence\\public\\install\\ajax\\verify_license.php",
+        "PHP_SELF": "\/install\/ajax\/verify_license.php",
+        "HTTP_HOST": "127.0.0.1:8000",
+        "HTTP_CONNECTION": "keep-alive",
+        "CONTENT_LENGTH": "31",
+        "HTTP_CONTENT_LENGTH": "31",
+        "HTTP_SEC_CH_UA_PLATFORM": "\"Windows\"",
+        "HTTP_X_REQUESTED_WITH": "XMLHttpRequest",
+        "HTTP_USER_AGENT": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/134.0.0.0 Safari\/537.36 OPR\/119.0.0.0 (Edition std-1)",
+        "HTTP_ACCEPT": "application\/json, text\/javascript, *\/*; q=0.01",
+        "HTTP_SEC_CH_UA": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Opera GX\";v=\"119\"",
+        "CONTENT_TYPE": "application\/x-www-form-urlencoded; charset=UTF-8",
+        "HTTP_CONTENT_TYPE": "application\/x-www-form-urlencoded; charset=UTF-8",
+        "HTTP_SEC_CH_UA_MOBILE": "?0",
+        "HTTP_ORIGIN": "http:\/\/127.0.0.1:8000",
+        "HTTP_SEC_FETCH_SITE": "same-origin",
+        "HTTP_SEC_FETCH_MODE": "cors",
+        "HTTP_SEC_FETCH_DEST": "empty",
+        "HTTP_REFERER": "http:\/\/127.0.0.1:8000\/install\/index.php?lang=fr",
+        "HTTP_ACCEPT_ENCODING": "gzip, deflate, br, zstd",
+        "HTTP_ACCEPT_LANGUAGE": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
+        "HTTP_COOKIE": "PHPSESSID=136rei8taoan5mpsacdhd619b5; __next_hmr_refresh_hash__=1186; locale=eyJpdiI6Ild1dTE0R2gwLzRkYzRENTFuMGIxZkE9PSIsInZhbHVlIjoidEJQbmE2Vm5xSmhXK09YcVduUzJ3cVlFYktFUC9mM0xpazV1ZnY0OGpEOEduUFZPdzhDcDNyWlVKRklIOE5keCIsIm1hYyI6IjAyZDIzZDJmYjNjNzlhOGQyZDc5ZTdiMjJhYjExMDRmYzIzYWY2YWMzYzRjMmNkZDFiNWQxMzU2OTFhNjEyNTciLCJ0YWciOiIifQ%3D%3D; XSRF-TOKEN=eyJpdiI6IkRSdlNMd1RXZ1dQL0pJTmVaaDFFcGc9PSIsInZhbHVlIjoiMmVwMmNiV0wzQXpSZGMrUDBhTkRZeThLVEFVOWhFK0hIcjgyQnFrVGpnSHQ0WWJXNFBIV0tFRFlWNjlFR2VOZm5IUklzc1F1cjZ5WDEzbEZWbG0zdW5RQ05VQy9GVjI2TXcyQkl3WUlXZUJWSEk0UWM4UG15ZmQ1cXZxRnVEM0siLCJtYWMiOiIyZTdhNTRkMDM5OGQxMzM0ODE1ODg3NTcyZWQ4MjM0MzAzMzkyMDQ4OTJhYjY2MGQ4NmRkMjMzOWJkYWQ1YTgxIiwidGFnIjoiIn0%3D; adminlicence_session=eyJpdiI6InlZV3pNYXZaWm9oT1pFUldWMTE3T3c9PSIsInZhbHVlIjoiRVJYUzNaZkg1UkpzR04zbDVHOVhPaGRyeVJ6ZE13YmZLMk1YWEtwRWFMeFpHdGFyRTRaaFlxTnhKU1pHVEJTcm9LaUFIYmpEUkZWMzRVTFBrbGR3VHBhL1ZoMlEwZnZEYWhMV0M4NE92MnhVRkxXbTZ2OVZVMWpTZU1uS2YxZlEiLCJtYWMiOiI5ZWIxMTYxODU5Y2ExMzBmOTI0MDg4MjFhNWY1OTdiMTBmNWZkNjJkNGUzNmEwNzE1NDRiNmFmZjk0MzdjYzlkIiwidGFnIjoiIn0%3D",
+        "REQUEST_TIME_FLOAT": 1749786049.619139,
+        "REQUEST_TIME": 1749786049
+    }
+}
+
+{
+    "time": "2025-06-13 05:41:00",
+    "request": {
+        "license_key": "TNBH-DRDK-K9JG-H4RR"
+    },
+    "server": {
+        "DOCUMENT_ROOT": "R:\\Adev\\200  -  test\\adminlicence\\public",
+        "REMOTE_ADDR": "127.0.0.1",
+        "REMOTE_PORT": "49963",
+        "SERVER_SOFTWARE": "PHP 8.2.12 Development Server",
+        "SERVER_PROTOCOL": "HTTP\/1.1",
+        "SERVER_NAME": "0.0.0.0",
+        "SERVER_PORT": "8000",
+        "REQUEST_URI": "\/install\/ajax\/verify_license.php",
+        "REQUEST_METHOD": "POST",
+        "SCRIPT_NAME": "\/install\/ajax\/verify_license.php",
+        "SCRIPT_FILENAME": "R:\\Adev\\200  -  test\\adminlicence\\public\\install\\ajax\\verify_license.php",
+        "PHP_SELF": "\/install\/ajax\/verify_license.php",
+        "HTTP_HOST": "127.0.0.1:8000",
+        "HTTP_CONNECTION": "keep-alive",
+        "CONTENT_LENGTH": "31",
+        "HTTP_CONTENT_LENGTH": "31",
+        "HTTP_SEC_CH_UA_PLATFORM": "\"Windows\"",
+        "HTTP_X_REQUESTED_WITH": "XMLHttpRequest",
+        "HTTP_USER_AGENT": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/134.0.0.0 Safari\/537.36 OPR\/119.0.0.0 (Edition std-1)",
+        "HTTP_ACCEPT": "application\/json, text\/javascript, *\/*; q=0.01",
+        "HTTP_SEC_CH_UA": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Opera GX\";v=\"119\"",
+        "CONTENT_TYPE": "application\/x-www-form-urlencoded; charset=UTF-8",
+        "HTTP_CONTENT_TYPE": "application\/x-www-form-urlencoded; charset=UTF-8",
+        "HTTP_SEC_CH_UA_MOBILE": "?0",
+        "HTTP_ORIGIN": "http:\/\/127.0.0.1:8000",
+        "HTTP_SEC_FETCH_SITE": "same-origin",
+        "HTTP_SEC_FETCH_MODE": "cors",
+        "HTTP_SEC_FETCH_DEST": "empty",
+        "HTTP_REFERER": "http:\/\/127.0.0.1:8000\/install\/index.php?lang=fr",
+        "HTTP_ACCEPT_ENCODING": "gzip, deflate, br, zstd",
+        "HTTP_ACCEPT_LANGUAGE": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
+        "HTTP_COOKIE": "PHPSESSID=136rei8taoan5mpsacdhd619b5; __next_hmr_refresh_hash__=1186; locale=eyJpdiI6Ild1dTE0R2gwLzRkYzRENTFuMGIxZkE9PSIsInZhbHVlIjoidEJQbmE2Vm5xSmhXK09YcVduUzJ3cVlFYktFUC9mM0xpazV1ZnY0OGpEOEduUFZPdzhDcDNyWlVKRklIOE5keCIsIm1hYyI6IjAyZDIzZDJmYjNjNzlhOGQyZDc5ZTdiMjJhYjExMDRmYzIzYWY2YWMzYzRjMmNkZDFiNWQxMzU2OTFhNjEyNTciLCJ0YWciOiIifQ%3D%3D; XSRF-TOKEN=eyJpdiI6IkRSdlNMd1RXZ1dQL0pJTmVaaDFFcGc9PSIsInZhbHVlIjoiMmVwMmNiV0wzQXpSZGMrUDBhTkRZeThLVEFVOWhFK0hIcjgyQnFrVGpnSHQ0WWJXNFBIV0tFRFlWNjlFR2VOZm5IUklzc1F1cjZ5WDEzbEZWbG0zdW5RQ05VQy9GVjI2TXcyQkl3WUlXZUJWSEk0UWM4UG15ZmQ1cXZxRnVEM0siLCJtYWMiOiIyZTdhNTRkMDM5OGQxMzM0ODE1ODg3NTcyZWQ4MjM0MzAzMzkyMDQ4OTJhYjY2MGQ4NmRkMjMzOWJkYWQ1YTgxIiwidGFnIjoiIn0%3D; adminlicence_session=eyJpdiI6InlZV3pNYXZaWm9oT1pFUldWMTE3T3c9PSIsInZhbHVlIjoiRVJYUzNaZkg1UkpzR04zbDVHOVhPaGRyeVJ6ZE13YmZLMk1YWEtwRWFMeFpHdGFyRTRaaFlxTnhKU1pHVEJTcm9LaUFIYmpEUkZWMzRVTFBrbGR3VHBhL1ZoMlEwZnZEYWhMV0M4NE92MnhVRkxXbTZ2OVZVMWpTZU1uS2YxZlEiLCJtYWMiOiI5ZWIxMTYxODU5Y2ExMzBmOTI0MDg4MjFhNWY1OTdiMTBmNWZkNjJkNGUzNmEwNzE1NDRiNmFmZjk0MzdjYzlkIiwidGFnIjoiIn0%3D",
+        "REQUEST_TIME_FLOAT": 1749786060.360166,
+        "REQUEST_TIME": 1749786060
+    }
+}
+
+{
+    "time": "2025-06-13 05:41:26",
+    "request": {
+        "license_key": "LSSF-WESF-TCHO-OO3F"
+    },
+    "server": {
+        "DOCUMENT_ROOT": "R:\\Adev\\200  -  test\\adminlicence\\public",
+        "REMOTE_ADDR": "127.0.0.1",
+        "REMOTE_PORT": "50008",
+        "SERVER_SOFTWARE": "PHP 8.2.12 Development Server",
+        "SERVER_PROTOCOL": "HTTP\/1.1",
+        "SERVER_NAME": "0.0.0.0",
+        "SERVER_PORT": "8000",
+        "REQUEST_URI": "\/install\/ajax\/verify_license.php",
+        "REQUEST_METHOD": "POST",
+        "SCRIPT_NAME": "\/install\/ajax\/verify_license.php",
+        "SCRIPT_FILENAME": "R:\\Adev\\200  -  test\\adminlicence\\public\\install\\ajax\\verify_license.php",
+        "PHP_SELF": "\/install\/ajax\/verify_license.php",
+        "HTTP_HOST": "127.0.0.1:8000",
+        "HTTP_CONNECTION": "keep-alive",
+        "CONTENT_LENGTH": "31",
+        "HTTP_CONTENT_LENGTH": "31",
+        "HTTP_SEC_CH_UA_PLATFORM": "\"Windows\"",
+        "HTTP_X_REQUESTED_WITH": "XMLHttpRequest",
+        "HTTP_USER_AGENT": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/134.0.0.0 Safari\/537.36 OPR\/119.0.0.0 (Edition std-1)",
+        "HTTP_ACCEPT": "application\/json, text\/javascript, *\/*; q=0.01",
+        "HTTP_SEC_CH_UA": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Opera GX\";v=\"119\"",
+        "CONTENT_TYPE": "application\/x-www-form-urlencoded; charset=UTF-8",
+        "HTTP_CONTENT_TYPE": "application\/x-www-form-urlencoded; charset=UTF-8",
+        "HTTP_SEC_CH_UA_MOBILE": "?0",
+        "HTTP_ORIGIN": "http:\/\/127.0.0.1:8000",
+        "HTTP_SEC_FETCH_SITE": "same-origin",
+        "HTTP_SEC_FETCH_MODE": "cors",
+        "HTTP_SEC_FETCH_DEST": "empty",
+        "HTTP_REFERER": "http:\/\/127.0.0.1:8000\/install\/index.php?lang=fr",
+        "HTTP_ACCEPT_ENCODING": "gzip, deflate, br, zstd",
+        "HTTP_ACCEPT_LANGUAGE": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
+        "HTTP_COOKIE": "PHPSESSID=136rei8taoan5mpsacdhd619b5; __next_hmr_refresh_hash__=1186; locale=eyJpdiI6Ild1dTE0R2gwLzRkYzRENTFuMGIxZkE9PSIsInZhbHVlIjoidEJQbmE2Vm5xSmhXK09YcVduUzJ3cVlFYktFUC9mM0xpazV1ZnY0OGpEOEduUFZPdzhDcDNyWlVKRklIOE5keCIsIm1hYyI6IjAyZDIzZDJmYjNjNzlhOGQyZDc5ZTdiMjJhYjExMDRmYzIzYWY2YWMzYzRjMmNkZDFiNWQxMzU2OTFhNjEyNTciLCJ0YWciOiIifQ%3D%3D; XSRF-TOKEN=eyJpdiI6IkRSdlNMd1RXZ1dQL0pJTmVaaDFFcGc9PSIsInZhbHVlIjoiMmVwMmNiV0wzQXpSZGMrUDBhTkRZeThLVEFVOWhFK0hIcjgyQnFrVGpnSHQ0WWJXNFBIV0tFRFlWNjlFR2VOZm5IUklzc1F1cjZ5WDEzbEZWbG0zdW5RQ05VQy9GVjI2TXcyQkl3WUlXZUJWSEk0UWM4UG15ZmQ1cXZxRnVEM0siLCJtYWMiOiIyZTdhNTRkMDM5OGQxMzM0ODE1ODg3NTcyZWQ4MjM0MzAzMzkyMDQ4OTJhYjY2MGQ4NmRkMjMzOWJkYWQ1YTgxIiwidGFnIjoiIn0%3D; adminlicence_session=eyJpdiI6InlZV3pNYXZaWm9oT1pFUldWMTE3T3c9PSIsInZhbHVlIjoiRVJYUzNaZkg1UkpzR04zbDVHOVhPaGRyeVJ6ZE13YmZLMk1YWEtwRWFMeFpHdGFyRTRaaFlxTnhKU1pHVEJTcm9LaUFIYmpEUkZWMzRVTFBrbGR3VHBhL1ZoMlEwZnZEYWhMV0M4NE92MnhVRkxXbTZ2OVZVMWpTZU1uS2YxZlEiLCJtYWMiOiI5ZWIxMTYxODU5Y2ExMzBmOTI0MDg4MjFhNWY1OTdiMTBmNWZkNjJkNGUzNmEwNzE1NDRiNmFmZjk0MzdjYzlkIiwidGFnIjoiIn0%3D",
+        "REQUEST_TIME_FLOAT": 1749786086.457447,
+        "REQUEST_TIME": 1749786086
+    }
+}
+
+{
+    "time": "2025-06-13 05:46:57",
+    "request": {
+        "license_key": "LSSF-WESF-TCHO-OO3F"
+    },
+    "server": {
+        "DOCUMENT_ROOT": "R:\\Adev\\200  -  test\\adminlicence\\public",
+        "REMOTE_ADDR": "127.0.0.1",
+        "REMOTE_PORT": "50785",
+        "SERVER_SOFTWARE": "PHP 8.2.12 Development Server",
+        "SERVER_PROTOCOL": "HTTP\/1.1",
+        "SERVER_NAME": "0.0.0.0",
+        "SERVER_PORT": "8000",
+        "REQUEST_URI": "\/install\/ajax\/verify_license.php",
+        "REQUEST_METHOD": "POST",
+        "SCRIPT_NAME": "\/install\/ajax\/verify_license.php",
+        "SCRIPT_FILENAME": "R:\\Adev\\200  -  test\\adminlicence\\public\\install\\ajax\\verify_license.php",
+        "PHP_SELF": "\/install\/ajax\/verify_license.php",
+        "HTTP_HOST": "127.0.0.1:8000",
+        "HTTP_CONNECTION": "keep-alive",
+        "CONTENT_LENGTH": "31",
+        "HTTP_CONTENT_LENGTH": "31",
+        "HTTP_SEC_CH_UA_PLATFORM": "\"Windows\"",
+        "HTTP_X_REQUESTED_WITH": "XMLHttpRequest",
+        "HTTP_USER_AGENT": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/134.0.0.0 Safari\/537.36 OPR\/119.0.0.0 (Edition std-1)",
+        "HTTP_ACCEPT": "application\/json, text\/javascript, *\/*; q=0.01",
+        "HTTP_SEC_CH_UA": "\"Chromium\";v=\"134\", \"Not:A-Brand\";v=\"24\", \"Opera GX\";v=\"119\"",
+        "CONTENT_TYPE": "application\/x-www-form-urlencoded; charset=UTF-8",
+        "HTTP_CONTENT_TYPE": "application\/x-www-form-urlencoded; charset=UTF-8",
+        "HTTP_SEC_CH_UA_MOBILE": "?0",
+        "HTTP_ORIGIN": "http:\/\/127.0.0.1:8000",
+        "HTTP_SEC_FETCH_SITE": "same-origin",
+        "HTTP_SEC_FETCH_MODE": "cors",
+        "HTTP_SEC_FETCH_DEST": "empty",
+        "HTTP_REFERER": "http:\/\/127.0.0.1:8000\/install\/index.php?step=1",
+        "HTTP_ACCEPT_ENCODING": "gzip, deflate, br, zstd",
+        "HTTP_ACCEPT_LANGUAGE": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
+        "HTTP_COOKIE": "PHPSESSID=136rei8taoan5mpsacdhd619b5; __next_hmr_refresh_hash__=1186; locale=eyJpdiI6Ild1dTE0R2gwLzRkYzRENTFuMGIxZkE9PSIsInZhbHVlIjoidEJQbmE2Vm5xSmhXK09YcVduUzJ3cVlFYktFUC9mM0xpazV1ZnY0OGpEOEduUFZPdzhDcDNyWlVKRklIOE5keCIsIm1hYyI6IjAyZDIzZDJmYjNjNzlhOGQyZDc5ZTdiMjJhYjExMDRmYzIzYWY2YWMzYzRjMmNkZDFiNWQxMzU2OTFhNjEyNTciLCJ0YWciOiIifQ%3D%3D; XSRF-TOKEN=eyJpdiI6IkkyRk9mVlNYUVlFVS90ekdLa21lNmc9PSIsInZhbHVlIjoiWUt3eFdCdzQ5M3I0OTVVQkVWOTUvMTJNdnhzSk45N3I2ZnRLNjZXNjE4c25sTjJFNndTc25PSHJkQldlcWNZYnV2ckVTUERWelI0RGlzcktVQ3k3T0x5bnMrUGt2N1crWEdXOUlUaVlnUmpmRElFNk4wVGxEa29RK09XVzhwb2EiLCJtYWMiOiJhMTAwMGMzMmNlNTg3OTUxMTJmODhiMTIzZmRiODBlNjI1NmI0MjIyNzgyZDY1MGU0OWI5ZjkxODcyOGVjNmM1IiwidGFnIjoiIn0%3D; adminlicence_session=eyJpdiI6InNCZnBULzEzeEZBR1pMVFU0WU04WHc9PSIsInZhbHVlIjoib2tZekF1S1RyR2FrRUJPVUl5cjd6YmpWUnFpM1JwcDR3aTRsanZSSFN5NGQ0M21MMnFEN004SDd4N1RzZkhBQVBreUowOHRGVEU4akpueXlVRzd0YlVoZlRiaTBsZDBiMlNQQ1hHbThqRDE5c1NXaHoyS3lVQ1hwOVVsdnhYT04iLCJtYWMiOiJhMTE4MjkyYTFjOTA4YjEzNTcyNWI4NTQ4MDhkN2U0MzVhODhlZTk5ZmEyYWMwMWNkMTdiZGQ5NGIxYWIwYWYxIiwidGFnIjoiIn0%3D",
+        "REQUEST_TIME_FLOAT": 1749786417.080551,
+        "REQUEST_TIME": 1749786417
+    }
+}
+

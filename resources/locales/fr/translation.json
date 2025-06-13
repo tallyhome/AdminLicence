@@ -1045,7 +1045,11 @@
             "no_response": "Aucune réponse",
             "unviewable_format": "Format non affichable",
             "auto_dismiss_alerts": "Auto-dismiss des alertes après 5 secondes",
-            "copied": "Copié !"
+            "copied": "Copié !",
+            "manage_description": "Gérez la licence d'installation de votre application AdminLicence et configurez les paramètres de vérification périodique.",
+            "manage_button": "Gérer la licence",
+            "license_updated_successfully": "La licence a été mise à jour avec succès.",
+            "license_invalid": "La licence n'est pas valide."
         }
     },
     "support": {

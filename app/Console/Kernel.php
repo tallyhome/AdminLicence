@@ -18,6 +18,9 @@ class Kernel extends ConsoleKernel
         // Vérifier les licences expirées tous les jours à 1h du matin
         $schedule->command('licence:check-expired')->dailyAt('01:00');
         
+        // Nettoyer la table telescope_entries deux fois par jour (8h et 20h)
+        $schedule->command('telescope:clear')->twiceDaily(8, 20);
+        
         // Optimiser les images une fois par semaine (dimanche à 3h du matin)
         $schedule->command('images:optimize')->weekly()->sundays()->at('03:00');
     }

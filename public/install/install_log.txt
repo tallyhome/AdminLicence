@@ -1,0 +1,9 @@
+[2025-06-13 03:04:14] [ERROR] Erreur de connexion à la base de données: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for localhost failed: H�te inconnu. 
+[2025-06-13 03:04:19] [ERROR] Erreur de connexion à la base de données: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for localhost failed: H�te inconnu. 
+[2025-06-13 03:04:21] [ERROR] Erreur de connexion à la base de données: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for localhost failed: H�te inconnu. 
+[2025-06-13 03:04:46] [ERROR] Erreur de connexion à la base de données: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for localhost failed: H�te inconnu. 
+[2025-06-13 03:05:16] [ERROR] Erreur de connexion à la base de données: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for localhost failed: H�te inconnu. 
+[2025-06-13 03:05:18] [ERROR] Erreur de connexion à la base de données: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for localhost failed: H�te inconnu. 
+[2025-06-13 03:06:38] [ERROR] Erreur de connexion à la base de données: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for localhost failed: H�te inconnu. 
+[2025-06-13 03:06:40] [ERROR] Erreur de connexion à la base de données: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for localhost failed: H�te inconnu. 
+[2025-06-13 03:06:41] [ERROR] Erreur de connexion à la base de données: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for localhost failed: H�te inconnu. 

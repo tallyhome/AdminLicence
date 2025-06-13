@@ -1,0 +1,47 @@
+#################### VERSION FRANÇAISE ####################
+
+ACCORD DE LICENCE UTILISATEUR FINAL (EULA)
+
+Important – Veuillez lire attentivement :
+
+Ce logiciel est protégé par le droit d’auteur et est la propriété exclusive de Tallyhome.
+
+1. Licence
+L’acheteur bénéficie d’un droit d’utilisation personnel, non exclusif et non transférable du logiciel. L’acheteur peut modifier le code source pour ses propres besoins mais ne peut en aucun cas revendre, partager, distribuer ou sous-licencier le logiciel ou le code source, même modifié.
+
+2. Support et mises à jour
+Tallyhome ne s’engage pas à fournir un support technique ou des mises à jour, sauf si cela est explicitement stipulé dans l’offre commerciale sur Evento.
+
+3. Garantie et responsabilité
+Le logiciel est fourni "tel quel", sans garantie d'aucune sorte. Tallyhome ne pourra être tenu responsable de tout dommage direct ou indirect lié à l'utilisation du logiciel.
+
+4. Propriété intellectuelle
+Tous les droits, titres et intérêts relatifs au logiciel restent la propriété exclusive de Tallyhome.
+
+5. Licence MIT des composants tiers
+Certains composants, tels que Laravel, sont soumis à la licence MIT. L'acheteur doit conserver les mentions légales des composants concernés dans toutes les copies ou modifications.
+
+---
+
+#################### ENGLISH VERSION ####################
+
+END USER LICENSE AGREEMENT (EULA)
+
+Important – Please read carefully:
+
+This software is protected by copyright and is the exclusive property of Tallyhome.
+
+1. License
+The buyer is granted a personal, non-exclusive, non-transferable right to use the software. The buyer may modify the source code for their own needs but may not sell, share, distribute, or sublicense the software or the source code, even if modified.
+
+2. Support and updates
+Tallyhome is not obligated to provide technical support or updates unless explicitly specified in the product listing on Evento.
+
+3. Warranty and liability
+The software is provided "as is", without any warranty. Tallyhome shall not be held liable for any direct or indirect damages related to the use of the software.
+
+4. Intellectual property
+All rights, titles, and interests in the software remain the exclusive property of Tallyhome.
+
+5. MIT license of third-party components
+Some components, such as Laravel, are licensed under the MIT license. The buyer must retain all legal notices of those components in any copies or modifications.

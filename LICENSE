@@ -1,0 +1,70 @@
+/**
+ * Projet : [AdminLicence]
+ * Auteur : TallyHome
+ * Date : 2025
+ *
+ * Licence :
+ * Ce fichier fait partie d’un projet soumis à une licence propriétaire.
+ * L'acheteur est autorisé à utiliser et modifier le code source pour ses propres besoins.
+ * La revente, la redistribution ou le partage de ce code (modifié ou non) est strictement interdite.
+ * Certaines parties du projet, notamment le framework Laravel, sont sous licence MIT et doivent conserver leur mention légale.
+ *
+ * This file is part of a proprietary project.
+ * The buyer is allowed to use and modify the source code for their own needs.
+ * Resale, redistribution, or sharing of this code (modified or not) is strictly prohibited.
+ * Some parts of the project, including the Laravel framework, are under the MIT license and must retain their legal notice.
+ *
+ * Copyright © 2025 Fabien. All rights reserved.
+ */
+
+
+
+#################### VERSION FRANÇAISE ####################
+
+LICENCE PROPRIÉTAIRE – VENTE via EVENTO
+
+Copyright © 2025 Tallyhome
+
+1. **Licence accordée à l'acheteur**  
+   Sous réserve du paiement et de l'acceptation de cette licence par l’acheteur, Fabien (le “Concédant”) accorde à l’acheteur (le “Licencé”) un droit limité, non transférable et non exclusif de :  
+   a) exécuter le logiciel pour usage personnel, client, ou commercial.  
+   b) modifier le code pour s’adapter à ses besoins internes.
+
+2. **Restrictions**  
+   a) Il est **interdit de vendre, partager ou distribuer** ce code (source ou compilé) à un tiers.  
+   b) Il est interdit de déléguer ou sous-licencier toute partie du droit d’utilisation.
+
+3. **Conservation des droits MIT de Laravel**  
+   Certains composants du projet, notamment Laravel, sont sous licence MIT. Conformément à cette licence, l’acheteur doit toujours inclure :  
+   - la mention **“Copyright © Laravel”**,  
+   - et le texte complet de la licence MIT,  
+   dans toute copie ou distribution du logiciel qu’il réalise (modifié ou non) :contentReference[oaicite:1]{index=1}.
+
+4. **Maintenance & garantie**  
+   Le logiciel est fourni **“tel quel”** sans aucune garantie. Le Concédant n’est **pas responsable des dommages** directs ou indirects.
+
+---
+
+#################### ENGLISH VERSION ####################
+
+PROPRIETARY LICENSE – FOR SALE via EVENTO
+
+Copyright © 2025 Tallyhome
+
+1. **License granted to Buyer**  
+   Subject to payment and acceptance of this license by the Buyer (“Licensee”), Tallyhome (the “Licensor”) grants a limited, non-transferable, non-exclusive right to:  
+   a) run the software for personal, client, or commercial use.  
+   b) modify the code for internal adaptation.
+
+2. **Restrictions**  
+   a) It is **forbidden to sell, share or distribute** this code (source or compiled) to any third party.  
+   b) It is forbidden to delegate or sublicense any usage rights.
+
+3. **Preservation of Laravel’s MIT requirements**  
+   Some components of this project, notably Laravel, are under the MIT license. Under that license, the Buyer **must** include:  
+   - the statement **“Copyright © Laravel”**,  
+   - and the full MIT license text,  
+   in any copy or distribution of the software (modified or not) :contentReference[oaicite:2]{index=2}.
+
+4. **Maintenance & Warranty**  
+   The software is provided **“as-is”**, without any warranty. The Licensor is **not liable** for any direct or indirect damages.

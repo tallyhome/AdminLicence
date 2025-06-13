@@ -168,7 +168,7 @@ return [
         \App\Providers\EventServiceProvider::class,
         \App\Providers\AuthServiceProvider::class,
         \App\Providers\RouteServiceProvider::class,
-        \App\Providers\LoginRedirectServiceProvider::class,
+        // \App\Providers\LoginRedirectServiceProvider::class, // Commenté pour éviter la boucle de redirection
         \App\Providers\TranslationServiceProvider::class,
         \App\Providers\AssetServiceProvider::class,
         \App\Providers\LoggingServiceProvider::class,

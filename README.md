@@ -134,3 +134,6 @@ Pour toute question ou assistance, veuillez :
 
 Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
 # adminlicence_saas
+
+Cron job
+* * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1

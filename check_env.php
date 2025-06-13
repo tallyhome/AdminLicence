@@ -67,7 +67,7 @@ $standardEnvVars = [
     
     'VITE_APP_NAME' => '${APP_NAME}',
     
-    'INSTALLATION_LICENSE_KEY' => '5YS8-NIBM-PJGC-MWHY'
+    // 'INSTALLATION_LICENSE_KEY' => '5YS8-NIBM-PJGC-MWHY' // Commenté pour éviter le remplacement automatique
 ];
 
 // Vérifier quelles variables sont déjà présentes dans le fichier .env

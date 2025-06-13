@@ -33,22 +33,28 @@ class RouteServiceProvider extends ServiceProvider
         //     return redirect()->route('admin.login');
         // })->name('login');
 
-        // Charger les routes frontend avec le middleware frontend
-        Route::middleware('frontend')
-            ->group(base_path('routes/frontend.php'));
-        
         $this->routes(function () {
             Route::middleware('api')
                 ->prefix('api')
                 ->group(base_path('routes/api.php'));
 
-            // Les routes web.php sont chargées après frontend.php
-            Route::middleware('web')
-                ->group(base_path('routes/web.php'));
-
+            // Charger les routes admin en premier avec leur préfixe
             Route::middleware('web')
                 ->prefix('admin')
                 ->group(base_path('routes/admin.php'));
+
+            Route::middleware(['web', 'auth:admin'])
+                ->prefix('admin')
+                ->group(base_path('routes/billing.php'));
+
+            // Charger les routes frontend après les routes admin
+            Route::middleware('frontend')
+                ->group(base_path('routes/frontend.php'));
+
+            Route::middleware('web')
+                ->group(base_path('routes/web.php'));
+                
+
         });
     }
 }

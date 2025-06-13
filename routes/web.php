@@ -147,3 +147,8 @@ Route::middleware(['web', 'locale'])->group(function () {
     Route::post('/api-diagnostic/check-permissions', [\App\Http\Controllers\OldDashboardController::class, 'redirectApiDiagnostic']);
     Route::post('/api-diagnostic/get-logs', [\App\Http\Controllers\OldDashboardController::class, 'redirectApiDiagnostic']);
 });
+
+// Route de fallback pour 'login' requise par Laravel Framework
+Route::get('/login', function () {
+    return redirect('/admin/login');
+})->name('login');
